@@ -1,0 +1,81 @@
+[options]
+font = Input 10
+
+[colors]
+
+# special
+# foreground      = #c5c8c6
+# foreground_bold = #c5c8c6
+# cursor          = #c5c8c6
+# background      = #1d1f21
+
+# black
+# color0  = #282a2e
+# color8  = #373b41
+
+# red
+# color1  = #a54242
+# color9  = #cc6666
+
+# green
+# color2  = #8c9440
+# color10 = #b5bd68
+
+# yellow
+# color3  = #de935f
+# color11 = #f0c674
+
+# blue
+# color4  = #5f819d
+# color12 = #81a2be
+
+# magenta
+# color5  = #85678f
+# color13 = #b294bb
+
+# cyan
+# color6  = #5e8d87
+# color14 = #8abeb7
+
+# white
+# color7  = #707880
+# color15 = #c5c8c6
+
+
+# background     = #2e3436
+background     = rgba(46, 52, 54, 0.97)
+foreground     = #eeeeec
+foreground_bold = #eeeeec
+cursor    = #8ae234
+
+# black dark/light
+color0         = #2e3436
+color8         = #6e706b
+
+# red dark/light
+color1         = #cc0000
+color9         = #ef2929
+
+# green dark/light
+color2         = #4e9a06
+color10        = #8ae234
+
+# yellow dark/light
+color3         = #edd400
+color11        = #fce94f
+
+# blue dark/light
+color4         = #3465a4
+color12        = #729fcf
+
+# magenta dark/light
+color5         = #92659a
+color13        = #c19fbe
+
+# cyan dark/light
+color6         = #07c7ca
+color14        = #63e9e9
+
+# white dark/light
+color7         = #d3d7cf
+color15        = #eeeeec
