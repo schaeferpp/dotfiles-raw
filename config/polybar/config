@@ -41,7 +41,8 @@ module-margin-right = 2
 
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8;0
-font-2 = MaterialIcons:antialias=false;pixelsize=10;1
+font-2 = MaterialIcons;pixelsize=12
+font-3 = FontAwesome;pixelsize=12
 
  modules-center = date
 modules-right = volume xkeyboard wlan eth powermenu
@@ -75,8 +76,9 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = MaterialIcons:pixelsize=10;1
+font-1 = unifont:fontformat=truetype:size=8;0
+font-2 = MaterialIcons;pixelsize=12
+font-3 = FontAwesome;pixelsize=12
 
 ;modules-left = bspwm i3
 modules-right = i3
@@ -100,7 +102,7 @@ label = %title:0:30:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = "⌨ "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 format-prefix-underline = ${colors.secondary}
 
@@ -154,7 +156,7 @@ label-urgent-padding = 2
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "cpu "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 format-underline = #f90000
 label = %percentage%%
@@ -205,7 +207,7 @@ type = internal/network
 interface = wlp3s0
 interval = 3.0
 
-format-connected =  <label-connected>
+format-connected =  <label-connected>
 format-connected-underline = #9f78e1
 label-connected = "%essid% %signal%%"
 
@@ -274,8 +276,8 @@ label = %date% %time%
 [module/volume]
 type = internal/volume
 
-format-volume = <label-volume> <bar-volume>
-label-volume =  VOL
+format-volume = <ramp-volume> <label-volume> <bar-volume>
+label-volume = VOL
 label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = ""
@@ -299,51 +301,63 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
 [module/battery]
 type = internal/battery
 battery = BAT0
 adapter = AC
 full-at = 98
 
-label-charging = BAT Charging %percentage%%
-format-charging = <label-charging>
+label-charging = %percentage%%
+format-charging = <ramp-capacity>   <label-charging>
 format-charging-underline = #ffb52a
 
-format-discharging = BAT Discharging <label-discharging> 
+format-discharging = <ramp-capacity> <label-discharging> 
 format-discharging-underline = ${colors.alert}
 format-discharging-foreground = ${colors.foreground}
 
-format-full = BAT Full
-format-full-prefix-foreground = ${colors.foreground}
-format-full-underline = ${colors.primary}
+format-full = Full
+format-full-prefix =
+;format-full-prefix-foreground = ${colors.foreground}
+;format-full-underline = ${colors.primary}
+
+
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = #f90000
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
 
 [module/powermenu]
 type = custom/menu
 
 format-spacing = 1
 
-label-open = 
+label-open = 
 label-open-foreground = ${colors.secondary}
-label-close =  cancel
+label-close =  cancel
 label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
-menu-0-0 = reboot
+menu-0-0 =  reboot
 menu-0-0-exec = menu-open-1
-menu-0-1 = power off
+menu-0-1 =  power off
 menu-0-1-exec = menu-open-2
 menu-0-2 =  Lock
 menu-0-2-exec = i3lock
 
-menu-1-0 = cancel
+menu-1-0 =  cancel
 menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
+menu-1-1 =  reboot
 menu-1-1-exec = systemctl reboot
 
-menu-2-0 = power off
+menu-2-0 =  power off
 menu-2-0-exec = systemctl poweroff
-menu-2-1 = cancel
+menu-2-1 =  cancel
 menu-2-1-exec = menu-open-0
 
 
