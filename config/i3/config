@@ -209,8 +209,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+hide_edge_borders none
+
 # Design stuff
-for_window [class="Termite"] border 1pixel
+# for_window [class="Termite"] border 1pixel
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
