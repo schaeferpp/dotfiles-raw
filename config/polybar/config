@@ -8,15 +8,32 @@
 ;=====================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #262626
-background-alt = #d7ff87
-;foreground = ${xrdb:color7:#222}
-foreground = #d7ff87
-foreground-alt = #262626
-primary = #87af5f
-secondary = #e60053
-alert = #33609A
+; background = #262626
+; background-alt = #d7ff87
+
+background = #2C3234
+background-hi = #262626
+
+background-alt = #005F87
+background-alt-hi = #0087AF
+
+; foreground = #d7ff87
+; foreground-alt = #262626
+
+foreground = #E4E4E4
+foreground-dark = #5F5F5F
+
+foreground-hi = #AFD75F
+foreground-hi2 = #DF0858
+
+underline-a = ${colors.foreground-hi2}
+underline-b = ${colors.foreground-hi}
+underline-c = ${colors.background-alt-hi}
+
+
+
+; primary = #87af5f secondary = #e60053
+; alert = #33609A
 
 [bar/top]
 width = 100%
@@ -30,8 +47,8 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 4
-border-color = #00000000
+border-size = 2
+border-color = ${colors.background-hi}
 
 padding-left = 0
 padding-right = 2
@@ -104,17 +121,18 @@ blacklist-0 = num lock
 
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
-format-prefix-underline = ${colors.secondary}
+format-prefix-underline = ${colors.underline-c}
 
 label-layout = %layout%
-label-layout-underline = ${colors.secondary}
+label-layout-underline = ${colors.underline-c}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
+label-indicator-background = ${colors.underline-c}
+;label-indicator-underline = ${colors.underline-a}
 
 [module/i3]
+
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
@@ -124,32 +142,36 @@ wrapping-scroll = false
 ;pin-workspaces = true
 
 label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+label-mode-foreground = ${colors.foreground}
+label-mode-background = ${colors.background-alt}
 
 
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
-label-focused-foreground = ${colors.foreground-alt}
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.alert}
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.background-alt-hi}
+label-focused-underline= ${colors.foreground-hi2}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
+label-unfocused-foreground = ${colors.foreground}
+label-unfocused-border-size = 2
+label-unfocused-border-color = ${colors.background-hi}
 label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
-label-visible-foreground = ${self.label-focused-foreground}
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${colors.primary}
+label-visible-foreground = ${colors.foreground}
+label-visible-background = ${colors.background-alt}
+label-visible-underline = ${colors.background-alt-hi}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%!
-label-urgent-background = ${colors.alert}
+label-urgent-background = ${colors.foreground-hi2}
+label-urgent-underline = ${colors.foreground-hi}
 label-urgent-padding = 2
 
 
@@ -158,7 +180,7 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
-format-underline = #f90000
+;format-underline = #f90000
 label = %percentage%%
 
 ;[module/memory]
@@ -200,7 +222,7 @@ bar-used-foreground-3 = #ff5555
 bar-used-fill = ▐
 bar-used-empty = ▐
 bar-used-empty-foreground = #444444
-format-underline = #4bffdc
+; format-underline = #4bffdc
 
 [module/wlan]
 type = internal/network
@@ -208,7 +230,7 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected =  <label-connected>
-format-connected-underline = #9f78e1
+format-connected-underline = ${colors.underline-b}
 label-connected = "%essid% %signal%%"
 
 format-disconnected = 
@@ -237,7 +259,7 @@ interval = 3.0
 
 format-connected =  <label-connected>
 ; ￬ <label-down>
-format-connected-underline = #9f78e1
+format-connected-underline = ${colors.underline-c}
 
 label-connected = %downspeed%
 
@@ -250,7 +272,7 @@ interval = 3.0
 
 format-connected =  <label-connected>
 ; ￬ <label-down>
-format-connected-underline = #9f78e1
+format-connected-underline = ${colors.underline-c}
 
 label-connected = %upspeed%
 
@@ -277,6 +299,7 @@ label = %date% %time%
 type = internal/volume
 
 format-volume = <ramp-volume> <label-volume> <bar-volume>
+
 label-volume = VOL
 label-volume-foreground = ${root.foreground}
 
@@ -299,7 +322,7 @@ bar-volume-fill = ─
 bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+bar-volume-empty-foreground = ${colors.foreground-hi}
 
 ramp-volume-0 = 
 ramp-volume-1 = 
@@ -313,20 +336,19 @@ full-at = 98
 
 label-charging = %percentage%%
 format-charging = <ramp-capacity>   <label-charging>
-format-charging-underline = #ffb52a
+format-charging-foreground = ${colors.foreground-hi}
+format-charging-underline = ${colors.underline-b}
 
 format-discharging = <ramp-capacity> <label-discharging> 
-format-discharging-underline = ${colors.alert}
+format-discharging-underline = ${colors.foreground-hi2}
 format-discharging-foreground = ${colors.foreground}
 
-format-full = " Full"
-format-full-prefix =
-;format-full-prefix-foreground = ${colors.foreground}
-;format-full-underline = ${colors.primary}
+format-full = 
+format-full-foreground = ${colors.foreground-dark}
 
 
 ramp-capacity-0 = 
-ramp-capacity-0-foreground = #f90000
+ramp-capacity-0-foreground = ${colors.foreground-hi2}
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
@@ -337,18 +359,20 @@ type = custom/menu
 format-spacing = 1
 
 label-open = 
-label-open-foreground = ${colors.secondary}
+label-open-foreground = ${colors.foreground-hi2}
 label-close =  cancel
-label-close-foreground = ${colors.secondary}
+label-close-foreground = ${colors.foreground-hi2}
 label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
+label-separator-foreground = ${colors.foreground-dark}
 
 menu-0-0 =  reboot
 menu-0-0-exec = menu-open-1
 menu-0-1 =  power off
 menu-0-1-exec = menu-open-2
-menu-0-2 =  Lock
-menu-0-2-exec = i3lock
+menu-0-2 =  Standby
+menu-0-2-exec = "i3lock -f -c 000000; systemctl suspend"
+menu-0-3 =  Lock
+menu-0-3-exec = i3lock
 
 menu-1-0 =  cancel
 menu-1-0-exec = menu-open-0

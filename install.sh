@@ -36,6 +36,7 @@ fi
 install_file ${PWD}/gitconfig ~/.gitconfig
 install_file ${PWD}/zshrc ~/.zshrc
 install_file ${PWD}/tmux.conf ~/.tmux.conf
+install_file ${PWD}/tmuxline ~/.tmux.conf.tmuxline
 install_file ${PWD}/schaeferpp.zsh-theme ~/.oh-my-zsh/themes/schaeferpp.zsh-theme
 
 install_file ${PWD}/config/i3 ~/.config
@@ -53,6 +54,7 @@ install_file ${PWD}/vim/vim ~/.vim
 install_file ${PWD}/vim/vim  ~/.config/nvim
 install_file ${PWD}/vim/vimrc ~/.vimrc
 install_file ${PWD}/vim/vimrc ~/.config/nvim/init.vim
+
 
 vim +PlugInstall +qall
 

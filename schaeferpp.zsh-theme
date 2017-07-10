@@ -5,21 +5,20 @@ function collapse_pwd {
 function current_path_info() {
 
     if [[ ! $(collapse_pwd) = "~" ]]; then
-        echo "%f%F{blue} {%f%F{green}$(collapse_pwd)%f%F{blue}}%f"
+        echo "%f$FG[033] {%f$FG[161]$(collapse_pwd)%f$FG[033]}%f"
     fi
 }
 
-user=%F{yellow}%n
+user=$FG[154]%n
 if [ -z "$THEME_HIDE_HOSTNAME" ]; then
-    host=%f%F{blue}@%f%F{yellow}%m%f
+    host=%f$FG[033]@%f%F{yellow}%m%f
 else
     host=
 fi
 
 
-PROMPT='${user}${host}$(current_path_info) %F{blue}[%f '
-# PROMPT='%F{yellow}%n%F{blue} {%f%b%F{green}%2c%F{blue}} [%f '
-RPROMPT='$(git_prompt_info) %F{blue}] %F{green}%D{%H:%M}%f'
+PROMPT='${user}${host}$(current_path_info) $FG[033][%f '
+RPROMPT='$FG[033]$(git_prompt_info) $FG[033]] $FG[154]%D{%H:%M}%f'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{yellow}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%f"

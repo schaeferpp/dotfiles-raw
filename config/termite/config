@@ -79,3 +79,17 @@ color14        = #63e9e9
 # white dark/light
 color7         = #d3d7cf
 color15        = #eeeeec
+
+
+
+
+
+background = #2C3234
+foreground = #E4E4E4
+
+color0 = #2C3234
+color8 = #262626
+
+color12 = #AFD75F
+color13 = DF0858
+
