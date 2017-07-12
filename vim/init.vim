@@ -42,6 +42,6 @@ catch
     echoerr "No Pluginfile"
 endtry
 
-set list listchars=tab:»\ ,trail:∙,precedes:<,extends:>,eol:$,nbsp:~
+set list listchars=tab:¦\ ,trail:∙,precedes:<,extends:>,nbsp:~
 
 " vim:ts=4:sts=4:sw=4

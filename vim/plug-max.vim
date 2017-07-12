@@ -14,10 +14,14 @@ Plug 'atweiden/vim-dragvisuals'          " Visually select something in block
 Plug 'christoomey/vim-tmux-navigator'    " vim/tmux integration
 
 Plug 'Yggdroot/indentLine'
-let g:indentLine_concealcursor = 'vc'
-let g:indentLine_setConceal = 0
-let g:indentLine_char = '▒'
-let g:indentLine_color_term = 232
+"let g:indentLine_color_gui = '#444444'
+let g:indentLine_concealcursor = 0
+"let g:indentLine_setConceal = 0
+"let g:indentLine_char = '▒'
+let g:indentLine_color_term = 249
+
+
+"let g:indentLine_color_gui = '#E4E4E4'
 
 Plug 'Valloric/YouCompleteMe'
 "au FileType c,cpp nnoremap <buffer> <c-]> :YcmCompleter GoTo<CR>
@@ -60,8 +64,13 @@ let g:email                              = "schaefer.pp@gmail.com"
 Plug 'Valloric/MatchTagAlways'           " Highlight matching xml tags
 Plug 'vim-airline/vim-airline'           " Fancy statusline
 Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
 
 Plug 'rust-lang/rust.vim'                " rust highlighting etc
+let g:rustfmt_autosave = 1
+
+let g:ycm_rust_src_path = '/usr/src/rust/src'
+
 Plug 'tkztmk/vim-vala'                   " vala highlighting etc
 
 Plug 'wesQ3/vim-windowswap'
@@ -83,3 +92,4 @@ Plug 'ihacklog/HiCursorWords'
 Plug 'airblade/vim-gitgutter'
 
 "Plug 'chazy/cscope_maps'
+Plug 'neovimhaskell/haskell-vim'

@@ -33,29 +33,33 @@ then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
+# Config files directly in $HOME
 install_file ${PWD}/gitconfig ~/.gitconfig
 install_file ${PWD}/zshrc ~/.zshrc
 install_file ${PWD}/tmux.conf ~/.tmux.conf
 install_file ${PWD}/tmuxline ~/.tmux.conf.tmuxline
 install_file ${PWD}/schaeferpp.zsh-theme ~/.oh-my-zsh/themes/schaeferpp.zsh-theme
 
+# ~/.config directory
+install_file ${PWD}/config/mimeapps.list ~/.config/mimeapps.list
 install_file ${PWD}/config/i3 ~/.config
 install_file ${PWD}/config/polybar ~/.config
 install_file ${PWD}/config/termite ~/.config
 
+# Fonts in ~/.local/share/fonts
 install_file ${PWD}/font/opentype/ ~/.local/share/fonts/opentype
 install_file ${PWD}/font/ttf/ ~/.local/share/fonts/truetype
 
-# Vim is Submodule
-git submodule init
-git submodule update
-
-install_file ${PWD}/vim/vim ~/.vim
-install_file ${PWD}/vim/vim  ~/.config/nvim
-install_file ${PWD}/vim/vimrc ~/.vimrc
-install_file ${PWD}/vim/vimrc ~/.config/nvim/init.vim
+# (N)Vim
+install_file ${PWD}/vim  ~/.config/nvim
+install_file ${PWD}/vim ~/.vim
+install_file ${PWD}/vim/init.vim ~/.vimrc
 
 
+check_program nvim
+check_program vim
+
+nvim +PlugInstall +qall
 vim +PlugInstall +qall
 
 

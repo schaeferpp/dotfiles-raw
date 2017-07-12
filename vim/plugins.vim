@@ -15,6 +15,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'notpratheek/vim-luna'
     Plug 'chrisbra/csv.vim'
     Plug 'sjl/badwolf'
+    Plug 'chriskempson/base16-vim'
+    Plug 'vim-scripts/PaperColor.vim'
 
 call plug#end()
 
