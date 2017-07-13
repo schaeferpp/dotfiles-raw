@@ -371,7 +371,7 @@ menu-0-1 =  power off
 menu-0-1-exec = menu-open-2
 menu-0-2 =  Standby
 menu-0-2-exec = "i3lock -f -c 000000; systemctl suspend"
-menu-0-3 =  Lock
+menu-0-3 =  Lock
 menu-0-3-exec = i3lock
 
 menu-1-0 =  cancel
