@@ -5,22 +5,23 @@ function collapse_pwd {
 function current_path_info() {
 
     if [[ ! $(collapse_pwd) = "~" ]]; then
-        echo "%f$FG[033] {%f$FG[161]$(collapse_pwd)%f$FG[033]}%f"
+        echo "%f%F{blue} {%f%F{yellow}$(collapse_pwd)%f%F{blue}}%f"
     fi
 }
 
-user=$FG[154]%n
+user=%F{green}%n
 if [ -z "$THEME_HIDE_HOSTNAME" ]; then
-    host=%f$FG[033]@%f%F{yellow}%m%f
+    host=%f%F{blue}@%f%F{yellow}%m%f
 else
     host=
 fi
 
 
-PROMPT='${user}${host}$(current_path_info) $FG[033][%f '
-RPROMPT='$FG[033]$(git_prompt_info) $FG[033]] $FG[154]%D{%H:%M}%f'
+PROMPT='${user}${host}$(current_path_info) %F{blue}[%f '
+# PROMPT='%F{yellow}%n%F{blue} {%f%b%F{green}%2c%F{blue}} [%f '
+RPROMPT='$(git_prompt_info) %F{blue}] %F{green}%D{%H:%M}%f'
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%F{yellow}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%f"
-ZSH_THEME_GIT_PROMPT_DIRTY=" %F{red}*%f"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$terminfo[bold]$fg_bold[cyan]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY=" %F{red}*"
 ZSH_THEME_GIT_PROMPT_CLEAN=""

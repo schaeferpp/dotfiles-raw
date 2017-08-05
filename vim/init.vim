@@ -43,5 +43,7 @@ catch
 endtry
 
 set list listchars=tab:¦\ ,trail:∙,precedes:<,extends:>,nbsp:~
+set foldmethod=indent
+set foldlevel=5
 
 " vim:ts=4:sts=4:sw=4

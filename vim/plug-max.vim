@@ -1,7 +1,8 @@
 
 Plug 'lervag/vimtex', {'for' : 'tex'}    " latex environment is ae or ie
+let g:tex_conceal=""
+
 Plug 'junegunn/vim-easy-align'           " vip<Enter>SYMBOL
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'                 " Tagbar
 Plug 'tpope/vim-fugitive'                " git
 Plug 'scrooloose/nerdtree'               " Fileexplorer
@@ -44,6 +45,7 @@ if has('nvim')
 endif
 Plug 'fatih/vim-go'
 let g:go_template_autocreate = 0
+let g:go_fmt_experimental = 1
 
 Plug 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -69,6 +71,8 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'rust-lang/rust.vim'                " rust highlighting etc
 let g:rustfmt_autosave = 1
 
+Plug 'ebfe/vim-racer'
+
 let g:ycm_rust_src_path = '/usr/src/rust/src'
 
 Plug 'tkztmk/vim-vala'                   " vala highlighting etc
@@ -80,7 +84,7 @@ let g:session_autoload = 'no'
 Plug 'tmux-plugins/vim-tmux'             " tmux.conf highlighting
 Plug 'mhinz/vim-grepper'
 let g:grepper = {
-            \ 'tools': ['ag', 'git', 'grep'],
+            \ 'tools': ['pt', 'ag', 'git', 'grep'],
             \ 'open':  1,
             \ 'jump':  0,
             \ }
@@ -89,7 +93,12 @@ Plug 'schaeferpp/vim-gnomealign'         " Gnome Parameter Align :GNOMEAlignArgu
 Plug 'vim-scripts/indentpython.vim', {'for': 'py'}
 Plug 'ihacklog/HiCursorWords'
 
+Plug 'vim-scripts/a.vim'                 " Alternate header
+
 Plug 'airblade/vim-gitgutter'
 
 "Plug 'chazy/cscope_maps'
 Plug 'neovimhaskell/haskell-vim'
+
+Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'

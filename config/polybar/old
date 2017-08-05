@@ -11,26 +11,25 @@
 ; background = #262626
 ; background-alt = #d7ff87
 
-background = #222222
-background-hi = #0D0D0D
+background = #2C3234
+background-hi = #262626
 
-background-alt = #4D585E
-background-alt-hi = #36525E
+background-alt = #005F87
+background-alt-hi = #0087AF
 
 ; foreground = #d7ff87
 ; foreground-alt = #262626
 
-foreground = #FFFFFF
-foreground-dark = #666666
+foreground = #E4E4E4
+foreground-dark = #5F5F5F
 
-foreground-hi = #86D6EB
-foreground-hi2 = #86D6EB
+foreground-hi = #AFD75F
+foreground-hi2 = #DF0858
 
-underline-a = #D3555B
-underline-b = #B4BF3A
-underline-c = #BE841A
+underline-a = ${colors.foreground-hi2}
+underline-b = ${colors.foreground-hi}
+underline-c = ${colors.background-alt-hi}
 
-abort = #FF4040
 
 
 ; primary = #87af5f secondary = #e60053
@@ -360,9 +359,9 @@ type = custom/menu
 format-spacing = 1
 
 label-open = 
-label-open-foreground = ${colors.abort}
+label-open-foreground = ${colors.foreground-hi2}
 label-close =  cancel
-label-close-foreground = ${colors.abort}
+label-close-foreground = ${colors.foreground-hi2}
 label-separator = |
 label-separator-foreground = ${colors.foreground-dark}
 
@@ -398,4 +397,3 @@ margin-top = 5
 margin-bottom = 5
 
 ; vim:ft=dosini
-

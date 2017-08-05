@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'chriskempson/base16-vim'
     Plug 'vim-scripts/PaperColor.vim'
     Plug 'morhetz/gruvbox'
+    Plug 'whatyouhide/vim-gotham'
 
 call plug#end()
 

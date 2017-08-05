@@ -78,3 +78,31 @@ nmap ga <Plug>(EasyAlign)
 " Add word to directory and search for the next unknown word
 nmap zg zg]s
 
+" Folding shortcuts
+
+nnoremap <C-Home> zc
+nnoremap <C-End> zo
+nnoremap <C-Space> zc
+
+vmap <C-Space> zfzc
+vmap <Space> zo
+
+
+
+"nnoremap <C-9> zc
+"nnoremap <C-0> zo
+
+nnoremap <Leader>] zo
+nnoremap <Leader>[ zc
+nnoremap <Leader>} zO
+nnoremap <Leader>{ zC
+
+nnoremap <Leader><C-]> zr
+nnoremap <Leader><C-[> zm
+nnoremap <Leader><C-}> zR
+nnoremap <Leader><C-{> zM
+
+
+" Grepper
+nnoremap <C-S-f> :Grepper -highlight<CR>
+

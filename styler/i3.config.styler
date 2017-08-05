@@ -239,16 +239,16 @@ hide_edge_borders none
 #client.urgent #2f343a #900000 #ffffff #900000
 
 # <colorclass> <border> <background> <text> <indicator> <child_border>
-client.focused #A4B391 #222222 #91B365 #87CEEB #A4B391
-client.focused_inactive #222222 #222222 #91B365 #87CEEB #222222
+client.focused {[ hex#lightGreen ]} {[ hex#background ]} {[ hex#darkGreen ]} {[ hex#darkBlue ]} {[ hex#lightGreen ]}
+client.focused_inactive {[ hex#background ]} {[ hex#background]} {[ hex#darkGreen ]} {[ hex#darkBlue ]} {[ hex#background ]}
 
 #client.focused_inactive #333333 #333333 #888888 #292d2e
 #
 #client.unfocused #262626 #262626 #d7ff87 #d7ff87
-client.unfocused #222222 #222222 #DDDDDD #222222
+client.unfocused {[ hex#background ]} {[ hex#background ]} {[ hex#lightWhite ]} {[ hex#background ]}
 
 #client.focused #000000 #33609A #ffffff #ff0000
-client.urgent #FF4040 #808080 #FF4040 #DDDDDD
+client.urgent {[ hex#darkRed ]} {[ hex#lightBlack ]} {[ hex#darkRed ]} {[ hex#lightWhite ]}
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id nm-applet

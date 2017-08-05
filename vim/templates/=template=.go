@@ -9,4 +9,4 @@ package main
 
 %HERE%
 
-// vim:nolist:et
+// vim:list:et
