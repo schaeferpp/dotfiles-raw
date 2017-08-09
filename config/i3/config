@@ -66,6 +66,9 @@ bindsym Mod1+Ctrl+P exec --no-startup-id "passmenu"
 bindsym $mod+Shift+greater move workspace to output right
 bindsym $mod+Shift+less move workspace to output left
 
+bindsym $mod+period workspace next
+bindsym $mod+comma workspace prev
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
