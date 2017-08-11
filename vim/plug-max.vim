@@ -102,4 +102,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'neovimhaskell/haskell-vim'
 
 Plug 'plasticboy/vim-markdown'
+Plug 'nelstrom/vim-markdown-folding'
 Plug 'godlygeek/tabular'
+
+Plug 'Kazark/vim-SimpleSmoothScroll'
+
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'} 

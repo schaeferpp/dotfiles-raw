@@ -1,0 +1,9 @@
+[Unit]
+Description=Change the wallpaper on a regular basis
+
+[Timer]
+OnCalendar=*:0/2:0
+AccuracySec=30s
+
+[Install]
+WantedBy=timers.target

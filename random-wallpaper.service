@@ -1,0 +1,5 @@
+[Unit]
+Description=Update locate database
+
+[Service]
+ExecStart=/home/paul/bin/random-wallpaper.sh /home/paul/Pictures/chromecast_wallpapers
