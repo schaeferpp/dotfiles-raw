@@ -243,12 +243,12 @@ hide_edge_borders none
 
 # <colorclass> <border> <background> <text> <indicator> <child_border>
 client.focused #A4B391 #222222 #91B365 #87CEEB #A4B391
-client.focused_inactive #222222 #222222 #91B365 #87CEEB #222222
+client.focused_inactive #666666 #222222 #91B365 #87CEEB #222222
 
 #client.focused_inactive #333333 #333333 #888888 #292d2e
 #
 #client.unfocused #262626 #262626 #d7ff87 #d7ff87
-client.unfocused #222222 #222222 #DDDDDD #222222
+client.unfocused #666666 #222222 #DDDDDD #222222
 
 #client.focused #000000 #33609A #ffffff #ff0000
 client.urgent #FF4040 #808080 #FF4040 #DDDDDD

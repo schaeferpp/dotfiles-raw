@@ -25,6 +25,8 @@ let g:indentLine_color_term = 249
 "let g:indentLine_color_gui = '#E4E4E4'
 
 Plug 'Valloric/YouCompleteMe'
+
+let g:ycm_confirm_extra_conf = 0
 "au FileType c,cpp nnoremap <buffer> <c-]> :YcmCompleter GoTo<CR>
 "let g:ycm_global_ycm_extra_conf = '~/.config/ycm_extra_conf.py'
 
@@ -107,4 +109,33 @@ Plug 'godlygeek/tabular'
 
 Plug 'Kazark/vim-SimpleSmoothScroll'
 
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'} 
+Plug 'rdnetto/YCM-Generator', { 'branch': 'develop'} 
+
+Plug 'stfl/meson.vim'
+
+Plug 'rhysd/vim-clang-format'
+
+let g:clang_format#style_options = {
+            \ "BasedOnStyle": "Chromium",
+            \ "AlignTrailingComments": "true",
+            \ "BreakBeforeBraces": "Allman",
+            \ "ColumnLimit": 80,
+            \ "IndentWidth": 4,
+            \ "KeepEmptyLinesAtTheStartOfBlocks": "false",
+            \ "ObjCSpaceAfterProperty": "true",
+            \ "ObjCSpaceBeforeProtocolList": "true",
+            \ "PointerBindsToType": "false",
+            \ "SpacesBeforeTrailingComments": 1,
+            \ "PointerAlignment": "Right",
+            \ "TabWidth": 4,
+            \ "UseTab": "Never",
+            \ "AlwaysBreakAfterReturnType": "All",
+            \ "AlignConsecutiveDeclarations": "true",
+            \ "Standard" : "C++11"}
+
+" map to <Leader>cf in C code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+
+" Toggle auto formatting:
+nmap <Leader>C :ClangFormatAutoToggle<CR>
