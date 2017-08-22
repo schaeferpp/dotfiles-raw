@@ -1,10 +1,10 @@
 try
-    source ~/.vim/plugins.vim
-
     try
         source ~/.vim/min.vim
     catch
     endtry
+
+    source ~/.vim/plugins.vim
 
     try
         source ~/.vim/airline-settings.vim
@@ -32,6 +32,11 @@ try
     endtry
 
     try
+        source ~/.vim/ctrlp-settings.vim
+    catch
+    endtry
+
+    try
         runtime plugin/dragvisuals.vim
     catch
     endtry
@@ -43,7 +48,7 @@ catch
 endtry
 
 set list listchars=tab:¦\ ,trail:∙,precedes:<,extends:>,nbsp:~
-set foldmethod=indent
-set foldlevel=5
+set foldmethod=marker
+set foldlevel=15
 
 " vim:ts=4:sts=4:sw=4

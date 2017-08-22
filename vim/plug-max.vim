@@ -114,7 +114,7 @@ Plug 'rdnetto/YCM-Generator', { 'branch': 'develop'}
 Plug 'stfl/meson.vim'
 
 Plug 'rhysd/vim-clang-format'
-
+" Clang format{{{
 let g:clang_format#style_options = {
             \ "BasedOnStyle": "Chromium",
             \ "AlignTrailingComments": "true",
@@ -131,11 +131,19 @@ let g:clang_format#style_options = {
             \ "UseTab": "Never",
             \ "AlwaysBreakAfterReturnType": "All",
             \ "AlignConsecutiveDeclarations": "true",
+            \ "AlignConsecutiveAssignments": "true",
+            \ "BinPackParameters": "false",
+            \ "BinPackArguments": "false",
+            \ "SpaceAfterCStyleCast": "true",
+            \ "Cpp11BracedListStyle": "true",
             \ "Standard" : "C++11"}
 
 " map to <Leader>cf in C code
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>"}}}
 
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
+
+" Plug 'Shougo/denite.nvim'
+Plug 'ctrlpvim/ctrlp.vim'
