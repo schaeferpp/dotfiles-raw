@@ -2,8 +2,9 @@ set t_Co=256
 set termguicolors
 " color wombat256mod
 " color badwolf
-color desertink
+" color desertink
 " color gotham256
+color jellybeans
 
 "color seti
 "
@@ -20,7 +21,8 @@ color desertink
 set cursorline
 
 function! OverrideHighlights()
-    hi CursorLine term=underline ctermfg=NONE ctermbg=235 guibg='#2C3234'
+    " hi CursorLine term=underline ctermfg=NONE ctermbg=235 guibg='#2C3234'
+    hi CursorLine term=underline ctermfg=NONE ctermbg=235 guibg='#222222'
     "hi ColorColumn term=underline ctermfg=NONE ctermbg=235 guibg='#2C3234'
     hi Search cterm=bold,underline ctermbg=black ctermfg=yellow
 

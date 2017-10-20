@@ -26,6 +26,7 @@ let g:indentLine_color_term = 249
 
 Plug 'Valloric/YouCompleteMe'
 
+autocmd CompleteDone * pclose
 let g:ycm_confirm_extra_conf = 0
 "au FileType c,cpp nnoremap <buffer> <c-]> :YcmCompleter GoTo<CR>
 "let g:ycm_global_ycm_extra_conf = '~/.config/ycm_extra_conf.py'
@@ -62,7 +63,7 @@ Plug 'aperezdc/vim-template'           " Template files
 let g:templates_directory = '~/.vim/templates'
 
 " Default template data
-let g:license                            = "Apache 2.0"
+let g:license                            = "LGPL-3.0+"
 let g:username                           = "Paul Schaefer"
 let g:email                              = "schaefer.pp@gmail.com"
 
@@ -112,6 +113,11 @@ Plug 'Kazark/vim-SimpleSmoothScroll'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'develop'} 
 
 Plug 'stfl/meson.vim'
+
+Plug 'Chiel92/vim-autoformat'
+" map to <Leader>cf in C code
+autocmd FileType javascript nnoremap <buffer><Leader>cf :<C-u>Autoformat<CR>
+autocmd FileType javascript vnoremap <buffer><Leader>cf :Autoformat<CR>
 
 Plug 'rhysd/vim-clang-format'
 " Clang format{{{

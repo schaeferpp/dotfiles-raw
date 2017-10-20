@@ -106,3 +106,4 @@ nnoremap <Leader><C-{> zM
 " Grepper
 nnoremap <C-S-f> :Grepper -highlight<CR>
 
+nnoremap <leader>q :bw<cr>

@@ -99,7 +99,7 @@ font = Input 10
 foreground      = #ffffff
 foreground_bold = #ffffff
 cursor          = #ffffff
-background      = #222222
+background      = #121212
 
 # black
 color0  = #2a2a2a
