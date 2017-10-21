@@ -7,9 +7,9 @@ inoremap <F4> <ESC>:set invhlsearch<CR>gi
 
 vmap <C-d> :EasyAlign -/ \*\?/<l0>r0<CR>
 
-nnoremap <Leader>mt :make tags<CR>
-nnoremap <Leader>ma :make all<CR>
-nnoremap <Leader>me :make execute<CR>
+" nnoremap <Leader>mt :make tags<CR>
+" nnoremap <Leader>ma :make all<CR>
+" nnoremap <Leader>me :make execute<CR>
 
 nnoremap <C-]> g<C-]>
 nnoremap <Leader><C-]> <C-w>g<C-]><C-w>T
@@ -36,6 +36,7 @@ nnoremap <Esc> :set nohls<cr>
 map      <Leader>w :w !sudo tee %<CR>L<CR>
 
 map      <Leader>l :NERDTreeToggle<CR>
+map      <Leader>e :NERDTreeToggle<CR>
 nnoremap <Leader>t :TagbarToggle<CR>
 nnoremap <Leader>u :UndotreeToggle<CR>
 
@@ -107,3 +108,6 @@ nnoremap <Leader><C-{> zM
 nnoremap <C-S-f> :Grepper -highlight<CR>
 
 nnoremap <leader>q :bw<cr>
+
+" Sudo write
+cmap w!! w !sudo tee % >/dev/null

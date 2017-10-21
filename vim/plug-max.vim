@@ -153,3 +153,5 @@ nmap <Leader>C :ClangFormatAutoToggle<CR>
 
 " Plug 'Shougo/denite.nvim'
 Plug 'ctrlpvim/ctrlp.vim'
+
+Plug 'kshenoy/vim-signature'
