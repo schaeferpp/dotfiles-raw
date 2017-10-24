@@ -34,7 +34,7 @@ function! OverrideHighlights()
 
     hi Folded guifg=#C4C4C4 gui=NONE
 
-    hi Normal ctermbg=NONE
+    hi Normal ctermbg=NONE guibg=NONE
 endfunction
 
 function! NeatFoldText()
