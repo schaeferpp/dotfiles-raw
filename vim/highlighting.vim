@@ -33,6 +33,8 @@ function! OverrideHighlights()
     hi NonText ctermfg=249 guifg='#5F5F5F' guibg=bg
 
     hi Folded guifg=#C4C4C4 gui=NONE
+
+    hi Normal ctermbg=NONE
 endfunction
 
 function! NeatFoldText()

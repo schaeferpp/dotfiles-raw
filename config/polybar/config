@@ -38,7 +38,7 @@ abort = #FF4040
 
 [bar/top]
 width = 100%
-height = 27
+height = 20
 ; radius = 6.0
 fixed-center = true
 
@@ -48,25 +48,26 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 2
+border-size = 0
 border-color = ${colors.background-hi}
 
 padding-left = 0
-padding-right = 2
+padding-right = 0
 
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
+; font-0 = fixed:pixelsize=10;1
+font-0 = Input:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8;0
-font-2 = MaterialIcons;pixelsize=12
-font-3 = FontAwesome;pixelsize=12
+font-2 = MaterialIcons;pixelsize=8
+font-3 = FontAwesome;pixelsize=8
 
  modules-center = date
 modules-right = volume xkeyboard wlan eth powermenu
 
 tray-position = left
-tray-padding = 2
+tray-padding = 0
 ;tray-transparent = false
 
 scroll-up = i3wm-wsnext
@@ -74,7 +75,7 @@ scroll-down = i3wm-wsprev
 
 [bar/bottom]
 width = 100%
-height = 27
+height = 20
 fixed-center = true
 bottom = true
 
@@ -84,19 +85,20 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 4
+border-size = 0
 border-color = #00000000
 
 padding-left = 0
-padding-right = 2
+padding-right = 0
 
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
+; font-0 = fixed:pixelsize=10;1
+font-0 = Input:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8;0
-font-2 = MaterialIcons;pixelsize=12
-font-3 = FontAwesome;pixelsize=12
+font-2 = MaterialIcons;pixelsize=8
+font-3 = FontAwesome;pixelsize=8
 
 ;modules-left = bspwm i3
 modules-right = i3
@@ -122,10 +124,10 @@ blacklist-0 = num lock
 
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
-format-prefix-underline = ${colors.underline-c}
+; format-prefix-underline = ${colors.underline-c}
 
 label-layout = %layout%
-label-layout-underline = ${colors.underline-c}
+; label-layout-underline = ${colors.underline-c}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
@@ -231,7 +233,7 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected =  <label-connected>
-format-connected-underline = ${colors.underline-b}
+; format-connected-underline = ${colors.underline-b}
 label-connected = "%essid% %signal%%"
 
 format-disconnected = 
@@ -243,7 +245,7 @@ interface = enp4s0f1
 interval = 3.0
 
 format-connected =  eth <label-connected>
-format-connected-underline = #9f78e1
+; format-connected-underline = #9f78e1
 ;label-connected = %local_ip%
 
 format-disconnected = 
@@ -260,7 +262,7 @@ interval = 3.0
 
 format-connected =  <label-connected>
 ; ￬ <label-down>
-format-connected-underline = ${colors.underline-c}
+; format-connected-underline = ${colors.underline-c}
 
 label-connected = %downspeed%
 
@@ -273,7 +275,7 @@ interval = 3.0
 
 format-connected =  <label-connected>
 ; ￬ <label-down>
-format-connected-underline = ${colors.underline-c}
+; format-connected-underline = ${colors.underline-c}
 
 label-connected = %upspeed%
 
@@ -304,7 +306,7 @@ format-volume = <ramp-volume> <label-volume> <bar-volume>
 label-volume = VOL
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = ""
+format-muted-prefix = ""
 format-muted-foreground = ${colors.foreground}
 label-muted = " sound muted"
 
@@ -338,10 +340,10 @@ full-at = 98
 label-charging = %percentage%%
 format-charging = <ramp-capacity>   <label-charging>
 format-charging-foreground = ${colors.foreground-hi}
-format-charging-underline = ${colors.underline-b}
+; format-charging-underline = ${colors.underline-b}
 
 format-discharging = <ramp-capacity> <label-discharging> 
-format-discharging-underline = ${colors.foreground-hi2}
+; format-discharging-underline = ${colors.foreground-hi2}
 format-discharging-foreground = ${colors.foreground}
 
 format-full = 
@@ -394,8 +396,8 @@ screenchange-reload = true
 ;compositing-border = over
 
 [global/wm]
-margin-top = 5
-margin-bottom = 5
+margin-top = 2
+margin-bottom = 2
 
 ; vim:ft=dosini
 
