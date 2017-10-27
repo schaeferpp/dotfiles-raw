@@ -4,7 +4,8 @@ set termguicolors
 " color badwolf
 " color desertink
 " color gotham256
-color jellybeans
+" color jellybeans
+color OceanicNext
 
 "color seti
 "

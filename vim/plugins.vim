@@ -19,6 +19,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-scripts/PaperColor.vim'
     Plug 'morhetz/gruvbox'
     Plug 'whatyouhide/vim-gotham'
+    Plug 'mhartington/oceanic-next'
 
 call plug#end()
 

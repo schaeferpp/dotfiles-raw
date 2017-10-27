@@ -63,7 +63,7 @@ font-1 = unifont:fontformat=truetype:size=8;0
 font-2 = MaterialIcons;pixelsize=8
 font-3 = FontAwesome;pixelsize=8
 
- modules-center = date
+modules-center = date
 modules-right = volume xkeyboard wlan eth powermenu
 
 tray-position = left
@@ -191,7 +191,7 @@ label = %percentage%%
 ;interval = 2
 ;format-prefix = "mem "
 ;format-prefix-foreground = ${colors.foreground}
-;format = 
+;format =
 ;label = %percentage_used%%
 ;
 ;
@@ -248,7 +248,7 @@ format-connected =  eth <label-connected>
 ; format-connected-underline = #9f78e1
 ;label-connected = %local_ip%
 
-format-disconnected = 
+format-disconnected =
 
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
@@ -266,8 +266,6 @@ format-connected =  <label-connected>
 
 label-connected = %downspeed%
 
-accumulate-stats = true
-
 [module/upspeed]
 type = internal/network
 interface = wlp3s0
@@ -279,9 +277,6 @@ format-connected =  <label-connected>
 
 label-connected = %upspeed%
 
-accumulate-stats = true
-
-
 [module/date]
 type = internal/date
 interval = 1
@@ -292,7 +287,7 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 
-;format-prefix = 
+;format-prefix =
 ;format-prefix-foreground = ${colors.foreground-alt}
 ;format-underline = #0a6cf5
 
@@ -306,11 +301,11 @@ format-volume = <ramp-volume> <label-volume> <bar-volume>
 label-volume = VOL
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = ""
+; format-muted-prefix = ""
 format-muted-foreground = ${colors.foreground}
-label-muted = " sound muted"
+label-muted = 
 
-bar-volume-width = 10
+bar-volume-width = 8
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55
@@ -342,7 +337,7 @@ format-charging = <ramp-capacity>   <label-charging>
 format-charging-foreground = ${colors.foreground-hi}
 ; format-charging-underline = ${colors.underline-b}
 
-format-discharging = <ramp-capacity> <label-discharging> 
+format-discharging = <ramp-capacity> <label-discharging>
 ; format-discharging-underline = ${colors.foreground-hi2}
 format-discharging-foreground = ${colors.foreground}
 
