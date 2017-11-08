@@ -109,5 +109,3 @@ nnoremap <C-S-f> :Grepper -highlight<CR>
 
 nnoremap <leader>q :bw<cr>
 
-" Sudo write
-cmap w!! w !sudo tee % >/dev/null

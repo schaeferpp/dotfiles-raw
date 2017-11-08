@@ -143,4 +143,3 @@ alias sav="bookmark"
 
 date
 echo
-cal

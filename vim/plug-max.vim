@@ -24,29 +24,35 @@ let g:indentLine_color_term = 249
 
 "let g:indentLine_color_gui = '#E4E4E4'
 
-Plug 'Valloric/YouCompleteMe'
-
-autocmd CompleteDone * pclose
-let g:ycm_confirm_extra_conf = 0
-"au FileType c,cpp nnoremap <buffer> <c-]> :YcmCompleter GoTo<CR>
-"let g:ycm_global_ycm_extra_conf = '~/.config/ycm_extra_conf.py'
-
-let g:ycm_server_keep_logfiles = 1
-let g:ycm_server_log_level = 'debug'
-let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
-let g:ycm_server_python_interpreter = '/usr/bin/python'
 
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 if has('nvim')
-    "Plug 'Shougo/deoplete.nvim'
-    "Plug 'zchee/deoplete-jedi'
-    "Plug 'zchee/deoplete-go'
-    "let g:deoplete#enable_at_startup = 1
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'zchee/deoplete-jedi'
+    Plug 'zchee/deoplete-go'
+    Plug 'zchee/deoplete-clang'
+
+    let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+    let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
+
+    Plug 'Shougo/neco-vim'
+    let g:deoplete#enable_at_startup = 1
 
     "Plug 'zchee/nvim-go'
+else
+    Plug 'Valloric/YouCompleteMe'
+
+    let g:ycm_confirm_extra_conf = 0
+
+    let g:ycm_server_keep_logfiles = 1
+    let g:ycm_server_log_level = 'debug'
+    let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+    let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+    let g:ycm_server_python_interpreter = '/usr/bin/python'
 endif
+autocmd CompleteDone * pclose
+
 Plug 'fatih/vim-go'
 let g:go_template_autocreate = 0
 let g:go_fmt_experimental = 1

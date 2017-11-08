@@ -220,7 +220,7 @@ hide_edge_borders none
 
 # Design stuff
 # for_window [class="Termite"] border 1pixel
-new_window 1pixel
+new_window pixel 1
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -244,16 +244,16 @@ new_window 1pixel
 #client.urgent #2f343a #900000 #ffffff #900000
 
 # <colorclass> <border> <background> <text> <indicator> <child_border>
-client.focused #A4B391 #222222 #91B365 #87CEEB #A4B391
-client.focused_inactive #666666 #222222 #91B365 #87CEEB #222222
+client.focused #a4b391 #222222 #91b365 #87ceeb #a4b391
+client.focused_inactive #666666 #222222 #91b365 #87ceeb #222222
 
 #client.focused_inactive #333333 #333333 #888888 #292d2e
 #
 #client.unfocused #262626 #262626 #d7ff87 #d7ff87
-client.unfocused #666666 #222222 #DDDDDD #222222
+client.unfocused #666666 #222222 #dddddd #222222
 
-#client.focused #000000 #33609A #ffffff #ff0000
-client.urgent #FF4040 #808080 #FF4040 #DDDDDD
+#client.focused #000000 #33609a #ffffff #ff0000
+client.urgent #ff4040 #808080 #ff4040 #dddddd
 
 # exec --no-startup-id nitrogen --restore
 # use feh instead (random-wallpaper.sh is just a wrapper)
