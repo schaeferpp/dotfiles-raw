@@ -11,7 +11,7 @@ set colorcolumn=80
 set history=700
 set undolevels=700
 set undofile
-set undodir=/tmp
+set undodir=/encrypted/
 set nobackup
 set nowritebackup
 set noswapfile

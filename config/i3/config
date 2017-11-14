@@ -30,7 +30,7 @@ font Input:monospace 8
 floating_modifier $mod
 
 # Set workspace 1 to external monitor, if available
-workspace 1 output VGA-1
+# workspace 1 output VGA-1
 
 # start a terminal
 bindsym $mod+Return exec "termite -e tmux"
@@ -56,13 +56,13 @@ bindsym XF86Calculator exec --no-startup-id gnome-calculator
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id "rofi -show drun"
+bindsym $mod+d exec --no-startup-id "rofi -theme sidebar -show drun"
 bindsym $mod+o exec --no-startup-id "/home/paul/bin/launcher"
-bindsym $mod+Shift+s exec --no-startup-id "rofi -show window"
-bindsym $mod+x exec --no-startup-id "rofi -combi-modi window,drun -show window -show drun"
-bindsym Mod1+Tab exec --no-startup-id "rofi -show window"
-bindsym Mod1+F2 exec --no-startup-id "rofi -show run"
-bindsym Mod1+Ctrl+P exec --no-startup-id "passmenu"
+bindsym $mod+Shift+s exec --no-startup-id "rofi -theme sidebar -show window"
+bindsym $mod+x exec --no-startup-id "rofi -theme sidebar -combi-modi window,drun -show window -show drun"
+bindsym Mod1+Tab exec --no-startup-id "rofi -theme sidebar -show window"
+bindsym Mod1+F2 exec --no-startup-id "rofi -theme sidebar -show run"
+# bindsym Mod1+Ctrl+P exec --no-startup-id "passmenu"
 
 bindsym $mod+Shift+greater move workspace to output right
 bindsym $mod+Shift+less move workspace to output left

@@ -42,6 +42,7 @@ if has('nvim')
     "Plug 'zchee/nvim-go'
 else
     Plug 'Valloric/YouCompleteMe'
+    Plug 'rdnetto/YCM-Generator', { 'branch': 'develop'} 
 
     let g:ycm_confirm_extra_conf = 0
 
@@ -81,8 +82,8 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'rust-lang/rust.vim'                " rust highlighting etc
 let g:rustfmt_autosave = 1
 
+" Rust code completion
 Plug 'ebfe/vim-racer'
-
 let g:ycm_rust_src_path = '/usr/src/rust/src'
 
 Plug 'tkztmk/vim-vala'                   " vala highlighting etc
@@ -114,45 +115,45 @@ Plug 'plasticboy/vim-markdown'
 Plug 'nelstrom/vim-markdown-folding'
 Plug 'godlygeek/tabular'
 
-Plug 'Kazark/vim-SimpleSmoothScroll'
+" Plug 'Kazark/vim-SimpleSmoothScroll'
 
-Plug 'rdnetto/YCM-Generator', { 'branch': 'develop'} 
 
 Plug 'stfl/meson.vim'
 
 Plug 'Chiel92/vim-autoformat'
 " map to <Leader>cf in C code
-autocmd FileType javascript nnoremap <buffer><Leader>cf :<C-u>Autoformat<CR>
-autocmd FileType javascript vnoremap <buffer><Leader>cf :Autoformat<CR>
+autocmd FileType javascript,c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>Autoformat<CR>
+autocmd FileType javascript,c,cpp,objc vnoremap <buffer><Leader>cf :Autoformat<CR>
 
-Plug 'rhysd/vim-clang-format'
-" Clang format{{{
-let g:clang_format#style_options = {
-            \ "BasedOnStyle": "Chromium",
-            \ "AlignTrailingComments": "true",
-            \ "BreakBeforeBraces": "Allman",
-            \ "ColumnLimit": 80,
-            \ "IndentWidth": 4,
-            \ "KeepEmptyLinesAtTheStartOfBlocks": "false",
-            \ "ObjCSpaceAfterProperty": "true",
-            \ "ObjCSpaceBeforeProtocolList": "true",
-            \ "PointerBindsToType": "false",
-            \ "SpacesBeforeTrailingComments": 1,
-            \ "PointerAlignment": "Right",
-            \ "TabWidth": 4,
-            \ "UseTab": "Never",
-            \ "AlwaysBreakAfterReturnType": "All",
-            \ "AlignConsecutiveDeclarations": "true",
-            \ "AlignConsecutiveAssignments": "true",
-            \ "BinPackParameters": "false",
-            \ "BinPackArguments": "false",
-            \ "SpaceAfterCStyleCast": "true",
-            \ "Cpp11BracedListStyle": "true",
-            \ "Standard" : "C++11"}
-
-" map to <Leader>cf in C code
-autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>"}}}
+" " Clang format {{{
+" Plug 'rhysd/vim-clang-format'
+" let g:clang_format#style_options = {
+"             \ "BasedOnStyle": "Chromium",
+"             \ "AlignTrailingComments": "true",
+"             \ "BreakBeforeBraces": "Allman",
+"             \ "ColumnLimit": 80,
+"             \ "IndentWidth": 4,
+"             \ "KeepEmptyLinesAtTheStartOfBlocks": "false",
+"             \ "ObjCSpaceAfterProperty": "true",
+"             \ "ObjCSpaceBeforeProtocolList": "true",
+"             \ "PointerBindsToType": "false",
+"             \ "SpacesBeforeTrailingComments": 1,
+"             \ "PointerAlignment": "Right",
+"             \ "TabWidth": 4,
+"             \ "UseTab": "Never",
+"             \ "AlwaysBreakAfterReturnType": "All",
+"             \ "AlignConsecutiveDeclarations": "true",
+"             \ "AlignConsecutiveAssignments": "true",
+"             \ "BinPackParameters": "false",
+"             \ "BinPackArguments": "false",
+"             \ "SpaceAfterCStyleCast": "true",
+"             \ "Cpp11BracedListStyle": "true",
+"             \ "Standard" : "C++11"}
+"
+" " map to <Leader>cf in C code
+" autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+" autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+"}}}
 
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>

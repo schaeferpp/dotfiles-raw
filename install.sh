@@ -43,6 +43,7 @@ install_file ${PWD}/schaeferpp.zsh-theme ~/.oh-my-zsh/themes/schaeferpp.zsh-them
 # ~/.config directory
 install_file ${PWD}/config/mimeapps.list ~/.config/mimeapps.list
 install_file ${PWD}/config/i3 ~/.config
+install_file ${PWD}/config/rofi ~/.config
 install_file ${PWD}/config/polybar ~/.config
 install_file ${PWD}/config/termite ~/.config
 
