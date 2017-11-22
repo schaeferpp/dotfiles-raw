@@ -15,7 +15,7 @@ function  install_file() {
     echo -en "\033[1;32m"
     echo -en Installing "$2... \033[1;31m"
 
-    ln -s "$1" "$2"
+    ln -sf "$1" "$2"
 
     echo -e "\033[0m"
 }
@@ -25,6 +25,9 @@ echo "Starting..."
 check_program git
 check_program zsh
 check_program curl
+check_program termite
+check_program tmux
+check_program clang
 
 echo "Checking Programs ready"
 
@@ -57,11 +60,8 @@ install_file ${PWD}/vim ~/.vim
 install_file ${PWD}/vim/init.vim ~/.vimrc
 
 
-check_program nvim
-check_program vim
-
-nvim +PlugInstall +qall
-vim +PlugInstall +qall
+check_program nvim && nvim +PlugInstall +UpdateRemotePlugins +qall
+check_program vim && vim +PlugInstall +qall
 
 
 
