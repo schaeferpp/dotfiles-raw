@@ -4,7 +4,10 @@ set relativenumber
 
 set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
-set colorcolumn=80
+set colorcolumn=120
+set textwidth=120
+
+au BufReadPost,BufNewFile *.md,*.txt,*.tex set fo+=t " autotmagically word wrap for md, txt and tex
 
 
 " Useful settings

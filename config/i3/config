@@ -177,7 +177,6 @@ bindsym $mod+Shift+b exec "/home/paul/bin/polybar-restart.sh"
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-#bindsym $mod+Shift+e exec "exec xfce4-session-logout"
 
 # Change monitor mirroring
 bindsym XF86Display exec "/usr/local/bin/switch_monitors.sh"
@@ -266,5 +265,5 @@ exec --no-startup-id "polybar bottom"
 exec --no-startup-id "xfsettingsd"
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 exec --no-startup-id "xfce4-power-manager"
-exec --no-startup-id "owncloud"
+exec --no-startup-id "nextcloud"
 exec --no-startup-id setxkbmap gb,de -variant umlauts,nodeadkeys
