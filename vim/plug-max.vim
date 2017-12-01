@@ -1,4 +1,12 @@
 
+function! UpdateRPlugin(info)
+  if has('nvim')
+    silent UpdateRemotePlugins
+    echomsg 'rplugin updated: ' . a:info['name'] . ', restart vim for changes'
+  endif
+endfunction
+
+
 Plug 'lervag/vimtex', {'for' : 'tex'}    " latex environment is ae or ie
 let g:tex_conceal=""
 
@@ -53,6 +61,8 @@ else
     let g:ycm_server_python_interpreter = '/usr/bin/python'
 endif
 autocmd CompleteDone * pclose
+
+Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'fatih/vim-go'
 let g:go_template_autocreate = 0
@@ -111,6 +121,16 @@ Plug 'airblade/vim-gitgutter'
 "Plug 'chazy/cscope_maps'
 Plug 'neovimhaskell/haskell-vim'
 
+if has('nvim')
+    Plug 'mfulz/cscope.nvim'
+    let g:cscope_update_on_start = 1
+
+    silent !mkdir -p ~/.cache/cscope_dir > /dev/null 2>&1
+    let g:cscope_dir = '~/.cache/cscope_dir'
+    let g:cscope_map_keys = 1
+
+endif
+
 Plug 'plasticboy/vim-markdown'
 Plug 'nelstrom/vim-markdown-folding'
 Plug 'godlygeek/tabular'
@@ -122,8 +142,8 @@ Plug 'stfl/meson.vim'
 
 Plug 'Chiel92/vim-autoformat'
 " map to <Leader>cf in C code
-autocmd FileType javascript,c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>Autoformat<CR>
-autocmd FileType javascript,c,cpp,objc vnoremap <buffer><Leader>cf :Autoformat<CR>
+autocmd FileType javascript,c,cpp,objc,python nnoremap <buffer><Leader>cf :<C-u>Autoformat<CR>
+autocmd FileType javascript,c,cpp,objc,python vnoremap <buffer><Leader>cf :Autoformat<CR>
 
 " " Clang format {{{
 " Plug 'rhysd/vim-clang-format'
@@ -156,7 +176,7 @@ autocmd FileType javascript,c,cpp,objc vnoremap <buffer><Leader>cf :Autoformat<C
 "}}}
 
 " Toggle auto formatting:
-nmap <Leader>C :ClangFormatAutoToggle<CR>
+" nmap <Leader>C :ClangFormatAutoToggle<CR>
 
 " Plug 'Shougo/denite.nvim'
 Plug 'ctrlpvim/ctrlp.vim'
