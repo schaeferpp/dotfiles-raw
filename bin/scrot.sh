@@ -7,4 +7,6 @@
 #
 
 
-import /home/paul/Pictures/Screenshot_$(date '+%Y-%m-%d_%H:%M:%S').png
+# import /home/paul/Pictures/Screenshot_$(date '+%Y-%m-%d_%H:%M:%S').png
+gnome-screenshot -a -f /home/paul/Pictures/Screenshot_$(date '+%Y-%m-%d_%H:%M:%S').png
+

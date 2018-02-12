@@ -2,3 +2,4 @@
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
 rofi.show-icons: true
+rofi.font: Fira Sans 11

@@ -48,7 +48,7 @@ catch
 endtry
 
 set list listchars=tab:¦\ ,trail:∙,precedes:<,extends:>,nbsp:~
-set foldmethod=marker
+set foldmethod=syntax
 set foldlevel=15
 
 " vim:ts=4:sts=4:sw=4

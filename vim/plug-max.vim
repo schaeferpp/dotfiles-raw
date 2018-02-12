@@ -9,6 +9,7 @@ endfunction
 
 Plug 'lervag/vimtex', {'for' : 'tex'}    " latex environment is ae or ie
 let g:tex_conceal=""
+let g:vimtex_fold_enabled=1
 
 Plug 'junegunn/vim-easy-align'           " vip<Enter>SYMBOL
 Plug 'majutsushi/tagbar'                 " Tagbar
@@ -39,8 +40,12 @@ if has('nvim')
     Plug 'Shougo/deoplete.nvim'
     Plug 'zchee/deoplete-jedi'
     Plug 'zchee/deoplete-go'
+    Plug 'carlitux/deoplete-ternjs'
     Plug 'zchee/deoplete-clang'
+    Plug 'sebastianmarkow/deoplete-rust'
 
+    let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
+    let g:deoplete#sources#rust#rust_source_path='/usr/src/rust/src'
     let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
     let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
 
@@ -91,10 +96,15 @@ Plug 'edkolev/tmuxline.vim'
 
 Plug 'rust-lang/rust.vim'                " rust highlighting etc
 let g:rustfmt_autosave = 1
+let g:racer_cmd='/usr/bin/racer'
 
 " Rust code completion
-Plug 'ebfe/vim-racer'
-let g:ycm_rust_src_path = '/usr/src/rust/src'
+" Plug 'ebfe/vim-racer'
+" au FileType rust nmap gd <Plug>(rust-def)
+" au FileType rust nmap gs <Plug>(rust-def-split)
+" au FileType rust nmap gx <Plug>(rust-def-vertical)
+" au FileType rust nmap <leader>gd <Plug>(rust-doc)
+" let g:ycm_rust_src_path = '/usr/src/rust/src'
 
 Plug 'tkztmk/vim-vala'                   " vala highlighting etc
 
@@ -182,3 +192,5 @@ autocmd FileType javascript,c,cpp,objc,python vnoremap <buffer><Leader>cf :Autof
 Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'kshenoy/vim-signature'
+
+Plug 'tmhedberg/SimpylFold'

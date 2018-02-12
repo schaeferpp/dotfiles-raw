@@ -11,7 +11,7 @@
 ; background = #262626
 ; background-alt = #d7ff87
 
-background = #222222
+background = #000000
 background-hi = #0D0D0D
 
 background-alt = #4D585E
@@ -20,7 +20,7 @@ background-alt-hi = #36525E
 ; foreground = #d7ff87
 ; foreground-alt = #262626
 
-foreground = #FFFFFF
+foreground = #C0C0C0
 foreground-dark = #666666
 
 foreground-hi = #86D6EB
@@ -62,9 +62,9 @@ module-margin-right = 2
 
 ; font-0 = fixed:pixelsize=10;1
 font-0 = Input:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8;0
-font-2 = MaterialIcons;pixelsize=8
-font-3 = FontAwesome;pixelsize=8
+font-1 = unifont:fontformat=truetype:size=6;0
+font-2 = MaterialIcons;pixelsize=6
+font-3 = FontAwesome;pixelsize=6
 
 modules-center = date
 modules-right = volume xkeyboard wlan eth powermenu
@@ -78,7 +78,7 @@ scroll-down = i3wm-wsprev
 
 [bar/bottom]
 width = 100%
-height = 20
+height = 16
 fixed-center = true
 bottom = true
 
@@ -102,9 +102,9 @@ module-margin-right = 2
 
 ; font-0 = fixed:pixelsize=10;1
 font-0 = Input:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8;0
-font-2 = MaterialIcons;pixelsize=8
-font-3 = FontAwesome;pixelsize=8
+font-1 = unifont:fontformat=truetype:size=6;0
+font-2 = MaterialIcons;pixelsize=6
+font-3 = FontAwesome;pixelsize=6
 
 ;modules-left = bspwm i3
 modules-right = i3
@@ -150,7 +150,7 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 2
+label-mode-padding = 1
 label-mode-foreground = ${colors.foreground}
 label-mode-background = ${colors.background-alt}
 
@@ -161,14 +161,14 @@ label-focused = %index%
 label-focused-foreground = ${colors.foreground}
 label-focused-background = ${colors.background-alt-hi}
 label-focused-underline= ${colors.foreground-hi2}
-label-focused-padding = 2
+label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %name%
 label-unfocused-foreground = ${colors.foreground}
 label-unfocused-border-size = 2
 label-unfocused-border-color = ${colors.background}
-label-unfocused-padding = 2
+label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
@@ -181,7 +181,7 @@ label-visible-padding = ${self.label-focused-padding}
 label-urgent = %index%!
 label-urgent-background = ${colors.foreground-hi2}
 label-urgent-underline = ${colors.foreground-hi}
-label-urgent-padding = 2
+label-urgent-padding = 1
 
 
 [module/cpu]
@@ -223,7 +223,7 @@ label = RAM %gb_used%/%gb_total%
 
 ; Only applies if <bar-used> is used
 bar-used-indicator =
-bar-used-width = 15
+bar-used-width = 10
 bar-used-foreground-0 = #55aa55
 bar-used-foreground-1 = #557755
 bar-used-foreground-2 = #f5a70a

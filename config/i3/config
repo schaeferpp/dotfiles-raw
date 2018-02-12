@@ -166,6 +166,9 @@ bindsym $mod+Shift+F8 move container to workspace 18
 bindsym $mod+Shift+F9 move container to workspace 19
 bindsym $mod+Shift+F10 move container to workspace 20
 
+bindsym $mod+Next workspace prev_on_output
+bindsym $mod+Prior workspace next_on_output
+
 bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
@@ -179,7 +182,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Change monitor mirroring
-bindsym XF86Display exec "/usr/local/bin/switch_monitors.sh"
+bindsym  Control+F7 exec --no-startup-id "/home/paul/bin/switch_monitors.sh; sleep 3; /home/paul/bin/polybar-restart.sh"
 
 bindsym $mod+F12 exec --no-startup-id "/home/paul/bin/find-cursor"
 
@@ -259,6 +262,7 @@ client.urgent #ff4040 #808080 #ff4040 #dddddd
 exec --no-startup-id "/home/paul/bin/random-wallpaper.sh /home/paul/Pictures/chromecast_wallpapers/"
 exec --no-startup-id nm-applet
 exec --no-startup-id "xset dpms 60"
+exec --no-startup-id "/home/paul/bin/switch_monitors.sh"
 exec --no-startup-id "compton -I 0.15 -O 0.15 -C"
 exec --no-startup-id "polybar top"
 exec --no-startup-id "polybar bottom"
