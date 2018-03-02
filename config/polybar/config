@@ -233,25 +233,12 @@ bar-used-empty = ▐
 bar-used-empty-foreground = #444444
 ; format-underline = #4bffdc
 
-[module/wlan]
-type = internal/network
-interface = wlp3s0
-interval = 3.0
-
-format-connected =  <label-connected>
-; format-connected-underline = ${colors.underline-b}
-label-connected = "%essid% %signal%%"
-
-format-disconnected = 
-label-disconnected-foreground = ${colors.foreground}
-
 [module/eth]
 type = internal/network
-interface = enp4s0f1
+interface = enp1s0
 interval = 3.0
 
-format-connected =  eth <label-connected>
-; format-connected-underline = #9f78e1
+format-connected = eth <label-connected>
 ;label-connected = %local_ip%
 
 format-disconnected =
@@ -263,10 +250,10 @@ format-disconnected =
 ;
 [module/downspeed]
 type = internal/network
-interface = wlp3s0
+interface = enp1s0
 interval = 3.0
 
-format-connected =  <label-connected>
+format-connected = D <label-connected>
 ; ￬ <label-down>
 ; format-connected-underline = ${colors.underline-c}
 
@@ -274,10 +261,10 @@ label-connected = %downspeed%
 
 [module/upspeed]
 type = internal/network
-interface = wlp3s0
+interface = enp1s0
 interval = 3.0
 
-format-connected =  <label-connected>
+format-connected = U <label-connected>
 ; ￬ <label-down>
 ; format-connected-underline = ${colors.underline-c}
 

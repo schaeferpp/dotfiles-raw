@@ -14,7 +14,11 @@ au BufReadPost,BufNewFile *.md,*.txt,*.tex set fo+=t " autotmagically word wrap 
 set history=700
 set undolevels=700
 set undofile
-set undodir=/encrypted/
+if isdirectory("/encrypted")
+    set undodir=/encrypted/
+else
+    set undodir=/tmp
+endif
 set nobackup
 set nowritebackup
 set noswapfile

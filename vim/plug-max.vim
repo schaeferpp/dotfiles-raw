@@ -87,7 +87,7 @@ let g:templates_directory = '~/.vim/templates'
 " Default template data
 let g:license                            = "LGPL-3.0+"
 let g:username                           = "Paul Schaefer"
-let g:email                              = "schaefer.pp@gmail.com"
+let g:email                              = "paul@os-s.de"
 
 Plug 'Valloric/MatchTagAlways'           " Highlight matching xml tags
 Plug 'vim-airline/vim-airline'           " Fancy statusline
