@@ -34,6 +34,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec "termite -e tmux"
+bindsym $mod+Shift+Return exec termite -e 'bash -c "RANGERCD=true zsh"'
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -43,6 +44,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Escape exec "/home/paul/bin/lock.sh -s -g -p -P 10"
 
 bindsym --release Shift+Print exec "bash /home/paul/bin/scrot.sh"
+# bindsym --release Control+Shift+Print exec "bash /home/paul/bin/scrot.sh"
 bindsym --release Print exec "scrot /home/paul/Pictures/Screenshot_$(date '+%Y-%m-%d_%H:%M:%S').png"
 #bindsym Shift+Print exec notify-send hello
 

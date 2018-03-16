@@ -35,8 +35,7 @@ nnoremap <Esc> :set nohls<cr>
 " Save as root
 map      <Leader>w :w !sudo tee %<CR>L<CR>
 
-map      <Leader>l :NERDTreeToggle<CR>
-map      <Leader>e :NERDTreeToggle<CR>
+map      <Leader>fl :NERDTreeToggle<CR>
 nnoremap <Leader>t :TagbarToggle<CR>
 nnoremap <Leader>u :UndotreeToggle<CR>
 

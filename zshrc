@@ -55,7 +55,7 @@ plugins=(git tmuxinator go zshmarks ssh-agent)
 # User configuration
 
 export GOPATH=/home/paul/go
-export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/paul/.bin:/home/paul/.gem/ruby/2.3.0/bin:/home/paul/.local/bin/:$GOPATH/bin:/home/paul/.cargo/bin"
+export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/paul/.bin:/home/paul/.gem/ruby/2.3.0/bin:/home/paul/.local/bin/:/home/paul/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -64,7 +64,6 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export GIT_EDITOR="$EDITOR"
-# export TERM=xterm-256color
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -86,6 +85,16 @@ function silent {
 function silentbg {
 
   $* &> /dev/null &
+}
+
+function ranger-cd {
+    tempfile="$(mktemp -t tmp.XXXXXX)"
+    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+    fi
+    rm -f -- "$tempfile"
 }
 
 alias pse="pacaur -Ss "
@@ -137,10 +146,10 @@ alias g="jump"
 alias p="showmarks"
 alias sav="bookmark"
 
-
-# source /usr/share/doc/find-the-command/ftc.zsh
-
 . /etc/profile.d/vte.sh
+
+[[ "$RANGERCD" = "true" ]] && unset RANGERCD && ranger-cd
 
 date
 echo
+

@@ -10,6 +10,25 @@ endfunction
 Plug 'lervag/vimtex', {'for' : 'tex'}    " latex environment is ae or ie
 let g:tex_conceal=""
 let g:vimtex_fold_enabled=1
+let g:vimtex_compiler_method='latexrun'
+
+let g:vimtex_compiler_latexrun = {
+    \ 'background' : 0,
+    \ 'build_dir' : '',
+    \ 'options' : [
+    \   '--verbose-cmds',
+    \   '--latex-args="-synctex=1"',
+    \   '--latex-cmd=pdflatex',
+    \   '--bibtex-cmd=biber'
+    \ ],
+    \}
+
+
+nnoremap <F9>  :exec "!zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . @% . " " . expand('%:r') . ".pdf"<cr><cr>
+" nnoremap <F9>
+"     \ :exec "!szathura %:r.pdf" line('.')  col('.') "% > /dev/null"<cr><cr>
+" nnoremap <C-F9>
+"     \ :exec "!szathura %:r.pdf" > /dev/null 2>&1 &"<cr><cr>
 
 Plug 'junegunn/vim-easy-align'           " vip<Enter>SYMBOL
 Plug 'majutsushi/tagbar'                 " Tagbar
