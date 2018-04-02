@@ -32,6 +32,19 @@ nnoremap <F9>  :exec "!zathura --synctex-forward " . line('.') . ":" . col('.') 
 
 Plug 'junegunn/vim-easy-align'           " vip<Enter>SYMBOL
 Plug 'majutsushi/tagbar'                 " Tagbar
+let g:tagbar_type_rust = {
+    \ 'ctagstype' : 'rust',
+    \ 'kinds' : [
+        \'T:types,type definitions',
+        \'f:functions,function definitions',
+        \'g:enum,enumeration names',
+        \'s:structure names',
+        \'m:modules,module names',
+        \'c:consts,static constants',
+        \'t:traits',
+        \'i:impls,trait implementations',
+    \]
+    \}
 Plug 'tpope/vim-fugitive'                " git
 Plug 'scrooloose/nerdtree'               " Fileexplorer
 Plug 'atweiden/vim-dragvisuals'          " Visually select something in block
@@ -86,7 +99,14 @@ else
 endif
 autocmd CompleteDone * pclose
 
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
+Plug 'c0r73x/neotags.nvim'
+let g:neotags_enabled = 1
+let g:neotags_file = '/tmp/nvim-tags-' . substitute(expand('%:p'), '/', '%', 'g')
+let g:neotags_ctags_bin = 'rg --files '. getcwd() .' | ctags'
+let g:neotags_ctags_args = ['--fields=+l', '--c-kinds=+p', '--sort=no', '--extra=+q']
+let g:neotags#python#order = 'mfc'
+
 
 Plug 'fatih/vim-go'
 let g:go_template_autocreate = 0
