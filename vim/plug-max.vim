@@ -63,8 +63,8 @@ if has('nvim')
     Plug 'zchee/deoplete-clang'
     Plug 'sebastianmarkow/deoplete-rust'
 
-    let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
-    let g:deoplete#sources#rust#rust_source_path='/usr/src/rust/src'
+    let g:deoplete#sources#rust#racer_binary='/home/paul/.cargo/bin/racer'
+    let g:deoplete#sources#rust#rust_source_path='/home/paul/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
     let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
     let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
 
@@ -87,6 +87,7 @@ endif
 autocmd CompleteDone * pclose
 
 Plug 'ludovicchabant/vim-gutentags'
+let g:gutentags_cache_dir = '/tmp/'
 
 Plug 'fatih/vim-go'
 let g:go_template_autocreate = 0
@@ -115,6 +116,7 @@ Plug 'edkolev/tmuxline.vim'
 
 Plug 'rust-lang/rust.vim'                " rust highlighting etc
 let g:rustfmt_autosave = 1
+let g:rustfmt_command = '/home/paul/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustfmt'
 let g:racer_cmd='/usr/bin/racer'
 
 " Rust code completion
