@@ -102,10 +102,13 @@ autocmd CompleteDone * pclose
 " Plug 'ludovicchabant/vim-gutentags'
 " let g:gutentags_cache_dir = '/tmp/'
 Plug 'c0r73x/neotags.nvim'
+silent !mkdir ~/.cache/vim > /dev/null 2>&1
 let g:neotags_enabled = 1
-let g:neotags_file = '/tmp/nvim-tags-' . substitute(expand('%:p'), '/', '%', 'g')
+" let g:neotags_verbose = 1
+let g:neotags_file = expand('$HOME') . '/.cache/vim/nvim-tags-' . substitute(getcwd(), '/', '%', 'g')
 let g:neotags_ctags_bin = 'rg --files '. getcwd() .' | ctags'
 let g:neotags_ctags_args = ['--fields=+l', '--c-kinds=+p', '--sort=no', '--extra=+q']
+let g:neotags_ctags_timeout = 300
 let g:neotags#python#order = 'mfc'
 
 Plug 'fatih/vim-go'
