@@ -101,15 +101,18 @@ autocmd CompleteDone * pclose
 
 " Plug 'ludovicchabant/vim-gutentags'
 " let g:gutentags_cache_dir = '/tmp/'
-Plug 'c0r73x/neotags.nvim'
-silent !mkdir ~/.cache/vim > /dev/null 2>&1
-let g:neotags_enabled = 1
-" let g:neotags_verbose = 1
-let g:neotags_file = expand('$HOME') . '/.cache/vim/nvim-tags-' . substitute(getcwd(), '/', '%', 'g')
-let g:neotags_ctags_bin = 'rg --files '. getcwd() .' | ctags'
-let g:neotags_ctags_args = ['--fields=+l', '--c-kinds=+p', '--sort=no', '--extra=+q']
-let g:neotags_ctags_timeout = 300
-let g:neotags#python#order = 'mfc'
+
+if has('nvim')
+    Plug 'c0r73x/neotags.nvim'
+    silent !mkdir ~/.cache/vim > /dev/null 2>&1
+    let g:neotags_enabled = 1
+    " let g:neotags_verbose = 1
+    let g:neotags_file = expand('$HOME') . '/.cache/vim/nvim-tags-' . substitute(getcwd(), '/', '%', 'g')
+    let g:neotags_ctags_bin = 'rg --files '. getcwd() .' | ctags'
+    let g:neotags_ctags_args = ['--fields=+l', '--c-kinds=+p', '--sort=no', '--extra=+q']
+    let g:neotags_ctags_timeout = 300
+    let g:neotags#python#order = 'mfc'
+endif
 
 Plug 'fatih/vim-go'
 let g:go_template_autocreate = 0
@@ -158,7 +161,7 @@ let g:session_autoload = 'no'
 Plug 'tmux-plugins/vim-tmux'             " tmux.conf highlighting
 Plug 'mhinz/vim-grepper'
 let g:grepper = {
-            \ 'tools': ['pt', 'ag', 'git', 'grep'],
+            \ 'tools': ['rg', 'pt', 'ag', 'git', 'grep'],
             \ 'open':  1,
             \ 'jump':  0,
             \ }
