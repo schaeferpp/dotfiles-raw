@@ -76,8 +76,8 @@ if has('nvim')
     Plug 'zchee/deoplete-clang'
     Plug 'sebastianmarkow/deoplete-rust'
 
-    let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
-    let g:deoplete#sources#rust#rust_source_path='/usr/src/rust/src'
+    let g:deoplete#sources#rust#racer_binary='/home/paul/.cargo/bin/racer'
+    let g:deoplete#sources#rust#rust_source_path='/home/paul/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
     let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
     let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
 
@@ -100,13 +100,19 @@ endif
 autocmd CompleteDone * pclose
 
 " Plug 'ludovicchabant/vim-gutentags'
-Plug 'c0r73x/neotags.nvim'
-let g:neotags_enabled = 1
-let g:neotags_file = '/tmp/nvim-tags-' . substitute(expand('%:p'), '/', '%', 'g')
-let g:neotags_ctags_bin = 'rg --files '. getcwd() .' | ctags'
-let g:neotags_ctags_args = ['--fields=+l', '--c-kinds=+p', '--sort=no', '--extra=+q']
-let g:neotags#python#order = 'mfc'
+" let g:gutentags_cache_dir = '/tmp/'
 
+if has('nvim')
+    Plug 'c0r73x/neotags.nvim'
+    silent !mkdir ~/.cache/vim > /dev/null 2>&1
+    let g:neotags_enabled = 1
+    " let g:neotags_verbose = 1
+    let g:neotags_file = expand('$HOME') . '/.cache/vim/nvim-tags-' . substitute(getcwd(), '/', '%', 'g')
+    let g:neotags_ctags_bin = 'rg --files '. getcwd() .' | ctags'
+    let g:neotags_ctags_args = ['--fields=+l', '--c-kinds=+p', '--sort=no', '--extra=+q']
+    let g:neotags_ctags_timeout = 300
+    let g:neotags#python#order = 'mfc'
+endif
 
 Plug 'fatih/vim-go'
 let g:go_template_autocreate = 0
@@ -135,7 +141,8 @@ Plug 'edkolev/tmuxline.vim'
 
 Plug 'rust-lang/rust.vim'                " rust highlighting etc
 let g:rustfmt_autosave = 1
-let g:racer_cmd='/usr/bin/racer'
+let g:rustfmt_command = '/home/paul/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustfmt'
+let g:racer_cmd='/home/paul/.cargo/bin/racer'
 
 " Rust code completion
 " Plug 'ebfe/vim-racer'
@@ -154,7 +161,7 @@ let g:session_autoload = 'no'
 Plug 'tmux-plugins/vim-tmux'             " tmux.conf highlighting
 Plug 'mhinz/vim-grepper'
 let g:grepper = {
-            \ 'tools': ['pt', 'ag', 'git', 'grep'],
+            \ 'tools': ['rg', 'pt', 'ag', 'git', 'grep'],
             \ 'open':  1,
             \ 'jump':  0,
             \ }
