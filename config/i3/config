@@ -261,18 +261,20 @@ client.unfocused #666666 #222222 #dddddd #222222
 #client.focused #000000 #33609a #ffffff #ff0000
 client.urgent #ff4040 #808080 #ff4040 #dddddd
 
-exec --no-startup-id nitrogen --restore
+# exec --no-startup-id nitrogen --restore
 # use feh instead (random-wallpaper.sh is just a wrapper)
-# exec --no-startup-id "/home/paul/bin/random-wallpaper.sh /home/paul/Pictures/chromecast_wallpapers/"
-exec --no-startup-id "/home/paul/.screenlayout/work.sh"
+exec --no-startup-id "/home/paul/bin/random-wallpaper.sh /home/paul/Pictures/chromecast_wallpapers/"
+# exec --no-startup-id "/home/paul/.screenlayout/work.sh"
 exec --no-startup-id nm-applet
-exec --no-startup-id "xset dpms 60"
+exec --no-startup-id "dunst"
+exec --no-startup-id "xset dpms 300"
 exec --no-startup-id "/home/paul/bin/switch_monitors.sh"
 exec --no-startup-id "compton -I 0.15 -O 0.15 -C"
 exec --no-startup-id "polybar top"
 exec --no-startup-id "polybar bottom"
-exec --no-startup-id "xfsettingsd"
-exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-exec --no-startup-id "xfce4-power-manager"
+# exec --no-startup-id "xfsettingsd"
+# exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+# exec --no-startup-id "xfce4-power-manager"
 exec --no-startup-id "nextcloud"
 exec --no-startup-id setxkbmap gb,de -variant umlauts,nodeadkeys
+exec --no-startup-id "xset r rate 250 25"
