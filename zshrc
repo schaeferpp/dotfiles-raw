@@ -49,7 +49,7 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # https://github.com/jocelynmallon/zshmarks
-plugins=(git tmuxinator go cargo zshmarks ssh-agent)
+plugins=(git tmuxinator go cargo ssh-agent)
 
 
 # User configuration
