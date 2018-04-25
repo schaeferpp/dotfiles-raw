@@ -59,12 +59,12 @@ bindsym XF86Calculator exec --no-startup-id gnome-calculator
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id "rofi -show drun"
+bindsym $mod+d exec --no-startup-id "rofi -theme sidebar -show drun"
 bindsym $mod+o exec --no-startup-id "/home/paul/bin/launcher"
-bindsym $mod+Shift+s exec --no-startup-id "rofi -show window"
-bindsym $mod+x exec --no-startup-id "rofi -combi-modi window,drun -show window -show drun"
-bindsym Mod1+Tab exec --no-startup-id "rofi -show window"
-bindsym Mod1+F2 exec --no-startup-id "rofi -show run"
+bindsym $mod+Shift+s exec --no-startup-id "rofi -theme sidebar -show window"
+bindsym $mod+x exec --no-startup-id "rofi -theme sidebar -combi-modi window,drun -show window -show drun"
+bindsym Mod1+Tab exec --no-startup-id "rofi -theme sidebar -show window"
+bindsym Mod1+F2 exec --no-startup-id "rofi -theme sidebar -show run"
 # bindsym Mod1+Ctrl+P exec --no-startup-id "passmenu"
 
 bindsym $mod+Shift+greater move workspace to output right
@@ -263,17 +263,29 @@ client.urgent #ff4040 #808080 #ff4040 #dddddd
 
 # exec --no-startup-id nitrogen --restore
 # use feh instead (random-wallpaper.sh is just a wrapper)
+<<<<<<< HEAD
 exec --no-startup-id "/home/paul/bin/random-wallpaper.sh /home/paul/Pictures/chromecast_wallpapers/"
 # exec --no-startup-id "/home/paul/.screenlayout/work.sh"
+exec --no-startup-id nm-applet
+exec --no-startup-id "dunst"
+exec --no-startup-id "xset dpms 300"
+=======
+# exec --no-startup-id "/home/paul/bin/random-wallpaper.sh /home/paul/Pictures/chromecast_wallpapers/"
 exec --no-startup-id "/home/paul/.screenlayout/work.sh"
 exec --no-startup-id "dunst"
 exec --no-startup-id nm-applet
 exec --no-startup-id "xset dpms 300" # 5 minutes screen timeout
+>>>>>>> a300180a76ffc6238a873b8cd7ea7c936a65499e
 exec --no-startup-id "/home/paul/bin/switch_monitors.sh"
 exec --no-startup-id "compton -I 0.15 -O 0.15 -C"
 exec --no-startup-id "polybar top"
 exec --no-startup-id "polybar bottom"
+# exec --no-startup-id "xfsettingsd"
+<<<<<<< HEAD
+# exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+=======
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+>>>>>>> a300180a76ffc6238a873b8cd7ea7c936a65499e
 # exec --no-startup-id "xfce4-power-manager"
 exec --no-startup-id "nextcloud"
 exec --no-startup-id setxkbmap gb,de -variant umlauts,nodeadkeys
