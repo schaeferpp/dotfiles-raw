@@ -59,10 +59,8 @@ bindsym XF86Calculator exec --no-startup-id gnome-calculator
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id "rofi -show drun"
+bindsym $mod+d exec --no-startup-id "rofi -modi 'drun,window,ssh' -show"
 bindsym $mod+o exec --no-startup-id "/home/paul/bin/launcher"
-bindsym $mod+Shift+s exec --no-startup-id "rofi -show window"
-bindsym $mod+x exec --no-startup-id "rofi -combi-modi window,drun -show window -show drun"
 bindsym Mod1+Tab exec --no-startup-id "rofi -show window"
 bindsym Mod1+F2 exec --no-startup-id "rofi -show run"
 # bindsym Mod1+Ctrl+P exec --no-startup-id "passmenu"
@@ -273,8 +271,9 @@ exec --no-startup-id "/home/paul/bin/switch_monitors.sh"
 exec --no-startup-id "compton -I 0.15 -O 0.15 -C"
 exec --no-startup-id "polybar top"
 exec --no-startup-id "polybar bottom"
+exec --no-startup-id "xfsettingsd"
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-# exec --no-startup-id "xfce4-power-manager"
+exec --no-startup-id "xfce4-power-manager"
 exec --no-startup-id "nextcloud"
 exec --no-startup-id setxkbmap gb,de -variant umlauts,nodeadkeys
 exec --no-startup-id "xset r rate 250 25"

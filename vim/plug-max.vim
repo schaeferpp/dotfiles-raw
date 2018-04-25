@@ -240,3 +240,10 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kshenoy/vim-signature'
 
 Plug 'tmhedberg/SimpylFold'
+
+Plug 'neomake/neomake'
+au BufWritePost *.tex Neomake
+nnoremap <leader>mm :Neomake!<cr>
+
+Plug 'machakann/vim-highlightedyank'
+let g:highlightedyank_highlight_duration = 150
