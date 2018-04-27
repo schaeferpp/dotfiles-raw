@@ -71,6 +71,7 @@ set modeline
 set noshowmode
 
 set completeopt+=menuone,preview,longest
+autocmd CompleteDone * pclose " Close Preview on CompleteDone
 
 set visualbell
 
