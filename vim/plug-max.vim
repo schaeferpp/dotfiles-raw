@@ -10,7 +10,6 @@ endfunction
 Plug 'lervag/vimtex', {'for' : 'tex'}    " latex environment is ae or ie
 " Settings in ~/.vim/vimtex.vim
 
-
 Plug 'godlygeek/tabular' " TODO
 Plug 'junegunn/vim-easy-align'           " Usage: vip<Enter>SYMBOL
 Plug 'majutsushi/tagbar', {'for': ['c', 'rust', 'javascript', 'python']}                " Tagbar
