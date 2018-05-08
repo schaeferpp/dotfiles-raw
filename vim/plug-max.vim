@@ -12,7 +12,7 @@ Plug 'lervag/vimtex', {'for' : 'tex'}    " latex environment is ae or ie
 
 Plug 'godlygeek/tabular' " TODO
 Plug 'junegunn/vim-easy-align'           " Usage: vip<Enter>SYMBOL
-Plug 'majutsushi/tagbar', {'for': ['c', 'rust', 'javascript', 'python']}                " Tagbar
+Plug 'majutsushi/tagbar', {'for': ['c', 'cpp', 'rust', 'javascript', 'python']}                " Tagbar
 
 Plug 'tpope/vim-fugitive'                " git
 Plug 'airblade/vim-gitgutter'
@@ -73,7 +73,7 @@ endif
 " let g:gutentags_cache_dir = '/tmp/'
 
 if has('nvim')
-    Plug 'c0r73x/neotags.nvim', {'for': ['python', 'rust', 'c', 'javascript']}
+    Plug 'c0r73x/neotags.nvim', {'for': ['python', 'rust', 'c', 'cpp', 'javascript']}
     silent !mkdir ~/.cache/vim > /dev/null 2>&1
     let g:neotags_enabled = 1
     " let g:neotags_verbose = 1

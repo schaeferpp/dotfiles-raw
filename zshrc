@@ -97,19 +97,23 @@ function ranger-cd {
     rm -f -- "$tempfile"
 }
 
+function chpwd() {
+    if [ -n $TMUX ]; then
+        tmux rename-window $(print -Pn '%~')
+    fi
+}
+
 alias pse="pacaur -Ss "
 alias pin="pacaur -S "
 alias mknote="~/code/projects/mkp/mkp.py --note"
 alias mkp="~/code/projects/mkp/mkp.py"
 alias tmux="tmux -2"
+alias bc="bc -l"
 
 # if [[ ! $TERM =~ screen ]]; then
     # exec tmux -2
 # fi
 #
-if [[ -z $STARTSCREEN ]]; then
-  # exec ~/projects/startshell/startshell
-fi
 
 if [[ -e /usr/bin/src-hilite-lesspipe.sh ]]; then
     export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
