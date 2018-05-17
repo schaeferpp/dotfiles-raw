@@ -103,6 +103,12 @@ function chpwd() {
     fi
 }
 
+function namedir() {
+    eval $1=$PWD
+    echo ~$1
+}
+# namedir () { $1=$PWD ;  : ~$1 }
+
 alias pse="pacaur -Ss "
 alias pin="pacaur -S "
 alias mknote="~/code/projects/mkp/mkp.py --note"
