@@ -108,3 +108,5 @@ nnoremap <C-S-f> :Grepper -highlight<CR>
 
 nnoremap <leader>q :bw<cr>
 
+" autocmd FileType rust nmap <C-]> gd
+
