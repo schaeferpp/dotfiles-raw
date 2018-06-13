@@ -59,6 +59,7 @@ install_file ${PWD}/vim  ~/.config/nvim
 install_file ${PWD}/vim ~/.vim
 install_file ${PWD}/vim/init.vim ~/.vimrc
 
+install_file ${PWD}/ctags ~/.ctags
 
 check_program nvim && nvim +PlugInstall +UpdateRemotePlugins +qall
 check_program vim && vim +PlugInstall +qall

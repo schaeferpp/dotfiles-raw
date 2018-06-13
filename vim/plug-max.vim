@@ -195,4 +195,9 @@ Plug 'jceb/vim-orgmode'
 
 Plug 'vim-scripts/SyntaxRange'
 
+" Plug 'blueyed/vim-diminactive'
+" let g:diminactive_buftype_whitelist = ['nofile']
+" let g:diminactive_use_syntax = 1
+" let g:diminactive_use_colorcolumn = 0
+
 " vim:ts=4:sts=4:sw=4
