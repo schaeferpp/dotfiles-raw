@@ -2,5 +2,5 @@
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
 rofi.show-icons: true
-rofi.font: Fira Sans 11
+rofi.font: Fira Mono 11
 rofi.theme: /home/paul/.config/rofi/themes/sidetab.rasi
