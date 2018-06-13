@@ -12,7 +12,7 @@ Plug 'lervag/vimtex', {'for' : 'tex'}    " latex environment is ae or ie
 
 Plug 'godlygeek/tabular' " TODO
 Plug 'junegunn/vim-easy-align'           " Usage: vip<Enter>SYMBOL
-Plug 'majutsushi/tagbar', {'for': ['c', 'rust', 'javascript', 'python']}                " Tagbar
+Plug 'majutsushi/tagbar', {'for': ['c', 'cpp', 'rust', 'javascript', 'python']}                " Tagbar
 
 Plug 'tpope/vim-fugitive'                " git
 Plug 'airblade/vim-gitgutter'
@@ -73,15 +73,24 @@ endif
 " let g:gutentags_cache_dir = '/tmp/'
 
 if has('nvim')
-    Plug 'c0r73x/neotags.nvim', {'for': ['python', 'rust', 'c', 'javascript']}
     silent !mkdir ~/.cache/vim > /dev/null 2>&1
-    let g:neotags_enabled = 1
+
+    " Plug 'c0r73x/neotags.nvim', {'for': ['python', 'rust', 'c', 'cpp', 'javascript']}
+    " let g:neotags_enabled = 1
+    " let g:neotags_run_ctags = 0
     " let g:neotags_verbose = 1
-    let g:neotags_file = expand('$HOME') . '/.cache/vim/nvim-tags-' . substitute(getcwd(), '/', '%', 'g')
-    let g:neotags_ctags_bin = 'rg --files '. getcwd() .' | ctags'
-    let g:neotags_ctags_args = ['--fields=+l', '--c-kinds=+p', '--sort=no', '--extra=+q']
-    let g:neotags_ctags_timeout = 300
-    let g:neotags#python#order = 'mfc'
+    " let g:neotags_file = expand('$HOME') . '/.cache/vim/nvim-tags-' . substitute(getcwd(), '/', '%', 'g')
+    " " let g:neotags_ctags_bin = '/usr/bin/rg --files '. getcwd() .' | /usr/bin/ctags'
+    " " let g:neotags_ctags_args = ['--fields=+l', '--c-kinds=+p', '--sort=no', '--extras=+q']
+    " " let g:neotags_ctags_timeout = 300
+    " let g:neotags#python#order = 'mfc'
+
+    Plug 'xolox/vim-misc', {'for': ['python', 'rust', 'c', 'cpp', 'javascript']} " dependency for easytags
+    Plug 'xolox/vim-easytags', {'for': ['python', 'rust', 'c', 'cpp', 'javascript']}
+
+    let g:easytags_file = expand('$HOME') . '/.cache/vim/nvim-tags-' . substitute(getcwd(), '/', '%', 'g')
+    let g:easytags_async = 1
+    let g:easytags_autorecurse = 1
 endif
 
 Plug 'fatih/vim-go', {'for': 'go'}
@@ -111,6 +120,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rust-lang/rust.vim', {'for': 'rust'}                " rust highlighting etc
 let g:rustfmt_autosave = 1
 let g:rustfmt_command = '/home/paul/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustfmt'
+let g:rustfmt_emit_files = 1
 let g:racer_cmd='/home/paul/.cargo/bin/racer'
 
 " Rust code completion
@@ -162,7 +172,7 @@ Plug 'nelstrom/vim-markdown-folding', {'for': 'markdown'}
 
 Plug 'stfl/meson.vim' " this does ftdetect! , {'for': 'meson'}
 
-Plug 'Chiel92/vim-autoformat', {'for': ['javascript', 'c', 'cpp', 'objc', 'python']}
+Plug 'Chiel92/vim-autoformat', {'for': ['javascript', 'rust', 'c', 'cpp', 'objc', 'python']}
 " map to <Leader>cf in C code
 autocmd FileType javascript,c,cpp,objc,python nnoremap <buffer><Leader>cf :<C-u>Autoformat<CR>
 autocmd FileType javascript,c,cpp,objc,python vnoremap <buffer><Leader>cf :Autoformat<CR>
@@ -179,5 +189,15 @@ nnoremap <leader>mm :Neomake!<cr>
 
 Plug 'machakann/vim-highlightedyank'
 let g:highlightedyank_highlight_duration = 150
+
+Plug 'tpope/vim-speeddating'
+Plug 'jceb/vim-orgmode'
+
+Plug 'vim-scripts/SyntaxRange'
+
+" Plug 'blueyed/vim-diminactive'
+" let g:diminactive_buftype_whitelist = ['nofile']
+" let g:diminactive_use_syntax = 1
+" let g:diminactive_use_colorcolumn = 0
 
 " vim:ts=4:sts=4:sw=4

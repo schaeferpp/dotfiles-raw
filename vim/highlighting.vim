@@ -1,3 +1,4 @@
+set background=dark
 set t_Co=256
 set termguicolors
 " color wombat256mod
@@ -33,9 +34,13 @@ function! OverrideHighlights()
     hi SpecialKey ctermfg=249 guifg='#5F5F5F' guibg=bg
     hi NonText ctermfg=249 guifg='#5F5F5F' guibg=bg
 
-    hi Folded guifg=#C4C4C4 gui=NONE
+    hi Folded guifg=#AAAAAA guibg=#444444 gui=NONE
 
     hi Normal ctermbg=NONE guibg=NONE
+    hi InactiveWin guibg=#121212
+    hi ActiveWin guibg=NONE
+
+    set winhighlight=Normal:ActiveWin,NormalNC:InactiveWin
 endfunction
 
 function! NeatFoldText()

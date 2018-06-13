@@ -5,7 +5,7 @@ function collapse_pwd {
 function current_path_info() {
 
     if [[ ! $(collapse_pwd) = "~" ]]; then
-        echo "%f%F{blue} {%f%F{yellow}$(collapse_pwd)%f%F{blue}}%f"
+        echo "%f%F{blue} {%f%F{yellow}%~%F{blue}}%f"
     fi
 }
 
