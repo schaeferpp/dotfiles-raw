@@ -109,8 +109,8 @@ function namedir() {
 }
 # namedir () { $1=$PWD ;  : ~$1 }
 
-alias pse="pacaur -Ss "
-alias pin="pacaur -S "
+alias pse="yay -Ss "
+alias pin="yay -S "
 alias mknote="~/code/projects/mkp/mkp.py --note"
 alias mkp="~/code/projects/mkp/mkp.py"
 alias tmux="tmux -2"
