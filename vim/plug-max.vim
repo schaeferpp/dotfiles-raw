@@ -12,32 +12,14 @@ Plug 'lervag/vimtex', {'for' : 'tex'}    " latex environment is ae or ie
 
 Plug 'godlygeek/tabular' " TODO
 Plug 'junegunn/vim-easy-align'           " Usage: vip<Enter>SYMBOL
-Plug 'majutsushi/tagbar', {'for': ['c', 'cpp', 'rust', 'javascript', 'python']}                " Tagbar
-
-Plug 'tpope/vim-fugitive'                " git
-Plug 'airblade/vim-gitgutter'
-
-Plug 'scrooloose/nerdtree'               " Fileexplorer
 Plug 'atweiden/vim-dragvisuals'          " Visually select something in block
                                          " or line mode and use arrow keys
 "Plug 'xolox/vim-easytags'
 
 "let g:easytags_async = 1
 
-Plug 'christoomey/vim-tmux-navigator'    " vim/tmux integration
 Plug 'edkolev/tmuxline.vim'
 Plug 'tmux-plugins/vim-tmux'             " tmux.conf highlighting
-
-Plug 'Yggdroot/indentLine'
-"let g:indentLine_color_gui = '#444444'
-let g:indentLine_concealcursor = 0
-"let g:indentLine_setConceal = 0
-"let g:indentLine_char = '▒'
-let g:indentLine_color_term = 249
-
-
-"let g:indentLine_color_gui = '#E4E4E4'
-
 
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
@@ -97,26 +79,6 @@ Plug 'fatih/vim-go', {'for': 'go'}
 let g:go_template_autocreate = 0
 let g:go_fmt_experimental = 1
 
-Plug 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-Plug 'honza/vim-snippets'
-
-
-Plug 'mbbill/undotree'                   " Fancy undo window
-Plug 'aperezdc/vim-template'           " Template files
-let g:templates_directory = '~/.vim/templates'
-
-" Default template data
-let g:license                            = "LGPL-3.0+"
-let g:username                           = "Paul Schaefer"
-let g:email                              = "paul@os-s.de"
-
-Plug 'Valloric/MatchTagAlways', {'for': ['xml', 'html', 'htmldjango']}           " Highlight matching xml tags
-Plug 'vim-airline/vim-airline'           " Fancy statusline
-Plug 'vim-airline/vim-airline-themes'
-
 Plug 'rust-lang/rust.vim', {'for': 'rust'}                " rust highlighting etc
 let g:rustfmt_autosave = 1
 let g:rustfmt_command = '/home/paul/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustfmt'
@@ -133,17 +95,10 @@ let g:racer_cmd='/home/paul/.cargo/bin/racer'
 
 Plug 'tkztmk/vim-vala', {'for': 'vala'}                   " vala highlighting etc
 
-Plug 'wesQ3/vim-windowswap'
 " Plug 'xolox/vim-misc'
 " Plug 'xolox/vim-session'                 " Session handling for tmux
 " let g:session_autoload = 'no'
 
-Plug 'mhinz/vim-grepper'
-let g:grepper = {
-            \ 'tools': ['rg', 'pt', 'ag', 'git', 'grep'],
-            \ 'open':  1,
-            \ 'jump':  0,
-            \ }
 
 Plug 'schaeferpp/vim-gnomealign'         " Gnome Parameter Align :GNOMEAlignArguments
 Plug 'vim-scripts/indentpython.vim', {'for': 'py'}
@@ -164,11 +119,7 @@ if has('nvim')
 
 endif
 
-Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
-Plug 'nelstrom/vim-markdown-folding', {'for': 'markdown'}
-
 " Plug 'Kazark/vim-SimpleSmoothScroll'
-
 
 Plug 'stfl/meson.vim' " this does ftdetect! , {'for': 'meson'}
 
@@ -177,8 +128,6 @@ Plug 'Chiel92/vim-autoformat', {'for': ['javascript', 'rust', 'c', 'cpp', 'objc'
 autocmd FileType javascript,c,cpp,objc,python nnoremap <buffer><Leader>cf :<C-u>Autoformat<CR>
 autocmd FileType javascript,c,cpp,objc,python vnoremap <buffer><Leader>cf :Autoformat<CR>
 
-Plug 'ctrlpvim/ctrlp.vim'
-
 Plug 'kshenoy/vim-signature'
 
 Plug 'tmhedberg/SimpylFold', {'for': 'python'}
@@ -186,9 +135,6 @@ Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 Plug 'neomake/neomake', {'for': 'tex'}
 au BufWritePost *.tex Neomake
 nnoremap <leader>mm :Neomake!<cr>
-
-Plug 'machakann/vim-highlightedyank'
-let g:highlightedyank_highlight_duration = 150
 
 Plug 'tpope/vim-speeddating'
 Plug 'jceb/vim-orgmode'
