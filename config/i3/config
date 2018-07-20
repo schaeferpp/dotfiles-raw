@@ -52,7 +52,8 @@ bindsym --release Print exec "scrot /home/paul/Pictures/Screenshot_$(date '+%Y-%
 bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer set Master 5%- unmute
 bindsym XF86AudioMute exec amixer set Master 1+ toggle
-bindsym XF86Calculator exec --no-startup-id gnome-calculator
+for_window [class="Calculator"] floating enable
+bindsym XF86Calculator exec --no-startup-id termite --class Calculator -e bc
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
