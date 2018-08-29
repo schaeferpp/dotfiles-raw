@@ -11,7 +11,7 @@
 ; background = #262626
 ; background-alt = #d7ff87
 
-background = #000000
+background = #1C1C1C
 background-hi = #0D0D0D
 
 background-alt = #4D585E
@@ -187,10 +187,21 @@ label-urgent-padding = 1
 [module/cpu]
 type = internal/cpu
 interval = 2
+format = <label> <ramp-coreload>
+width = 60
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 ;format-underline = #f90000
-label = %percentage%%
+label = %percentage:2:0%%
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
 
 ;[module/memory]
 ;type = internal/memory
@@ -232,6 +243,7 @@ bar-used-fill = ▐
 bar-used-empty = ▐
 bar-used-empty-foreground = #444444
 ; format-underline = #4bffdc
+;
 
 [module/eth]
 type = internal/network
@@ -257,7 +269,7 @@ format-connected = D <label-connected>
 ; ￬ <label-down>
 ; format-connected-underline = ${colors.underline-c}
 
-label-connected = %downspeed%
+label-connected = %downspeed:3:0%
 
 [module/upspeed]
 type = internal/network
@@ -268,7 +280,7 @@ format-connected = U <label-connected>
 ; ￬ <label-down>
 ; format-connected-underline = ${colors.underline-c}
 
-label-connected = %upspeed%
+label-connected = %upspeed:3:0%
 
 [module/date]
 type = internal/date
