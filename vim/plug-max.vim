@@ -143,6 +143,8 @@ Plug 'vim-scripts/SyntaxRange'
 
 Plug 'embear/vim-localvimrc'
 
+Plug 'sakhnik/nvim-gdb'
+
 " Plug 'blueyed/vim-diminactive'
 " let g:diminactive_buftype_whitelist = ['nofile']
 " let g:diminactive_use_syntax = 1

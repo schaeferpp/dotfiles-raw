@@ -1,6 +1,6 @@
 [user]
-	email = schaefer.pp@gmail.com
-	name = schaeferpp
+	email = paul@os-s.de
+	name = Paul Schaefer
 [mergetool]
 	keepTemporaries = false
     tool = vimdiff3

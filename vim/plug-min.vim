@@ -7,7 +7,8 @@ Plug 'tomtom/tcomment_vim'
 " let g:NERDCustomDelimiters = { 'c': { 'left': '/*','right': '*/' } }
 Plug 'vim-scripts/let-modeline.vim'      " extend modeline to `let`
 
-Plug 'majutsushi/tagbar', {'for': ['c', 'cpp', 'rust', 'javascript', 'python']}                " Tagbar
+" Plug 'majutsushi/tagbar', {'for': ['c', 'cpp', 'rust', 'javascript', 'python']}                " Tagbar
+Plug 'majutsushi/tagbar' " Tagbar
 
 Plug 'tpope/vim-fugitive'                " git
 Plug 'airblade/vim-gitgutter'
@@ -39,7 +40,7 @@ let g:templates_directory = '~/.vim/templates'
 " Default template data
 let g:license                            = "LGPL-3.0+"
 let g:username                           = "Paul Schaefer"
-let g:email                              = "schaefer.pp@gmail.com"
+let g:email                              = "paul@os-s.de"
 
 Plug 'Valloric/MatchTagAlways', {'for': ['xml', 'html', 'htmldjango']}           " Highlight matching xml tags
 Plug 'vim-airline/vim-airline'           " Fancy statusline
@@ -62,4 +63,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'machakann/vim-highlightedyank'
 let g:highlightedyank_highlight_duration = 150
+
+Plug 'vim-scripts/ReplaceWithRegister'
+
 " vim:ts=4:sts=4:sw=4
