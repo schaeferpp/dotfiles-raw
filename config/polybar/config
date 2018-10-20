@@ -247,7 +247,7 @@ bar-used-empty-foreground = #444444
 
 [module/eth]
 type = internal/network
-interface = enp1s0
+interface = eth0
 interval = 3.0
 
 format-connected = eth <label-connected>
@@ -262,7 +262,7 @@ format-disconnected =
 ;
 [module/downspeed]
 type = internal/network
-interface = enp1s0
+interface = eth0
 interval = 3.0
 
 format-connected = D <label-connected>
@@ -273,7 +273,7 @@ label-connected = %downspeed:3:0%
 
 [module/upspeed]
 type = internal/network
-interface = enp1s0
+interface = eth0
 interval = 3.0
 
 format-connected = U <label-connected>

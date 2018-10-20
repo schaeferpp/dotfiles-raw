@@ -1,6 +1,8 @@
 set background=dark
 set t_Co=256
-set termguicolors
+if has('nvim')
+:   set termguicolors
+endif
 " color wombat256mod
 " color badwolf
 " color desertink
