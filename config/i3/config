@@ -263,7 +263,7 @@ client.urgent #ff4040 #808080 #ff4040 #dddddd
 
 exec --no-startup-id nitrogen --restore
 # use feh instead (random-wallpaper.sh is just a wrapper)
-# exec --no-startup-id "/home/paul/bin/random-wallpaper.sh /home/paul/Pictures/chromecast_wallpapers/"
+exec --no-startup-id "/home/paul/bin/random-wallpaper.sh /home/paul/Pictures/chromecast_wallpapers/"
 exec --no-startup-id "dunst"
 exec --no-startup-id nm-applet
 exec --no-startup-id "xset dpms 300" # 5 minutes screen timeout
@@ -277,5 +277,4 @@ exec --no-startup-id "xfce4-power-manager"
 exec --no-startup-id "nextcloud"
 exec --no-startup-id setxkbmap gb,de -variant umlauts,nodeadkeys
 exec --no-startup-id "xset r rate 250 25"
-exec --no-startup-id "/home/paul/.screenlayout/work.sh"
-exec --no-startup-id "kwalletd5"
+exec --no-startup-id "xss-lock -- i3lock -n -f -c 000000"
