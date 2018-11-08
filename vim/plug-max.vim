@@ -20,6 +20,7 @@ Plug 'atweiden/vim-dragvisuals'          " Visually select something in block
 
 Plug 'edkolev/tmuxline.vim'
 Plug 'tmux-plugins/vim-tmux'             " tmux.conf highlighting
+Plug 'tpope/vim-dispatch'
 
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
@@ -30,6 +31,13 @@ if has('nvim')
     Plug 'carlitux/deoplete-ternjs',      { 'for': 'javascript' }
     Plug 'zchee/deoplete-clang'
     Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
+    Plug 'xolox/vim-lua-ftplugin',        { 'for': 'lua' }
+
+    let g:deoplete#enable_at_startup = 1
+    let g:lua_check_syntax = 0
+    let g:lua_complete_omni = 1
+    let g:lua_complete_dynamic = 0
+    let g:lua_define_completion_mappings = 0
 
     let g:deoplete#sources#rust#racer_binary='/home/paul/.cargo/bin/racer'
     let g:deoplete#sources#rust#rust_source_path='/home/paul/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
@@ -67,7 +75,7 @@ if has('nvim')
     " " let g:neotags_ctags_timeout = 300
     " let g:neotags#python#order = 'mfc'
 
-    Plug 'xolox/vim-misc', {'for': ['python', 'rust', 'c', 'cpp', 'javascript']} " dependency for easytags
+    Plug 'xolox/vim-misc', {'for': ['python', 'rust', 'c', 'cpp', 'javascript', 'lua']} " dependency for easytags and vim-lua-ftplugin
     Plug 'xolox/vim-easytags', {'for': ['python', 'rust', 'c', 'cpp', 'javascript']}
 
     let g:easytags_file = expand('$HOME') . '/.cache/vim/nvim-tags-' . substitute(getcwd(), '/', '%', 'g')
@@ -132,7 +140,7 @@ Plug 'kshenoy/vim-signature'
 
 Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 
-Plug 'neomake/neomake', {'for': 'tex'}
+Plug 'neomake/neomake', {'for': ['tex', 'plaintex']}
 au BufWritePost *.tex Neomake
 nnoremap <leader>mm :Neomake!<cr>
 
@@ -144,6 +152,9 @@ Plug 'vim-scripts/SyntaxRange'
 Plug 'embear/vim-localvimrc'
 
 Plug 'sakhnik/nvim-gdb'
+
+Plug 'easymotion/vim-easymotion'
+" map <Leader>g <Plug>(easymotion-prefix)
 
 " Plug 'blueyed/vim-diminactive'
 " let g:diminactive_buftype_whitelist = ['nofile']
