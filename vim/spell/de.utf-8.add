@@ -77,6 +77,7 @@ Basisstrukturen
 Bayes'sche
 Bayes'schen
 Bayes'sches
+Bearern
 Beispielkunden
 Beispielszenarien
 Benutzerinteraktion
@@ -455,6 +456,7 @@ Münzwurfs
 NSA
 NWK
 Nachrichtenseiten
+Nachrichtentyp
 Namensattribut
 Naturjoghurt
 Navision
@@ -536,6 +538,7 @@ Schadcode
 Schadsoftware
 Schichtpudding
 Schinzel
+Schlüsselableitung
 Schlüsselaterial
 Schlüsselaustausch
 Schlüsselfunds
@@ -661,6 +664,8 @@ VM
 Vedes
 Verbindungsdaten
 Verbindungsinformationen
+Verbindungsrichtung
+Verbindungsrichtungen
 Vererbungsstrukturen
 Vergleichswerkzeuge
 Verschleierungstechniken
@@ -830,7 +835,6 @@ quelloffene
 quelloffenen
 rawsocket
 resultirenden/!
-s
 schadenfrei
 schadensfrei/!
 schokoladiges
@@ -858,6 +862,3 @@ x32dbg
 Änderungsverlauf
 Überraschungsgäste
 Überwachungsnetzwerk
-Bearern
-Verbindungsrichtung
-Verbindungsrichtungen
