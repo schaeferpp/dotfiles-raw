@@ -35,6 +35,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec "termite -e tmux"
 bindsym $mod+Shift+Return exec termite -e 'bash -c "RANGERCD=true zsh"'
+bindsym $mod+Shift+x exec termite -e 'termite -e "nvim +terminal"'
 
 # kill focused window
 bindsym $mod+Shift+q kill

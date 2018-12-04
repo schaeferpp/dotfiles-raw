@@ -154,11 +154,22 @@ Plug 'embear/vim-localvimrc'
 Plug 'sakhnik/nvim-gdb'
 
 Plug 'easymotion/vim-easymotion'
+
+Plug 'kassio/neoterm'
+" let g:neoterm_keep_term_open=1
+let g:neoterm_keep_term_open=1
+let g:neoterm_default_mod=':tab'
+nnoremap ,,c :Tnew<CR>
+" Plug 'Vigemus/nvimux'
 " map <Leader>g <Plug>(easymotion-prefix)
 
 " Plug 'blueyed/vim-diminactive'
 " let g:diminactive_buftype_whitelist = ['nofile']
 " let g:diminactive_use_syntax = 1
 " let g:diminactive_use_colorcolumn = 0
+
+Plug 'dbeniamine/vim-mail'
+
+let g:VimMailFromContact="Paul Schaefer <paul@os-s.de>"
 
 " vim:ts=4:sts=4:sw=4

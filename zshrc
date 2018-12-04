@@ -160,6 +160,17 @@ alias sav="bookmark"
 
 [[ "$RANGERCD" = "true" ]] && unset RANGERCD && ranger-cd
 
+if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
+	alias h='nvr -o'
+	alias v='nvr -O'
+	alias edit='nvr --remote'
+	alias vim='nvr --remote-tab'
+    echo '"vim" is bound to open a file a new tab'
+    echo '"edit" is bound to open a file in the current tab'
+    echo '"h" is bound to open a file in a horizontal split'
+    echo '"v" is bound to open a file in a vertical split'
+fi
+
 date
 echo
 

@@ -5,6 +5,9 @@ nnoremap ; :
 nnoremap <F4> :set invhlsearch<CR>
 inoremap <F4> <ESC>:set invhlsearch<CR>gi
 
+nnoremap <F8> zM
+nnoremap <S-F8> zR
+
 vmap <C-d> :EasyAlign -/ \*\?/<l0>r0<CR>
 
 " nnoremap <Leader>mt :make tags<CR>
@@ -83,6 +86,7 @@ nmap zg zg]s
 nnoremap <C-Home> zc
 nnoremap <C-End> zo
 nnoremap <C-Space> zc
+nnoremap <S-Space> zO
 
 vmap <C-Space> zfzc
 vmap <Space> zo
@@ -108,5 +112,19 @@ nnoremap <C-S-f> :Grepper -highlight<CR>
 
 nnoremap <leader>q :bw<cr>
 
+" Reload vimrc
+nnoremap <C-e>r :source $MYVIMRC<CR>
+
+" Terminal mode
+tnoremap <Esc> <C-\><C-n>
+
 " autocmd FileType rust nmap <C-]> gd
+"
+let g:nvimux_prefix = '<C-b>',
+let g:nvimux_open_term_by_default = true,
+let g:nvimux_new_window_buffer = 'single',
+let g:nvimux_quickterm_direction = 'botright',
+let g:nvimux_quickterm_orientation = 'vertical',
+let g:nvimux_quickterm_scope = 't',
+let g:nvimux_quickterm_size = '80',
 
