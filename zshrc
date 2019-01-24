@@ -55,7 +55,7 @@ plugins=(git tmuxinator go cargo ssh-agent alias-tips)
 # User configuration
 
 export GOPATH=/home/paul/go
-export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/paul/.bin:/home/paul/.gem/ruby/2.3.0/bin:/home/paul/.local/bin/:/home/paul/bin"
+export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/paul/.bin:/home/paul/.gem/ruby/2.3.0/bin:/home/paul/.local/bin/:/home/paul/bin:~/.npm-global/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh

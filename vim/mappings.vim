@@ -120,11 +120,11 @@ tnoremap <Esc> <C-\><C-n>
 
 " autocmd FileType rust nmap <C-]> gd
 "
-let g:nvimux_prefix = '<C-b>',
-let g:nvimux_open_term_by_default = true,
-let g:nvimux_new_window_buffer = 'single',
-let g:nvimux_quickterm_direction = 'botright',
-let g:nvimux_quickterm_orientation = 'vertical',
-let g:nvimux_quickterm_scope = 't',
-let g:nvimux_quickterm_size = '80',
+" let g:nvimux_prefix = '<C-b>',
+" let g:nvimux_open_term_by_default = true,
+" let g:nvimux_new_window_buffer = 'single',
+" let g:nvimux_quickterm_direction = 'botright',
+" let g:nvimux_quickterm_orientation = 'vertical',
+" let g:nvimux_quickterm_scope = 't',
+" let g:nvimux_quickterm_size = '80',
 
