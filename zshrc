@@ -97,11 +97,11 @@ function ranger-cd {
     rm -f -- "$tempfile"
 }
 
-function chpwd() {
-    if [ -n $TMUX ]; then
-        tmux rename-window $(print -Pn '%~')
-    fi
-}
+# function chpwd() {
+#     if [ -n $TMUX ]; then
+#         tmux rename-window $(print -Pn '%~')
+#     fi
+# }
 
 function namedir() {
     eval $1=$PWD
