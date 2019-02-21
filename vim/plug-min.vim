@@ -7,8 +7,8 @@ Plug 'tomtom/tcomment_vim'
 " let g:NERDCustomDelimiters = { 'c': { 'left': '/*','right': '*/' } }
 Plug 'vim-scripts/let-modeline.vim'      " extend modeline to `let`
 
-" Plug 'majutsushi/tagbar', {'for': ['c', 'cpp', 'rust', 'javascript', 'python']}                " Tagbar
-Plug 'majutsushi/tagbar' " Tagbar
+Plug 'majutsushi/tagbar', {'for': ['c', 'cpp', 'javascript', 'python']}                " Tagbar
+" Plug 'majutsushi/tagbar' " Tagbar
 
 Plug 'tpope/vim-fugitive'                " git
 Plug 'airblade/vim-gitgutter'

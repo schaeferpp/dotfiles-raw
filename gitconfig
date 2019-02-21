@@ -1,17 +1,20 @@
 [user]
-	email = paul@os-s.de
-	name = Paul Schaefer
-[mergetool]
-	keepTemporaries = false
-    tool = vimdiff3
+    email = paul@os-s.de
+    name = Paul Schaefer
+[merge]
+    keepTemporaries = false
+    tool = nvim
 [core]
-	editor = vim
+    editor = vim
 [push]
-	default = simple
+    default = simple
 [diff]
-	tool = nvimdiff
+    tool = nvimdiff
 [difftool "nvimdiff"]
     cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+
+[mergetool "nvim"]
+    cmd = "nvim -d $LOCAL $MERGED $REMOTE"
 
 ; [merge]
 ; 	tool = nvimdiff
@@ -23,4 +26,4 @@
     lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
     lg = !"git lg1"
 [diff "odf"]
-	textconv = odt2prettytxt
+    textconv = odt2prettytxt

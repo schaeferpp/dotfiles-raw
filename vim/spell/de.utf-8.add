@@ -51,6 +51,7 @@ Attributliste
 Attributstruktur
 Attributtyp
 Attributtypen
+Audiodaten
 Audiowiedergabe
 Auftrittshäufigkeiten
 Auftrittswahrscheinlichkeit
@@ -62,6 +63,7 @@ Auswertungsprozeduren
 Authentifizierungs
 Authentifizierungsalgorithmen
 Authentifizierungsalgorithmus
+Authentifizierungsanfrage
 Authentifizierungsmechanismen
 Authentifizierungsprozeduren
 Authentifizierungsschnittstellen
@@ -81,6 +83,7 @@ Bayes'sche
 Bayes'schen
 Bayes'sches
 Bearern
+Bedrohungsmodell
 Beispielkunden
 Beispielszenarien
 Benutzerinteraktion
@@ -209,6 +212,7 @@ Datenimport
 Datenklasse
 Datenklassen
 Datenlänge
+Datenreihe
 Datenunabhängig/!
 Definiert
 Defragmentierung
@@ -289,7 +293,9 @@ FlexBoard
 FlexBoards
 Flowgraph
 Foodstylistin
+Framedauer
 Framenummer
+Framenummern
 Fremdcode
 Fremdschlüsselbeziehungen
 Funkkanal
@@ -305,6 +311,7 @@ Funktionspointer
 GIF
 GML
 GNURadio
+GNURadioCompanion
 Gefahrenanalyse
 Gelierzeiten
 Gerätehersteller
@@ -349,6 +356,7 @@ Hilfeseiten
 Himbeer
 Hinzufügens
 Honigfeigen
+Hostcomputer
 IPUI
 IPv6
 Identitätsspezifikation
@@ -419,6 +427,7 @@ Kriegsparteien
 Kräuterblüten
 Kundenname
 Kundenstammdaten
+Laufzeitumgebung
 Lauschwerkzeug
 Lawrance
 Leittext
@@ -446,6 +455,8 @@ Masterarbeit
 Mastersemester
 Masterstudium
 Maximierungsprinzip
+Medizinprodukt
+Medizinprodukte
 Mesotes
 Metadatenblock
 Metadatenblocks
@@ -481,6 +492,7 @@ Nachrichtenverlaufs
 Namensattribut
 Naturjoghurt
 Navision
+Netzwerkdiensten
 Netzwerkkomponenten
 Netzwerkprogrammierung
 Netzwerkprotokollen
@@ -510,6 +522,8 @@ PE32
 PHL
 PHP
 PKI
+Paketliste
+Paketlängen
 Paketnummer
 Parallelisierungsalgorithmen
 Parallelisierungslösung
@@ -543,10 +557,13 @@ Quelltextversionierung
 Quellverbindung
 RFID
 Rawsockets
+Realzeit
 Rechtekonzept
 Referenzimplementierung
 Referenzzähler
 Regierungsorganisationen
+Resampler
+Resampling
 Rezensionszwecken
 Rezeptangebot
 Rezeptauswahl
@@ -560,6 +577,8 @@ Rundkorn
 Rückgabewert
 SELinux
 SSLv3
+Samplenummer
+Samplenummern
 Samplerate
 Samplingalgorithmus
 Schadcode
@@ -591,7 +610,9 @@ Shamir
 Sicherheitanalyse/!
 Sicherheitprobleme
 Sicherheitsanalyse
+Sicherheitsanwendungen
 Sicherheitsarchitektur
+Sicherheitsbetrachtung
 Sicherheitschwachstellen
 Sicherheitsgefahren
 Sicherheitslösungen
@@ -603,9 +624,11 @@ Sicherheitsmodells
 Sicherheitsprobleme
 Sicherheitsproblemen
 Sicherheitsrisiken
+Signalquelle
 Signaturscans
 Signaturüberprüfungen
 Skripte
+Skriptsprache
 Smartphone
 Smartphones
 Snowden
@@ -645,6 +668,7 @@ Superblock
 Synchronisationsdienst
 Synchronisationswort
 Synchronisationswortes
+Synchronisationswörtern
 SystemUI
 Systemanforderungen
 Systemdialog
@@ -695,9 +719,11 @@ VCS
 VM
 Vedes
 Verbindungsdaten
+Verbindungserkennung
 Verbindungsinformationen
 Verbindungsrichtung
 Verbindungsrichtungen
+Verbindungsverwaltung
 Vererbungsstrukturen
 Vergleichswerkzeuge
 Verschleierungstechniken
@@ -847,6 +873,7 @@ instanziiert
 integritätsgesichert
 integritätsgesicherten
 interpersonelle
+kabelgebundener
 klassenartige
 komplexwertiges
 konzeptioniert
@@ -859,6 +886,7 @@ m
 menschilcher/!
 mfks
 minzigem
+mitliest
 mkdir
 mkfs
 nachgehalten
@@ -869,7 +897,10 @@ normalverteilte
 obfuskiert
 obfuskiertes
 pcap
+performant
 plattformunabhängige
+protokollspezifische
+protokollspezifischen
 pyhsikalischen/!
 quelloffene
 quelloffenen
@@ -898,11 +929,13 @@ versionierte
 versionierten
 vfs
 vollumfänglich
+weitern/!
 x32dbg
 Änderungsverfolgung
 Änderungsverlauf
 Überraschungsgäste
 Überwachungsnetzwerk
+<<<<<<< HEAD
 Verbindungsverwaltung
 Paketliste
 Samplenummern
@@ -949,3 +982,5 @@ Stromzählerdaten
 Authentifizierungsverfahren
 kabellose
 Protokollvariante
+=======
+>>>>>>> 53872ef4d22b407f0277db64cc5a5a21358fc5b1
