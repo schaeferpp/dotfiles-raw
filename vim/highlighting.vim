@@ -8,7 +8,9 @@ endif
 " color desertink
 " color gotham256
 " color jellybeans
+
 color OceanicNext
+" color primary
 
 "color seti
 "

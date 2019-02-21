@@ -32,6 +32,10 @@ if has('nvim')
     Plug 'zchee/deoplete-clang'
     Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
     Plug 'xolox/vim-lua-ftplugin',        { 'for': 'lua' }
+    " Plug 'autozimu/LanguageClient-neovim'
+    " let g:LanguageClient_serverCommands = {
+    "     \ 'kotlin': ['~/bin/kotlin-language-server'],
+    "     \ }
 
     let g:deoplete#enable_at_startup = 1
     let g:lua_check_syntax = 0
@@ -132,6 +136,7 @@ endif
 Plug 'stfl/meson.vim' " this does ftdetect! , {'for': 'meson'}
 
 Plug 'Chiel92/vim-autoformat', {'for': ['javascript', 'rust', 'c', 'cpp', 'objc', 'python']}
+let g:formatters_python = ['black']
 " map to <Leader>cf in C code
 autocmd FileType javascript,c,cpp,objc,python nnoremap <buffer><Leader>cf :<C-u>Autoformat<CR>
 autocmd FileType javascript,c,cpp,objc,python vnoremap <buffer><Leader>cf :Autoformat<CR>
@@ -171,5 +176,21 @@ nnoremap ,,c :Tnew<CR>
 Plug 'dbeniamine/vim-mail'
 
 let g:VimMailFromContact="Paul Schaefer <paul@os-s.de>"
+
+
+Plug 'rhysd/vim-grammarous'
+
+Plug 'udalov/kotlin-vim', {'for': ['kotlin']}
+
+Plug 'davidhalter/jedi-vim', {'for': ['python']}
+let g:jedi#use_tabs_not_buffers = 0  " use buffers instead of tabs
+let g:jedi#show_call_signatures = "1"
+let g:jedi#goto_command = "gd"
+let g:jedi#goto_assignments_command = "ga"
+let g:jedi#goto_definitions_command = "<localleader>gg"
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<localleader>u"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<leader>r"
 
 " vim:ts=4:sts=4:sw=4

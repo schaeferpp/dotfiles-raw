@@ -55,7 +55,7 @@ plugins=(git tmuxinator go cargo ssh-agent alias-tips)
 # User configuration
 
 export GOPATH=/home/paul/go
-export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/paul/.bin:/home/paul/.gem/ruby/2.3.0/bin:/home/paul/.local/bin/:/home/paul/bin"
+export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/paul/.bin:/home/paul/.gem/ruby/2.3.0/bin:/home/paul/.local/bin/:/home/paul/bin:/home/paul/go/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -135,6 +135,13 @@ bindkey '^r' history-incremental-search-backward
 
 bindkey "^[l" forward-word
 bindkey "^[h" backward-word
+
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}" end-of-line
+bindkey "\e[3~" delete-char
+bindkey "${terminfo[kich1]}" quoted-insert
+bindkey "\e[H" beginning-of-line
+bindkey "\e[F" end-of-line
 
 function zle-line-init zle-keymap-select {
     VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"

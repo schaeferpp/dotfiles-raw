@@ -21,6 +21,8 @@ call plug#begin('~/.vim/plugged')
     " Plug 'whatyouhide/vim-gotham'
     Plug 'mhartington/oceanic-next'
 
+    Plug 'google/vim-colorscheme-primary'
+
 call plug#end()
 
 " vim:ts=4:sts=4:sw=4
