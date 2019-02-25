@@ -17,11 +17,6 @@ try
     endtry
 
     try
-        source ~/.vim/cscope-mappings.vim
-    catch
-    endtry
-
-    try
         source ~/.vim/indentation.vim
     catch
     endtry

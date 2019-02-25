@@ -121,15 +121,16 @@ Plug 'vim-scripts/a.vim', {'for': 'c'}                " Alternate header
 "Plug 'chazy/cscope_maps'
 Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
 
-if has('nvim')
-    Plug 'mfulz/cscope.nvim', {'for': 'c'}
-    let g:cscope_update_on_start = 1
-
-    silent !mkdir -p ~/.cache/cscope_dir > /dev/null 2>&1
-    let g:cscope_dir = '~/.cache/cscope_dir'
-    let g:cscope_map_keys = 1
-
-endif
+Plug 'chazy/cscope_maps', {'for': 'c'}
+" if has('nvim')
+"     Plug 'mfulz/cscope.nvim', {'for': 'c'}
+"     let g:cscope_update_on_start = 1
+"
+"     silent !mkdir -p ~/.cache/cscope_dir > /dev/null 2>&1
+"     let g:cscope_dir = '~/.cache/cscope_dir'
+"     let g:cscope_map_keys = 1
+"
+" endif
 
 " Plug 'Kazark/vim-SimpleSmoothScroll'
 

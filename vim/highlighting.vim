@@ -9,7 +9,8 @@ endif
 " color gotham256
 " color jellybeans
 
-color OceanicNext
+" color OceanicNext
+color molokai
 " color primary
 
 "color seti
