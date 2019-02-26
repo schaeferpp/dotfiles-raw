@@ -107,6 +107,18 @@ function namedir() {
     eval $1=$PWD
     echo ~$1
 }
+
+function man() {
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    command man "$@"
+}
+
+
 # namedir () { $1=$PWD ;  : ~$1 }
 
 alias pse="yay -Ss "

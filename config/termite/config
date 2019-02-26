@@ -96,44 +96,87 @@ scrollback_lines = 10000
 # color12 = #AFD75F
 # color13 = DF0858
 
+##############################################
+#                                            #
+# COLORS USED WITH OCEANIC_NEXT COLOR SCHEME #
+#                                            #
+##############################################
+
+# # special
+# foreground      = #ffffff
+# foreground_bold = #ffffff
+# cursor          = #dddddd
+# # background      = rgba(18, 18, 18, 0.94)
+# background      = #1C1C1C
+#
+# # black
+# color0  = #2a2a2a
+# color8  = #808080
+#
+# # red
+# color1  = #ff4040
+# color9  = #ff8080
+#
+# # green
+# color2  = #91b365
+# color10 = #a4b391
+#
+# # yellow
+# color3  = #ffc266
+# color11 = #ffd18c
+#
+# # blue
+# color4  = #5eb9eb
+# color12 = #81c0eb
+#
+# # magenta
+# color5  = #8f5eeb
+# color13 = #af8cff
+#
+# # cyan
+# color6  = #5ecceb
+# color14 = #437a7a
+#
+# # white
+# color7  = #666666
+# color15 = #dddddd
+
 
 # special
 foreground      = #ffffff
 foreground_bold = #ffffff
-cursor          = #dddddd
+cursor          = #AAAAAA
 # background      = rgba(18, 18, 18, 0.94)
-background      = #1C1C1C
+background      = #21212
 
 # black
-color0  = #2a2a2a
+color0  = #212121
 color8  = #808080
 
 # red
-color1  = #ff4040
-color9  = #ff8080
+color1  = #ff5370
+color9  = #e53935
 
 # green
-color2  = #91b365
-color10 = #a4b391
+color2  = #c3e88d
+color10 = #91b859
 
 # yellow
-color3  = #ffc266
-color11 = #ffd18c
+color3  = #ffcb6b
+color11 = #91b859
 
 # blue
-color4  = #5eb9eb
-color12 = #81c0eb
+color4  = #6182b8
+color12 = #82aaff
 
 # magenta
-color5  = #8f5eeb
-color13 = #af8cff
+color5  = #f07178
+color13 = #ff5370
 
 # cyan
-color6  = #5ecceb
-color14 = #437a7a
+color6  = #89ddff
+color14 = #39adb5
 
 # white
-color7  = #666666
+color7  = #ffffff
 color15 = #dddddd
-
-

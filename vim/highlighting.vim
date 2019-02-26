@@ -10,7 +10,8 @@ endif
 " color jellybeans
 
 " color OceanicNext
-color molokai
+" color molokai
+color material
 " color primary
 
 "color seti
@@ -41,8 +42,8 @@ function! OverrideHighlights()
 
     hi Folded guifg=#AAAAAA guibg=#444444 gui=NONE
 
-    hi Normal ctermbg=NONE guibg=NONE
-    hi InactiveWin guibg=#121212
+    hi Normal guifg=#ffffff ctermbg=NONE guibg=NONE
+    " hi InactiveWin guibg=#121212
     hi ActiveWin guibg=NONE
 
     set winhighlight=Normal:ActiveWin,NormalNC:InactiveWin

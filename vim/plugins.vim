@@ -22,6 +22,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mhartington/oceanic-next'
 
     Plug 'tomasr/molokai'
+    Plug 'kaicataldo/material.vim'
 
     Plug 'google/vim-colorscheme-primary'
 
