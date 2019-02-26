@@ -266,7 +266,7 @@ for_window [class=".*"] title_format "<small><i>[%class]</i></small> <b>%title</
 
 # <colorclass> <border> <background> <text> <indicator> <child_border>
 #
-client.focused #82aaff #212121 #82aaff #6182b8 #82aaff
+client.focused #82aaff #212121 #82aaff #ff5370 #82aaff
 client.focused_inactive #FFFFFF #212121 #82aaff #87ceeb #AAAAAA
 
 client.unfocused #AAAAAA #212121 #AAAAAA #212121
