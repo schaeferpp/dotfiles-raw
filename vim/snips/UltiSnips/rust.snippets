@@ -1,0 +1,15 @@
+snippet implDisplay "Implement Display"
+impl fmt::Display for ${1} {
+	fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+		write!("${2}", self.${3})
+	}
+}
+endsnippet
+
+snippet implDebug "Implement Debug"
+impl fmt::Debug for ${1} {
+	fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+		write!("${2}", self.${3})
+	}
+}
+endsnippet
