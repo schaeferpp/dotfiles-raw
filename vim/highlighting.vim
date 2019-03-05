@@ -1,7 +1,7 @@
 set background=dark
 set t_Co=256
 if has('nvim')
-:   set termguicolors
+    set termguicolors
 endif
 " color wombat256mod
 " color badwolf
@@ -11,6 +11,7 @@ endif
 
 " color OceanicNext
 " color molokai
+let g:material_theme_style = 'dark'
 color material
 " color primary
 
@@ -30,8 +31,8 @@ set cursorline
 
 function! OverrideHighlights()
     " hi CursorLine term=underline ctermfg=NONE ctermbg=235 guibg='#2C3234'
-    hi CursorLine term=underline ctermfg=NONE ctermbg=235 guibg='#222222'
-    "hi ColorColumn term=underline ctermfg=NONE ctermbg=235 guibg='#2C3234'
+    hi CursorLine term=underline ctermfg=NONE ctermbg=235 guibg='#1A1A1A'
+    hi ColorColumn term=underline ctermfg=NONE ctermbg=235 guibg='#1A1A1A'
     hi Search cterm=bold,underline ctermbg=black ctermfg=yellow
 
     hi clear SpellBad
@@ -42,7 +43,7 @@ function! OverrideHighlights()
 
     hi Folded guifg=#AAAAAA guibg=#444444 gui=NONE
 
-    hi Normal guifg=#ffffff ctermbg=NONE guibg=NONE
+    hi Normal guifg=#ffffff ctermbg=NONE guibg=#1e1e1e
     " hi InactiveWin guibg=#121212
     hi ActiveWin guibg=NONE
 
