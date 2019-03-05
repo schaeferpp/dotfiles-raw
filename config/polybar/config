@@ -241,7 +241,7 @@ bar-used-empty-foreground = #444444
 
 [module/eth]
 type = internal/network
-interface = eth0
+<--(polybar_interface)-->
 interval = 3.0
 
 format-connected = eth <label-connected>
@@ -256,7 +256,7 @@ format-disconnected =
 ;
 [module/downspeed]
 type = internal/network
-interface = eth0
+<--(polybar_interface)-->
 interval = 3.0
 
 format-connected = D <label-connected>
