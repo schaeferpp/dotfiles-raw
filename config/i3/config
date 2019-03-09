@@ -111,6 +111,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+Tab layout toggle tabbed splith
+bindsym $mod+slash layout toggle splitv splith
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -273,20 +274,22 @@ client.unfocused #AAAAAA #212121 #AAAAAA #212121
 
 client.urgent #ff5370 #212121 #ff5370 #212121
 
-exec --no-startup-id nitrogen --restore
 # use feh instead (random-wallpaper.sh is just a wrapper)
-exec --no-startup-id "/home/paul/bin/random-wallpaper.sh /home/paul/Pictures/chromecast_wallpapers/"
-exec --no-startup-id "dunst"
-exec --no-startup-id nm-applet
+exec --no-startup-id "~/.screenlayout/default.sh"
+exec --no-startup-id "xset r rate 250 25" # Speed of keyboard input rate on hold
 exec --no-startup-id "xset dpms 300" # 5 minutes screen timeout
-# exec --no-startup-id "/home/paul/bin/switch_monitors.sh"
-exec --no-startup-id "compton -I 0.15 -O 0.15 -C"
-exec --no-startup-id "polybar top"
-exec --no-startup-id "polybar bottom"
+exec --no-startup-id "compton -I 0.15 -O 0.15 -C --inactive-dim 0.1"
 exec --no-startup-id "xfsettingsd"
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 exec --no-startup-id "xfce4-power-manager"
+
+
+exec --no-startup-id "nm-applet"
+exec --no-startup-id "dunst"
 exec --no-startup-id "nextcloud"
-exec --no-startup-id setxkbmap gb,de -variant umlauts,nodeadkeys
-exec --no-startup-id "xset r rate 250 25"
+exec --no-startup-id "setxkbmap gb,de -variant umlauts,nodeadkeys"
 exec --no-startup-id "xss-lock -- i3lock -n -f -c 000000"
+
+exec --no-startup-id "nitrogen --restore"
+exec --no-startup-id "polybar top"
+exec --no-startup-id "polybar bottom"
