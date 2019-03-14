@@ -3,7 +3,7 @@ printf("%s:%d (%s): ${1}\n", __FILE__, __LINE__, __func__${2});
 endsnippet
 
 snippet kdbg "Debug print"
-printk(KERN_ERR "%s:%d (%s): ${1}\n", __FILE__, __LINE__, __func__${2});
+pr_err("%s:%d (%s): ${1}\n", __FILE__, __LINE__, __func__${2});
 endsnippet
 
 snippet errout "Debug Print to stderr"
