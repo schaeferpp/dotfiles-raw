@@ -80,11 +80,11 @@ if has('nvim')
     " let g:neotags#python#order = 'mfc'
 
     Plug 'xolox/vim-misc', {'for': ['python', 'rust', 'c', 'cpp', 'javascript', 'lua']} " dependency for easytags and vim-lua-ftplugin
-    Plug 'xolox/vim-easytags', {'for': ['python', 'rust', 'c', 'cpp', 'javascript']}
+    " Plug 'xolox/vim-easytags', {'for': ['python', 'rust', 'c', 'cpp', 'javascript']}
 
-    let g:easytags_file = expand('$HOME') . '/.cache/vim/nvim-tags-' . substitute(getcwd(), '/', '%', 'g')
-    let g:easytags_async = 1
-    let g:easytags_autorecurse = 1
+    " let g:easytags_file = expand('$HOME') . '/.cache/vim/nvim-tags-' . substitute(getcwd(), '/', '%', 'g')
+    " let g:easytags_async = 1
+    " let g:easytags_autorecurse = 1
 endif
 
 Plug 'fatih/vim-go', {'for': 'go'}
@@ -118,10 +118,9 @@ Plug 'vim-scripts/indentpython.vim', {'for': 'py'}
 
 Plug 'vim-scripts/a.vim', {'for': 'c'}                " Alternate header
 
-"Plug 'chazy/cscope_maps'
 Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
 
-Plug 'chazy/cscope_maps', {'for': 'c'}
+Plug 'chazy/cscope_maps', {'for': ['c', 'cpp']}
 " if has('nvim')
 "     Plug 'mfulz/cscope.nvim', {'for': 'c'}
 "     let g:cscope_update_on_start = 1

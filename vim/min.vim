@@ -33,7 +33,8 @@ syntax on
 let mapleader = ","
 
 " Use system clipboard
-set clipboard=unnamedplus,unnamed
+set clipboard=unnamedplus
+
 
 set nohlsearch
 
@@ -91,5 +92,23 @@ if has('gui_running')
     set guioptions-=L " Left scrollbar
     set guioptions-=r " Right scrollbar
 endif
+
+set wrap
+set linebreak
+let &showbreak=' ⇒ '
+
+let g:clipboard = {
+        \   'name': 'xsel - bin',
+        \   'copy': {
+        \      '+': '/usr/bin/xsel -i -b',
+        \      '*': '/usr/bin/xsel -i -p',
+        \    },
+        \   'paste': {
+        \      '+': '/usr/bin/xsel -b',
+        \      '*': '/usr/bin/xsel -p',
+        \   },
+        \   'cache_enabled': 0,
+\ }
+
 
 " vim:ts=4:sts=4:sw=4
