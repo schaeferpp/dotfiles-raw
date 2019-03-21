@@ -136,7 +136,7 @@ Plug 'chazy/cscope_maps', {'for': ['c', 'cpp']}
 
 Plug 'stfl/meson.vim' " this does ftdetect! , {'for': 'meson'}
 
-Plug 'Chiel92/vim-autoformat', {'for': ['javascript', 'rust', 'c', 'cpp', 'objc', 'python']}
+Plug 'Chiel92/vim-autoformat', {'for': ['javascript', 'rust', 'c', 'cpp', 'objc', 'python', 'html']}
 let g:formatters_python = ['black']
 " map to <Leader>cf in C code
 autocmd FileType javascript,c,cpp,objc,python nnoremap <buffer><Leader>cf :<C-u>Autoformat<CR>

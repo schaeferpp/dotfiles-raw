@@ -98,30 +98,17 @@ set linebreak
 let &showbreak=' ⇒ '
 
 " let g:clipboard = {
-"         \   'name': 'xsel - bin',
+"         \   'name': 'wl-copy',
 "         \   'copy': {
-"         \      '+': '/usr/bin/xsel -i -b',
-"         \      '*': '/usr/bin/xsel -i -p',
+"         \      '+': '/usr/bin/wl-copy',
+"         \      '*': '/usr/bin/wl-copy',
 "         \    },
 "         \   'paste': {
-"         \      '+': '/usr/bin/xsel -b',
-"         \      '*': '/usr/bin/xsel -p',
+"         \      '+': '/usr/bin/wl-paste -n',
+"         \      '*': '/usr/bin/wl-paste -p -n',
 "         \   },
 "         \   'cache_enabled': 0,
 " \ }
-
-let g:clipboard = {
-        \   'name': 'wl-copy',
-        \   'copy': {
-        \      '+': '/usr/bin/wl-copy',
-        \      '*': '/usr/bin/wl-copy -p',
-        \    },
-        \   'paste': {
-        \      '+': '/usr/bin/wl-paste -n',
-        \      '*': '/usr/bin/wl-paste -p -n',
-        \   },
-        \   'cache_enabled': 0,
-\ }
 
 
 " vim:ts=4:sts=4:sw=4
