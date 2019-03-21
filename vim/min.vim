@@ -97,15 +97,28 @@ set wrap
 set linebreak
 let &showbreak=' ⇒ '
 
+" let g:clipboard = {
+"         \   'name': 'xsel - bin',
+"         \   'copy': {
+"         \      '+': '/usr/bin/xsel -i -b',
+"         \      '*': '/usr/bin/xsel -i -p',
+"         \    },
+"         \   'paste': {
+"         \      '+': '/usr/bin/xsel -b',
+"         \      '*': '/usr/bin/xsel -p',
+"         \   },
+"         \   'cache_enabled': 0,
+" \ }
+
 let g:clipboard = {
-        \   'name': 'xsel - bin',
+        \   'name': 'wl-copy',
         \   'copy': {
-        \      '+': '/usr/bin/xsel -i -b',
-        \      '*': '/usr/bin/xsel -i -p',
+        \      '+': '/usr/bin/wl-copy',
+        \      '*': '/usr/bin/wl-copy -p',
         \    },
         \   'paste': {
-        \      '+': '/usr/bin/xsel -b',
-        \      '*': '/usr/bin/xsel -p',
+        \      '+': '/usr/bin/wl-paste -n',
+        \      '*': '/usr/bin/wl-paste -p -n',
         \   },
         \   'cache_enabled': 0,
 \ }
