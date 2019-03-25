@@ -110,18 +110,18 @@ let &showbreak=' ⇒ '
 "         \   'cache_enabled': 0,
 " \ }
 
-let g:clipboard = {
-        \   'name': 'wl-copy',
-        \   'copy': {
-        \      '+': '/usr/bin/wl-copy',
-        \      '*': '/usr/bin/wl-copy -p',
-        \    },
-        \   'paste': {
-        \      '+': '/usr/bin/wl-paste -n',
-        \      '*': '/usr/bin/wl-paste -p -n',
-        \   },
-        \   'cache_enabled': 0,
-\ }
+" let g:clipboard = {
+"         \   'name': 'wl-copy',
+"         \   'copy': {
+"         \      '+': '/usr/bin/wl-copy',
+"         \      '*': '/usr/bin/wl-copy -p',
+"         \    },
+"         \   'paste': {
+"         \      '+': '/usr/bin/wl-paste -n',
+"         \      '*': '/usr/bin/wl-paste -p -n',
+"         \   },
+"         \   'cache_enabled': 0,
+" \ }
 
 
 " vim:ts=4:sts=4:sw=4
