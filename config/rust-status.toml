@@ -18,7 +18,7 @@ interval = 2
 [[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "{MUg} MB / {MTg} MB"
+format_mem = "{MUg} GB / {MTg} GB"
 format_swap = "{SUp}%"
 
 [[block]]

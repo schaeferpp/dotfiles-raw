@@ -110,5 +110,15 @@ let &showbreak=' ⇒ '
 "         \   'cache_enabled': 0,
 " \ }
 
-
-" vim:ts=4:sts=4:sw=4
+let g:clipboard = {
+        \   'name': 'wl-copy',
+        \   'copy': {
+        \      '+': '/usr/bin/wl-copy --type UTF8_STRING',
+        \      '*': '/usr/bin/wl-copy --type UTF8_STRING -p',
+        \    },
+        \   'paste': {
+        \      '+': '/usr/bin/wl-paste -n',
+        \      '*': '/usr/bin/wl-paste -p -n',
+        \   },
+        \   'cache_enabled': 0,
+\ }
