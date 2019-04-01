@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Input 9
+font pango:Monoid 7
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -50,7 +50,7 @@ bindsym $mod+Escape exec "swaylock -f -c 000000"
 
 bindsym --release Shift+Print exec 'grim -g "$(/usr/bin/slurp)" /home/paul/Pictures/Screenshot_$(date "+%Y-%m-%d_%H:%M:%S").png'
 # bindsym --release Control+Shift+Print exec "bash /home/paul/bin/scrot.sh"
-bindsym --release Print exec "scrot /home/paul/Pictures/Screenshot_$(date '+%Y-%m-%d_%H:%M:%S').png"
+bindsym --release Print exec "grim /home/paul/Pictures/Screenshot_$(date '+%Y-%m-%d_%H:%M:%S').png"
 
 #bindsym Shift+Print exec notify-send hello
 
@@ -59,7 +59,6 @@ bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer set Master 5%- unmute
 bindsym XF86AudioMute exec amixer set Master 1+ toggle
 for_window [class="Calculator"] floating enable
-for_window [app_id="launcher"] floating enable
 bindsym XF86Calculator exec --no-startup-id termite --title Calculator -e "bc -l"
 
 # start dmenu (a program launcher)
@@ -188,7 +187,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r reload
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to logout?' -b 'Yes, log out' 'swaymsg exit'"
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to log out?' -b 'Yes, logout' 'swaymsg exit'"
 
 # Change monitor mirroring
 # bindsym  Control+F7 exec --no-startup-id "/home/paul/bin/switch_monitors.sh; sleep 3; /home/paul/bin/polybar-restart.sh"
@@ -252,6 +251,7 @@ new_window pixel 1
 for_window [class=".*"] title_format "<small><i>[%class]</i></small> <b>%title</b>"
 for_window [title="wl-clipboard"] floating enable
 for_window [title="Calculator"] floating enable
+for_window [app_id="launcher"] floating enable
 
 
 input * {
@@ -259,21 +259,21 @@ input * {
     xkb_variant umlauts,nodeadkeys
 }
 
-output eDP-1 {
+output DP-1 {
     pos 0 0 res 1920x1080
-    bg "/home/paul/cloud.realcyber.de/SofortUpload/Snapseed/DJI_0035-01.jpeg" fill
+    bg "/home/paul/Pictures/wall0.jpg" fill
 
 }
 
 output HDMI-A-1 {
-    pos 1920 0 res 2560x1440
-    bg "/home/paul/Pictures/DJI_0162.jpg" fill
+    # pos 1920 0 res 2560x1440
+    bg "/home/paul/Pictures/wall1.jpg" fill
 }
 
-output VGA-1 {
-    pos 4480 0 res 1920x1080
-    bg "/home/paul/cloud.realcyber.de/SofortUpload/Snapseed/DJI_0067-01.jpeg" fill
-}
+# output VGA-1 {
+#     # pos 4480 0 res 1920x1080
+#     bg "/home/paul/Pictures/wall2.jpg" fill
+# }
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -288,9 +288,9 @@ bar {
             background #212121
             statusline #AAAAAA
             focused_workspace #82aaff #82aaff #000000
-            active_workspace #6182b8 #6182b8 #aaaaaa
-            inactive_workspace #212121 #212121 #aaaaaa
-            urgent_workspace #212121 #ff5370 #000000
+            active_workspace #6182b8 #6182b8 #ffffff
+            inactive_workspace #212121 #212121 #ffffff
+            urgent_workspace #82aaff #ff5370 #000000
     }
 }
 
@@ -314,9 +314,9 @@ exec_always {
 # use feh instead (random-wallpaper.sh is just a wrapper)
 exec --no-startup-id "xfsettingsd"
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-exec --no-startup-id "xfce4-power-manager"
+# exec --no-startup-id "xfce4-power-manager"
 exec --no-startup-id "dunst"
 exec --no-startup-id "/home/paul/bin/lock-on-idle"
 
-exec --no-startup-id "nm-applet"
+# exec --no-startup-id "nm-applet"
 exec --no-startup-id "nextcloud"

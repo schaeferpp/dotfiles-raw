@@ -9,7 +9,7 @@ cpu = " "
 
 [[block]]
 block = "net"
-device = "eth0"
+device = "enp2s0"
 ip = true
 speed_up = true
 speed_down = true

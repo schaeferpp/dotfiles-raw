@@ -5,6 +5,12 @@
             "args": ["start"],
             "filetypes": ["sh"],
             "ignoredRootPaths": ["~"]
+        },
+        "golang": {
+            "command": "/home/paul/go/bin/bingo",
+            "args": ["--diagnostics-style=instant"],
+            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+            "filetypes": ["go"]
         }
     }
 }

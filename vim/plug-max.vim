@@ -25,6 +25,8 @@ Plug 'tpope/vim-dispatch'
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 if has('nvim')
+    Plug 'Shougo/neco-vim'
+    Plug 'neoclide/coc-neco'
     Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
     " Plug 'Shougo/deoplete.nvim',          { 'do': ':UpdateRemotePlugins' }
     " Plug 'zchee/deoplete-jedi',           { 'for': 'python' }
