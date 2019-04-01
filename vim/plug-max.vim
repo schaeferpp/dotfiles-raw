@@ -25,34 +25,34 @@ Plug 'tpope/vim-dispatch'
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 if has('nvim')
-    Plug 'Shougo/neco-vim'
-    Plug 'neoclide/coc-neco'
-    Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-    " Plug 'Shougo/deoplete.nvim',          { 'do': ':UpdateRemotePlugins' }
-    " Plug 'zchee/deoplete-jedi',           { 'for': 'python' }
-    " Plug 'zchee/deoplete-go',             { 'for': 'go' }
-    " Plug 'carlitux/deoplete-ternjs',      { 'for': 'javascript' }
-    " Plug 'zchee/deoplete-clang'
-    " Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
-    " Plug 'xolox/vim-lua-ftplugin',        { 'for': 'lua' }
-    " " Plug 'autozimu/LanguageClient-neovim'
-    " " let g:LanguageClient_serverCommands = {
-    " "     \ 'kotlin': ['~/bin/kotlin-language-server'],
-    " "     \ }
-    "
-    " let g:deoplete#enable_at_startup = 1
-    " let g:lua_check_syntax = 0
-    " let g:lua_complete_omni = 1
-    " let g:lua_complete_dynamic = 0
-    " let g:lua_define_completion_mappings = 0
-    "
-    " let g:deoplete#sources#rust#racer_binary='/home/paul/.cargo/bin/racer'
-    " let g:deoplete#sources#rust#rust_source_path='/home/paul/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
-    " let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
-    " let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
-    "
-    " " Plug 'Shougo/neco-vim'
-    " let g:deoplete#enable_at_startup = 1
+    " Plug 'Shougo/neco-vim'
+    " Plug 'neoclide/coc-neco'
+    " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+    Plug 'Shougo/deoplete.nvim',          { 'do': ':UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-jedi',           { 'for': 'python' }
+    Plug 'zchee/deoplete-go',             { 'for': 'go' }
+    Plug 'carlitux/deoplete-ternjs',      { 'for': 'javascript' }
+    Plug 'zchee/deoplete-clang'
+    Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
+    Plug 'xolox/vim-lua-ftplugin',        { 'for': 'lua' }
+    " Plug 'autozimu/LanguageClient-neovim'
+    " let g:LanguageClient_serverCommands = {
+    "     \ 'kotlin': ['~/bin/kotlin-language-server'],
+    "     \ }
+
+    let g:deoplete#enable_at_startup = 1
+    let g:lua_check_syntax = 0
+    let g:lua_complete_omni = 1
+    let g:lua_complete_dynamic = 0
+    let g:lua_define_completion_mappings = 0
+
+    let g:deoplete#sources#rust#racer_binary='/home/paul/.cargo/bin/racer'
+    let g:deoplete#sources#rust#rust_source_path='/home/paul/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+    let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+    let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
+
+    " Plug 'Shougo/neco-vim'
+    let g:deoplete#enable_at_startup = 1
 else
     Plug 'Valloric/YouCompleteMe'
     Plug 'rdnetto/YCM-Generator', { 'branch': 'develop'} 

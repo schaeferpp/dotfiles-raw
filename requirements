@@ -1,0 +1,1 @@
+pacman -S grim waybar sway swaylock swayidle dunst slurp bc

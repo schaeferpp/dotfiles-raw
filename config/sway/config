@@ -279,7 +279,8 @@ output HDMI-A-1 {
 # finds out, if available)
 bar {
     font pango:Monoid 8
-    status_command /home/paul/bin/i3status-rs /home/paul/.config/rust-status.toml
+    swaybar_command waybar
+    # status_command /home/paul/bin/i3status-rs /home/paul/.config/rust-status.toml
     position top
     # output HDMI-A-1
     # workspace_buttons yes
@@ -317,6 +318,7 @@ exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 # exec --no-startup-id "xfce4-power-manager"
 exec --no-startup-id "dunst"
 exec --no-startup-id "/home/paul/bin/lock-on-idle"
+exec --no-startup-id "waybar"
 
 # exec --no-startup-id "nm-applet"
 exec --no-startup-id "nextcloud"
