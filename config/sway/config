@@ -58,7 +58,10 @@ bindsym --release Print exec "grim /home/paul/Pictures/Screenshot_$(date '+%Y-%m
 bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer set Master 5%- unmute
 bindsym XF86AudioMute exec amixer set Master 1+ toggle
-for_window [class="Calculator"] floating enable
+for_window [title="Calculator"] floating enable
+for_window [app_id="launcher"] floating enable
+for_window [app_id="zenity"] floating enable
+for_window [title="wl-clipboard"] floating enable
 bindsym XF86Calculator exec --no-startup-id termite --title Calculator -e "bc -l"
 
 # start dmenu (a program launcher)
@@ -249,9 +252,6 @@ hide_edge_borders none
 # for_window [class="Termite"] border 1pixel
 new_window pixel 1
 for_window [class=".*"] title_format "<small><i>[%class]</i></small> <b>%title</b>"
-for_window [title="wl-clipboard"] floating enable
-for_window [title="Calculator"] floating enable
-for_window [app_id="launcher"] floating enable
 
 
 input * {

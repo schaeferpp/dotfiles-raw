@@ -25,8 +25,6 @@ Plug 'tpope/vim-dispatch'
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 if has('nvim')
-    " Plug 'Shougo/neco-vim'
-    " Plug 'neoclide/coc-neco'
     " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
     Plug 'Shougo/deoplete.nvim',          { 'do': ':UpdateRemotePlugins' }
     Plug 'zchee/deoplete-jedi',           { 'for': 'python' }
@@ -51,7 +49,8 @@ if has('nvim')
     let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
     let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
 
-    " Plug 'Shougo/neco-vim'
+    Plug 'Shougo/neco-syntax'
+    Plug 'Shougo/neco-vim'
     let g:deoplete#enable_at_startup = 1
 else
     Plug 'Valloric/YouCompleteMe'

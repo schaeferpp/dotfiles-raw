@@ -97,28 +97,28 @@ set wrap
 set linebreak
 let &showbreak=' ⇒ '
 
-let g:clipboard = {
-        \   'name': 'wl-copy',
-        \   'copy': {
-        \      '+': '/usr/bin/wl-copy',
-        \      '*': '/usr/bin/wl-copy',
-        \    },
-        \   'paste': {
-        \      '+': '/usr/bin/wl-paste -n',
-        \      '*': '/usr/bin/wl-paste -p -n',
-        \   },
-        \   'cache_enabled': 0,
-\ }
+" let g:clipboard = {
+"         \   'name': 'wl-copy',
+"         \   'copy': {
+"         \      '+': '/usr/bin/wl-copy',
+"         \      '*': '/usr/bin/wl-copy',
+"         \    },
+"         \   'paste': {
+"         \      '+': '/usr/bin/wl-paste -n',
+"         \      '*': '/usr/bin/wl-paste -p -n',
+"         \   },
+"         \   'cache_enabled': 0,
+" \ }
 
-let g:clipboard = {
-        \   'name': 'wl-copy',
-        \   'copy': {
-        \      '+': '/usr/bin/wl-copy --type UTF8_STRING',
-        \      '*': '/usr/bin/wl-copy --type UTF8_STRING -p',
-        \    },
-        \   'paste': {
-        \      '+': '/usr/bin/wl-paste -n',
-        \      '*': '/usr/bin/wl-paste -p -n',
-        \   },
-        \   'cache_enabled': 0,
-\ }
+" let g:clipboard = {
+"         \   'name': 'wl-copy',
+"         \   'copy': {
+"         \      '+': '/usr/bin/wl-copy --type UTF8_STRING',
+"         \      '*': '/usr/bin/wl-copy --type UTF8_STRING -p',
+"         \    },
+"         \   'paste': {
+"         \      '+': '/usr/bin/wl-paste -n',
+"         \      '*': '/usr/bin/wl-paste -p -n',
+"         \   },
+"         \   'cache_enabled': 0,
+" \ }
