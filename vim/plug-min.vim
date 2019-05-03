@@ -7,7 +7,27 @@ Plug 'tomtom/tcomment_vim'
 " let g:NERDCustomDelimiters = { 'c': { 'left': '/*','right': '*/' } }
 Plug 'vim-scripts/let-modeline.vim'      " extend modeline to `let`
 
-Plug 'majutsushi/tagbar', {'for': ['c', 'cpp', 'javascript', 'python']}                " Tagbar
+" Plug 'majutsushi/tagbar', {'for': ['c', 'cpp', 'javascript', 'python', 'rust']}                " Tagbar
+Plug 'liuchengxu/vista.vim', {'for': ['c', 'cpp', 'javascript', 'python', 'rust', 'vim']}
+" let g:vista_icon_indent = ["▸ ", ""]
+let g:vista#renderer#enable_icon = 1
+let g:vista#renderer#icons = {
+\   "function": "λ",
+\   "implementation": "",
+\   "class": "",
+\   "struct": "",
+\   "union": "",
+\   "field": "",
+\   "method": "",
+\   "macro": "",
+\   "interface": "",
+\   "variable": "",
+\   "module": "",
+\   "property": "",
+\   "member": "",
+\   "typedef": "",
+\  }
+
 " Plug 'majutsushi/tagbar' " Tagbar
 
 Plug 'tpope/vim-fugitive'                " git
@@ -43,8 +63,45 @@ let g:username                           = "Paul Schaefer"
 let g:email                              = "paul@os-s.de"
 
 Plug 'Valloric/MatchTagAlways', {'for': ['xml', 'html', 'htmldjango']}           " Highlight matching xml tags
-Plug 'vim-airline/vim-airline'           " Fancy statusline
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'           " Fancy statusline
+" Plug 'vim-airline/vim-airline-themes'
+"
+Plug 'mengelbrecht/lightline-bufferline'
+Plug 'itchyny/lightline.vim'
+set laststatus=2
+set showtabline=2
+
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+
+set statusline+=%{NearestMethodOrFunction()}
+
+" By default vista.vim never run if you don't call it explicitly.
+"
+" If you want to show the nearest function in your statusline automatically,
+" you can add the following line to your vimrc 
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+
+let g:lightline = {
+            \ 'colorscheme': 'materia',
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ],
+            \             [ 'readonly', 'relativepath', 'modified', 'method' ] ]
+            \ },
+            \ 'component_function': {
+                \   'method': 'NearestMethodOrFunction'
+            \ },
+        \ }
+let g:lightline.tabline = {
+            \ 'left': [ [ 'buffers' ] ],
+            \ 'right': [ [ 'tabs' ] ] }
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
+let g:lightline.separator        = {'left': "\uE0B0", 'right': "\uE0B2"}
+let g:lightline.subseparator = {'left': "\uE0B1", 'right': "\uE0B3" }
+
+
 
 Plug 'wesQ3/vim-windowswap'
 

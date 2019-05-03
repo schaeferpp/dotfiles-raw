@@ -7,11 +7,6 @@ try
     source ~/.vim/plugins.vim
 
     try
-        source ~/.vim/airline-settings.vim
-    catch
-    endtry
-
-    try
         source ~/.vim/mappings.vim
     catch
     endtry
