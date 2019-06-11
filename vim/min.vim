@@ -122,3 +122,17 @@ let &showbreak=' ⇒ '
 "         \   },
 "         \   'cache_enabled': 0,
 " \ }
+
+" let g:clipboard = {
+"         \   'name': 'xsel - bin',
+"         \   'copy': {
+"         \      '+': 'xsel -i -b',
+"         \      '*': 'xsel -i -p',
+"         \    },
+"         \   'paste': {
+"         \      '+': 'xsel -b',
+"         \      '*': 'xsel -p',
+"         \   },
+"         \   'cache_enabled': 0,
+" \ }
+

@@ -39,7 +39,7 @@ nnoremap <Esc> :set nohls<cr>
 map      <Leader>w :w !sudo tee %<CR>L<CR>
 
 map      <Leader>l :NERDTreeToggle<CR>
-nnoremap <Leader>t :Vista!!<CR>
+nnoremap <Leader>t :TagbarToggle<CR>
 nnoremap <Leader>u :UndotreeToggle<CR>
 
 " Alternate Header with ,h

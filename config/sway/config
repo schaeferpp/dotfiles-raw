@@ -183,6 +183,14 @@ bindsym $mod+Prior workspace next_on_output
 bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+bindsym $mod+Shift+p exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+bindsym $mod+plus exec "amixer set Master 5%+ unmute"
+bindsym $mod+minus exec "amixer set Master 5%- unmute"
+bindsym $mod+kp_add exec "amixer set Master 5%+ unmute"
+bindsym $mod+kp_subtract exec "amixer set Master 5%- unmute"
+bindsym $mod+Shift+kp_add exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+bindsym $mod+Shift+kp_subtract exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+bindsym $mod+kp_divide exec "termite --title Calculator -e 'bc -l'"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -318,7 +326,6 @@ exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 # exec --no-startup-id "xfce4-power-manager"
 exec --no-startup-id "dunst"
 exec --no-startup-id "/home/paul/bin/lock-on-idle"
-exec --no-startup-id "waybar"
 
 # exec --no-startup-id "nm-applet"
 exec --no-startup-id "nextcloud"
