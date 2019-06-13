@@ -258,7 +258,8 @@ hide_edge_borders none
 
 # Design stuff
 # for_window [class="Termite"] border 1pixel
-new_window pixel 1
+default_border pixel 1
+for_window [class=".*"] title_format "<small><i>[%class]</i></small> <b>%title</b>"
 for_window [class=".*"] title_format "<small><i>[%class]</i></small> <b>%title</b>"
 
 
@@ -276,6 +277,11 @@ output DP-1 {
 output HDMI-A-1 {
     # pos 1920 0 res 2560x1440
     bg "/home/paul/Pictures/wall1.jpg" fill
+}
+
+input * {
+    repeat_delay 350
+    repeat_rate 40
 }
 
 # output VGA-1 {
@@ -321,7 +327,7 @@ exec_always {
 }
 
 # use feh instead (random-wallpaper.sh is just a wrapper)
-exec --no-startup-id "xfsettingsd"
+# exec --no-startup-id "xfsettingsd"
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 # exec --no-startup-id "xfce4-power-manager"
 exec --no-startup-id "dunst"
