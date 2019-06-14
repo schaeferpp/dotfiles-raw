@@ -114,6 +114,7 @@ let g:grepper = {
 
 
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+let g:vim_markdown_frontmatter = 1
 Plug 'nelstrom/vim-markdown-folding', {'for': 'markdown'}
 
 Plug 'ctrlpvim/ctrlp.vim'
