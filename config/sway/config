@@ -183,6 +183,14 @@ bindsym $mod+Prior workspace next_on_output
 bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+bindsym $mod+Shift+p exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+bindsym $mod+plus exec "amixer set Master 5%+ unmute"
+bindsym $mod+minus exec "amixer set Master 5%- unmute"
+bindsym $mod+kp_add exec "amixer set Master 5%+ unmute"
+bindsym $mod+kp_subtract exec "amixer set Master 5%- unmute"
+bindsym $mod+Shift+kp_add exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+bindsym $mod+Shift+kp_subtract exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+bindsym $mod+kp_divide exec "termite --title Calculator -e 'bc -l'"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -250,7 +258,8 @@ hide_edge_borders none
 
 # Design stuff
 # for_window [class="Termite"] border 1pixel
-new_window pixel 1
+default_border pixel 1
+for_window [class=".*"] title_format "<small><i>[%class]</i></small> <b>%title</b>"
 for_window [class=".*"] title_format "<small><i>[%class]</i></small> <b>%title</b>"
 
 
@@ -268,6 +277,11 @@ output DP-1 {
 output HDMI-A-1 {
     # pos 1920 0 res 2560x1440
     bg "/home/paul/Pictures/wall1.jpg" fill
+}
+
+input * {
+    repeat_delay 350
+    repeat_rate 40
 }
 
 # output VGA-1 {
@@ -313,12 +327,11 @@ exec_always {
 }
 
 # use feh instead (random-wallpaper.sh is just a wrapper)
-exec --no-startup-id "xfsettingsd"
+# exec --no-startup-id "xfsettingsd"
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 # exec --no-startup-id "xfce4-power-manager"
 exec --no-startup-id "dunst"
 exec --no-startup-id "/home/paul/bin/lock-on-idle"
-exec --no-startup-id "waybar"
 
 # exec --no-startup-id "nm-applet"
 exec --no-startup-id "nextcloud"

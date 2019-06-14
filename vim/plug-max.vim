@@ -33,6 +33,8 @@ if has('nvim')
     Plug 'zchee/deoplete-clang'
     Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
     Plug 'xolox/vim-lua-ftplugin',        { 'for': 'lua' }
+    Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
+
     " Plug 'autozimu/LanguageClient-neovim'
     " let g:LanguageClient_serverCommands = {
     "     \ 'kotlin': ['~/bin/kotlin-language-server'],

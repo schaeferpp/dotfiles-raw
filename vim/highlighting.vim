@@ -35,8 +35,8 @@ function! OverrideHighlights()
     hi ColorColumn term=underline ctermfg=NONE ctermbg=235 guibg='#1A1A1A'
     hi Search cterm=bold,underline ctermbg=black ctermfg=yellow
 
-    hi clear SpellBad
-    hi SpellBad cterm=underline,bold ctermfg=red guibg='#DF0858'
+    " hi clear SpellBad
+    " hi SpellBad cterm=underline,bold ctermfg=red guibg='#DF0858'
 
     hi SpecialKey ctermfg=249 guifg='#5F5F5F' guibg=bg
     hi NonText ctermfg=249 guifg='#5F5F5F' guibg=bg

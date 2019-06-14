@@ -7,26 +7,7 @@ Plug 'tomtom/tcomment_vim'
 " let g:NERDCustomDelimiters = { 'c': { 'left': '/*','right': '*/' } }
 Plug 'vim-scripts/let-modeline.vim'      " extend modeline to `let`
 
-" Plug 'majutsushi/tagbar', {'for': ['c', 'cpp', 'javascript', 'python', 'rust']}                " Tagbar
-Plug 'liuchengxu/vista.vim', {'for': ['c', 'cpp', 'javascript', 'python', 'rust', 'vim']}
-" let g:vista_icon_indent = ["▸ ", ""]
-let g:vista#renderer#enable_icon = 1
-let g:vista#renderer#icons = {
-\   "function": "λ",
-\   "implementation": "",
-\   "class": "",
-\   "struct": "",
-\   "union": "",
-\   "field": "",
-\   "method": "",
-\   "macro": "",
-\   "interface": "",
-\   "variable": "",
-\   "module": "",
-\   "property": "",
-\   "member": "",
-\   "typedef": "",
-\  }
+Plug 'majutsushi/tagbar'
 
 " Plug 'majutsushi/tagbar' " Tagbar
 
@@ -71,17 +52,17 @@ Plug 'itchyny/lightline.vim'
 set laststatus=2
 set showtabline=2
 
-function! NearestMethodOrFunction() abort
-  return get(b:, 'vista_nearest_method_or_function', '')
-endfunction
+" function! NearestMethodOrFunction() abort
+"   return get(b:, 'vista_nearest_method_or_function', '')
+" endfunction
 
-set statusline+=%{NearestMethodOrFunction()}
+" set statusline+=%{NearestMethodOrFunction()}
 
 " By default vista.vim never run if you don't call it explicitly.
 "
 " If you want to show the nearest function in your statusline automatically,
 " you can add the following line to your vimrc 
-autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+" autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
 let g:lightline = {
             \ 'colorscheme': 'materia',
@@ -113,6 +94,7 @@ let g:grepper = {
             \ }
 
 
+let g:vim_markdown_frontmatter = 1
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 let g:vim_markdown_frontmatter = 1
 Plug 'nelstrom/vim-markdown-folding', {'for': 'markdown'}
