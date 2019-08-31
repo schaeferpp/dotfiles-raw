@@ -9,8 +9,6 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# Alt key is Mod1
-
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -64,7 +62,7 @@ for_window [title="Calculator"] floating enable
 for_window [app_id="launcher"] floating enable
 for_window [app_id="zenity"] floating enable
 for_window [title="wl-clipboard"] floating enable
-bindsym XF86Calculator exec --no-startup-id termite --class Calculator --title Calculator -e "bc -l"
+bindsym XF86Calculator exec --no-startup-id termite --title Calculator -e "bc -l"
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
@@ -76,6 +74,7 @@ bindsym $mod+o exec --no-startup-id "/home/paul/bin/launcher"
 bindsym Mod1+Tab exec --no-startup-id "rofi -show window"
 bindsym Mod1+F2 exec --no-startup-id "rofi -show run"
 
+# bindsym $mod+Shift+greater move workspace to output right
 bindsym $mod+greater move workspace to output right
 bindsym $mod+less move workspace to output left
 
@@ -195,11 +194,16 @@ bindsym $mod+kp_divide exec "termite --title Calculator -e 'bc -l'"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+# bindsym $mod+Shift+b exec "/home/paul/bin/polybar-restart.sh"
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r reload
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to log out?' -b 'Yes, logout' 'swaymsg exit'"
 
+# Change monitor mirroring
+# bindsym  Control+F7 exec --no-startup-id "/home/paul/bin/switch_monitors.sh; sleep 3; /home/paul/bin/polybar-restart.sh"
+
+# bindsym $mod+F12 exec --no-startup-id "/home/paul/bin/find-cursor"
 
 # pdfpc
 assign [class="Pdfpc" window_role="presenter"] 1
@@ -289,9 +293,11 @@ output VGA-1 {
 # finds out, if available)
 bar {
     font pango:Monoid 8
-    swaybar_command swaybar
-    status_command i3status
+    swaybar_command waybar
+    # status_command /home/paul/bin/i3status-rs /home/paul/.config/rust-status.toml
     position top
+    # output HDMI-A-1
+    # workspace_buttons yes
     colors {
         separator #AAAAAA
             background #212121
@@ -320,6 +326,8 @@ exec_always {
     gsettings set $gnome-schema icon-theme 'Paper-Mono-Dark'
 }
 
+# use feh instead (random-wallpaper.sh is just a wrapper)
+# exec --no-startup-id "xfsettingsd"
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 exec --no-startup-id "xfce4-power-manager"
 exec --no-startup-id "dunst"
