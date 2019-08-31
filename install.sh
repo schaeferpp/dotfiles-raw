@@ -6,6 +6,8 @@
 # Distributed under terms of the Apache 2.0 license.
 #
 
+script_path=$(readlink -f ${0%/*})
+
 function check_program() {
     type "$1" >/dev/null 2>&1 || { echo >&2 "Please install $1"; exit 1; }
 }

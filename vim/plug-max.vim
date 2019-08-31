@@ -18,8 +18,6 @@ Plug 'atweiden/vim-dragvisuals'          " Visually select something in block
 
 "let g:easytags_async = 1
 
-Plug 'edkolev/tmuxline.vim'
-Plug 'tmux-plugins/vim-tmux'             " tmux.conf highlighting
 Plug 'tpope/vim-dispatch'
 
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
