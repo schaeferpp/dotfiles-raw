@@ -46,9 +46,9 @@ bindsym $mod+Shift+q kill
 
 # lock display
 # bindsym $mod+Escape exec "i3lock -f -c 000000"
-bindsym $mod+Escape exec "/home/paul/bin/lock.sh -s -g -p -P 10"
+bindsym $mod+Escape exec i3lock -c 000000 -f
 
-bindsym --release Shift+Print exec "bash /home/paul/bin/scrot.sh"
+bindsym --release Shift+Print exec "bash /home/paul/.local/bin/scrot.sh"
 # bindsym --release Control+Shift+Print exec "bash /home/paul/bin/scrot.sh"
 bindsym --release Print exec "scrot /home/paul/Pictures/Screenshot_$(date '+%Y-%m-%d_%H:%M:%S').png"
 #bindsym Shift+Print exec notify-send hello
@@ -58,7 +58,7 @@ bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer set Master 5%- unmute
 bindsym XF86AudioMute exec amixer set Master 1+ toggle
 for_window [class="Calculator"] floating enable
-bindsym XF86Calculator exec --no-startup-id termite --class Calculator -e "bc -l"
+bindsym XF86Calculator exec --no-startup-id termite --class Calculator --title Calculator -e "bc -l"
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
@@ -70,8 +70,8 @@ bindsym $mod+o exec --no-startup-id "/home/paul/bin/launcher"
 bindsym Mod1+Tab exec --no-startup-id "rofi -show window"
 bindsym Mod1+F2 exec --no-startup-id "rofi -show run"
 
-bindsym $mod+Shift+greater move workspace to output right
-bindsym $mod+Shift+less move workspace to output left
+bindsym $mod+greater move workspace to output right
+bindsym $mod+less move workspace to output left
 
 bindsym $mod+period workspace next
 bindsym $mod+comma workspace prev
@@ -178,6 +178,14 @@ bindsym $mod+Prior workspace next_on_output
 bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+bindsym $mod+Shift+p exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+bindsym $mod+plus exec "amixer set Master 5%+ unmute"
+bindsym $mod+minus exec "amixer set Master 5%- unmute"
+bindsym $mod+kp_add exec "amixer set Master 5%+ unmute"
+bindsym $mod+kp_subtract exec "amixer set Master 5%- unmute"
+bindsym $mod+Shift+kp_add exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+bindsym $mod+Shift+kp_subtract exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+bindsym $mod+kp_divide exec "termite --title Calculator -e 'bc -l'"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -267,30 +275,27 @@ for_window [class=".*"] title_format "<small><i>[%class]</i></small> <b>%title</
 
 # <colorclass> <border> <background> <text> <indicator> <child_border>
 #
+
 client.focused #82aaff #212121 #82aaff #ff5370 #82aaff
-client.focused_inactive #FFFFFF #212121 #82aaff #87ceeb #AAAAAA
+client.focused_inactive #909090 #212121 #82aaff #87ceeb #000000
 
-client.unfocused #AAAAAA #212121 #AAAAAA #212121
+client.unfocused #AAAAAA #212121 #909090 #909090 #212121
 
-client.urgent #ff5370 #212121 #ff5370 #212121
+client.urgent #ff5370 #212121 #ff5370 #212121 #ff5370
 
-# use feh instead (random-wallpaper.sh is just a wrapper)
 exec --no-startup-id "~/.screenlayout/default.sh"
 exec --no-startup-id "xset r rate 250 25" # Speed of keyboard input rate on hold
 exec --no-startup-id "xset dpms 300" # 5 minutes screen timeout
 exec --no-startup-id "compton -I 0.15 -O 0.15 -C --inactive-dim 0.1"
 exec --no-startup-id "xfsettingsd"
-exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-exec --no-startup-id "xfce4-power-manager"
-
-exec --no-startup-ip "/home/paul/autostart.sh"
-
-exec --no-startup-id "nm-applet"
-exec --no-startup-id "dunst"
-# exec --no-startup-id "nextcloud"
 exec --no-startup-id "setxkbmap gb,de -variant umlauts,nodeadkeys"
 exec --no-startup-id "xss-lock -- i3lock -n -f -c 000000"
-
 exec --no-startup-id "nitrogen --restore"
 exec --no-startup-id "polybar top"
 exec --no-startup-id "polybar bottom"
+exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+exec --no-startup-id "xfce4-power-manager"
+exec --no-startup-id "dunst"
+
+exec --no-startup-id "/home/paul/autostart.sh"
+exec --no-startup-id "nm-applet"
