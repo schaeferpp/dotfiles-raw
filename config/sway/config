@@ -9,6 +9,8 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+# Alt key is Mod1
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -293,11 +295,9 @@ output VGA-1 {
 # finds out, if available)
 bar {
     font pango:Monoid 8
-    swaybar_command waybar
-    # status_command /home/paul/bin/i3status-rs /home/paul/.config/rust-status.toml
+    swaybar_command swaybar
+    status_command i3status
     position top
-    # output HDMI-A-1
-    # workspace_buttons yes
     colors {
         separator #AAAAAA
             background #212121
