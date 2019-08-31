@@ -268,14 +268,14 @@ input * {
     xkb_variant umlauts,nodeadkeys
 }
 
-output DP-1 {
+output eDP-1 {
     pos 0 0 res 1920x1080
     bg "/home/paul/Pictures/wall0.jpg" fill
 
 }
 
 output HDMI-A-1 {
-    # pos 1920 0 res 2560x1440
+    pos 1920 0 res 2560x1440
     bg "/home/paul/Pictures/wall1.jpg" fill
 }
 
@@ -284,10 +284,10 @@ input * {
     repeat_rate 40
 }
 
-# output VGA-1 {
-#     # pos 4480 0 res 1920x1080
-#     bg "/home/paul/Pictures/wall2.jpg" fill
-# }
+output VGA-1 {
+    # pos 4480 0 res 1920x1080
+    bg "/home/paul/Pictures/wall2.jpg" fill
+}
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -329,9 +329,10 @@ exec_always {
 # use feh instead (random-wallpaper.sh is just a wrapper)
 # exec --no-startup-id "xfsettingsd"
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-# exec --no-startup-id "xfce4-power-manager"
+exec --no-startup-id "xfce4-power-manager"
 exec --no-startup-id "dunst"
 exec --no-startup-id "/home/paul/bin/lock-on-idle"
+# exec --no-startup-id "waybar"
 
-# exec --no-startup-id "nm-applet"
-exec --no-startup-id "nextcloud"
+exec --no-startup-id "/home/paul/autostart.sh"
+exec --no-startup-id "nm-applet"

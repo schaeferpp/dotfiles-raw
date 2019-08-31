@@ -283,10 +283,11 @@ exec --no-startup-id "xfsettingsd"
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 exec --no-startup-id "xfce4-power-manager"
 
+exec --no-startup-ip "/home/paul/autostart.sh"
 
 exec --no-startup-id "nm-applet"
 exec --no-startup-id "dunst"
-exec --no-startup-id "nextcloud"
+# exec --no-startup-id "nextcloud"
 exec --no-startup-id "setxkbmap gb,de -variant umlauts,nodeadkeys"
 exec --no-startup-id "xss-lock -- i3lock -n -f -c 000000"
 
