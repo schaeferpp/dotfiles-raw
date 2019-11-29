@@ -1,0 +1,8 @@
+#!/bin/bash
+
+swayidle -w \
+   timeout 660 '[ -e ~/Pictures/lock.jpg ] && swaylock -i ~/Pictures/lock.jpg -f -K || swaylock -f -c 000000' \
+   timeout 600 'swaymsg "output * dpms off"' \
+        resume 'swaymsg "output * dpms on"' \
+  before-sleep '[ -e ~/Pictures/lock.jpg ] && swaylock -i ~/Pictures/lock.jpg -f -K || swaylock -f -c 000000'
+

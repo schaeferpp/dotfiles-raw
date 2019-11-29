@@ -1,0 +1,3 @@
+#!/bin/sh
+
+encfs --paranoia "${PWD}/.$1" "${PWD}/$1"
