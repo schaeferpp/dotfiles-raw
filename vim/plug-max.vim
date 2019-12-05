@@ -197,11 +197,6 @@ nnoremap ,,c :Tnew<CR>
 " let g:diminactive_use_syntax = 1
 " let g:diminactive_use_colorcolumn = 0
 
-Plug 'dbeniamine/vim-mail'
-
-let g:VimMailFromContact="Paul Schaefer <paul@os-s.de>"
-
-
 Plug 'rhysd/vim-grammarous'
 
 Plug 'udalov/kotlin-vim', {'for': ['kotlin']}
