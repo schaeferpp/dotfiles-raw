@@ -95,8 +95,8 @@ let g:go_fmt_experimental = 1
 
 Plug 'rust-lang/rust.vim', {'for': 'rust'}                " rust highlighting etc
 let g:rustfmt_autosave = 1
-let g:rustfmt_command = '/usr/bin/rustfmt'
-let g:rustfmt_emit_files = 1
+let g:rustfmt_command = '/home/paul/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustfmt'
+" let g:rustfmt_emit_files = 1
 let g:racer_cmd='/home/paul/.cargo/bin/racer'
 
 " let g:rust_use_custom_ctags_defs = 1  "ignore https://github.com/rust-lang/rust.vim/blob/master/ctags/rust.ctags 

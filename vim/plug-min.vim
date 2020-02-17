@@ -3,7 +3,9 @@ let g:surround_{char2nr('c')} = "\\\1command\1{\r}"
 
 Plug 'tpope/vim-repeat'                  " make surroundings repeatable
 " Plug 'scrooloose/nerdcommenter'
-Plug 'tomtom/tcomment_vim'
+" Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-commentary'
+
 " let g:NERDCustomDelimiters = { 'c': { 'left': '/*','right': '*/' } }
 Plug 'vim-scripts/let-modeline.vim'      " extend modeline to `let`
 
