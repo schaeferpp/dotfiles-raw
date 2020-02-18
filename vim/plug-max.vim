@@ -49,6 +49,9 @@ if has('nvim')
     let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
     let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
 
+    Plug 'mhinz/vim-crates'
+    autocmd BufRead Cargo.toml call crates#toggle()
+
     Plug 'Shougo/neco-syntax'
     Plug 'Shougo/neco-vim'
     let g:deoplete#enable_at_startup = 1
@@ -216,5 +219,11 @@ let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = "<localleader>u"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
+
+Plug 'ryanoasis/vim-devicons'
+Plug 'mhinz/vim-startify'
+
+" Requires fugitive
+Plug 'junegunn/gv.vim'
 
 " vim:ts=4:sts=4:sw=4

@@ -66,6 +66,7 @@ set showtabline=2
 " you can add the following line to your vimrc 
 " autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
+let g:lightline#bufferline#enable_devicons=1
 let g:lightline = {
             \ 'colorscheme': 'materia',
             \ 'active': {
