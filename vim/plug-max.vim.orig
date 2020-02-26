@@ -94,8 +94,14 @@ let g:go_template_autocreate = 0
 let g:go_fmt_experimental = 1
 
 Plug 'rust-lang/rust.vim', {'for': 'rust'}                " rust highlighting etc
-let g:rustfmt_command = '/home/paul/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustfmt'
 let g:rustfmt_autosave = 1
+<<<<<<< HEAD
+let g:rustfmt_command = '/usr/bin/rustfmt'
+let g:rustfmt_emit_files = 1
+=======
+let g:rustfmt_command = '/home/paul/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustfmt'
+" let g:rustfmt_emit_files = 1
+>>>>>>> sway/waybar
 let g:racer_cmd='/home/paul/.cargo/bin/racer'
 
 " let g:rust_use_custom_ctags_defs = 1  "ignore https://github.com/rust-lang/rust.vim/blob/master/ctags/rust.ctags 
@@ -212,17 +218,5 @@ let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
 
 Plug 'mattn/emmet-vim'
-Plug 'mhinz/vim-crates'
-if has('nvim')
-  autocmd BufRead Cargo.toml call crates#toggle()
-endif
-Plug 'ryanoasis/vim-devicons'
-Plug 'mhinz/vim-startify'
-let g:webdevicons_enable_startify = 1
-
-function! StartifyEntryFormat()
-    return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
-endfunction
-
 
 " vim:ts=4:sts=4:sw=4
