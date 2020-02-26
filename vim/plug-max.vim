@@ -49,6 +49,9 @@ if has('nvim')
     let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
     let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
 
+    Plug 'mhinz/vim-crates'
+    autocmd BufRead Cargo.toml call crates#toggle()
+
     Plug 'Shougo/neco-syntax'
     Plug 'Shougo/neco-vim'
     let g:deoplete#enable_at_startup = 1
@@ -212,10 +215,6 @@ let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
 
 Plug 'mattn/emmet-vim'
-Plug 'mhinz/vim-crates'
-if has('nvim')
-  autocmd BufRead Cargo.toml call crates#toggle()
-endif
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
 let g:webdevicons_enable_startify = 1
@@ -224,5 +223,8 @@ function! StartifyEntryFormat()
     return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
 endfunction
 
+
+" Requires fugitive
+Plug 'junegunn/gv.vim'
 
 " vim:ts=4:sts=4:sw=4
