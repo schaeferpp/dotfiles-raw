@@ -43,9 +43,14 @@ Plug 'aperezdc/vim-template'           " Template files
 let g:templates_directory = '~/.vim/templates'
 
 " Default template data
+
 let g:license                            = "LGPL-3.0+"
 let g:username                           = "Paul Schaefer"
-let g:email                              = "paul@os-s.de"
+let g:email                              = "paul@realcyber.de"
+
+if filereadable(expand("~/.vim/override.vim"))
+    source ~/.vim/override.vim
+endif
 
 Plug 'Valloric/MatchTagAlways', {'for': ['xml', 'html', 'htmldjango']}           " Highlight matching xml tags
 " Plug 'vim-airline/vim-airline'           " Fancy statusline
@@ -79,6 +84,7 @@ let g:lightline = {
                 \   'method': 'NearestMethodOrFunction'
             \ },
         \ }
+let g:lightline#bufferline#enable_devicons = 1
 let g:lightline.tabline = {
             \ 'left': [ [ 'buffers' ] ],
             \ 'right': [ [ 'tabs' ] ] }

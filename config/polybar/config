@@ -38,7 +38,7 @@ height = 20
 ; radius = 6.0
 fixed-center = true
 
-monitor = HDMI-1
+monitor = HDMI1
 monitor-fallback = eDP-1
 
 background = ${colors.background}
@@ -78,7 +78,7 @@ height = 16
 fixed-center = true
 bottom = true
 
-monitor = HDMI-1
+monitor = HDMI1
 monitor-fallback = eDP-1
 
 background = ${colors.background}

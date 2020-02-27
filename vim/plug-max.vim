@@ -97,9 +97,8 @@ let g:go_template_autocreate = 0
 let g:go_fmt_experimental = 1
 
 Plug 'rust-lang/rust.vim', {'for': 'rust'}                " rust highlighting etc
-let g:rustfmt_autosave = 1
 let g:rustfmt_command = '/home/paul/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustfmt'
-" let g:rustfmt_emit_files = 1
+let g:rustfmt_autosave = 1
 let g:racer_cmd='/home/paul/.cargo/bin/racer'
 
 " let g:rust_use_custom_ctags_defs = 1  "ignore https://github.com/rust-lang/rust.vim/blob/master/ctags/rust.ctags 
@@ -200,11 +199,6 @@ nnoremap ,,c :Tnew<CR>
 " let g:diminactive_use_syntax = 1
 " let g:diminactive_use_colorcolumn = 0
 
-Plug 'dbeniamine/vim-mail'
-
-let g:VimMailFromContact="Paul Schaefer <paul@os-s.de>"
-
-
 Plug 'rhysd/vim-grammarous'
 
 Plug 'udalov/kotlin-vim', {'for': ['kotlin']}
@@ -220,8 +214,15 @@ let g:jedi#usages_command = "<localleader>u"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
 
+Plug 'mattn/emmet-vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
+let g:webdevicons_enable_startify = 1
+
+function! StartifyEntryFormat()
+    return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
+endfunction
+
 
 " Requires fugitive
 Plug 'junegunn/gv.vim'

@@ -46,7 +46,7 @@ bindsym $mod+Shift+Delete scratchpad show
 bindsym $mod+Shift+q kill
 
 # lock display
-bindsym $mod+Escape exec "swaylock -f -c 000000"
+bindsym $mod+Escape exec "[ -e ~/Pictures/lock.jpg ] && swaylock -i ~/Pictures/lock.jpg -f -K || swaylock -f -c 000000"
 # bindsym $mod+Escape exec "/home/paul/bin/lock.sh -s -g -p -P 10"
 
 bindsym --release Shift+Print exec 'grim -g "$(/usr/bin/slurp)" /home/paul/Pictures/Screenshot_$(date "+%Y-%m-%d_%H:%M:%S").png'
@@ -56,9 +56,6 @@ bindsym --release Print exec "grim /home/paul/Pictures/Screenshot_$(date '+%Y-%m
 #bindsym Shift+Print exec notify-send hello
 
 
-bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec amixer set Master 5%- unmute
-bindsym XF86AudioMute exec amixer set Master 1+ toggle
 for_window [title="Calculator"] floating enable
 for_window [app_id="launcher"] floating enable
 for_window [app_id="zenity"] floating enable
@@ -185,13 +182,18 @@ bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer
 bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 bindsym $mod+Shift+p exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-bindsym $mod+plus exec "amixer set Master 5%+ unmute"
-bindsym $mod+minus exec "amixer set Master 5%- unmute"
-bindsym $mod+kp_add exec "amixer set Master 5%+ unmute"
-bindsym $mod+kp_subtract exec "amixer set Master 5%- unmute"
+bindsym $mod+plus exec "pamixer -i 5"
+bindsym $mod+minus exec "pamixer -d 5"
+bindsym $mod+kp_add exec "pamixer -i 5"
+bindsym $mod+kp_subtract exec "pamixer -d 5"
+bindsym XF86AudioRaiseVolume exec "pamixer -u -i 5"
+bindsym XF86AudioLowerVolume exec "pamixer -u -d 5"
+bindsym XF86AudioMute exec exec "pamixer -m"
 bindsym $mod+Shift+kp_add exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 bindsym $mod+Shift+kp_subtract exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 bindsym $mod+kp_divide exec "termite --title Calculator -e 'bc -l'"
+bindsym Mod1+F12 exec "xbacklight -inc 10"
+bindsym Mod1+F11 exec "xbacklight -dec 10"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -272,6 +274,9 @@ input * {
     repeat_delay 350
     repeat_rate 40
     xkb_numlock enabled
+    tap_button_map lmr
+    tap enabled
+    middle_emulation enabled
 }
 
 include ~/.config/sway/outputs
@@ -309,8 +314,9 @@ client.urgent #ff5370 #212121 #ff5370 #212121 #ff5370
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
+    gsettings set $gnome-schema gtk-theme 'Materia-dark'
     gsettings set $gnome-schema icon-theme 'Paper-Mono-Dark'
+    gsettings set $gnome-schema font-name 'Dejavu 11'
 }
 
 include ~/.config/sway/autostart

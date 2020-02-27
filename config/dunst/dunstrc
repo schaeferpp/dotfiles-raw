@@ -1,8 +1,8 @@
 [global]
-    font = Input 8
+    font = Monoid 6
 
-    frame_width = 0
-    frame_color = "#000000"
+    frame_width = 3
+    frame_color = "#3a3a3a"
 
     # allow a small subset of html markup:
     # <b>bold</b>
@@ -12,7 +12,7 @@
     #
     # for a complete reference see http://developer.gnome.org/pango/stable/PangoMarkupFormat.html
     # If markup is not allowed, those tags will be stripped out of the message.
-    markup = no
+    markup = full
 
     max_icon_size=32
     icon_position = left
@@ -66,7 +66,7 @@
     # right side of the screen.  Y is measured from the top and down respectevly.
     # The width can be negative. In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "400x10+10+20"
+    geometry = "500x100-20+40"
 
     # The transparency of the window. range: [0; 100]
     # This option will only work if a compositing windowmanager is present (e.g. xcompmgr, compiz, etc..)
@@ -78,7 +78,7 @@
     idle_threshold = 120
 
     # Which monitor should the notifications be displayed on.
-    # monitor = 0
+    monitor = 0
 
     # Display notification on focused monitor. Possible modes are:
     # mouse: follow mouse pointer
@@ -90,7 +90,7 @@
     #
     # If this option is set to mouse or keyboard, the monitor option will be
     # ignored.
-    follow = keyboard
+    follow = mouse
 
     # should a notification popped up from history be sticky or
     # timeout as if it would normally do.
@@ -109,7 +109,7 @@
     padding = 8
 
     # horizontal padding
-    horizontal_padding = 8
+    horizontal_padding = 15
 
     # Define a color for the separator.
     # possible values are:
@@ -153,7 +153,7 @@
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the '#' and following  would be interpreted as a comment.
     background = "#2a2a2a"
-    foreground = "#666666"
+    foreground = "#c0c0c0"
     timeout = 5
 
 [urgency_normal]
