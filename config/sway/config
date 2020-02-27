@@ -108,7 +108,6 @@ bindsym $mod+Shift+Up move up
 
 bindsym $mod+Shift+l move right
 bindsym $mod+Shift+Right move right
-
 # split in other orientation
 bindsym $mod+t split toggle
 
@@ -201,6 +200,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r reload
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to log out?' -b 'Yes, logout' 'swaymsg exit'"
+
+bindsym Control+Space exec makoctl dismiss
 
 # Change monitor mirroring
 # bindsym  Control+F7 exec --no-startup-id "/home/paul/bin/switch_monitors.sh; sleep 3; /home/paul/bin/polybar-restart.sh"

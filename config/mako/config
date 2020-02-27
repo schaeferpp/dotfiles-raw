@@ -1,0 +1,9 @@
+border-size=20
+border-color=#AAAAAA40
+border-radius=2
+icons=1
+background-color=#212121FF
+font=Monoid NF 8
+width=400
+padding=10
+icon_path = /usr/share/icons/Paper-Mono-Dark/22x22/panel/:/usr/share/icons/Paper-Mono-Dark/22x22/animations/:/usr/share/icons/Paper/32x32/status:/usr/share/icons/Paper/32x32/apps/:/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/

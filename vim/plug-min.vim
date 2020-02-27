@@ -9,9 +9,11 @@ Plug 'tpope/vim-commentary'
 " let g:NERDCustomDelimiters = { 'c': { 'left': '/*','right': '*/' } }
 Plug 'vim-scripts/let-modeline.vim'      " extend modeline to `let`
 
-Plug 'majutsushi/tagbar'
-
-" Plug 'majutsushi/tagbar' " Tagbar
+" Plug 'majutsushi/tagbar'
+Plug 'liuchengxu/vista.vim'
+let g:vista#renderer#enable_icon = 1
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+nnoremap <Leader>t :Vista!!<CR>
 
 Plug 'tpope/vim-fugitive'                " git
 Plug 'airblade/vim-gitgutter'
@@ -54,9 +56,9 @@ Plug 'itchyny/lightline.vim'
 set laststatus=2
 set showtabline=2
 
-" function! NearestMethodOrFunction() abort
-"   return get(b:, 'vista_nearest_method_or_function', '')
-" endfunction
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
 
 " set statusline+=%{NearestMethodOrFunction()}
 
