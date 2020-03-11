@@ -13,6 +13,7 @@ Plug 'vim-scripts/let-modeline.vim'      " extend modeline to `let`
 Plug 'liuchengxu/vista.vim'
 let g:vista#renderer#enable_icon = 1
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+let g:vista_sidebar_width = 45
 nnoremap <Leader>t :Vista!!<CR>
 
 Plug 'tpope/vim-fugitive'                " git
