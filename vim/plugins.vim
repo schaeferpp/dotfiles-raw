@@ -23,6 +23,7 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'tomasr/molokai'
     Plug 'kaicataldo/material.vim'
+    Plug 'eemed/sitruuna.vim'
 
     Plug 'google/vim-colorscheme-primary'
 

@@ -66,17 +66,17 @@ function! NearestMethodOrFunction() abort
   return get(b:, 'vista_nearest_method_or_function', '')
 endfunction
 
-" set statusline+=%{NearestMethodOrFunction()}
+set statusline+=%{NearestMethodOrFunction()}
 
 " By default vista.vim never run if you don't call it explicitly.
 "
 " If you want to show the nearest function in your statusline automatically,
 " you can add the following line to your vimrc 
-" autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
 let g:lightline#bufferline#enable_devicons=1
 let g:lightline = {
-            \ 'colorscheme': 'materia',
+            \ 'colorscheme': 'sitruuna',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
             \             [ 'readonly', 'relativepath', 'modified', 'method' ] ]
@@ -93,6 +93,7 @@ let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
 let g:lightline.separator        = {'left': "\uE0B0", 'right': "\uE0B2"}
 let g:lightline.subseparator = {'left': "\uE0B1", 'right': "\uE0B3" }
+let g:lightline#bufferline#clickable = 1
 
 
 

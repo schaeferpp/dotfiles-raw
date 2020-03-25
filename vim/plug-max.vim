@@ -227,4 +227,6 @@ endfunction
 " Requires fugitive
 Plug 'junegunn/gv.vim'
 
+Plug 'leafOfTree/vim-vue-plugin'
+
 " vim:ts=4:sts=4:sw=4

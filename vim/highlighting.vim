@@ -11,8 +11,10 @@ endif
 
 " color OceanicNext
 " color molokai
-let g:material_theme_style = 'dark'
-color material
+" let g:material_theme_style = 'dark'
+" color material
+set background=dark
+color sitruuna
 " color primary
 
 "color seti
