@@ -1,0 +1,33 @@
+font:
+    normal:
+        family: Monoid NF
+    size: 10
+colors:
+    primary:
+        foreground: '#ffffff'
+        background: '#212121'
+    vi_mode_cursor:
+        text: '#fefefe'
+        cursor: '#ffffff'
+    normal:
+        black: '#212121'
+        red: '#ff5370'
+        green: '#c3e88d'
+        yellow: '#ffcb6b'
+        blue: '#6182b8'
+        magenta: '#f07178'
+        cyan: '#89ddff'
+        white: '#ffffff'
+    bright:
+        black: '#808080'
+        red: '#e53935'
+        green: '#91b859'
+        yellow: '#91b859'
+        blue: '#82aaff'
+        magenta: '#ff5370'
+        cyan: '#39adb5'
+        white: '#dddddd'
+cursor:
+    style: Beam
+mouse:
+    hide_when_typing: true
