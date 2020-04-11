@@ -26,6 +26,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'eemed/sitruuna.vim'
 
     Plug 'google/vim-colorscheme-primary'
+    Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
 

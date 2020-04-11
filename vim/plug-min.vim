@@ -76,7 +76,7 @@ autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
 let g:lightline#bufferline#enable_devicons=1
 let g:lightline = {
-            \ 'colorscheme': 'sitruuna',
+            \ 'colorscheme': 'ayu',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
             \             [ 'readonly', 'relativepath', 'modified', 'method' ] ]

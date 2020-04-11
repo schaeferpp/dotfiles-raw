@@ -14,8 +14,10 @@ endif
 " let g:material_theme_style = 'dark'
 " color material
 set background=dark
-color sitruuna
 " color primary
+" color sitruuna
+let ayucolor="dark"
+color ayu
 
 "color seti
 "
