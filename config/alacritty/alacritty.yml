@@ -31,3 +31,6 @@ cursor:
     style: Beam
 mouse:
     hide_when_typing: true
+key_bindings:
+    - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
+    - { key: Left,     mods: Shift,   chars: "\x1b[1;2D" }
