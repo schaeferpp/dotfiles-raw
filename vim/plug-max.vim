@@ -24,7 +24,8 @@ Plug 'tpope/vim-dispatch'
 
 if has('nvim')
     " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-    Plug 'Shougo/deoplete.nvim',          { 'tag': '5.2', 'do': ':UpdateRemotePlugins' }
+    " Plug 'Shougo/deoplete.nvim',          { 'tag': '5.2', 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/deoplete.nvim',          { 'do': ':UpdateRemotePlugins' }
     Plug 'zchee/deoplete-jedi',           { 'for': 'python' }
     Plug 'zchee/deoplete-go',             { 'for': 'go' }
     Plug 'carlitux/deoplete-ternjs',      { 'for': 'javascript' }
@@ -228,5 +229,7 @@ endfunction
 Plug 'junegunn/gv.vim'
 
 Plug 'leafOfTree/vim-vue-plugin'
+
+Plug 'dense-analysis/ale'
 
 " vim:ts=4:sts=4:sw=4
