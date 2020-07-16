@@ -54,8 +54,8 @@ plugins=(git tmuxinator go cargo ssh-agent)
 
 # User configuration
 
-export GOPATH=/home/paul/go
-export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/paul/.bin:/home/paul/.gem/ruby/2.3.0/bin:/home/paul/.local/bin/:/home/paul/bin:/home/paul/go/bin:/home/paul/.cargo/bin"
+export GOPATH=${HOME}/go
+export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:${HOME}/.bin:${HOME}/.gem/ruby/2.3.0/bin:${HOME}/.local/bin/:${HOME}/bin:${HOME}/go/bin:${HOME}/.cargo/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -127,6 +127,9 @@ alias mknote="~/code/projects/mkp/mkp.py --note"
 alias mkp="~/code/projects/mkp/mkp.py"
 alias tmux="tmux -2"
 alias bc="bc -l"
+alias fop='gio open $(sk -c "fd -d 3") 2>&1 > /dev/null'
+alias vo='vim $(sk -c "fd -d 5")'
+alias ssh='TERM=xterm-256color ssh'
 
 # if [[ ! $TERM =~ screen ]]; then
     # exec tmux -2
@@ -193,6 +196,20 @@ fi
 date
 echo
 
+function exists { which $1 &> /dev/null }
+
+if exists sk; then
+    function sk_select_history() {
+        local tac
+        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
+        BUFFER=$(fc -l -n 1 | eval $tac | awk -- '{ a[$0] = 1; } END { for (i in a) { print i;} }' | sk)
+        CURSOR=$#BUFFER         # move cursor
+        zle -R -c               # refresh
+    }
+
+    zle -N sk_select_history
+    bindkey '^F' sk_select_history
+fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
