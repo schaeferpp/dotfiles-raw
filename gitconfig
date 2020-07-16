@@ -27,3 +27,5 @@
     lg = !"git lg1"
 [diff "odf"]
     textconv = odt2prettytxt
+[pull]
+	rebase = false
