@@ -1,0 +1,16 @@
+output eDP-1 {
+    pos 0 0 res 1920x1080
+    bg "/home/paul/Pictures/wall0.jpg" fill
+
+}
+
+output HDMI-A-1 {
+    pos 0 0 res 1920x1080
+    pos 1920 0 res 2560x1440
+    bg "/home/paul/Pictures/wall1.jpg" fill
+}
+
+# output DP-1 {
+    # pos 1920 0 res 2560x1440
+    # bg "/home/paul/Pictures/wall2.jpg" fill
+# }

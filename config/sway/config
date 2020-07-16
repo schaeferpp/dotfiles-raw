@@ -58,6 +58,7 @@ bindsym --release Print exec "grim /home/paul/Pictures/Screenshot_$(date '+%Y-%m
 
 for_window [title="Calculator"] floating enable
 for_window [app_id="launcher"] floating enable
+# for_window [app_id="open"] floating enable
 for_window [app_id="zenity"] floating enable
 for_window [app_id="rs-open"] floating enable
 for_window [title="wl-clipboard"] floating enable
@@ -68,7 +69,8 @@ bindsym XF86Calculator exec --no-startup-id alacritty --title Calculator -e bc -
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id "rofi -modi 'drun,window,ssh' -show"
+bindsym $mod+d exec --no-startup-id "bemenu-run -in -p '>' -P ⚙ -l 15 --hb '#212121' --fb '#212121' --ff '#ffcb6b' --nb '#212121' --hf '#91b859' --tf '#6182b8' --tb '#000000' --fb '#212121' --fn 'Monoid Nerd Font Mono 10' -H 30"
+# bindsym $mod+d exec --no-startup-id "rofi -modi 'drun,window,ssh' -show"
 bindsym $mod+o exec --no-startup-id "/home/paul/bin/rs-open"
 bindsym Mod1+Tab exec --no-startup-id "rofi -show window"
 bindsym Mod1+F2 exec --no-startup-id "rofi -show run"
