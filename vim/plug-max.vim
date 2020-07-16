@@ -48,7 +48,7 @@ if has('nvim')
     let g:deoplete#sources#rust#racer_binary='/home/paul/.cargo/bin/racer'
     let g:deoplete#sources#rust#rust_source_path='/home/paul/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
     let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
-    let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
+    let g:deoplete#sources#clang#clang_header='/usr/lib/clang/'
 
     Plug 'mhinz/vim-crates'
     autocmd BufRead Cargo.toml call crates#toggle()
@@ -231,5 +231,11 @@ Plug 'junegunn/gv.vim'
 Plug 'leafOfTree/vim-vue-plugin'
 
 Plug 'dense-analysis/ale'
+let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+let g:ale_linters = {'vue': ['eslint', 'vls']}
+let g:ale_c_parse_makefile = 1
+" let g:ale_completion_enabled = 1
+
+Plug 'pearofducks/ansible-vim', { 'for': 'yaml' }
 
 " vim:ts=4:sts=4:sw=4

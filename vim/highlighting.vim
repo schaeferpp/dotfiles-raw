@@ -35,8 +35,8 @@ set cursorline
 
 function! OverrideHighlights()
     " hi CursorLine term=underline ctermfg=NONE ctermbg=235 guibg='#2C3234'
-    hi CursorLine term=underline ctermfg=NONE ctermbg=235 guibg='#1A1A1A'
-    hi ColorColumn term=underline ctermfg=NONE ctermbg=235 guibg='#1A1A1A'
+    " hi CursorLine term=underline ctermfg=NONE ctermbg=235 guibg='#1A1A1A'
+    " hi ColorColumn term=underline ctermfg=NONE ctermbg=235 guibg='#1A1A1A'
     hi Search cterm=bold,underline ctermbg=black ctermfg=yellow
 
     " hi clear SpellBad
@@ -45,11 +45,12 @@ function! OverrideHighlights()
     hi SpecialKey ctermfg=249 guifg='#5F5F5F' guibg=bg
     hi NonText ctermfg=249 guifg='#5F5F5F' guibg=bg
 
-    hi Folded guifg=#AAAAAA guibg=#444444 gui=NONE
+    hi Folded cterm=bold guifg=#AAAAAA guibg=#444444 gui=NONE
 
-    hi Normal guifg=#ffffff ctermbg=NONE guibg=#1e1e1e
+    hi Conceal guibg=NONE guifg=NONE ctermfg=NONE
+    hi Normal guifg=NONE ctermbg=NONE guibg=NONE
     " hi InactiveWin guibg=#121212
-    hi ActiveWin guibg=NONE
+    " hi ActiveWin guibg=NONE
 
     set winhighlight=Normal:ActiveWin,NormalNC:InactiveWin
 endfunction
@@ -80,3 +81,6 @@ set fillchars=fold:─
 set foldtext=NeatFoldText()
 
 call OverrideHighlights()
+
+autocmd FileType markdown syntax match todoCheckbox "\[\ \]" conceal cchar=
+autocmd FileType markdown syntax match todoCheckbox "\[x\]" conceal cchar=

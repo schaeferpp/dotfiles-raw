@@ -7,6 +7,10 @@ set fo-=t   " don't automatically wrap text when typing
 set colorcolumn=120
 set textwidth=120
 
+" Reload file on change
+set autoread
+au FocusGained,BufEnter * :checktime
+
 au BufReadPost,BufNewFile *.md,*.txt,*.tex set fo+=t " autotmagically word wrap for md, txt and tex
 
 
@@ -64,7 +68,6 @@ augroup END
 
 set autowrite
 set autowriteall
-set nofoldenable
 
 set showcmd
 
@@ -95,7 +98,9 @@ endif
 
 set wrap
 set linebreak
-let &showbreak=' ⇒ '
+" let &showbreak=' ⇒ '
+set breakindent
+
 
 " let g:clipboard = {
 "         \   'name': 'wl-copy',
