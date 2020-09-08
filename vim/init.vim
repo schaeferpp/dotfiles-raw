@@ -1,4 +1,4 @@
-try
+" try
     try
         source ~/.vim/min.vim
     catch
@@ -33,9 +33,9 @@ try
 
     " own-snippets
     set rtp+=~/.vim/snips
-catch
-    echoerr "No Pluginfile"
-endtry
+" catch
+    " echoerr "No Pluginfile"
+" endtry
 
 set list listchars=tab:¦\ ,trail:∙,precedes:<,extends:>,nbsp:~
 set foldmethod=syntax

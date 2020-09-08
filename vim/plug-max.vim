@@ -229,13 +229,12 @@ endfunction
 Plug 'junegunn/gv.vim'
 
 Plug 'leafOfTree/vim-vue-plugin'
+let g:vim_vue_plugin_use_typescript = 1
+let g:vim_vue_plugin_use_sass = 1
 
-Plug 'dense-analysis/ale'
-let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
-let g:ale_linters = {'vue': ['eslint', 'vls']}
-let g:ale_c_parse_makefile = 1
-" let g:ale_completion_enabled = 1
 
 Plug 'pearofducks/ansible-vim', { 'for': 'yaml' }
+
+Plug 'HerringtonDarkholme/yats.vim'
 
 " vim:ts=4:sts=4:sw=4

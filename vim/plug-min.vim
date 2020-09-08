@@ -59,8 +59,14 @@ Plug 'Valloric/MatchTagAlways', {'for': ['xml', 'html', 'htmldjango']}          
 " Plug 'vim-airline/vim-airline'           " Fancy statusline
 " Plug 'vim-airline/vim-airline-themes'
 "
-Plug 'mengelbrecht/lightline-bufferline'
+Plug 'dense-analysis/ale'
 Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
+let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+let g:ale_linters = {'vue': ['eslint', 'vls']}
+let g:ale_c_parse_makefile = 1
+Plug 'maximbaz/lightline-ale'
+" let g:ale_completion_enabled = 1
 set laststatus=2
 set showtabline=2
 
@@ -76,27 +82,57 @@ set statusline+=%{NearestMethodOrFunction()}
 " you can add the following line to your vimrc 
 autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
-let g:lightline#bufferline#enable_devicons=1
 let g:lightline = {
             \ 'colorscheme': 'ayu',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
-            \             [ 'readonly', 'relativepath', 'modified', 'method' ] ]
+            \             [ 'readonly', 'relativepath', 'modified', 'method' ] ],
+            \   'right': [ [ 'fileencoding', 'filetype', 'percent', 'lineinfo'  ], 
+            \              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ] ],
             \ },
+            \ 'tabline': {
+                \ 'left': [ [ 'buffers' ] ],
+                \ 'right': [ [ 'tabs' ] ]
+            \ },
+            \ 'separator': {'left': "\uE0B0", 'right': "\uE0B2"},
+            \ 'subseparator': {'left': "|", 'right': "|" },
+            \ 'mode_map': {
+                \ 'n' : 'N',
+                \ 'i' : 'I',
+                \ 'R' : 'R',
+                \ 'v' : 'V',
+                \ 'V' : 'VL',
+                \ "\<C-v>": 'VB',
+                \ 'c' : 'C',
+                \ 's' : 'S',
+                \ 'S' : 'SL',
+                \ "\<C-s>": 'SB',
+                \ 't': 'T',
+                \ },
             \ 'component_function': {
                 \   'method': 'NearestMethodOrFunction'
             \ },
+            \ 'component_expand' : {
+                \  'buffers': 'lightline#bufferline#buffers',
+                \  'linter_checking': 'lightline#ale#checking',
+                \  'linter_infos': 'lightline#ale#infos',
+                \  'linter_warnings': 'lightline#ale#warnings',
+                \  'linter_errors': 'lightline#ale#errors',
+                \  'linter_ok': 'lightline#ale#ok',
+            \ },
+            \ 'component_type' : {
+                \  'buffers': 'tabsel',
+                \  'linter_checking': 'right',
+                \  'linter_infos': 'right',
+                \  'linter_warnings': 'warning',
+                \  'linter_errors': 'error',
+                \  'linter_ok': 'right',
+            \ }
         \ }
-let g:lightline#bufferline#enable_devicons = 1
-let g:lightline.tabline = {
-            \ 'left': [ [ 'buffers' ] ],
-            \ 'right': [ [ 'tabs' ] ] }
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-let g:lightline.component_type   = {'buffers': 'tabsel'}
-let g:lightline.separator        = {'left': "\uE0B0", 'right': "\uE0B2"}
-let g:lightline.subseparator = {'left': "\uE0B1", 'right': "\uE0B3" }
-let g:lightline#bufferline#clickable = 1
 
+let g:lightline#bufferline#enable_devicons=1
+let g:lightline#bufferline#enable_devicons = 1
+let g:lightline#bufferline#clickable = 1
 
 
 Plug 'wesQ3/vim-windowswap'
