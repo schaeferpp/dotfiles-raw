@@ -15,7 +15,7 @@ background = #212121
 background-hi = #808080
 
 background-alt = #6182b8
-background-alt-hi = #82aaff
+background-alt-hi = #ffcb6b
 
 ; foreground = #d7ff87
 ; foreground-alt = #262626
@@ -24,6 +24,7 @@ foreground = #ffffff
 foreground-dark = #dddddd
 
 foreground-hi = #82aaff
+foreground-alt-hi= #212121
 foreground-hi2 = #6182b8
 
 abort = #ff5370
@@ -31,40 +32,6 @@ abort = #ff5370
 
 ; primary = #87af5f secondary = #e60053
 ; alert = #33609A
-;
-
-[bar/bspwm]
-width = 100%
-height = 20
-; radius = 6.0
-fixed-center = true
-
-monitor = DP1
-monitor-fallback = DP1
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 3
-line-color = #f00
-
-border-size = 0
-border-color = ${colors.background-hi}
-
-padding-left = 0
-padding-right = 0
-
-module-margin-left = 1
-module-margin-right = 2
-
-; font-0 = fixed:pixelsize=10;1
-font-0 = Input:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=6;0
-font-2 = MaterialIcons;pixelsize=6
-font-3 = FontAwesome;pixelsize=6
-
-modules-left = bspwm
-modules-right = xkeyboard
 
 [bar/top]
 width = 100%
@@ -72,8 +39,8 @@ height = 20
 ; radius = 6.0
 fixed-center = true
 
-monitor = DP1
-monitor-fallback = DP1
+monitor = default
+monitor-fallback = eDP-1
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -113,8 +80,8 @@ height = 16
 fixed-center = true
 bottom = true
 
-monitor = DP1
-monitor-fallback = DP1
+monitor = default
+monitor-fallback = eDP-1
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -329,6 +296,8 @@ label = %date% %time%
 [module/bspwm]
 type = internal/bspwm
 
+format = <label-state> <label-mode>
+
 ; Only show workspaces defined on the same output as the bar
 ; NOTE: The bspwm and XRandR monitor names must match, which they do by default.
 ; But if you rename your bspwm monitors with bspc -n this option will no longer
@@ -359,9 +328,8 @@ reverse-scroll = false
 ; Default: false
 fuzzy-match = true
 
-label-focused-foreground = ${colors.foreground}
+label-focused-foreground = ${colors.foreground-alt-hi}
 label-focused-background = ${colors.background-alt-hi}
-label-focused-underline= ${colors.foreground-hi2}
 
 
 [module/alsa]

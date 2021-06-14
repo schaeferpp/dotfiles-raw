@@ -29,3 +29,5 @@
     textconv = odt2prettytxt
 [pull]
 	rebase = false
+[init]
+	defaultBranch = master

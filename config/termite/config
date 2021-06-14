@@ -1,6 +1,6 @@
 [options]
 # font = Input 9
-font = Monoid NF 8
+font = Fira Code 12
 scrollback_lines = 10000
 
 [colors]

@@ -1,12 +1,12 @@
 font:
     normal:
-        family: Monoid NF
-    size: 10
+        family: Fira Code
+    size: 12
 colors:
     primary:
         # foreground: '#ffffff'
         foreground: '#efefef'
-        background: '#212121'
+        background: '#121212'
     vi_mode_cursor:
         text: '#fefefe'
         cursor: '#ffffff'

@@ -7,20 +7,20 @@ endif
 " color badwolf
 " color desertink
 " color gotham256
-" color jellybeans
+color jellybeans
 
 " color OceanicNext
 " color molokai
 " let g:material_theme_style = 'dark'
 " color material
-set background=dark
 " color primary
 " color sitruuna
-let ayucolor="dark"
-color ayu
+" let ayucolor="dark"
+" color ayu
 
 "color seti
 "
+set background=dark
 
 
 "let g:gruvbox_bold              = 1
@@ -30,6 +30,10 @@ color ayu
 
 "color gruvbox
 " set background=dark
+
+if exists('veonim')
+    set guifont=Symbols\ Nerd\ Font,Fira\ Code
+endif
 
 set cursorline
 
@@ -45,20 +49,23 @@ function! OverrideHighlights()
     hi SpecialKey ctermfg=249 guifg='#5F5F5F' guibg=bg
     hi NonText ctermfg=249 guifg='#5F5F5F' guibg=bg
 
-    hi Folded cterm=bold guifg=#AAAAAA guibg=#444444 gui=NONE
+    " hi Folded cterm=bold guifg=#AAAAAA guibg=#444444 gui=NONE
+    hi Folded cterm=bold guifg=#AAAAAA guibg=NONE gui=NONE
 
     hi Conceal guibg=NONE guifg=NONE ctermfg=NONE
     hi Normal guifg=NONE ctermbg=NONE guibg=NONE
     " hi InactiveWin guibg=#121212
     " hi ActiveWin guibg=NONE
 
+    hi DiffChange guibg=#000000
+    hi DiffText guifg=#101010 guibg=#70b950 cterm=bold gui=bold
+
+    hi CocHighlightText guibg=#404040 ctermbg=black
+
     set winhighlight=Normal:ActiveWin,NormalNC:InactiveWin
 endfunction
 
 function! NeatFoldText()
-    " let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
-    " let line = ' ' . substitute(getline(v:foldstart), '^\s*\(\/\/\)\?#\?\(\/\*\)?\s*' . '{\d*\s*', '', 'g') . ' '
-    " let line = substitute(getline(v:foldstart), '^\s*', '', 'g') " Drop leading whitespace
     let lineCommentStart = '\(\/\/\)\?'
     let blockCommentStart = '\(\/\*\)\?'
     let blockCommentEnd = '\(\*\/\)\?'
@@ -66,18 +73,18 @@ function! NeatFoldText()
     let line = substitute(line, blockCommentStart . '{{{.*$', '', 'g')
     let line = substitute(line, '^\s*', '', 'g') " Trim start
     let line = substitute(line, '\s*$', '', 'g') " Trim end
-    let line = '▶ ' . line . ' '
     let lines_count = v:foldend - v:foldstart + 1
-    let lines_count_text = '┤ ' . printf("%10s", lines_count . ' lines') . ' ├'
+    let lines_count_text = '(' . printf("%10s", lines_count . ' lines') . ')'
     let foldchar = matchstr(&fillchars, 'fold:\zs.')
-    let foldtextstart = strpart('├' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+    let foldtextstart = strpart(' ▼  ' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
     let foldtextend = lines_count_text . repeat(foldchar, 8)
     let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
     return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
 endfunction
 
 
-set fillchars=fold:─
+" set fillchars=fold:─
+set fillchars=fold:⋅
 set foldtext=NeatFoldText()
 
 call OverrideHighlights()

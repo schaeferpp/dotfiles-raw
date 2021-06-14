@@ -1,0 +1,7 @@
+%FFILE%
+
+:Autor: %USER%
+:Gesprächspartner: %HERE%
+:Datum: %FDATE%
+:Betreff: 
+

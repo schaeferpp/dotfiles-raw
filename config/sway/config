@@ -39,6 +39,9 @@ bindsym $mod+Shift+Return exec alacritty -e bash -c "RANGERCD=true zsh"'
 bindsym $mod+Shift+x exec alacritty -e nvim +terminal
 bindsym $mod+Shift+t exec alacritty -e nvim /home/paul/projects/TODO.org
 
+bindsym $mod+Shift+semicolon exec /home/paul/bin/swaylock.sh
+bindsym $mod+semicolon exec /home/paul/bin/swaylock.sh --info
+
 bindsym $mod+Delete move scratchpad
 bindsym $mod+Shift+Delete scratchpad show
 
@@ -50,6 +53,7 @@ bindsym $mod+Escape exec "[ -e ~/Pictures/lock.jpg ] && swaylock -i ~/Pictures/l
 # bindsym $mod+Escape exec "/home/paul/bin/lock.sh -s -g -p -P 10"
 
 bindsym --release Shift+Print exec 'grim -g "$(/usr/bin/slurp)" /home/paul/Pictures/Screenshot_$(date "+%Y-%m-%d_%H:%M:%S").png'
+bindsym --release $mod+Shift+Print exec 'grim -g "$(/usr/bin/slurp)" - | swappy -f - -o /home/paul/Pictures/Screenshot_$(date "+%Y-%m-%d_%H:%M:%S").png'
 # bindsym --release Control+Shift+Print exec "bash /home/paul/bin/scrot.sh"
 bindsym --release Print exec "grim /home/paul/Pictures/Screenshot_$(date '+%Y-%m-%d_%H:%M:%S').png"
 
@@ -69,10 +73,11 @@ bindsym XF86Calculator exec --no-startup-id alacritty --title Calculator -e bc -
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id "bemenu-run -in -p '>' -P ⚙ -l 15 --hb '#212121' --fb '#212121' --ff '#ffcb6b' --nb '#212121' --hf '#91b859' --tf '#6182b8' --tb '#000000' --fb '#212121' --fn 'Monoid Nerd Font Mono 10' -H 30"
+# bindsym $mod+d exec --no-startup-id "bemenu-run -i -p '>' -P ⚙ -l 15 --hb '#212121' --fb '#212121' --ff '#ffcb6b' --nb '#212121' --hf '#91b859' --tf '#6182b8' --tb '#000000' --fb '#212121' --fn 'Monoid Nerd Font Mono 10' -H 30"
+bindsym $mod+d exec --no-startup-id "sirula"
 # bindsym $mod+d exec --no-startup-id "rofi -modi 'drun,window,ssh' -show"
 bindsym $mod+o exec --no-startup-id "/home/paul/bin/rs-open"
-bindsym Mod1+Tab exec --no-startup-id "rofi -show window"
+# bindsym Mod1+Tab exec --no-startup-id "rofi -show window"
 bindsym Mod1+F2 exec --no-startup-id "rofi -show run"
 
 # bindsym $mod+Shift+greater move workspace to output right
@@ -196,6 +201,8 @@ bindsym $mod+Shift+kp_subtract exec "dbus-send --print-reply --dest=org.mpris.Me
 bindsym $mod+kp_divide exec "alacritty --title Calculator -e bc -l"
 bindsym Mod1+F12 exec "xbacklight -inc 10"
 bindsym Mod1+F11 exec "xbacklight -dec 10"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -204,6 +211,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r reload
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to log out?' -b 'Yes, logout' 'swaymsg exit'"
+bindsym $mod+Shift+w exec "swaynag -t warning -m 'You pressed the suspend shortcut. Do you really want to suspend?' -b 'Yes, suspend' 'systemctl suspend'"
 
 bindsym Control+Space exec makoctl dismiss
 
@@ -288,7 +296,7 @@ include ~/.config/sway/outputs
 bar {
     font pango:Monoid 8
     swaybar_command waybar
-    # status_command /home/paul/bin/i3status-rs /home/paul/.config/rust-status.toml
+    # status_command i3status-rs /home/paul/.config/rust-status.toml
     position top
     # output HDMI-A-1
     # workspace_buttons yes

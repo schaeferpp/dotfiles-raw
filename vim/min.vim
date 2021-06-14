@@ -4,14 +4,14 @@ set relativenumber
 
 set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
-set colorcolumn=120
-set textwidth=120
+set colorcolumn=100
+set textwidth=100
 
 " Reload file on change
 set autoread
 au FocusGained,BufEnter * :checktime
 
-au BufReadPost,BufNewFile *.md,*.txt,*.tex set fo+=t " autotmagically word wrap for md, txt and tex
+au BufReadPost,BufNewFile *.md,*.txt,*.tex set fo+=t " automagically word wrap for md, txt and tex
 
 
 " Useful settings

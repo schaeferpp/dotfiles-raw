@@ -49,7 +49,7 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # https://github.com/jocelynmallon/zshmarks
-plugins=(git tmuxinator go cargo ssh-agent)
+plugins=(git cargo ssh-agent)
 
 
 # User configuration
@@ -77,15 +77,6 @@ export GIT_EDITOR="$EDITOR"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-function silent {
-  $* 1>&2 2>/dev/null
-}
-
-function silentbg {
-
-  $* &> /dev/null &
-}
 
 function ranger-cd {
     tempfile="$(mktemp -t tmp.XXXXXX)"
@@ -121,15 +112,27 @@ function man() {
 
 # namedir () { $1=$PWD ;  : ~$1 }
 
-alias pse="yay -Ss "
-alias pin="yay -S "
-alias mknote="~/code/projects/mkp/mkp.py --note"
+alias pse="paru -Ss "
+alias pin="paru -S "
+# alias mknote="~/code/projects/mkp/mkp.py --note"
 alias mkp="~/code/projects/mkp/mkp.py"
 alias tmux="tmux -2"
 alias bc="bc -l"
-alias fop='gio open $(sk -c "fd -d 3") 2>&1 > /dev/null'
-alias vo='vim $(sk -c "fd -d 5")'
+alias fop='gio open $(sk) 2>&1 > /dev/null'
+alias vo='nvim $(sk -c "fd -t f -d 5")'
 alias ssh='TERM=xterm-256color ssh'
+
+# alias sk="sk -q !^./."
+function c {
+    dir=$(cat ~/.bookmarks | sk | sed "s#^~#$HOME#g")
+    # echo $dir
+    cd -- "$dir"
+}
+
+function bm {
+    dir=$(echo $PWD | sed "s#^$HOME#~#g")
+    echo $dir >> ~/.bookmarks
+}
 
 # if [[ ! $TERM =~ screen ]]; then
     # exec tmux -2
@@ -177,6 +180,13 @@ alias vi=nvim
 alias g="jump"
 alias p="showmarks"
 alias sav="bookmark"
+
+bindkey -M vicmd '?' history-incremental-search-backward
+bindkey -M vicmd '/' history-incremental-search-forward
+bindkey "^[OA" up-line-or-beginning-search
+bindkey "^[OB" down-line-or-beginning-search
+bindkey -M vicmd "k" up-line-or-beginning-search
+bindkey -M vicmd "j" down-line-or-beginning-search
 
 . /etc/profile.d/vte.sh
 

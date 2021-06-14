@@ -1,4 +1,12 @@
-" try
+if !exists('g:vscode')
+try
+    " if exists('veonim')
+    "     let g:vscode_extensions = [
+    "     \'vscode.typescript-language-features',
+    "     \'vscode.css-language-features',
+    "     \'vscode.html-language-features',
+    "     \]
+    " endif
     try
         source ~/.vim/min.vim
     catch
@@ -33,12 +41,15 @@
 
     " own-snippets
     set rtp+=~/.vim/snips
-" catch
-    " echoerr "No Pluginfile"
-" endtry
+catch
+    echoerr "No Pluginfile"
+endtry
+
 
 set list listchars=tab:¦\ ,trail:∙,precedes:<,extends:>,nbsp:~
 set foldmethod=syntax
 set foldlevel=15
+
+endif
 
 " vim:ts=4:sts=4:sw=4

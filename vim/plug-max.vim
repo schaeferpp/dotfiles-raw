@@ -24,13 +24,50 @@ Plug 'tpope/vim-dispatch'
 
 if has('nvim')
     " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-    " Plug 'Shougo/deoplete.nvim',          { 'tag': '5.2', 'do': ':UpdateRemotePlugins' }
-    Plug 'Shougo/deoplete.nvim',          { 'do': ':UpdateRemotePlugins' }
-    Plug 'zchee/deoplete-jedi',           { 'for': 'python' }
-    Plug 'zchee/deoplete-go',             { 'for': 'go' }
-    Plug 'carlitux/deoplete-ternjs',      { 'for': 'javascript' }
-    Plug 'zchee/deoplete-clang'
-    Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
+    " Plug 'Shougo/deoplete.nvim',          { 'do': ':UpdateRemotePlugins' }
+    " let g:deoplete#enable_at_startup = 1
+    " Plug 'zchee/deoplete-jedi',           { 'for': 'python' }
+    " Plug 'zchee/deoplete-go',             { 'for': 'go' }
+    " Plug 'carlitux/deoplete-ternjs',      { 'for': 'javascript' }
+    " Plug 'zchee/deoplete-clang'
+    " Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+    nmap <silent> gd <Plug>(coc-definition)
+    nmap <silent> gy <Plug>(coc-type-definition)
+    nmap <silent> gi <Plug>(coc-implementation)
+    nmap <silent> gr <Plug>(coc-references)
+
+    function! s:show_documentation()
+        if (index(['vim','help'], &filetype) >= 0)
+            execute 'h '.expand('<cword>')
+        elseif (coc#rpc#ready())
+            call CocActionAsync('doHover')
+        else
+            execute '!' . &keywordprg . " " . expand('<cword>')
+        endif
+    endfunction
+
+    nnoremap <silent> K :call <SID>show_documentation()<CR>
+    nmap <silent> <F6> :call CocActionAsync('highlight')<CR>
+    autocmd CursorHold * silent call CocActionAsync('highlight')
+    autocmd CursorHoldI * silent call CocActionAsync('highlight')
+    nmap <leader>rn <Plug>(coc-rename)
+
+    " Remap <C-f> and <C-b> for scroll float windows/popups.
+    if has('nvim-0.4.0') || has('patch-8.2.0750')
+        nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+        nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+        inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+        inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+        vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+        vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+    endif
+
+    " Don't pass messages to |ins-completion-menu|.
+    set shortmess+=c
+
+
     Plug 'xolox/vim-lua-ftplugin',        { 'for': 'lua' }
     Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
 
@@ -39,23 +76,22 @@ if has('nvim')
     "     \ 'kotlin': ['~/bin/kotlin-language-server'],
     "     \ }
 
-    let g:deoplete#enable_at_startup = 1
     let g:lua_check_syntax = 0
     let g:lua_complete_omni = 1
     let g:lua_complete_dynamic = 0
     let g:lua_define_completion_mappings = 0
 
-    let g:deoplete#sources#rust#racer_binary='/home/paul/.cargo/bin/racer'
-    let g:deoplete#sources#rust#rust_source_path='/home/paul/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
-    let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
-    let g:deoplete#sources#clang#clang_header='/usr/lib/clang/'
+    " let g:deoplete#sources#rust#racer_binary='/home/paul/.cargo/bin/racer'
+    " " let g:deoplete#sources#rust#rust_source_path='/home/paul/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+    " let g:deoplete#sources#rust#rust_source_path = '/home/paul/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library'
+    " let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+    " let g:deoplete#sources#clang#clang_header='/usr/lib/clang/'
 
     Plug 'mhinz/vim-crates'
     autocmd BufRead Cargo.toml call crates#toggle()
 
     Plug 'Shougo/neco-syntax'
     Plug 'Shougo/neco-vim'
-    let g:deoplete#enable_at_startup = 1
 else
     Plug 'Valloric/YouCompleteMe'
     Plug 'rdnetto/YCM-Generator', { 'branch': 'develop'} 
@@ -100,7 +136,22 @@ let g:go_fmt_experimental = 1
 Plug 'rust-lang/rust.vim', {'for': 'rust'}                " rust highlighting etc
 let g:rustfmt_command = '/home/paul/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustfmt'
 let g:rustfmt_autosave = 1
-let g:racer_cmd='/home/paul/.cargo/bin/racer'
+
+Plug 'pest-parser/pest.vim'
+
+" Plug 'racer-rust/vim-racer', {'for': 'rust'}
+" let g:racer_cmd='/home/paul/.cargo/bin/racer'
+" let g:racer_experimental_completer = 1
+
+" augroup Racer
+"     autocmd!
+"     autocmd FileType rust nmap <buffer> gd         <Plug>(rust-def)
+"     autocmd FileType rust nmap <buffer> gs         <Plug>(rust-def-split)
+"     autocmd FileType rust nmap <buffer> gx         <Plug>(rust-def-vertical)
+"     autocmd FileType rust nmap <buffer> gt         <Plug>(rust-def-tab)
+"     autocmd FileType rust nmap <buffer> <leader>gd <Plug>(rust-doc)
+"     autocmd FileType rust nmap <buffer> <leader>gD <Plug>(rust-doc-tab)
+" augroup END
 
 " let g:rust_use_custom_ctags_defs = 1  "ignore https://github.com/rust-lang/rust.vim/blob/master/ctags/rust.ctags 
 "  " https://github.com/universal-ctags/ctags/blob/master/parsers/rust.c#L50-L61
@@ -204,18 +255,19 @@ Plug 'rhysd/vim-grammarous'
 
 Plug 'udalov/kotlin-vim', {'for': ['kotlin']}
 
-Plug 'davidhalter/jedi-vim', {'for': ['python']}
-let g:jedi#use_tabs_not_buffers = 0  " use buffers instead of tabs
-let g:jedi#show_call_signatures = "1"
-let g:jedi#goto_command = "gd"
-let g:jedi#goto_assignments_command = "ga"
-let g:jedi#goto_definitions_command = "<localleader>gg"
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<localleader>u"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>r"
+" Plug 'davidhalter/jedi-vim', {'for': ['python']}
+" let g:jedi#use_tabs_not_buffers = 0  " use buffers instead of tabs
+" let g:jedi#show_call_signatures = "1"
+" let g:jedi#goto_command = "gd"
+" let g:jedi#goto_assignments_command = "ga"
+" let g:jedi#goto_definitions_command = "<localleader>gg"
+" let g:jedi#documentation_command = "K"
+" let g:jedi#usages_command = "<localleader>u"
+" let g:jedi#completions_command = "<C-Space>"
+" let g:jedi#rename_command = "<leader>r"
 
 Plug 'mattn/emmet-vim'
+Plug 'othree/html5.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
 let g:webdevicons_enable_startify = 1
@@ -237,4 +289,12 @@ Plug 'pearofducks/ansible-vim', { 'for': 'yaml' }
 
 Plug 'HerringtonDarkholme/yats.vim'
 
+Plug 'junegunn/goyo.vim'
+
+Plug 'dpelle/vim-LanguageTool'
+let g:languagetool_jar='$HOME/LanguageTool-5.3-SNAPSHOT/languagetool-commandline.jar'
+let g:languagetool_lang='de-DE'
+let g:languagetool_disable_rules='WHITESPACE_RULE,EN_QUOTES,TYPOGRAFISCHE_ANFUEHRUNGSZEICHEN'
+
+Plug 'cmugpi/vim-c0'
 " vim:ts=4:sts=4:sw=4

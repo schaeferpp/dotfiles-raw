@@ -10,10 +10,13 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/let-modeline.vim'      " extend modeline to `let`
 
 " Plug 'majutsushi/tagbar'
+" Plug 'preservim/tagbar'
+
 Plug 'liuchengxu/vista.vim'
 let g:vista#renderer#enable_icon = 1
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_sidebar_width = 45
+" nnoremap <Leader>t :TagbarToggle<CR>
 nnoremap <Leader>t :Vista!!<CR>
 
 Plug 'tpope/vim-fugitive'                " git
@@ -63,24 +66,33 @@ Plug 'dense-analysis/ale'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
-let g:ale_linters = {'vue': ['eslint', 'vls']}
+let g:ale_linters = {
+            \ 'vue': ['eslint', 'vls'],
+            \ 'python': ['pylint', 'mypy']
+            \ }
 let g:ale_c_parse_makefile = 1
+let g:ale_fixers = {'python': ['isort', 'yapf']}
+let g:ale_python_yapf_executable = 'YOUR_REPO_PATH/check_mk/.venv/bin/yapf'
+let g:ale_fix_on_save = 1
+
 Plug 'maximbaz/lightline-ale'
 " let g:ale_completion_enabled = 1
 set laststatus=2
 set showtabline=2
 
-function! NearestMethodOrFunction() abort
-  return get(b:, 'vista_nearest_method_or_function', '')
-endfunction
+" function! NearestMethodOrFunction() abort
+"   " return get(b:, 'tagbar_current_tagrCurrentTagrCurrentTag<CR><CR>', '')
+"   return tagbar#currenttag('%s', '')
+"   " return normal TagbarCurrentTag<CR>
+" endfunction
 
-set statusline+=%{NearestMethodOrFunction()}
+" set statusline+=%{NearestMethodOrFunction()}
 
 " By default vista.vim never run if you don't call it explicitly.
 "
 " If you want to show the nearest function in your statusline automatically,
 " you can add the following line to your vimrc 
-autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+" autocmd VimEnter * normal TagbarCurrentTag<CR>
 
 let g:lightline = {
             \ 'colorscheme': 'ayu',
@@ -145,10 +157,13 @@ let g:grepper = {
             \ }
 
 
-let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_conceal = 0
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 let g:vim_markdown_frontmatter = 1
+
 Plug 'nelstrom/vim-markdown-folding', {'for': 'markdown'}
+
+autocmd FileType markdown set foldexpr=NestedMarkdownFolds()
 
 Plug 'ctrlpvim/ctrlp.vim'
 
@@ -156,5 +171,7 @@ Plug 'machakann/vim-highlightedyank'
 let g:highlightedyank_highlight_duration = 150
 
 Plug 'vim-scripts/ReplaceWithRegister'
+
+" Plug 'Konfekt/FastFold'
 
 " vim:ts=4:sts=4:sw=4
