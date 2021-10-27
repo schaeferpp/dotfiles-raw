@@ -30,4 +30,34 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
+" https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
+lua <<EOF
+
+local lsp = require "lspconfig"
+local coq = require "coq"
+lsp.clangd.setup{}
+lsp.rust_analyzer.setup{}
+lsp.pyright.setup{}
+lsp.eslint.setup{}
+lsp.bashls.setup{}
+lsp.racket_langserver.setup{}
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+lsp.cssls.setup{
+  cmd = { "vscode-css-languageserver", "--stdio" },
+  capabilities = capabilities
+}
+
+lsp.yamlls.setup{}
+lsp.tsserver.setup{
+  cmd={"tsserver", "--stdio"}
+}
+
+lsp.rust_analyzer.setup(coq.lsp_ensure_capabilities()) -- after
+
+EOF
+
+" vim.lsp.buf.definition()
+
 " vim:ts=4:sts=4:sw=4

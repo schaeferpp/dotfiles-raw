@@ -10,7 +10,7 @@ endfunction
 Plug 'lervag/vimtex', {'for' : 'tex'}    " latex environment is ae or ie
 " Settings in ~/.vim/vimtex.vim
 
-Plug 'godlygeek/tabular' " TODO
+" Plug 'godlygeek/tabular' TODO
 Plug 'junegunn/vim-easy-align'           " Usage: vip<Enter>SYMBOL
 Plug 'atweiden/vim-dragvisuals'          " Visually select something in block
                                          " or line mode and use arrow keys
@@ -23,6 +23,13 @@ Plug 'tpope/vim-dispatch'
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 if has('nvim')
+    Plug 'neovim/nvim-lspconfig'
+    nmap gd <cmd>lua vim.lsp.buf.definition()<CR>
+    Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+    Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+    let g:coq_settings = { 'auto_start': v:true }
+    set completeopt-=noinsert
+
     " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
     " Plug 'Shougo/deoplete.nvim',          { 'do': ':UpdateRemotePlugins' }
     " let g:deoplete#enable_at_startup = 1
@@ -31,55 +38,56 @@ if has('nvim')
     " Plug 'carlitux/deoplete-ternjs',      { 'for': 'javascript' }
     " Plug 'zchee/deoplete-clang'
     " Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-    nmap <silent> gd <Plug>(coc-definition)
-    nmap <silent> gy <Plug>(coc-type-definition)
-    nmap <silent> gi <Plug>(coc-implementation)
-    nmap <silent> gr <Plug>(coc-references)
+    " nmap <silent> gd <Plug>(coc-definition)
+    " nmap <silent> gy <Plug>(coc-type-definition)
+    " nmap <silent> gi <Plug>(coc-implementation)
+    " nmap <silent> gr <Plug>(coc-references)
 
-    function! s:show_documentation()
-        if (index(['vim','help'], &filetype) >= 0)
-            execute 'h '.expand('<cword>')
-        elseif (coc#rpc#ready())
-            call CocActionAsync('doHover')
-        else
-            execute '!' . &keywordprg . " " . expand('<cword>')
-        endif
-    endfunction
+    " function! s:show_documentation()
+    "     if (index(['vim','help'], &filetype) >= 0)
+    "         execute 'h '.expand('<cword>')
+    "     elseif (coc#rpc#ready())
+    "         call CocActionAsync('doHover')
+    "     else
+    "         execute '!' . &keywordprg . " " . expand('<cword>')
+    "     endif
+    " endfunction
 
-    nnoremap <silent> K :call <SID>show_documentation()<CR>
-    nmap <silent> <F6> :call CocActionAsync('highlight')<CR>
-    autocmd CursorHold * silent call CocActionAsync('highlight')
-    autocmd CursorHoldI * silent call CocActionAsync('highlight')
-    nmap <leader>rn <Plug>(coc-rename)
+    " nnoremap <silent> K :call <SID>show_documentation()<CR>
+    " nmap <silent> <F6> :call CocActionAsync('highlight')<CR>
+    " autocmd CursorHold * silent call CocActionAsync('highlight')
+    " autocmd CursorHoldI * silent call CocActionAsync('highlight')
+    " set updatetime=500
+    " nmap <leader>rn <Plug>(coc-rename)
 
-    " Remap <C-f> and <C-b> for scroll float windows/popups.
-    if has('nvim-0.4.0') || has('patch-8.2.0750')
-        nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-        nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-        inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-        inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-        vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-        vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-    endif
+    " " Remap <C-f> and <C-b> for scroll float windows/popups.
+    " if has('nvim-0.4.0') || has('patch-8.2.0750')
+    "     nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+    "     nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+    "     inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+    "     inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+    "     vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+    "     vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+    " endif
 
-    " Don't pass messages to |ins-completion-menu|.
-    set shortmess+=c
+    " " Don't pass messages to |ins-completion-menu|.
+    " set shortmess+=c
 
 
-    Plug 'xolox/vim-lua-ftplugin',        { 'for': 'lua' }
-    Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
+    " Plug 'xolox/vim-lua-ftplugin',        { 'for': 'lua' }
+    " Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
 
-    " Plug 'autozimu/LanguageClient-neovim'
-    " let g:LanguageClient_serverCommands = {
-    "     \ 'kotlin': ['~/bin/kotlin-language-server'],
-    "     \ }
+    " " Plug 'autozimu/LanguageClient-neovim'
+    " " let g:LanguageClient_serverCommands = {
+    " "     \ 'kotlin': ['~/bin/kotlin-language-server'],
+    " "     \ }
 
-    let g:lua_check_syntax = 0
-    let g:lua_complete_omni = 1
-    let g:lua_complete_dynamic = 0
-    let g:lua_define_completion_mappings = 0
+    " let g:lua_check_syntax = 0
+    " let g:lua_complete_omni = 1
+    " let g:lua_complete_dynamic = 0
+    " let g:lua_define_completion_mappings = 0
 
     " let g:deoplete#sources#rust#racer_binary='/home/paul/.cargo/bin/racer'
     " " let g:deoplete#sources#rust#rust_source_path='/home/paul/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
@@ -190,7 +198,7 @@ Plug 'tkztmk/vim-vala', {'for': 'vala'}                   " vala highlighting et
 " let g:session_autoload = 'no'
 
 
-Plug 'schaeferpp/vim-gnomealign'         " Gnome Parameter Align :GNOMEAlignArguments
+" Plug 'schaeferpp/vim-gnomealign'         " Gnome Parameter Align :GNOMEAlignArguments
 Plug 'vim-scripts/indentpython.vim', {'for': 'py'}
 " Plug 'ihacklog/HiCursorWords'
 
@@ -213,11 +221,13 @@ Plug 'chazy/cscope_maps', {'for': ['c', 'cpp']}
 
 Plug 'stfl/meson.vim' " this does ftdetect! , {'for': 'meson'}
 
-Plug 'Chiel92/vim-autoformat', {'for': ['javascript', 'rust', 'c', 'cpp', 'objc', 'python', 'html', 'xml']}
-let g:formatters_python = ['black']
+" Python is handled by coc
+Plug 'Chiel92/vim-autoformat', {'for': ['javascript', 'rust', 'c', 'cpp', 'objc', 'html', 'xml', 'vue']}
+" let g:formatters_python = ['black']
+let g:formatters_javascript = ['eslint_local']
 " map to <Leader>cf in C code
-autocmd FileType javascript,c,cpp,objc,python nnoremap <buffer><Leader>cf :<C-u>Autoformat<CR>
-autocmd FileType javascript,c,cpp,objc,python vnoremap <buffer><Leader>cf :Autoformat<CR>
+autocmd FileType javascript,c,cpp,objc,python,vue nnoremap <buffer><Leader>cf :<C-u>Autoformat<CR>
+autocmd FileType javascript,c,cpp,objc,python,vue vnoremap <buffer><Leader>cf :Autoformat<CR>
 
 Plug 'kshenoy/vim-signature'
 
@@ -234,15 +244,15 @@ Plug 'vim-scripts/SyntaxRange'
 
 Plug 'embear/vim-localvimrc'
 
-Plug 'sakhnik/nvim-gdb'
+" Plug 'sakhnik/nvim-gdb'
 
 Plug 'easymotion/vim-easymotion'
 
-Plug 'kassio/neoterm'
+" Plug 'kassio/neoterm'
 " let g:neoterm_keep_term_open=1
-let g:neoterm_keep_term_open=1
-let g:neoterm_default_mod=':tab'
-nnoremap ,,c :Tnew<CR>
+" let g:neoterm_keep_term_open=1
+" let g:neoterm_default_mod=':tab'
+" nnoremap ,,c :Tnew<CR>
 " Plug 'Vigemus/nvimux'
 " map <Leader>g <Plug>(easymotion-prefix)
 
@@ -251,7 +261,10 @@ nnoremap ,,c :Tnew<CR>
 " let g:diminactive_use_syntax = 1
 " let g:diminactive_use_colorcolumn = 0
 
-Plug 'rhysd/vim-grammarous'
+Plug 'rhysd/vim-grammarous', {'for': ['tex', 'md']}
+let g:grammarous#languagetool_cmd = '~/bin/grammarous-lt.sh'
+map <F8> :GrammarousCheck --lang=en-GB<CR>
+
 
 Plug 'udalov/kotlin-vim', {'for': ['kotlin']}
 
@@ -266,8 +279,8 @@ Plug 'udalov/kotlin-vim', {'for': ['kotlin']}
 " let g:jedi#completions_command = "<C-Space>"
 " let g:jedi#rename_command = "<leader>r"
 
-Plug 'mattn/emmet-vim'
-Plug 'othree/html5.vim'
+Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
 let g:webdevicons_enable_startify = 1
@@ -278,23 +291,28 @@ endfunction
 
 
 " Requires fugitive
-Plug 'junegunn/gv.vim'
+" Plug 'junegunn/gv.vim'
 
-Plug 'leafOfTree/vim-vue-plugin'
+Plug 'leafOfTree/vim-vue-plugin', { 'for': 'vue' }
 let g:vim_vue_plugin_use_typescript = 1
 let g:vim_vue_plugin_use_sass = 1
 
 
 Plug 'pearofducks/ansible-vim', { 'for': 'yaml' }
 
-Plug 'HerringtonDarkholme/yats.vim'
+Plug 'HerringtonDarkholme/yats.vim', { 'for': 'ts' }
 
-Plug 'junegunn/goyo.vim'
+" Plug 'junegunn/goyo.vim'
 
 Plug 'dpelle/vim-LanguageTool'
-let g:languagetool_jar='$HOME/LanguageTool-5.3-SNAPSHOT/languagetool-commandline.jar'
+" let g:languagetool_jar='/usr/share/java/languagetool/languagetool-commandline.jar'
+let g:languagetool_cmd='~/bin/grammarous-lt.sh'
 let g:languagetool_lang='de-DE'
-let g:languagetool_disable_rules='WHITESPACE_RULE,EN_QUOTES,TYPOGRAFISCHE_ANFUEHRUNGSZEICHEN'
+" let g:languagetool_disable_rules='WHITESPACE_RULE,EN_QUOTES,TYPOGRAFISCHE_ANFUEHRUNGSZEICHEN'
 
-Plug 'cmugpi/vim-c0'
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+Plug 'cmugpi/vim-c0', { 'for': 'c0' }
+
+Plug 'jlanzarotta/bufexplorer'
 " vim:ts=4:sts=4:sw=4

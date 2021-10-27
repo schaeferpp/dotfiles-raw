@@ -62,20 +62,22 @@ Plug 'Valloric/MatchTagAlways', {'for': ['xml', 'html', 'htmldjango']}          
 " Plug 'vim-airline/vim-airline'           " Fancy statusline
 " Plug 'vim-airline/vim-airline-themes'
 "
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
-let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
-let g:ale_linters = {
-            \ 'vue': ['eslint', 'vls'],
-            \ 'python': ['pylint', 'mypy']
-            \ }
-let g:ale_c_parse_makefile = 1
-let g:ale_fixers = {'python': ['isort', 'yapf']}
-let g:ale_python_yapf_executable = 'YOUR_REPO_PATH/check_mk/.venv/bin/yapf'
-let g:ale_fix_on_save = 1
+" let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+" let g:ale_linters = {
+"             \ 'vue': ['eslint', 'vls'],
+"             \ 'python': ['pylint']
+"             \ }
 
-Plug 'maximbaz/lightline-ale'
+"             " \ 'python': ['pylint', 'mypy']
+" let g:ale_c_parse_makefile = 1
+" let g:ale_fixers = {'python': ['isort', 'yapf']}
+" let g:ale_python_yapf_executable = '/usr/bin/yapf'
+" let g:ale_fix_on_save = 1
+
+" Plug 'maximbaz/lightline-ale'
 " let g:ale_completion_enabled = 1
 set laststatus=2
 set showtabline=2
@@ -106,8 +108,8 @@ let g:lightline = {
                 \ 'left': [ [ 'buffers' ] ],
                 \ 'right': [ [ 'tabs' ] ]
             \ },
-            \ 'separator': {'left': "\uE0B0", 'right': "\uE0B2"},
-            \ 'subseparator': {'left': "|", 'right': "|" },
+            \ 'separator': {'left': "", 'right': ""},
+            \ 'subseparator': {'left': "", 'right': "" },
             \ 'mode_map': {
                 \ 'n' : 'N',
                 \ 'i' : 'I',
@@ -142,8 +144,7 @@ let g:lightline = {
             \ }
         \ }
 
-let g:lightline#bufferline#enable_devicons=1
-let g:lightline#bufferline#enable_devicons = 1
+" let g:lightline#bufferline#enable_devicons=1
 let g:lightline#bufferline#clickable = 1
 
 
@@ -166,6 +167,8 @@ Plug 'nelstrom/vim-markdown-folding', {'for': 'markdown'}
 autocmd FileType markdown set foldexpr=NestedMarkdownFolds()
 
 Plug 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_cmd = 'CtrlPBuffer'
+nmap <C-S-p> :echo foo<cr>
 
 Plug 'machakann/vim-highlightedyank'
 let g:highlightedyank_highlight_duration = 150

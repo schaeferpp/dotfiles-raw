@@ -9,6 +9,16 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+set $accent #E6B450
+set $blue #4d5566
+set $gray #B3B1AD
+set $red #FF3333
+set $bg #0A0E14
+set $fg #B3B1AD
+set $unfocused #0D1016
+set $unfocused_alt #00010A
+
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -36,8 +46,8 @@ floating_modifier $mod
 # bindsym $mod+Return exec "termite -e tmux"
 bindsym $mod+Return exec "alacritty"
 bindsym $mod+Shift+Return exec alacritty -e bash -c "RANGERCD=true zsh"'
-bindsym $mod+Shift+x exec alacritty -e nvim +terminal
-bindsym $mod+Shift+t exec alacritty -e nvim /home/paul/projects/TODO.org
+# bindsym $mod+Shift+x exec alacritty -e nvim +terminal
+# bindsym $mod+Shift+t exec alacritty -e nvim /home/paul/projects/TODO.org
 
 bindsym $mod+Shift+semicolon exec /home/paul/bin/swaylock.sh
 bindsym $mod+semicolon exec /home/paul/bin/swaylock.sh --info
@@ -66,15 +76,15 @@ for_window [app_id="launcher"] floating enable
 for_window [app_id="zenity"] floating enable
 for_window [app_id="rs-open"] floating enable
 for_window [title="wl-clipboard"] floating enable
-bindsym XF86Calculator exec --no-startup-id alacritty --title Calculator -e bc -l
+bindsym XF86Calculator exec --no-startup-id kitty --title Calculator -e bc -l
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id "bemenu-run -i -p '>' -P ⚙ -l 15 --hb '#212121' --fb '#212121' --ff '#ffcb6b' --nb '#212121' --hf '#91b859' --tf '#6182b8' --tb '#000000' --fb '#212121' --fn 'Monoid Nerd Font Mono 10' -H 30"
-bindsym $mod+d exec --no-startup-id "sirula"
+# bindsym $mod+d exec --no-startup-id "bemenu-run -i -p '>' -P ⚙ -l 15 --hb '$gray' --fb '$gray' --ff '#ffcb6b' --nb '$gray' --hf '#91b859' --tf '#6182b8' --tb '$bg' --fb '$gray' --fn 'Monoid Nerd Font Mono 10' -H 30"
+bindsym $mod+d exec --no-startup-id "rofi -show drun"
 # bindsym $mod+d exec --no-startup-id "rofi -modi 'drun,window,ssh' -show"
 bindsym $mod+o exec --no-startup-id "/home/paul/bin/rs-open"
 # bindsym Mod1+Tab exec --no-startup-id "rofi -show window"
@@ -295,31 +305,30 @@ include ~/.config/sway/outputs
 # finds out, if available)
 bar {
     font pango:Monoid 8
-    swaybar_command waybar
-    # status_command i3status-rs /home/paul/.config/rust-status.toml
+    # swaybar_command waybar
+    status_command i3status-rs
     position top
     # output HDMI-A-1
     # workspace_buttons yes
     colors {
-        separator #AAAAAA
-            background #212121
-            statusline #AAAAAA
-            focused_workspace #82aaff #82aaff #000000
-            active_workspace #6182b8 #6182b8 #ffffff
-            inactive_workspace #212121 #212121 #ffffff
-            urgent_workspace #82aaff #ff5370 #000000
+        separator $unfocused
+            background $bg
+            statusline $fg
+            # border bg fg
+            focused_workspace $accent $accent $bg
+            active_workspace $fg $fg $bg
+            inactive_workspace $bg $bg $fg
+            urgent_workspace $blue $red $bg
     }
 }
 
-# <colorclass> <border> <background> <text> <indicator> <child_border>
+# <colorclass>          <border>       <background> <text> <indicator> <child_border>
 #
 
-client.focused #82aaff #212121 #82aaff #ff5370 #82aaff
-client.focused_inactive #909090 #212121 #82aaff #87ceeb #000000
-
-client.unfocused #AAAAAA #212121 #909090 #909090 #212121
-
-client.urgent #ff5370 #212121 #ff5370 #212121 #ff5370
+client.focused          $accent        $bg   $accent $red $accent
+client.focused_inactive $accent        $bg   $fg $red $fg
+client.unfocused        $unfocused_alt $bg   $fg $red $fg
+client.urgent           $red           $gray $red $gray $red
 
 set $gnome-schema org.gnome.desktop.interface
 

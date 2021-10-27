@@ -7,7 +7,7 @@ endif
 " color badwolf
 " color desertink
 " color gotham256
-color jellybeans
+" color jellybeans
 
 " color OceanicNext
 " color molokai
@@ -15,8 +15,8 @@ color jellybeans
 " color material
 " color primary
 " color sitruuna
-" let ayucolor="dark"
-" color ayu
+let ayucolor="dark"
+color ayu
 
 "color seti
 "
@@ -31,9 +31,9 @@ set background=dark
 "color gruvbox
 " set background=dark
 
-if exists('veonim')
-    set guifont=Symbols\ Nerd\ Font,Fira\ Code
-endif
+" if exists('veonim')
+set guifont=Symbols\ Nerd\ Font,Fira\ Code
+" endif
 
 set cursorline
 
@@ -61,6 +61,8 @@ function! OverrideHighlights()
     hi DiffText guifg=#101010 guibg=#70b950 cterm=bold gui=bold
 
     hi CocHighlightText guibg=#404040 ctermbg=black
+
+    hi Command cterm=italic gui=italic
 
     set winhighlight=Normal:ActiveWin,NormalNC:InactiveWin
 endfunction

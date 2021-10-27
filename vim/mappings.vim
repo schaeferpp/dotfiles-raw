@@ -36,7 +36,7 @@ nnoremap <F7> <C-W><
 nnoremap <Esc> :set nohls<cr>
 
 " Save as root
-map      <Leader>w :w !sudo tee %<CR>L<CR>
+map      <Leader>w :w !sudo -A tee %<CR>L<CR>
 
 map      <Leader>l :NERDTreeToggle<CR>
 nnoremap <Leader>u :UndotreeToggle<CR>
@@ -112,7 +112,7 @@ nnoremap <Leader><C-{> zM
 
 
 " Grepper
-nnoremap <C-S-f> :Grepper -highlight<CR>
+nnoremap <C-f> :Grepper<CR>
 
 nnoremap <leader>q :bw<cr>
 

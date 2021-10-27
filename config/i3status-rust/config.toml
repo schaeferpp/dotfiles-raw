@@ -1,0 +1,49 @@
+theme = "bad-wolf"
+
+[icons]
+name = "material-nf"
+
+[icons.overrides]
+memory_mem = ""
+cpu = " "
+net_up = ""
+net_down = ""
+music_next = ""
+time = ""
+music_play = ""
+
+[[block]]
+block = "music"
+marquee = true
+player = "spotify"
+buttons = ["play", "next"]
+format = "{artist} - {title}"
+
+[[block]]
+block = "net"
+device = "enp0s20f0u3u2"
+format = "{speed_up;K} {speed_down;K}"
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{mem_total_used_percents}"
+format_swap = "{swap_used_percents}"
+
+[[block]]
+block = "cpu"
+interval = 1
+
+
+[[block]]
+block = "load"
+interval = 1
+format = "{1m}"
+
+# [[block]]
+# block = "sound"
+
+[[block]]
+block = "time"
+interval = 60
+format = "%a %d/%m %R"
