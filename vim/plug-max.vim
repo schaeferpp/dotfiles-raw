@@ -10,9 +10,8 @@ endfunction
 Plug 'lervag/vimtex', {'for' : 'tex'}    " latex environment is ae or ie
 " Settings in ~/.vim/vimtex.vim
 
-" Plug 'godlygeek/tabular' TODO
-Plug 'junegunn/vim-easy-align'           " Usage: vip<Enter>SYMBOL
-Plug 'atweiden/vim-dragvisuals'          " Visually select something in block
+" Plug 'junegunn/vim-easy-align'           " Usage: vip<Enter>SYMBOL
+" Plug 'atweiden/vim-dragvisuals'          " Visually select something in block
                                          " or line mode and use arrow keys
 "Plug 'xolox/vim-easytags'
 
@@ -24,11 +23,28 @@ Plug 'tpope/vim-dispatch'
 
 if has('nvim')
     Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/lsp-status.nvim'
     nmap gd <cmd>lua vim.lsp.buf.definition()<CR>
-    Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
-    Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
-    let g:coq_settings = { 'auto_start': v:true }
-    set completeopt-=noinsert
+    Plug 'hrsh7th/nvim-cmp' " Autocompletion plugin
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/cmp-cmdline'
+    Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+
+    Plug 'simrat39/rust-tools.nvim'
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'mfussenegger/nvim-dap'
+
+
+
+
+    " Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+    " Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+    " let g:coq_settings = { 'auto_start': v:true }
+    " set completeopt-=noinsert
 
     " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
     " Plug 'Shougo/deoplete.nvim',          { 'do': ':UpdateRemotePlugins' }
@@ -95,11 +111,14 @@ if has('nvim')
     " let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
     " let g:deoplete#sources#clang#clang_header='/usr/lib/clang/'
 
-    Plug 'mhinz/vim-crates'
-    autocmd BufRead Cargo.toml call crates#toggle()
+    Plug 'Saecki/crates.nvim'
+    " Plug 'mhinz/vim-crates'
+    " autocmd BufRead Cargo.toml call crates#toggle()
 
-    Plug 'Shougo/neco-syntax'
-    Plug 'Shougo/neco-vim'
+    " Plug 'Shougo/neco-syntax'
+    " Plug 'Shougo/neco-vim'
+
+    Plug 'norcalli/nvim-colorizer.lua'
 else
     Plug 'Valloric/YouCompleteMe'
     Plug 'rdnetto/YCM-Generator', { 'branch': 'develop'} 
@@ -229,24 +248,24 @@ let g:formatters_javascript = ['eslint_local']
 autocmd FileType javascript,c,cpp,objc,python,vue nnoremap <buffer><Leader>cf :<C-u>Autoformat<CR>
 autocmd FileType javascript,c,cpp,objc,python,vue vnoremap <buffer><Leader>cf :Autoformat<CR>
 
-Plug 'kshenoy/vim-signature'
+" Plug 'kshenoy/vim-signature'
 
 Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 
-Plug 'neomake/neomake', {'for': ['tex', 'plaintex']}
-au BufWritePost *.tex Neomake
-nnoremap <leader>mm :Neomake!<cr>
+" Plug 'neomake/neomake', {'for': ['tex', 'plaintex']}
+" au BufWritePost *.tex Neomake
+" nnoremap <leader>mm :Neomake!<cr>
 
-Plug 'tpope/vim-speeddating'
-Plug 'jceb/vim-orgmode'
+" Plug 'tpope/vim-speeddating'
+" Plug 'jceb/vim-orgmode'
 
-Plug 'vim-scripts/SyntaxRange'
+" Plug 'vim-scripts/SyntaxRange'
 
-Plug 'embear/vim-localvimrc'
+" Plug 'embear/vim-localvimrc'
 
 " Plug 'sakhnik/nvim-gdb'
 
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
 
 " Plug 'kassio/neoterm'
 " let g:neoterm_keep_term_open=1
@@ -261,9 +280,6 @@ Plug 'easymotion/vim-easymotion'
 " let g:diminactive_use_syntax = 1
 " let g:diminactive_use_colorcolumn = 0
 
-Plug 'rhysd/vim-grammarous', {'for': ['tex', 'md']}
-let g:grammarous#languagetool_cmd = '~/bin/grammarous-lt.sh'
-map <F8> :GrammarousCheck --lang=en-GB<CR>
 
 
 Plug 'udalov/kotlin-vim', {'for': ['kotlin']}
@@ -309,10 +325,14 @@ Plug 'dpelle/vim-LanguageTool'
 let g:languagetool_cmd='~/bin/grammarous-lt.sh'
 let g:languagetool_lang='de-DE'
 " let g:languagetool_disable_rules='WHITESPACE_RULE,EN_QUOTES,TYPOGRAFISCHE_ANFUEHRUNGSZEICHEN'
+"
+Plug 'rhysd/vim-grammarous', {'for': ['tex', 'md']}
+let g:grammarous#languagetool_cmd = '~/bin/grammarous-lt.sh'
+map <F8> :GrammarousCheck --lang=en-GB<CR>
 
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-Plug 'cmugpi/vim-c0', { 'for': 'c0' }
+" Plug 'cmugpi/vim-c0', { 'for': 'c0' }
 
-Plug 'jlanzarotta/bufexplorer'
+" Plug 'jlanzarotta/bufexplorer'
 " vim:ts=4:sts=4:sw=4

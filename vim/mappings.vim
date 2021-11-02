@@ -122,6 +122,14 @@ nnoremap <C-e>r :source $MYVIMRC<CR>
 " Terminal mode
 tnoremap <Esc> <C-\><C-n>
 
+nnoremap K <Cmd>lua vim.lsp.buf.hover()<CR>
+ " Open code actions using the default lsp UI, if you want to change this please see the plugins above
+nnoremap <leader>ca <Cmd>lua vim.lsp.buf.code_action()<CR>
+ " Open code actions for the selected visual range
+xnoremap <leader>ca <Cmd>lua vim.lsp.buf.range_code_action()<CR>
+
+nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
+
 " autocmd FileType rust nmap <C-]> gd
 "
 " let g:nvimux_prefix = '<C-b>',

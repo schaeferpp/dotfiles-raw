@@ -9,6 +9,8 @@ Plug 'tpope/vim-commentary'
 " let g:NERDCustomDelimiters = { 'c': { 'left': '/*','right': '*/' } }
 Plug 'vim-scripts/let-modeline.vim'      " extend modeline to `let`
 
+Plug 'cespare/vim-toml'
+
 " Plug 'majutsushi/tagbar'
 " Plug 'preservim/tagbar'
 
@@ -82,11 +84,31 @@ Plug 'mengelbrecht/lightline-bufferline'
 set laststatus=2
 set showtabline=2
 
-" function! NearestMethodOrFunction() abort
-"   " return get(b:, 'tagbar_current_tagrCurrentTagrCurrentTag<CR><CR>', '')
-"   return tagbar#currenttag('%s', '')
-"   " return normal TagbarCurrentTag<CR>
-" endfunction
+function! NearestMethodOrFunction() abort
+    " return get(b:, 'tagbar_current_tagrCurrentTagrCurrentTag<CR><CR>', '')
+    " if luaeval('#vim.lsp.buf_get_clients() > 0')
+        " try
+        "     lua require'lsp-status'.update_current_function()
+        "     return b:lsp_current_function
+        " catch
+            return ""
+        " endtry
+    " endif
+endfunction
+
+function! LspStatus() abort
+    " return get(b:, 'tagbar_current_tagrCurrentTagrCurrentTag<CR><CR>', '')
+    if luaeval('#vim.lsp.buf_get_clients() > 0')
+        try
+            lua require'lsp-status'.update_current_function()
+        catch
+        endtry
+        return luaeval("require('lsp-status').status()")
+    endif
+    " lua require'lsp-status'.update_current_function()
+    " return b:lsp_current_function
+    " return normal TagbarCurrentTag<CR>
+endfunction
 
 " set statusline+=%{NearestMethodOrFunction()}
 
@@ -97,11 +119,11 @@ set showtabline=2
 " autocmd VimEnter * normal TagbarCurrentTag<CR>
 
 let g:lightline = {
-            \ 'colorscheme': 'ayu',
+            \ 'colorscheme': 'wombat',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
             \             [ 'readonly', 'relativepath', 'modified', 'method' ] ],
-            \   'right': [ [ 'fileencoding', 'filetype', 'percent', 'lineinfo'  ], 
+            \   'right': [ [ 'lspstatus', 'fileencoding', 'filetype', 'percent', 'lineinfo'  ], 
             \              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ] ],
             \ },
             \ 'tabline': {
@@ -124,7 +146,8 @@ let g:lightline = {
                 \ 't': 'T',
                 \ },
             \ 'component_function': {
-                \   'method': 'NearestMethodOrFunction'
+                \   'method': 'NearestMethodOrFunction',
+                \   'lspstatus': 'LspStatus'
             \ },
             \ 'component_expand' : {
                 \  'buffers': 'lightline#bufferline#buffers',
@@ -148,7 +171,7 @@ let g:lightline = {
 let g:lightline#bufferline#clickable = 1
 
 
-Plug 'wesQ3/vim-windowswap'
+" Plug 'wesQ3/vim-windowswap'
 
 Plug 'mhinz/vim-grepper'
 let g:grepper = {
@@ -168,12 +191,12 @@ autocmd FileType markdown set foldexpr=NestedMarkdownFolds()
 
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_cmd = 'CtrlPBuffer'
-nmap <C-S-p> :echo foo<cr>
+" nmap <C-S-p> :echo foo<cr>
 
 Plug 'machakann/vim-highlightedyank'
 let g:highlightedyank_highlight_duration = 150
 
-Plug 'vim-scripts/ReplaceWithRegister'
+" Plug 'vim-scripts/ReplaceWithRegister'
 
 " Plug 'Konfekt/FastFold'
 

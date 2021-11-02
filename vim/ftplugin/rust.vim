@@ -12,4 +12,7 @@ let g:tagbar_type_rust = {
     \]
     \}
 
+nmap <f5> :lua require('rust-tools.runnables').runnables()<cr>
+nmap <f2> :lua require'rust-tools.hover_actions'.hover_actions()<cr>
+
 " vim:ts=4:sts=4:sw=4

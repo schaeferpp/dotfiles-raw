@@ -1,8 +1,7 @@
 set background=dark
 set t_Co=256
-if has('nvim')
-    set termguicolors
-endif
+set termguicolors
+
 " color wombat256mod
 " color badwolf
 " color desertink
@@ -15,20 +14,19 @@ endif
 " color material
 " color primary
 " color sitruuna
-let ayucolor="dark"
-color ayu
+" let ayucolor="dark"
+" color ayu
 
-"color seti
+" color seti
 "
 set background=dark
 
 
-"let g:gruvbox_bold              = 1
-"let g:gruvbox_italic            = 1
-"let g:gruvbox_improved_comments = 1
-"let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_bold              = 1
+let g:gruvbox_italic            = 1
+let g:gruvbox_improved_comments = 1
 
-"color gruvbox
+color gruvbox
 " set background=dark
 
 " if exists('veonim')
@@ -63,6 +61,9 @@ function! OverrideHighlights()
     hi CocHighlightText guibg=#404040 ctermbg=black
 
     hi Command cterm=italic gui=italic
+
+    set guicursor=a:block-nCursor,i:ver10-blinkon100
+    hi nCursor ctermbg=0 guifg=#000000 guibg=#FFFFFF
 
     set winhighlight=Normal:ActiveWin,NormalNC:InactiveWin
 endfunction

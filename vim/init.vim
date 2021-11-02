@@ -1,5 +1,5 @@
 if !exists('g:vscode')
-try
+" try
     " if exists('veonim')
     "     let g:vscode_extensions = [
     "     \'vscode.typescript-language-features',
@@ -7,6 +7,7 @@ try
     "     \'vscode.html-language-features',
     "     \]
     " endif
+    set termguicolors
     try
         source ~/.vim/min.vim
     catch
@@ -41,9 +42,9 @@ try
 
     " own-snippets
     set rtp+=~/.vim/snips
-catch
-    echoerr "No Pluginfile"
-endtry
+" catch
+    " echoerr "No Pluginfile"
+" endtry
 
 
 set list listchars=tab:¦\ ,trail:∙,precedes:<,extends:>,nbsp:~
