@@ -65,8 +65,8 @@ Plug 'Valloric/MatchTagAlways', {'for': ['xml', 'html', 'htmldjango']}          
 " Plug 'vim-airline/vim-airline-themes'
 "
 " Plug 'dense-analysis/ale'
-Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
+" Plug 'itchyny/lightline.vim'
+" Plug 'mengelbrecht/lightline-bufferline'
 " let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 " let g:ale_linters = {
 "             \ 'vue': ['eslint', 'vls'],
@@ -118,57 +118,59 @@ endfunction
 " you can add the following line to your vimrc 
 " autocmd VimEnter * normal TagbarCurrentTag<CR>
 
-let g:lightline = {
-            \ 'colorscheme': 'wombat',
-            \ 'active': {
-            \   'left': [ [ 'mode', 'paste' ],
-            \             [ 'readonly', 'relativepath', 'modified', 'method' ] ],
-            \   'right': [ [ 'lspstatus', 'fileencoding', 'filetype', 'percent', 'lineinfo'  ], 
-            \              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ] ],
-            \ },
-            \ 'tabline': {
-                \ 'left': [ [ 'buffers' ] ],
-                \ 'right': [ [ 'tabs' ] ]
-            \ },
-            \ 'separator': {'left': "", 'right': ""},
-            \ 'subseparator': {'left': "", 'right': "" },
-            \ 'mode_map': {
-                \ 'n' : 'N',
-                \ 'i' : 'I',
-                \ 'R' : 'R',
-                \ 'v' : 'V',
-                \ 'V' : 'VL',
-                \ "\<C-v>": 'VB',
-                \ 'c' : 'C',
-                \ 's' : 'S',
-                \ 'S' : 'SL',
-                \ "\<C-s>": 'SB',
-                \ 't': 'T',
-                \ },
-            \ 'component_function': {
-                \   'method': 'NearestMethodOrFunction',
-                \   'lspstatus': 'LspStatus'
-            \ },
-            \ 'component_expand' : {
-                \  'buffers': 'lightline#bufferline#buffers',
-                \  'linter_checking': 'lightline#ale#checking',
-                \  'linter_infos': 'lightline#ale#infos',
-                \  'linter_warnings': 'lightline#ale#warnings',
-                \  'linter_errors': 'lightline#ale#errors',
-                \  'linter_ok': 'lightline#ale#ok',
-            \ },
-            \ 'component_type' : {
-                \  'buffers': 'tabsel',
-                \  'linter_checking': 'right',
-                \  'linter_infos': 'right',
-                \  'linter_warnings': 'warning',
-                \  'linter_errors': 'error',
-                \  'linter_ok': 'right',
-            \ }
-        \ }
+" let g:lightline = {
+"             \ 'colorscheme': 'wombat',
+"             \ 'active': {
+"             \   'left': [ [ 'mode', 'paste' ],
+"             \             [ 'readonly', 'relativepath', 'modified', 'method' ] ],
+"             \   'right': [ [ 'lspstatus', 'fileencoding', 'filetype', 'percent', 'lineinfo'  ], 
+"             \              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ] ],
+"             \ },
+"             \ 'tabline': {
+"                 \ 'left': [ [ 'buffers' ] ],
+"                 \ 'right': [ [ 'tabs' ] ]
+"             \ },
+"             \ 'separator': {'left': "", 'right': ""},
+"             \ 'subseparator': {'left': "", 'right': "" },
+"             \ 'mode_map': {
+"                 \ 'n' : 'N',
+"                 \ 'i' : 'I',
+"                 \ 'R' : 'R',
+"                 \ 'v' : 'V',
+"                 \ 'V' : 'VL',
+"                 \ "\<C-v>": 'VB',
+"                 \ 'c' : 'C',
+"                 \ 's' : 'S',
+"                 \ 'S' : 'SL',
+"                 \ "\<C-s>": 'SB',
+"                 \ 't': 'T',
+"                 \ },
+"             \ 'component_function': {
+"                 \   'method': 'NearestMethodOrFunction',
+"                 \   'lspstatus': 'LspStatus'
+"             \ },
+"             \ 'component_expand' : {
+"                 \  'buffers': 'lightline#bufferline#buffers',
+"                 \  'linter_checking': 'lightline#ale#checking',
+"                 \  'linter_infos': 'lightline#ale#infos',
+"                 \  'linter_warnings': 'lightline#ale#warnings',
+"                 \  'linter_errors': 'lightline#ale#errors',
+"                 \  'linter_ok': 'lightline#ale#ok',
+"             \ },
+"             \ 'component_type' : {
+"                 \  'buffers': 'tabsel',
+"                 \  'linter_checking': 'right',
+"                 \  'linter_infos': 'right',
+"                 \  'linter_warnings': 'warning',
+"                 \  'linter_errors': 'error',
+"                 \  'linter_ok': 'right',
+"             \ }
+"         \ }
 
-" let g:lightline#bufferline#enable_devicons=1
-let g:lightline#bufferline#clickable = 1
+" " let g:lightline#bufferline#enable_devicons=1
+" let g:lightline#bufferline#clickable = 1
+
+Plug 'nvim-lualine/lualine.nvim'
 
 
 " Plug 'wesQ3/vim-windowswap'

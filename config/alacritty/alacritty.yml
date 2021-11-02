@@ -8,9 +8,15 @@ colors:
         foreground: '#B3B1AD'
           # background: '#121212'
         background: '#0A0E14'
+    # vi_mode_cursor:
+    #     text: '#FFFFFF'
+    #     cursor: '#000000'
+    cursor:
+        text: CellBackground
+        cursor: CellForeground
     vi_mode_cursor:
-        text: '#B3B1AD'
-        cursor: '#E6B450'
+        text: CellBackground
+        cursor: CellForeground
     normal:
         black: '#0d1016'
         red: '#FF3333'

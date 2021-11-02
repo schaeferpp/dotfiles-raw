@@ -32,6 +32,56 @@ call plug#end()
 " https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 lua <<EOF
 
+local function lsp_funcname()
+    require'lsp-status'.update_current_function()
+    return vim.b.lsp_current_function
+end
+
+local function lsp_status()
+    local lsp_status = require 'lsp-status'
+    lsp_status.update_current_function()
+    return lsp_status.status()
+end
+
+local lualine = require'lualine'
+lualine.setup({
+options = {
+    section_separators = { left = '', right = '' },
+    component_separators = { left = '', right = ''},
+    theme='gruvbox_dark',
+    },
+    sections = {
+        lualine_a = {
+            { 'mode', separator = { left = '' }, right_padding = 2 },
+        },
+        lualine_b = { 'filename' },
+        lualine_c = { lsp_funcname, {
+                'diagnostics',
+                sources = { 'nvim_lsp' },
+                symbols = { error = ' ', warn = ' ', info = ' ' },
+                diagnostics_color = {
+                    color_error = { fg = '#a89984' },
+                    color_warn = { fg = '#a89984' },
+                    color_info = { fg = '#a89984' },
+                }
+            }
+        },
+        lualine_x = {},
+        lualine_y = {'filetype', 'encoding' },
+        lualine_z = { 'progress',
+            {   'location', separator = { right = '' }, left_padding = 2 },
+        },
+    },
+    tabline = {
+        lualine_a = {'buffers'},
+        lualine_b = {},
+        lualine_c = { {'%=', separator = {left = ''}}, { 'filename', separator = {left = ''} }},
+        lualine_x = {},
+        lualine_y = {'branch'},
+        lualine_z = {}
+    }
+    })
+
 local lsp_status = require('lsp-status')
 lsp_status.register_progress()
 

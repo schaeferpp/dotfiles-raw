@@ -297,13 +297,13 @@ Plug 'udalov/kotlin-vim', {'for': ['kotlin']}
 
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'mhinz/vim-startify'
 let g:webdevicons_enable_startify = 1
 
-function! StartifyEntryFormat()
-    return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
-endfunction
+" function! StartifyEntryFormat()
+"     return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
+" endfunction
 
 
 " Requires fugitive
