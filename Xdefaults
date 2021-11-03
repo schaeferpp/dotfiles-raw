@@ -19,9 +19,9 @@ URxvt.tabbed.font:            xft:Input:size=9
 URxvt*inheritPixmap:          true
 URxvt*shading:                10
 URxvt.depth:                  32
-URxvt.background:             rgba:1111/1111/1111/eeff
+! URxvt.background:             rgba:1111/1111/1111/eeff
 URxvt*iso14755:               False
-URxvt.transparent:            true
+! URxvt.transparent:            true
 
 URxvt.perl-ext-common:        default,clipboard-osc,url-select,keyboard-select,selection-to-clipboard,fullscreen,resize-font
 URxvt.url-select.launcher:    chromium
