@@ -21,21 +21,21 @@ let g:vista_sidebar_width = 45
 " nnoremap <Leader>t :TagbarToggle<CR>
 nnoremap <Leader>t :Vista!!<CR>
 
-Plug 'tpope/vim-fugitive'                " git
-Plug 'airblade/vim-gitgutter'
+" Plug 'tpope/vim-fugitive'                " git
+" Plug 'airblade/vim-gitgutter'
 
-Plug 'scrooloose/nerdtree'               " Fileexplorer
+" Plug 'scrooloose/nerdtree'               " Fileexplorer
 
 Plug 'christoomey/vim-tmux-navigator'    " vim/tmux integration
 
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 "let g:indentLine_color_gui = '#444444'
-let g:indentLine_concealcursor = 0
+" let g:indentLine_concealcursor = 0
 "let g:indentLine_setConceal = 0
 "let g:indentLine_char = '▒'
 " let g:indentLine_char= '│'
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-let g:indentLine_color_term = 249
+" let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+" let g:indentLine_color_term = 249
 
 
 "let g:indentLine_color_gui = '#E4E4E4'

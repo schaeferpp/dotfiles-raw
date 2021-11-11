@@ -86,7 +86,6 @@ local lsp_status = require('lsp-status')
 lsp_status.register_progress()
 
 local lsp = require "lspconfig"
--- local coq = require "coq"
 
 -- Mappings.
 local opts = { noremap=true, silent=true }
@@ -168,10 +167,10 @@ cmp.setup {
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
+    -- ['<CR>'] = cmp.mapping.confirm {
+    --   behavior = cmp.ConfirmBehavior.Replace,
+    --   select = true,
+    -- },
   },
   sources = {
     { name = 'nvim_lsp' },
@@ -196,7 +195,6 @@ cmp.setup.cmdline(':', {
     })
 })
 
--- lsp.rust_analyzer.setup(coq.lsp_ensure_capabilities()) -- after
 
 
 
@@ -206,9 +204,14 @@ require('telescope').setup{}
 require'rust-tools.hover_range'.hover_range()
 require'rust-tools.hover_actions'.hover_actions()
 
--- set inlay hints
 require('rust-tools.inlay_hints').set_inlay_hints()
--- require('colorbuddy').colorscheme('gruvbuddy')
+require('gitsigns').setup()
+require("indent_blankline").setup {
+    char = "|",
+    buftype_exclude = {"terminal"}
+    }
+
+
 EOF
 
 " vim.lsp.buf.definition()

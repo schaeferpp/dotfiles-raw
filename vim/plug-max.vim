@@ -8,6 +8,7 @@ endfunction
 
 
 Plug 'lervag/vimtex', {'for' : 'tex'}    " latex environment is ae or ie
+let g:tex_flavor = 'latex'
 " Settings in ~/.vim/vimtex.vim
 
 " Plug 'junegunn/vim-easy-align'           " Usage: vip<Enter>SYMBOL
@@ -36,7 +37,14 @@ if has('nvim')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+    nnoremap <leader>ff <cmd>Telescope find_files<cr>
+    nnoremap <leader>fg <cmd>Telescope live_grep<cr>
     Plug 'mfussenegger/nvim-dap'
+
+
+
+    Plug 'lewis6991/gitsigns.nvim'
+    Plug 'lukas-reineke/indent-blankline.nvim'
 
 
 

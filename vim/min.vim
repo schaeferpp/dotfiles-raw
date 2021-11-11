@@ -19,9 +19,9 @@ set history=700
 set undolevels=700
 set undofile
 if isdirectory("/encrypted")
-    set undodir=/encrypted/
+  " set undodir=/encrypted/
 else
-    set undodir=/tmp
+  set undodir=/tmp
 endif
 set nobackup
 set nowritebackup
@@ -37,7 +37,7 @@ syntax on
 let mapleader = ","
 
 " Use system clipboard
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 
 
 set nohlsearch
