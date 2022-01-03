@@ -32,6 +32,8 @@ set textwidth=100
 set visualbell
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
+set foldlevel=5
+set spelllang=en,de
 
 call plug#begin('~/.vim/plugged')
 
@@ -54,12 +56,18 @@ let g:webdevicons_enable_startify = 1
 
 
 Plug 'antoinemadec/FixCursorHold.nvim'
-" Plug 'akinsho/toggleterm.nvim'
-" nnoremap <C-m> :ToggleTerm<CR>
-Plug 'voldikss/vim-floaterm'
-nnoremap <C-m> :FloatermToggle!<CR>
-let g:floaterm_autoclose=1
-let g:floaterm_opener='edit'
+Plug 'akinsho/toggleterm.nvim'
+nmap <leader>m :ToggleTerm<CR>
+nmap <F12> :ToggleTerm<CR>
+tmap <F12> <C-\><C-n>:ToggleTerm<CR>
+" Plug 'voldikss/vim-floaterm'
+" let g:floaterm_keymap_toggle = '<C-m>'
+" nnoremap <silent><leader>m :FloatermToggle!<CR>
+" nnoremap <silent><esc><esc> :FloatermToggle!<CR>
+" let g:floaterm_autoclose=2
+" let g:floaterm_opener='edit'
+" command! Broot FloatermNew --width=0.8 --height=0.8 zsh -c "vim $(broot)"
+" nnoremap <Leader>l :Broot<cr>
 
 
 Plug 'vim-scripts/let-modeline.vim'      " extend modeline to `let`
@@ -83,6 +91,10 @@ nnoremap <Leader>u :UndotreeToggle<CR>
 
 Plug 'aperezdc/vim-template'           " Template files
 let g:templates_directory = '~/.vim/templates'
+let g:license                            = "LGPL-3.0+"
+let g:username                           = "Paul Schaefer"
+let g:email                              = "paul@realcyber.de"
+
 Plug 'mhinz/vim-grepper'
 let g:grepper = {
             \ 'tools': ['rg', 'pt', 'ag', 'git', 'grep'],
@@ -115,7 +127,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <Leader>l :Telescope file_browser<CR>
+nnoremap <leader>l <cmd>Telescope file_browser<cr>
 Plug 'mfussenegger/nvim-dap'
 
 call plug#end()
@@ -197,7 +209,7 @@ silent !mkdir ~/.cache/vim > /dev/null 2>&1
 let g:cursorhold_updatetime=300
 
 " Show diagnostic popup on cursor hold
-autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+autocmd CursorHold * lua vim.diagnostic.open_float()
 autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 200)
 
 

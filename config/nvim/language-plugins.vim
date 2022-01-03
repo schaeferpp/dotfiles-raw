@@ -3,10 +3,13 @@ let g:formatters_javascript = ['eslint_local']
 autocmd FileType javascript,c,cpp,objc,python,vue nnoremap <buffer><Leader>cf :<C-u>Autoformat<CR>
 autocmd FileType javascript,c,cpp,objc,python,vue vnoremap <buffer><Leader>cf :Autoformat<CR>
 
+
 " Rust
 Plug 'simrat39/rust-tools.nvim'
 Plug 'pest-parser/pest.vim'
 Plug 'Saecki/crates.nvim'
+
+let g:rustfmt_autosave = 1
 
 " C
 Plug 'vim-scripts/a.vim', {'for': ['c', 'cpp']}
