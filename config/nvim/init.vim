@@ -35,21 +35,22 @@ set shortmess+=c
 set foldlevel=5
 set spelllang=en,de
 
+
 call plug#begin('~/.vim/plugged')
 
-Plug 'tpope/vim-surround'                " ysiw'   -> surrounds word with '
-Plug 'tpope/vim-repeat'                  " make surroundings repeatable
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
+" Plug 'tpope/vim-surround'                " ysiw'   -> surrounds word with '
+" Plug 'tpope/vim-repeat'                  " make surroundings repeatable
+" Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-dispatch'
 
 " Theming
-Plug 'morhetz/gruvbox'
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'norcalli/nvim-colorizer.lua'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'nvim-lua/lsp-status.nvim'
+" Plug 'morhetz/gruvbox'
+" Plug 'nvim-lualine/lualine.nvim'
+" Plug 'lewis6991/gitsigns.nvim'
+" Plug 'lukas-reineke/indent-blankline.nvim'
+" Plug 'norcalli/nvim-colorizer.lua'
+" Plug 'kyazdani42/nvim-web-devicons'
+" Plug 'nvim-lua/lsp-status.nvim'
 
 Plug 'mhinz/vim-startify'
 let g:webdevicons_enable_startify = 1
@@ -71,12 +72,15 @@ tmap <F12> <C-\><C-n>:ToggleTerm<CR>
 
 
 Plug 'vim-scripts/let-modeline.vim'      " extend modeline to `let`
-Plug 'liuchengxu/vista.vim'
-let g:vista#renderer#enable_icon = 1
-let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
-let g:vista_sidebar_width = 45
-nnoremap <Leader>t :Vista!!<CR>
-autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+" Plug 'liuchengxu/vista.vim'
+" let g:vista#renderer#enable_icon = 1
+" let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+" let g:vista_sidebar_width = 45
+" nnoremap <Leader>t :Vista!!<CR>
+" autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+
+
+Plug 'tpope/vim-fugitive'
 
 " Plug 'christoomey/vim-tmux-navigator'    " vim/tmux integration
 
@@ -85,6 +89,12 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 Plug 'honza/vim-snippets'
+
+"Plug 'godlygeek/tabular'
+Plug 'junegunn/vim-easy-align'
+nmap ga       <Plug>(EasyAlign)
+xmap ga       <Plug>(EasyAlign)
+xmap <Return> <Plug>(EasyAlign)
 
 Plug 'mbbill/undotree'                   " Fancy undo window
 nnoremap <Leader>u :UndotreeToggle<CR>
@@ -101,6 +111,7 @@ let g:grepper = {
             \ 'open':  1,
             \ 'jump':  0,
             \ }
+nnoremap <C-f> :Grepper<CR>
 
 
 Plug 'machakann/vim-highlightedyank'
@@ -117,6 +128,8 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'lukas-reineke/lsp-format.nvim'
+nmap <leader>af :lua vim.lsp.buf.formatting_seq_sync()<CR>
 
 
 " Language Specific stuff
@@ -125,10 +138,19 @@ source ~/.config/nvim/language-plugins.vim
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>l <cmd>Telescope file_browser<cr>
+" nnoremap <leader>l <cmd>Telescope file_browser<cr>
+nnoremap <leader>l <cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR>
 Plug 'mfussenegger/nvim-dap'
+
+Plug 'vimwiki/vimwiki'
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
+Plug 'RRethy/vim-illuminate'
+Plug 'weilbith/nvim-code-action-menu'
 
 call plug#end()
 
@@ -161,6 +183,10 @@ nnoremap <Leader><C-j> <C-j><C-_>
 nnoremap <Leader><C-k> <C-k><C-_>
 nnoremap <Leader><C-h> <C-h><C-_>
 nnoremap <Leader><C-l> <C-l><C-_>
+nnoremap <leader>ca :CodeActionMenu<CR>
+nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
+xnoremap <leader>ca <Cmd>lua vim.lsp.buf.range_code_action()<CR>
+
 
 vnoremap < <gv
 vnoremap > >gv
@@ -216,3 +242,17 @@ autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 200)
 if filereadable(expand("~/.vim/override.vim"))
     source ~/.vim/override.vim
 endif
+
+let g:clipboard = {
+      \   'name': 'ClippyRemoteClipboard',
+      \   'copy': {
+      \      '+': 'clippy set',
+      \      '*': 'clippy set',
+      \    },
+      \   'paste': {
+      \      '+': 'clippy get',
+      \      '*': 'clippy get',
+      \   },
+      \   'cache_enabled': 0,
+      \ }
+

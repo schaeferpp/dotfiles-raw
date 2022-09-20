@@ -5,7 +5,7 @@ autocmd FileType javascript,c,cpp,objc,python,vue vnoremap <buffer><Leader>cf :A
 
 
 " Rust
-Plug 'simrat39/rust-tools.nvim'
+" Plug 'simrat39/rust-tools.nvim'
 Plug 'pest-parser/pest.vim'
 Plug 'Saecki/crates.nvim'
 
@@ -69,7 +69,8 @@ Plug 'HerringtonDarkholme/yats.vim', { 'for': 'ts' }
 
 
 " Text
-Plug 'rhysd/vim-grammarous', {'for': ['tex', 'md']}
-let g:grammarous#languagetool_cmd = '~/bin/grammarous-lt.sh'
-map <F8> :GrammarousCheck --lang=en-GB<CR>
+Plug 'rhysd/vim-grammarous', {'for': ['tex', 'markdown']}
+" let g:grammarous#languagetool_cmd = '~/bin/grammarous-lt.sh'
+" map <F8> :GrammarousCheck --lang=en-GB<CR>
+map <F8> :GrammarousCheck --lang=de-DE<CR>
 
