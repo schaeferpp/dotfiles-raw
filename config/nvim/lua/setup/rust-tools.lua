@@ -46,3 +46,5 @@ local opts = {
 
 rt.setup(opts)
 rt.inlay_hints.set()
+
+vim.cmd [[ let g:rustfmt_autosave = 1 ]]

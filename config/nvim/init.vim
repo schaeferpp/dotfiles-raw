@@ -30,13 +30,13 @@ set smartcase
 set termguicolors
 set textwidth=100
 set visualbell
-set completeopt=menuone,noinsert,noselect
+set completeopt=menu,menuone,noinsert,noselect
 set shortmess+=c
 set foldlevel=5
 set spelllang=en,de
 
 
-call plug#begin('~/.vim/plugged')
+" call plug#begin('~/.vim/plugged')
 
 " Plug 'tpope/vim-surround'                " ysiw'   -> surrounds word with '
 " Plug 'tpope/vim-repeat'                  " make surroundings repeatable
@@ -52,15 +52,14 @@ call plug#begin('~/.vim/plugged')
 " Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'nvim-lua/lsp-status.nvim'
 
-Plug 'mhinz/vim-startify'
-let g:webdevicons_enable_startify = 1
+" Plug 'mhinz/vim-startify'
+" let g:webdevicons_enable_startify = 1
 
 
-Plug 'antoinemadec/FixCursorHold.nvim'
-Plug 'akinsho/toggleterm.nvim'
-nmap <leader>m :ToggleTerm<CR>
-nmap <F12> :ToggleTerm<CR>
-tmap <F12> <C-\><C-n>:ToggleTerm<CR>
+" Plug 'akinsho/toggleterm.nvim'
+" nmap <leader>m :ToggleTerm<CR>
+" nmap <F12> :ToggleTerm<CR>
+" tmap <F12> <C-\><C-n>:ToggleTerm<CR>
 " Plug 'voldikss/vim-floaterm'
 " let g:floaterm_keymap_toggle = '<C-m>'
 " nnoremap <silent><leader>m :FloatermToggle!<CR>
@@ -71,7 +70,7 @@ tmap <F12> <C-\><C-n>:ToggleTerm<CR>
 " nnoremap <Leader>l :Broot<cr>
 
 
-Plug 'vim-scripts/let-modeline.vim'      " extend modeline to `let`
+" Plug 'vim-scripts/let-modeline.vim'      " extend modeline to `let`
 " Plug 'liuchengxu/vista.vim'
 " let g:vista#renderer#enable_icon = 1
 " let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
@@ -80,79 +79,78 @@ Plug 'vim-scripts/let-modeline.vim'      " extend modeline to `let`
 " autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
 
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 
 " Plug 'christoomey/vim-tmux-navigator'    " vim/tmux integration
 
-Plug 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips'
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" Plug 'honza/vim-snippets'
 
 "Plug 'godlygeek/tabular'
-Plug 'junegunn/vim-easy-align'
-nmap ga       <Plug>(EasyAlign)
-xmap ga       <Plug>(EasyAlign)
-xmap <Return> <Plug>(EasyAlign)
+" Plug 'junegunn/vim-easy-align'
+" nmap ga       <Plug>(EasyAlign)
+" xmap ga       <Plug>(EasyAlign)
+" xmap <Return> <Plug>(EasyAlign)
 
-Plug 'mbbill/undotree'                   " Fancy undo window
-nnoremap <Leader>u :UndotreeToggle<CR>
+" Plug 'mbbill/undotree'                   " Fancy undo window
+" nnoremap <Leader>u :UndotreeToggle<CR>
 
-Plug 'aperezdc/vim-template'           " Template files
-let g:templates_directory = '~/.vim/templates'
-let g:license                            = "LGPL-3.0+"
-let g:username                           = "Paul Schaefer"
-let g:email                              = "paul@realcyber.de"
+" Plug 'aperezdc/vim-template'           " Template files
+" let g:templates_directory = '~/.vim/templates'
+" let g:license             = "LGPL-3.0+"
+" let g:username            = "Paul Schaefer"
+" let g:email               = "paul@realcyber.de"
 
-Plug 'mhinz/vim-grepper'
-let g:grepper = {
-            \ 'tools': ['rg', 'pt', 'ag', 'git', 'grep'],
-            \ 'open':  1,
-            \ 'jump':  0,
-            \ }
-nnoremap <C-f> :Grepper<CR>
+" Plug 'mhinz/vim-grepper'
+" let g:grepper = {
+"             \ 'tools': ['rg', 'pt', 'ag', 'git', 'grep'],
+"             \ 'open':  1,
+"             \ 'jump':  0,
+"             \ }
+" nnoremap <C-f> :Grepper<CR>
 
 
-Plug 'machakann/vim-highlightedyank'
-let g:highlightedyank_highlight_duration = 150
+" Plug 'machakann/vim-highlightedyank'
+" let g:highlightedyank_highlight_duration = 150
 
 
 " LSP Integration
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-cmp' " Autocompletion plugin
-Plug 'hrsh7th/cmp-nvim-lsp'
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'hrsh7th/nvim-cmp' " Autocompletion plugin
+" Plug 'hrsh7th/cmp-nvim-lsp'
 
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
+" Plug 'hrsh7th/cmp-buffer'
+" Plug 'hrsh7th/cmp-path'
+" Plug 'hrsh7th/cmp-cmdline'
 
-Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-Plug 'lukas-reineke/lsp-format.nvim'
-nmap <leader>af :lua vim.lsp.buf.formatting_seq_sync()<CR>
+" Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+" Plug 'lukas-reineke/lsp-format.nvim'
+" nmap <leader>af :lua vim.lsp.buf.formatting_seq_sync()<CR>
 
 
 " Language Specific stuff
-source ~/.config/nvim/language-plugins.vim
+" source ~/.config/nvim/language-plugins.vim
 
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-file-browser.nvim'
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+" Plug 'nvim-lua/popup.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
+" Plug 'nvim-telescope/telescope-file-browser.nvim'
+" nnoremap <leader>ff <cmd>Telescope find_files<cr>
+" nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 " nnoremap <leader>l <cmd>Telescope file_browser<cr>
-nnoremap <leader>l <cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR>
-Plug 'mfussenegger/nvim-dap'
+" Plug 'mfussenegger/nvim-dap'
 
-Plug 'vimwiki/vimwiki'
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
+" Plug 'vimwiki/vimwiki'
+" let g:vimwiki_list = [{'path': '~/vimwiki/',
+"                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
-Plug 'RRethy/vim-illuminate'
-Plug 'weilbith/nvim-code-action-menu'
+" Plug 'RRethy/vim-illuminate'
+" Plug 'weilbith/nvim-code-action-menu'
 
-call plug#end()
+" call plug#end()
 
 lua << EOF
 require('init')
@@ -163,29 +161,29 @@ colors gruvbox
 " lua require'plugin-init'
 
 
-" Map Misc. Keys
-nnoremap ,q :bw<CR>
-nnoremap gb :bnext<CR>
-nnoremap gB   :bprevious<CR>
-nnoremap ; :
-nnoremap <Leader>gf <C-w>gf
-nnoremap <C-J> <C-W>j
-nnoremap <C-K> <C-W>k
-nnoremap <C-H> <C-W>h
-nnoremap <C-l> <C-W>l
-nnoremap <Esc> :set nohls<cr>
-nnoremap <Leader>w :w !sudo -A tee %<CR>L<CR>
-nnoremap <leader>o <C-w>gf
-nnoremap <leader>gf :e <cfile><cr>
-nnoremap / :set hls<CR>/
-nnoremap <silent><expr> <C-c> (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
-nnoremap <Leader><C-j> <C-j><C-_>
-nnoremap <Leader><C-k> <C-k><C-_>
-nnoremap <Leader><C-h> <C-h><C-_>
-nnoremap <Leader><C-l> <C-l><C-_>
-nnoremap <leader>ca :CodeActionMenu<CR>
-nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
-xnoremap <leader>ca <Cmd>lua vim.lsp.buf.range_code_action()<CR>
+" " Map Misc. Keys
+" nnoremap ,q :bw<CR>
+" nnoremap gb :bnext<CR>
+" nnoremap gB   :bprevious<CR>
+" nnoremap ; :
+" nnoremap <Leader>gf <C-w>gf
+" nnoremap <C-J> <C-W>j
+" nnoremap <C-K> <C-W>k
+" nnoremap <C-H> <C-W>h
+" nnoremap <C-l> <C-W>l
+" nnoremap <Esc> :set nohls<cr>
+" nnoremap <Leader>w :w !sudo -A tee %<CR>L<CR>
+" nnoremap <leader>o <C-w>gf
+" nnoremap <leader>gf :e <cfile><cr>
+" nnoremap / :set hls<CR>/
+" nnoremap <silent><expr> <C-c> (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
+" nnoremap <Leader><C-j> <C-j><C-_>
+" nnoremap <Leader><C-k> <C-k><C-_>
+" nnoremap <Leader><C-h> <C-h><C-_>
+" nnoremap <Leader><C-l> <C-l><C-_>
+" nnoremap <leader>ca :CodeActionMenu<CR>
+" nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
+" xnoremap <leader>ca <Cmd>lua vim.lsp.buf.range_code_action()<CR>
 
 
 vnoremap < <gv
