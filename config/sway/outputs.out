@@ -1,0 +1,6 @@
+output eDP-1 {
+    pos 0 0 res 1920x1080
+    bg "/home/paul/Pictures/wall0.jpg" fill
+
+}
+

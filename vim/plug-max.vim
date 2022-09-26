@@ -333,7 +333,7 @@ Plug 'dpelle/vim-LanguageTool'
 let g:languagetool_cmd='~/bin/grammarous-lt.sh'
 let g:languagetool_lang='de-DE'
 " let g:languagetool_disable_rules='WHITESPACE_RULE,EN_QUOTES,TYPOGRAFISCHE_ANFUEHRUNGSZEICHEN'
-"
+
 Plug 'rhysd/vim-grammarous', {'for': ['tex', 'md']}
 let g:grammarous#languagetool_cmd = '~/bin/grammarous-lt.sh'
 map <F8> :GrammarousCheck --lang=en-GB<CR>

@@ -38,7 +38,7 @@ nnoremap <Esc> :set nohls<cr>
 " Save as root
 map      <Leader>w :w !sudo -A tee %<CR>L<CR>
 
-map      <Leader>l :NERDTreeToggle<CR>
+map      <Leader>l :Telescope file_browser<CR>
 nnoremap <Leader>u :UndotreeToggle<CR>
 
 " Alternate Header with ,h

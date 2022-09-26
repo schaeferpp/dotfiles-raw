@@ -37,10 +37,14 @@ local function lsp_funcname()
     return vim.b.lsp_current_function
 end
 
-local function lsp_status()
-    local lsp_status = require 'lsp-status'
-    lsp_status.update_current_function()
-    return lsp_status.status()
+-- local function lsp_status()
+--     local lsp_status = require 'lsp-status'
+--     lsp_status.update_current_function()
+--     return lsp_status.status()
+-- end
+
+local function fullname()
+    return vim.fn.expand("%:~:.")
 end
 
 local lualine = require'lualine'
@@ -76,7 +80,7 @@ options = {
         lualine_a = {'buffers'},
         lualine_b = {},
         lualine_c = { {'%=', separator = {left = ''}}, { 'filename', separator = {left = ''} }},
-        lualine_x = {},
+        lualine_x = {fullname},
         lualine_y = {'branch'},
         lualine_z = {}
     }
@@ -129,9 +133,10 @@ local default_opts = { capabilities = capabilities }
 local default_opts = { on_attach = on_attach, capabilities = capabilities }
 lsp.clangd.setup(default_opts)
 lsp.rust_analyzer.setup(default_opts)
-lsp.pyright.setup(default_opts)
+-- lsp.pyright.setup(default_opts)
+lsp.pylsp.setup(default_opts)
 lsp.eslint.setup(default_opts)
-lsp.bashls.setup(default_opts)
+-- lsp.bashls.setup(default_opts)
 lsp.racket_langserver.setup(default_opts)
 
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -142,7 +147,7 @@ lsp.cssls.setup{
   capabilities = capabilities
 }
 
-lsp.yamlls.setup{}
+-- lsp.yamlls.setup{}
 lsp.tsserver.setup{
   cmd={"tsserver", "--stdio"}
 }
@@ -176,6 +181,7 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'ultisnips' },
     { name = 'crates' },
+    { name = 'path' },
   },
 }
 
@@ -211,8 +217,17 @@ require("indent_blankline").setup {
     buftype_exclude = {"terminal"}
     }
 
+require("nvim-web-devicons").set_icon {
+  tex = {
+    icon = "﫳",
+    color = "#428850",
+    name = "Zsh"
+  }
+}
 
 EOF
+
+
 
 " vim.lsp.buf.definition()
 

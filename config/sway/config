@@ -9,21 +9,21 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $accent #E6B450
-set $blue #4d5566
-set $gray #B3B1AD
-set $red #FF3333
-set $bg #0A0E14
-set $fg #B3B1AD
-set $unfocused #0D1016
-set $unfocused_alt #00010A
+set $accent #b8bb26
+set $blue #458588
+set $gray #3c3836
+set $red #cc241d
+set $bg #1d2021
+set $fg #fbf1c7
+set $unfocused #7c6f64
+set $unfocused_alt #928374
 
 
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Monoid 7
+font pango:FiraCode Nerd Font 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -45,7 +45,7 @@ floating_modifier $mod
 # start a terminal
 # bindsym $mod+Return exec "termite -e tmux"
 bindsym $mod+Return exec "alacritty"
-bindsym $mod+Shift+Return exec alacritty -e bash -c "RANGERCD=true zsh"'
+# bindsym $mod+Shift+Return exec alacritty -e bash -c "RANGERCD=true zsh"'
 # bindsym $mod+Shift+x exec alacritty -e nvim +terminal
 # bindsym $mod+Shift+t exec alacritty -e nvim /home/paul/projects/TODO.org
 
@@ -76,7 +76,7 @@ for_window [app_id="launcher"] floating enable
 for_window [app_id="zenity"] floating enable
 for_window [app_id="rs-open"] floating enable
 for_window [title="wl-clipboard"] floating enable
-bindsym XF86Calculator exec --no-startup-id kitty --title Calculator -e bc -l
+bindsym XF86Calculator exec --no-startup-id alacritty --title Calculator -e bc -l
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
@@ -214,6 +214,8 @@ bindsym Mod1+F11 exec "xbacklight -dec 10"
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 
+bindsym Mod1+k input * xkb_switch_layout next
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # bindsym $mod+Shift+b exec "/home/paul/bin/polybar-restart.sh"
@@ -304,7 +306,7 @@ include ~/.config/sway/outputs
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    font pango:Monoid 8
+    font pango:FiraCode Nerd Font 11
     # swaybar_command waybar
     status_command i3status-rs
     position top
@@ -314,7 +316,6 @@ bar {
         separator $unfocused
             background $bg
             statusline $fg
-            # border bg fg
             focused_workspace $accent $accent $bg
             active_workspace $fg $fg $bg
             inactive_workspace $bg $bg $fg
@@ -326,16 +327,24 @@ bar {
 #
 
 client.focused          $accent        $bg   $accent $red $accent
-client.focused_inactive $accent        $bg   $fg $red $fg
-client.unfocused        $unfocused_alt $bg   $fg $red $fg
+client.focused_inactive $accent        $bg   $fg $red $unfocused
+client.unfocused        $unfocused     $bg   $fg $red $unfocused_alt
 client.urgent           $red           $gray $red $gray $red
 
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'Materia-dark'
-    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
-    gsettings set $gnome-schema font-name 'Dejavu 11'
+#     gsettings set $gnome-schema gtk-theme 'Materia-dark'
+#     gsettings set $gnome-schema icon-theme 'Papirus-Dark'
+# Icon Sets
+# Materia-dark
+# gruvbox-dark-icons-gtk
+# gnome
+    gsettings set $gnome-schema icon-theme 'gnome'
+#     gsettings set $gnome-schema font-name 'Dejavu 11'
 }
+
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec systemctl --user start xdg-desktop-portal.service
 
 include ~/.config/sway/autostart

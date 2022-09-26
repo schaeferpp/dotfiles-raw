@@ -1,6 +1,7 @@
-[user]
-    email = schaefer.pp@gmail.com
-    name = Paul Schaefer
+; [includeIf "gitdir:~/work/"]
+;     path = ~/.gitconfig-personal
+; [includeIf "gitdir:~/projects/"]
+;     path = ~/.gitconfig-work
 [merge]
     keepTemporaries = false
     tool = nvim
@@ -30,4 +31,8 @@
 [pull]
 	rebase = false
 [init]
-	defaultBranch = master
+	defaultBranch = main
+[includeif "gitdir:~/"]
+	path = .gitconfig-personal
+[includeif "gitdir:~/work/"]
+	path = .gitconfig-work

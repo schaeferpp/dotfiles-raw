@@ -2,8 +2,9 @@ configuration {
 	font: "Input 9";
 	show-icons: true;
 	sidebar-mode: true;
-	theme: "/home/paul/.config/rofi/themes/slate-ayu.rasi";
 	display-window: "Window";
 	display-run: "Execute";
 	display-drun: "Activate";
 }
+
+@theme "/home/paul/.config/rofi/themes/slate-ayu.rasi"

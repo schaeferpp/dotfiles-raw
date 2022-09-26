@@ -30,7 +30,7 @@ color gruvbox
 " set background=dark
 
 " if exists('veonim')
-set guifont=Symbols\ Nerd\ Font,Fira\ Code
+set guifont=FiraCode\ Nerd\ Font:h15
 " endif
 
 set cursorline

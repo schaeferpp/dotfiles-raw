@@ -37,7 +37,7 @@ syntax on
 let mapleader = ","
 
 " Use system clipboard
-" set clipboard=unnamedplus
+set clipboard=unnamedplus
 
 
 set nohlsearch

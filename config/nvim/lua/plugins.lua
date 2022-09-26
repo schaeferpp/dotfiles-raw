@@ -248,7 +248,7 @@ return packer.startup(function(use)
             'saecki/crates.nvim',
             opt = true,
             event = { "BufRead Cargo.toml" },
-            requires = { 'nvim-lua/plenary.nvim' },
+            requires = { { 'nvim-lua/plenary.nvim' } },
             config = function()
                 require('crates').setup{}
                 vim.api.nvim_create_autocmd("BufRead", {

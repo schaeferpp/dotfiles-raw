@@ -21,7 +21,7 @@ format = "{artist} - {title}"
 
 [[block]]
 block = "net"
-device = "enp0s20f0u3u2"
+device = "enp0s20f0u3u4"
 format = "{speed_up;K} {speed_down;K}"
 
 [[block]]
@@ -45,5 +45,5 @@ format = "{1m}"
 
 [[block]]
 block = "time"
-interval = 60
+interval = 10
 format = "%a %d/%m %R"

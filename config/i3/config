@@ -285,7 +285,7 @@ client.unfocused #AAAAAA #212121 #909090 #909090 #212121
 client.urgent #ff5370 #212121 #ff5370 #212121 #ff5370
 
 exec --no-startup-id "~/.screenlayout/default.sh"
-exec --no-startup-id "xset r rate 250 25" # Speed of keyboard input rate on hold
+exec --no-startup-id "xset r rate 250 40" # Speed of keyboard input rate on hold
 exec --no-startup-id "xset dpms 300" # 5 minutes screen timeout
 exec --no-startup-id "compton -I 0.15 -O 0.15 -C --inactive-dim 0.1"
 exec --no-startup-id "xfsettingsd"
