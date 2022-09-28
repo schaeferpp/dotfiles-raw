@@ -246,7 +246,7 @@ return packer.startup(function(use)
 
         use {
             'saecki/crates.nvim',
-            opt = true,
+            opt = false,
             event = { "BufRead Cargo.toml" },
             requires = { { 'nvim-lua/plenary.nvim' } },
             config = function()

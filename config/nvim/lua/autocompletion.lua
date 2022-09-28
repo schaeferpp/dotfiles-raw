@@ -69,7 +69,23 @@ lsp.rust_analyzer.setup({
     }
 })
 -- lsp.pyright.setup(default_opts)
-lsp.pylsp.setup(default_opts)
+lsp.pylsp.setup({
+    capabilities = capabilities,
+    settings = {
+        formatCommand = {"black"},
+        pylsp = {
+            plugins = {
+                black = {
+                    enabled = true
+                },
+                pycodestyle = {
+                    ignore = {'W391'},
+                    maxLineLength = 100
+                }
+            }
+        },
+    }
+})
 lsp.eslint.setup(default_opts)
 -- lsp.bashls.setup(default_opts)
 lsp.racket_langserver.setup(default_opts)

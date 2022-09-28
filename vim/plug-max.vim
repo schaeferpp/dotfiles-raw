@@ -128,16 +128,16 @@ if has('nvim')
 
     Plug 'norcalli/nvim-colorizer.lua'
 else
-    Plug 'Valloric/YouCompleteMe'
-    Plug 'rdnetto/YCM-Generator', { 'branch': 'develop'} 
+    " Plug 'Valloric/YouCompleteMe'
+    " Plug 'rdnetto/YCM-Generator', { 'branch': 'develop'} 
 
-    let g:ycm_confirm_extra_conf = 0
+    " let g:ycm_confirm_extra_conf = 0
 
-    let g:ycm_server_keep_logfiles = 1
-    let g:ycm_server_log_level = 'debug'
-    let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
-    let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
-    let g:ycm_server_python_interpreter = '/usr/bin/python'
+    " let g:ycm_server_keep_logfiles = 1
+    " let g:ycm_server_log_level = 'debug'
+    " let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+    " let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+    " let g:ycm_server_python_interpreter = '/usr/bin/python'
 endif
 
 " Plug 'ludovicchabant/vim-gutentags'

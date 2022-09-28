@@ -21,7 +21,7 @@ set undofile
 if isdirectory("/encrypted")
   " set undodir=/encrypted/
 else
-  set undodir=/tmp
+  set undodir=$XDG_RUNTIME_DIR
 endif
 set nobackup
 set nowritebackup

@@ -20,6 +20,7 @@ wk.register({
         rn = {"<cmd>lua vim.lsp.buf.rename()<CR>", "LSP Rename"},
         gf = {"<C-w>gf<cr>", "Open Code Action Menu"},
         w = {":w !sudo -A tee %<CR>L<CR>", "Save as root"},
+        cf = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format source code"},
     },
     g = {
         name = "Go",
