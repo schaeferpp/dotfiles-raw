@@ -156,7 +156,17 @@ lua << EOF
 require('init')
 EOF
 
-colors gruvbox
+" colors one
+"
+" set background=dark " or light if you prefer the light version
+" let g:two_firewatch_italics=1
+" colors two-firewatch
+
+" colors gruvbox
+
+" colors tender
+
+colors everforest
 
 " lua require'plugin-init'
 
@@ -234,23 +244,24 @@ let g:cursorhold_updatetime=300
 
 " Show diagnostic popup on cursor hold
 autocmd CursorHold * lua vim.diagnostic.open_float()
-autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 200)
+autocmd BufWritePre *.rs lua vim.lsp.buf.format(nil, 200)
+" autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 200)
 
 
 if filereadable(expand("~/.vim/override.vim"))
     source ~/.vim/override.vim
 endif
 
-let g:clipboard = {
-      \   'name': 'ClippyRemoteClipboard',
-      \   'copy': {
-      \      '+': 'clippy set',
-      \      '*': 'clippy set',
-      \    },
-      \   'paste': {
-      \      '+': 'clippy get',
-      \      '*': 'clippy get',
-      \   },
-      \   'cache_enabled': 0,
-      \ }
+" let g:clipboard = {
+"       \   'name': 'ClippyRemoteClipboard',
+"       \   'copy': {
+"       \      '+': 'clippy set',
+"       \      '*': 'clippy set',
+"       \    },
+"       \   'paste': {
+"       \      '+': 'clippy get',
+"       \      '*': 'clippy get',
+"       \   },
+"       \   'cache_enabled': 0,
+"       \ }
 

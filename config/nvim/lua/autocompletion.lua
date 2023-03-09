@@ -1,11 +1,19 @@
 -- local lsp_status = require('lsp-status')
 -- lsp_status.register_progress()
 
-local lsp_format = require "lsp-format"
-local lsp = require "lspconfig"
+local lsp_format = require('lsp-format')
+local lsp = require('lspconfig')
+local lspkind = require('lspkind')
+local luasnip = require('luasnip')
 
 lsp_format.setup {}
 
+
+
+local has_words_before = function()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
 
 
 -- Mappings.
@@ -44,7 +52,7 @@ local on_attach = function(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 -- capabilities = vim.tbl_extend('keep', capabilities or {}, lsp_status.capabilities)
 
 local default_opts = { capabilities = capabilities }
@@ -78,10 +86,17 @@ lsp.pylsp.setup({
                 black = {
                     enabled = true
                 },
+                pylint = {
+                    enabled = true,
+                    args = {'--disable=missing-function-docstring,missing-class-docstring,empty-docstring,invalid-name'}
+                },
                 pycodestyle = {
-                    ignore = {'W391'},
-                    maxLineLength = 100
+                    enabled = false
                 }
+                -- pycodestyle = {
+                --     ignore = {'W391'},
+                --     maxLineLength = 100
+                -- }
             }
         },
     }
@@ -100,23 +115,71 @@ lsp.cssls.setup{
 
 -- lsp.yamlls.setup{}
 lsp.tsserver.setup{
-    cmd={"tsserver", "--stdio"}
+    -- cmd={"tsserver", "--stdio"}
 }
 
 local cmp = require 'cmp'
 cmp.setup {
     snippet = {
         expand = function(args)
-            vim.fn["UltiSnips#Anon"](args.body)
+            -- vim.fn["UltiSnips#Anon"](args.body)
+            require('luasnip').lsp_expand(args.body)
         end,
     },
     mapping = {
         ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<C-n>'] = cmp.mapping.select_next_item(),
+        ['<C-n>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                print('next selection')
+                cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                cmp.complete()
+            end
+        end, { "i", "s" }),
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-#>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.close(),
+        ['<C-l>'] = cmp.mapping(function(fallback)
+            luasnip.expand_or_jump()
+            if luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+        ['<C-h>'] = cmp.mapping(function(fallback)
+            if luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+        ["<Tab>"] = cmp.mapping(function(fb)
+            fb()
+        end, { "i", "s" }),
+        -- ["<Tab>"] = cmp.mapping(function(fallback)
+        --     print("tab " .. tostring(luasnip.expand_or_jumpable()))
+        --     if luasnip.expand_or_jumpable() then
+        --         luasnip.expand_or_jump()
+        --     elseif has_words_before() then
+        --         cmp.complete()
+        --     else
+        --         print(fallback)
+        --         fallback()
+        --     end
+        -- end, { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
         -- ['<CR>'] = cmp.mapping.confirm {
         --   behavior = cmp.ConfirmBehavior.Replace,
         --   select = true,
@@ -124,9 +187,17 @@ cmp.setup {
     },
     sources = {
         { name = 'nvim_lsp' },
-        { name = 'ultisnips' },
+        -- { name = 'ultisnips' },
+        { name = 'luasnip' },
         { name = 'path' },
     },
+    formatting = {
+        format = lspkind.cmp_format({
+            mode = 'symbol',
+            maxwidth = 50,
+            ellipsis_char = "..."
+        })
+    }
 }
 
 -- Use buffer source for `/`.

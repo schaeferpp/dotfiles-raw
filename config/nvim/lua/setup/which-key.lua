@@ -20,7 +20,8 @@ wk.register({
         rn = {"<cmd>lua vim.lsp.buf.rename()<CR>", "LSP Rename"},
         gf = {"<C-w>gf<cr>", "Open Code Action Menu"},
         w = {":w !sudo -A tee %<CR>L<CR>", "Save as root"},
-        cf = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format source code"},
+        cf = {"<cmd>lua vim.lsp.buf.format { async = true }<cr>", "Format source code"},
+        gf = {":e <cfile><CR>"},
     },
     g = {
         name = "Go",
@@ -36,10 +37,10 @@ wk.register({
     ["<C-L>"] = {"<C-W>l", "Move focus right"},
     ["<Esc>"] = {"<cmd>set nohls<cr>", "Disable search highlighting"},
     ["/"] = {"<cmd>set hls<cr>/", "Search"},
+    ["<C-K>"] = {"<cmd>lua vim.lsp.buf.hover()<CR>", "Show LSP documentation"}
 })
 
-
-vim.cmd [[ nnoremap ; : ]]
+vim.cmd [[ nnoremap ; :]]
 
 -- " Map Misc. Keys
 -- nnoremap ,q :bw<CR>

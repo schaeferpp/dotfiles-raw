@@ -16,14 +16,14 @@ lualine.setup({
 options = {
     section_separators = { left = '', right = '' },
     component_separators = { left = '', right = ''},
-    theme='gruvbox_dark',
+    -- theme='gruvbox_dark',
+    theme='everforest',
     },
     sections = {
         lualine_a = {
-            { 'mode', separator = { left = '' }, right_padding = 2 },
+            { 'mode', separator = { left = '' }, right_padding = 0 },
         },
         lualine_b = { 'filename' },
-        -- lualine_c = { 'NearestMethodOrFunction' },
         lualine_c = { NearestMethodOrFunction, 
             {
                 'diagnostics',
@@ -39,7 +39,7 @@ options = {
         lualine_x = {},
         lualine_y = {'filetype', 'encoding' },
         lualine_z = { 'progress',
-            {   'location', separator = { right = '' }, left_padding = 2 },
+            {   'location', separator = { right = '' }, left_padding = 0 },
         },
     },
     tabline = {

@@ -1,7 +1,8 @@
+[theme]
 theme = "bad-wolf"
 
 [icons]
-name = "material-nf"
+icons = "material-nf"
 
 [icons.overrides]
 memory_mem = ""
@@ -12,23 +13,23 @@ music_next = ""
 time = ""
 music_play = ""
 
-[[block]]
-block = "music"
-marquee = true
-player = "spotify"
-buttons = ["play", "next"]
-format = "{artist} - {title}"
+# [[block]]
+# block = "music"
+# marquee = true
+# player = "spotify"
+# buttons = ["play", "next"]
+# format = "{artist} - {title}"
 
 [[block]]
 block = "net"
-device = "enp0s20f0u3u4"
-format = "{speed_up;K} {speed_down;K}"
+# format = "$icon {speed_up;K} {speed_down;K}"
 
 [[block]]
 block = "memory"
-display_type = "memory"
-format_mem = "{mem_total_used_percents}"
-format_swap = "{swap_used_percents}"
+# display_type = "memory"
+format = "$icon $mem_used_percents"
+format_alt = "$icon $swap_used_percents"
+interval = 15
 
 [[block]]
 block = "cpu"
@@ -38,7 +39,7 @@ interval = 1
 [[block]]
 block = "load"
 interval = 1
-format = "{1m}"
+format = "$icon $1m.eng(w:4)"
 
 # [[block]]
 # block = "sound"
@@ -46,4 +47,4 @@ format = "{1m}"
 [[block]]
 block = "time"
 interval = 10
-format = "%a %d/%m %R"
+format = " $icon $timestamp.datetime(f:'%a %d/%m %R') "
