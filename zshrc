@@ -49,16 +49,22 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # https://github.com/jocelynmallon/zshmarks
-plugins=(git cargo ssh-agent)
+plugins=(git rust ssh-agent thefuck)
+
+
 
 
 # User configuration
 
 export GOPATH=${HOME}/go
-export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:${HOME}/.bin:${HOME}/.gem/ruby/2.3.0/bin:${HOME}/.local/bin/:${HOME}/bin:${HOME}/go/bin:${HOME}/.cargo/bin"
+export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:${HOME}/.bin:${HOME}/.gem/ruby/2.3.0/bin:${HOME}/.local/bin/:${HOME}/bin:${HOME}/go/bin:${HOME}/.cargo/bin:${HOME}/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+
+# Link the ssh agent to XDG_RUNTIME_DIR for other gui programs to find it
+# see ~/.config/environment.d/envvars.conf: SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+ln -sf $SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -121,6 +127,13 @@ alias bc="bc -l"
 alias fop='gio open $(sk) 2>&1 > /dev/null'
 alias vo='nvim $(sk -c "fd -t f -d 5")'
 alias ssh='TERM=xterm-256color ssh'
+alias tt=taskwarrior-tui
+alias v=nvim
+alias vw="nvim ~/vimwiki/index.md"
+
+# if command -v clippy > /dev/null; then
+#     alias ssh="TERM=xterm-256color clippy ssh"
+# fi
 
 # alias sk="sk -q !^./."
 function c {
@@ -180,6 +193,8 @@ alias vi=nvim
 alias g="jump"
 alias p="showmarks"
 alias sav="bookmark"
+alias l="ls -lah"
+alias ls="ls --color=auto --hyperlink=auto"
 
 bindkey -M vicmd '?' history-incremental-search-backward
 bindkey -M vicmd '/' history-incremental-search-forward
@@ -193,14 +208,19 @@ bindkey -M vicmd "j" down-line-or-beginning-search
 [[ "$RANGERCD" = "true" ]] && unset RANGERCD && ranger-cd
 
 if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
+        alias vim="nvr"
 	alias h='nvr -o'
 	alias v='nvr -O'
 	alias edit='nvr --remote'
-	alias vim='nvr --remote-tab'
-    echo '"vim" is bound to open a file a new tab'
-    echo '"edit" is bound to open a file in the current tab'
-    echo '"h" is bound to open a file in a horizontal split'
-    echo '"v" is bound to open a file in a vertical split'
+	# alias vim='nvr --remote-tab'
+        echo '"vim" is bound to open a file a new tab'
+        echo '"edit" is bound to open a file in the current tab'
+        echo '"h" is bound to open a file in a horizontal split'
+        echo '"v" is bound to open a file in a vertical split'
+fi
+
+if [ -n "${FLOATERM+x}" ]; then
+    alias vim="~/.vim/plugged/vim-floaterm/bin/floaterm"
 fi
 
 date
@@ -224,3 +244,8 @@ fi
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 source "${HOME}/.config/broot/launcher/bash/br"
+
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+zstyle :omz:plugins:ssh-agent ssh-add-args $XDG_RUNTIME_DIR/ssh-agent.sock
+
+export SUDO_ASKPASS=/usr/lib/seahorse/ssh-askpass
