@@ -2,13 +2,15 @@
 theme = "bad-wolf"
 
 [icons]
-icons = "material-nf"
+icons = "awesome6"
 
 [icons.overrides]
-memory_mem = ""
-cpu = " "
-net_up = ""
-net_down = ""
+memory_mem = "🤯"
+cpu = "⚙️ "
+cogs = "🚛"
+net_wired = ""
+net_up = "⬆️"
+net_down = "⬇️"
 music_next = ""
 time = ""
 music_play = ""
@@ -23,6 +25,22 @@ music_play = ""
 [[block]]
 block = "net"
 # format = "$icon {speed_up;K} {speed_down;K}"
+
+[[block]]
+block = "custom"
+command = ''' echo "☀️  $(senec --address 192.168.2.190 --kilo produced)" kW '''
+interval = 5
+
+[[block]]
+block = "custom"
+command = ''' echo "🔥 $(senec --address 192.168.2.190 --kilo consumed)" kW '''
+interval = 5
+
+[[block]]
+block = "custom"
+command = ''' echo "🔋 $(senec --address 192.168.2.190 --kilo battery) kW / $(senec --address 192.168.2.190 battery-percentage) %"'''
+interval = 5
+
 
 [[block]]
 block = "memory"
@@ -48,3 +66,4 @@ format = "$icon $1m.eng(w:4)"
 block = "time"
 interval = 10
 format = " $icon $timestamp.datetime(f:'%a %d/%m %R') "
+

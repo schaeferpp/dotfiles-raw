@@ -30,16 +30,7 @@ packer.reset()
 return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 
-    use {
-        'kylechui/nvim-surround',
-        tag = "*",
-        config = function()
-        require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        })
-    end
-    }
-
+    use 'tpope/vim-surround'
     use 'tpope/vim-repeat' 
     use 'tpope/vim-commentary'
     use {
@@ -48,19 +39,7 @@ return packer.startup(function(use)
         cmd = {'Dispatch', 'Make', 'Focus', 'Start'}
     }
 
-    -- use 'morhetz/gruvbox'
-    use 'rakr/vim-one'
-    use 'rakr/vim-two-firewatch'
-    use 'jacoborus/tender.vim'
-    use {
-        'sainnhe/everforest',
-        config = function()
-            vim.cmd [[ let g:everforest_enable_italic = 1 ]]
-        end
-    }
-
-    use 'rhysd/conflict-marker.vim'
-
+    use 'morhetz/gruvbox'
     use {
         'liuchengxu/vista.vim',
         config = function()
@@ -158,11 +137,6 @@ return packer.startup(function(use)
                 }
             end
         }
-
-        use {
-            'onsails/lspkind.nvim'
-        }
-
         use {
             'nvim-lua/lsp-status.nvim',
             config = function() 
@@ -174,7 +148,7 @@ return packer.startup(function(use)
         use 'neovim/nvim-lspconfig'
         use {
             'hrsh7th/nvim-Cmp',
-            requires = {'nvim-lspconfig', 'nvim-lua/lsp-status.nvim', 'onsails/lspkind.nvim'},
+            requires = {'nvim-lspconfig', 'nvim-lua/lsp-status.nvim'},
             config = function()
                 require 'autocompletion'
             end
@@ -183,58 +157,23 @@ return packer.startup(function(use)
         use 'hrsh7th/cmp-buffer'
         use 'hrsh7th/cmp-path'
         use 'hrsh7th/cmp-cmdline'
+        use 'quangnguyen30192/cmp-nvim-ultisnips'
         use {
             'lukas-reineke/lsp-format.nvim',
             config = function()
-                vim.cmd [[ nmap <leader>af :lua vim.lsp.buf.format { async = true }<CR> ]]
+                vim.cmd [[ nmap <leader>af :lua vim.lsp.buf.formatting_seq_sync()<CR> ]]
             end
         }
 
         use {
-            "L3MON4D3/LuaSnip",
+            'SirVer/ultisnips',
             config = function()
-                --  press <Tab> to expand or jump in a snippet. These can also be mapped separately
-                -- via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
-                vim.cmd [[ imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'  ]]
-                vim.cmd [[ inoremap <silent> <C-cr> <cmd>lua require'luasnip'.jump(1)<Cr> ]]
-                -- -- -1 for jumping backwards.
-                vim.cmd [[ inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr> ]]
-
-                vim.cmd [[ snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr> ]]
-                vim.cmd [[ snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr> ]]
-
-                -- -- For changing choices in choiceNodes (not strictly necessary for a basic setup).
-                vim.cmd [[ imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>' ]]
-                vim.cmd [[ smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>' ]]
-            end
-        } 
-
-        -- use {
-        --     'rafamadriz/friendly-snippets',
-        --     requires = { 'L3MON4D3/LuaSnip' },
-        --     config = function()
-        --         require("luasnip.loaders.from_vscode").lazy_load()
-        --     end
-        -- }
-
-        use {
-            'honza/vim-snippets',
-            requires = { 'L3MON4D3/LuaSnip' },
-            config = function()
-                require("luasnip.loaders.from_snipmate").lazy_load()
+                vim.cmd [[let g:UltiSnipsExpandTrigger="<tab>"]]
+                vim.cmd [[let g:UltiSnipsJumpForwardTrigger="<tab>"]]
+                vim.cmd [[let g:UltiSnipsJumpBackwardTrigger="<s-tab>"]]
             end
         }
-        use 'saadparwaiz1/cmp_luasnip'
-        -- use 'quangnguyen30192/cmp-nvim-ultisnips'
-        -- use {
-        --     'SirVer/ultisnips',
-        --     config = function()
-        --         vim.cmd [[let g:UltiSnipsExpandTrigger="<tab>"]]
-        --         vim.cmd [[let g:UltiSnipsJumpForwardTrigger="<tab>"]]
-        --         vim.cmd [[let g:UltiSnipsJumpBackwardTrigger="<s-tab>"]]
-        --     end
-        -- }
-        -- use 'honza/vim-snippets'
+        use 'honza/vim-snippets'
         use {
             'junegunn/vim-easy-align',
             config = function()
@@ -248,9 +187,9 @@ return packer.startup(function(use)
             'aperezdc/vim-template',
             config = function()
                 vim.cmd [[let g:templates_directory = '~/.vim/templates']]
-                vim.cmd [[let g:license             = "All rights reserved"]]
+                vim.cmd [[let g:license             = "LGPL-3.0+"]]
                 vim.cmd [[let g:username            = "Paul Schaefer"]]
-                vim.cmd [[let g:email               = "paul@os-s.de"]]
+                vim.cmd [[let g:email               = "paul@realcyber.de"]]
             end
         }
 
@@ -301,24 +240,22 @@ return packer.startup(function(use)
                 vim.cmd [[ 
                 let g:vimwiki_list = [{'path': '~/vimwiki/',
                 \ 'syntax': 'markdown', 'ext': '.md'}]
-                let g:vimwiki_global_ext = 0
                 ]]
             end
         }
 
         use {
             'saecki/crates.nvim',
-            tag = 'v0.3.0',
             opt = false,
-            -- event = { "BufRead Cargo.toml" },
-            requires = { 'nvim-lua/plenary.nvim', 'hrsh7th/nvim-Cmp' },
+            event = { "BufRead Cargo.toml" },
+            requires = { { 'nvim-lua/plenary.nvim' } },
             config = function()
                 require('crates').setup{}
                 vim.api.nvim_create_autocmd("BufRead", {
                     group = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true }),
                     pattern = "Cargo.toml",
                     callback = function()
-                        require 'cmp'.setup.buffer({ sources = { { name = "crates" } } })
+                        cmp.setup.buffer({ sources = { { name = "crates" } } })
                     end,
                 })
             end
@@ -456,23 +393,8 @@ return packer.startup(function(use)
             opt = true,
             ft = {'vue'},
             config = function()
-                -- vim.cmd [[ let g:vim_vue_plugin_use_typescript = 1 ]]
-                -- vim.cmd [[ let g:vim_vue_plugin_use_sass = 1 ]]
-                vim.cmd [[
-                    let g:vim_vue_plugin_config = { 
-                          \'syntax': {
-                          \   'template': ['html'],
-                          \   'script': ['javascript', 'typescript'],
-                          \   'style': ['css'],
-                          \},
-                          \'full_syntax': [],
-                          \'initial_indent': [],
-                          \'attribute': 0,
-                          \'keyword': 0,
-                          \'foldexpr': 0,
-                          \'debug': 0,
-                          \}
-                ]]
+                vim.cmd [[ let g:vim_vue_plugin_use_typescript = 1 ]]
+                vim.cmd [[ let g:vim_vue_plugin_use_sass = 1 ]]
             end
         }
 
@@ -502,53 +424,6 @@ return packer.startup(function(use)
                 vim.cmd "let g:formatters_javascript = ['eslint_local']"
                 vim.cmd [[autocmd FileType javascript,c,cpp,objc,python,vue nnoremap <buffer><Leader>cf :<C-u>Autoformat<CR>]]
                 vim.cmd [[autocmd FileType javascript,c,cpp,objc,python,vue vnoremap <buffer><Leader>cf :Autoformat<CR>]]
-            end
-        }
-
-        use {
-            'jasonccox/vim-wayland-clipboard'
-        }
-
-        use {
-            'stevearc/dressing.nvim'
-        }
-
-        use {
-            'ziontee113/icon-picker.nvim',
-            opt = false,
-            requires = { 'stevearc/dressing.nvim' },
-            config = function()
-                require('icon-picker').setup({
-                    disable_lecagy_commands = true
-                })
-                local opts = { noremap = true, silent = true }
-
-                vim.keymap.set("n", "<Leader><Leader>i", "<cmd>IconPickerNormal<cr>", opts)
-                -- vim.keymap.set("n", "<Leader><Leader>y", "<cmd>IconPickerYank<cr>", opts) --> Yank the selected icon into register
-                -- vim.keymap.set("i", "<C-i>", "<cmd>IconPickerInsert<cr>", opts)
-            end
-        }
-
-        use 'nvim-treesitter/nvim-treesitter'
-
-        use {
-            'nvim-treesitter/nvim-treesitter-context',
-            requires = { 'nvim-treesitter/nvim-treesitter' },
-            config = function()
-                require'treesitter-context'.setup{
-                    enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-                    max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-                    min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
-                    line_numbers = true,
-                    multiline_threshold = 20, -- Maximum number of lines to collapse for a single context line
-                    trim_scope = 'outer', -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
-                    mode = 'cursor',  -- Line used to calculate context. Choices: 'cursor', 'topline'
-                    -- Separator between context and content. Should be a single character string, like '-'.
-                    -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
-                    separator = nil,
-                    zindex = 20, -- The Z-index of the context window
-                    on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
-                }
             end
         }
 

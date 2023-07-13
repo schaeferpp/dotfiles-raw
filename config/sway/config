@@ -20,6 +20,7 @@ set $unfocused_alt #928374
 
 
 set $mod Mod4
+set $terminal_emulator alacritty
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -44,7 +45,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec "termite -e tmux"
-bindsym $mod+Return exec "alacritty"
+bindsym $mod+Return exec $terminal_emulator
 # bindsym $mod+Shift+Return exec alacritty -e bash -c "RANGERCD=true zsh"'
 # bindsym $mod+Shift+x exec alacritty -e nvim +terminal
 # bindsym $mod+Shift+t exec alacritty -e nvim /home/paul/projects/TODO.org
@@ -76,7 +77,7 @@ for_window [app_id="launcher"] floating enable
 for_window [app_id="zenity"] floating enable
 for_window [app_id="rs-open"] floating enable
 for_window [title="wl-clipboard"] floating enable
-bindsym XF86Calculator exec --no-startup-id alacritty --title Calculator -e bc -l
+bindsym XF86Calculator exec --no-startup-id $terminal_emulator --title Calculator -e bc -l
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
@@ -208,13 +209,13 @@ bindsym XF86AudioLowerVolume exec "pamixer -u -d 5"
 bindsym XF86AudioMute exec exec "pamixer -m"
 bindsym $mod+Shift+kp_add exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 bindsym $mod+Shift+kp_subtract exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
-bindsym $mod+kp_divide exec "alacritty --title Calculator -e bc -l"
+bindsym $mod+kp_divide exec $terminal_emulator --title Calculator -e bc -l
 bindsym Mod1+F12 exec "xbacklight -inc 10"
 bindsym Mod1+F11 exec "xbacklight -dec 10"
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 
-bindsym Mod1+k input * xkb_switch_layout next
+bindsym Mod1+Control+k input * xkb_switch_layout next
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -306,7 +307,7 @@ include ~/.config/sway/outputs
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    font pango:FiraCode Nerd Font 11
+    font pango:Roboto 12
     # swaybar_command waybar
     status_command i3status-rs
     position top
@@ -340,6 +341,7 @@ exec_always {
 # Materia-dark
 # gruvbox-dark-icons-gtk
 # gnome
+    gsettings set $gnome-schema icon-theme 'gnome'
     gsettings set $gnome-schema icon-theme 'gnome'
 #     gsettings set $gnome-schema font-name 'Dejavu 11'
 }

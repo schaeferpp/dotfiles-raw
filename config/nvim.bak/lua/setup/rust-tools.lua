@@ -15,13 +15,9 @@ local opts = {
     tools = { -- rust-tools options
         autoSetHints = true,
         inlay_hints = {
-            auto = true,
-            -- only_current_line = true,
-            show_parameter_hints = true,
-            max_len_align = true,
-            max_len_align_padding = 5,
-            -- parameter_hints_prefix = "",
-            -- other_hints_prefix = "",
+            show_parameter_hints = false,
+            parameter_hints_prefix = "",
+            other_hints_prefix = "",
         },
     },
 
@@ -49,6 +45,6 @@ local opts = {
 }
 
 rt.setup(opts)
-rt.inlay_hints.enable()
+rt.inlay_hints.set()
 
 vim.cmd [[ let g:rustfmt_autosave = 1 ]]

@@ -16,18 +16,11 @@ wk.setup {
 wk.register({
     ["<leader>"] = {
         q = {"<cmd>bw<cr>", "Close current buffer"},
+        ca = {"<cmd>CodeActionMenu<cr>", "Open Code Action Menu"},
         rn = {"<cmd>lua vim.lsp.buf.rename()<CR>", "LSP Rename"},
         gf = {"<C-w>gf<cr>", "Open Code Action Menu"},
         w = {":w !sudo -A tee %<CR>L<CR>", "Save as root"},
-        gf = {":e <cfile><CR>"},
-    },
-    ["<leader>c"] = {
-        a = {"<cmd>CodeActionMenu<cr>", "Open Code Action Menu"},
-        f = {"<cmd>lua vim.lsp.buf.format { async = true }<cr>", "Format source code"},
-        d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Goto definition"},
-        D = {"<cmd>lua vim.lsp.buf.declaration()<cr>", "Goto declaration"},
-        i = {"<cmd>lua vim.lsp.buf.implementation()<cr>", "Goto implementation"},
-        u = {"<cmd>lua require('telescope.builtin').lsp_references()<CR>", "View usages"}
+        cf = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format source code"},
     },
     g = {
         name = "Go",
@@ -43,10 +36,10 @@ wk.register({
     ["<C-L>"] = {"<C-W>l", "Move focus right"},
     ["<Esc>"] = {"<cmd>set nohls<cr>", "Disable search highlighting"},
     ["/"] = {"<cmd>set hls<cr>/", "Search"},
-    ["<C-K>"] = {"<cmd>lua vim.lsp.buf.hover()<CR>", "Show LSP documentation"}
 })
 
-vim.cmd [[ nnoremap ; :]]
+
+vim.cmd [[ nnoremap ; : ]]
 
 -- " Map Misc. Keys
 -- nnoremap ,q :bw<CR>
