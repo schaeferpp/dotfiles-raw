@@ -243,7 +243,7 @@ silent !mkdir ~/.cache/vim > /dev/null 2>&1
 set updatetime=300
 
 " Show diagnostic popup on cursor hold
-autocmd CursorHold * lua vim.diagnostic.open_float()
+" autocmd CursorHold * lua vim.diagnostic.open_float()
 autocmd BufWritePre *.rs lua vim.lsp.buf.format(nil, 200)
 " autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 200)
 

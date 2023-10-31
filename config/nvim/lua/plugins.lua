@@ -63,6 +63,7 @@ return packer.startup(function(use)
 
     use {
         'liuchengxu/vista.vim',
+        ft = {'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim'},
         config = function()
             vim.cmd [[let g:vista#renderer#enable_icon = 1]]
             vim.cmd 'let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]'
@@ -133,10 +134,9 @@ return packer.startup(function(use)
         use {
             'lukas-reineke/indent-blankline.nvim',
             config = function() 
-                require("indent_blankline").setup {
-                    char = "|",
-                    buftype_exclude = {"terminal"}
-                }
+                ibl = require("ibl")
+                ibl.setup { }
+                ibl.config.scope.enabled = true
             end
         }
 

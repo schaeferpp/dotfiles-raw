@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/paul/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/paul/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/paul/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/paul/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/paul/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/home/paul/.cache/nvim/packer_hererocks/2.1.1694285958/share/lua/5.1/?.lua;/home/paul/.cache/nvim/packer_hererocks/2.1.1694285958/share/lua/5.1/?/init.lua;/home/paul/.cache/nvim/packer_hererocks/2.1.1694285958/lib/luarocks/rocks-5.1/?.lua;/home/paul/.cache/nvim/packer_hererocks/2.1.1694285958/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/paul/.cache/nvim/packer_hererocks/2.1.1694285958/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -206,7 +206,7 @@ _G.packer_plugins = {
     url = "https://github.com/ziontee113/icon-picker.nvim"
   },
   ["indent-blankline.nvim"] = {
-    config = { "\27LJ\2\nq\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\20buftype_exclude\1\2\0\0\rterminal\1\0\1\tchar\6|\nsetup\21indent_blankline\frequire\0" },
+    config = { "\27LJ\2\n5\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\bibl\frequire\0" },
     loaded = true,
     path = "/home/paul/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
@@ -526,8 +526,10 @@ _G.packer_plugins = {
   },
   ["vista.vim"] = {
     config = { "\27LJ\2\nº\2\0\0\3\0\a\0\0216\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\1\0'\2\3\0B\0\2\0016\0\0\0009\0\1\0'\2\4\0B\0\2\0016\0\0\0009\0\1\0'\2\5\0B\0\2\0016\0\0\0009\0\1\0'\2\6\0B\0\2\1K\0\1\0Bautocmd VimEnter * call vista#RunForNearestMethodOrFunction()$nnoremap <Leader>t :Vista!!<CR>#let g:vista_sidebar_width = 45;let g:vista_icon_indent = [\"‚ï∞‚îÄ‚ñ∏ \", \"‚îú‚îÄ‚ñ∏ \"])let g:vista#renderer#enable_icon = 1\bcmd\bvim\0" },
-    loaded = true,
-    path = "/home/paul/.local/share/nvim/site/pack/packer/start/vista.vim",
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/paul/.local/share/nvim/site/pack/packer/opt/vista.vim",
     url = "https://github.com/liuchengxu/vista.vim"
   },
   ["which-key.nvim"] = {
@@ -546,14 +548,22 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: nvim-treesitter-context
+time([[Config for nvim-treesitter-context]], true)
+try_loadstring("\27LJ\2\nπ\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\b\tmode\vcursor\vzindex\3\20\15trim_scope\nouter\24multiline_threshold\3\20\17line_numbers\2\22min_window_height\3\0\14max_lines\3\0\venable\2\nsetup\23treesitter-context\frequire\0", "config", "nvim-treesitter-context")
+time([[Config for nvim-treesitter-context]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 try_loadstring("\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18setup/lualine\frequire\0", "config", "lualine.nvim")
 time([[Config for lualine.nvim]], false)
--- Config for: nvim-web-devicons
-time([[Config for nvim-web-devicons]], true)
-try_loadstring("\27LJ\2\nx\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\btex\1\0\0\1\0\3\ncolor\f#428850\tname\bZsh\ticon\bÔ´≥\rset_icon\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
-time([[Config for nvim-web-devicons]], false)
+-- Config for: everforest
+time([[Config for everforest]], true)
+try_loadstring("\27LJ\2\nH\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0) let g:everforest_enable_italic = 1 \bcmd\bvim\0", "config", "everforest")
+time([[Config for everforest]], false)
+-- Config for: nvim-surround
+time([[Config for nvim-surround]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
+time([[Config for nvim-surround]], false)
 -- Config for: icon-picker.nvim
 time([[Config for icon-picker.nvim]], true)
 try_loadstring("\27LJ\2\nŒ\1\0\0\a\0\v\0\0166\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0015\0\4\0006\1\5\0009\1\6\0019\1\a\1'\3\b\0'\4\t\0'\5\n\0\18\6\0\0B\1\5\1K\0\1\0\30<cmd>IconPickerNormal<cr>\22<Leader><Leader>i\6n\bset\vkeymap\bvim\1\0\2\fnoremap\2\vsilent\2\1\0\1\28disable_lecagy_commands\2\nsetup\16icon-picker\frequire\0", "config", "icon-picker.nvim")
@@ -562,46 +572,74 @@ time([[Config for icon-picker.nvim]], false)
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
+-- Config for: nvim-Cmp
+time([[Config for nvim-Cmp]], true)
+try_loadstring("\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19autocompletion\frequire\0", "config", "nvim-Cmp")
+time([[Config for nvim-Cmp]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\bibl\frequire\0", "config", "indent-blankline.nvim")
+time([[Config for indent-blankline.nvim]], false)
+-- Config for: vim-easy-align
+time([[Config for vim-easy-align]], true)
+try_loadstring("\27LJ\2\n£\1\0\0\3\0\5\0\r6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\1\0'\2\3\0B\0\2\0016\0\0\0009\0\1\0'\2\4\0B\0\2\1K\0\1\0$xmap <Return> <Plug>(EasyAlign)$xmap ga       <Plug>(EasyAlign)$nmap ga       <Plug>(EasyAlign)\bcmd\bvim\0", "config", "vim-easy-align")
+time([[Config for vim-easy-align]], false)
 -- Config for: vimwiki
 time([[Config for vimwiki]], true)
 try_loadstring("\27LJ\2\nÿ\1\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0∏\1 \n                let g:vimwiki_list = [{'path': '~/vimwiki/',\n                \\ 'syntax': 'markdown', 'ext': '.md'}]\n                let g:vimwiki_global_ext = 0\n                \bcmd\bvim\0", "config", "vimwiki")
 time([[Config for vimwiki]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-try_loadstring("\27LJ\2\no\0\0\3\0\5\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\0016\0\0\0'\2\1\0B\0\2\0029\0\3\0'\2\4\0B\0\2\1K\0\1\0\17file_browser\19load_extension\nsetup\14telescope\frequire\0", "config", "telescope.nvim")
-time([[Config for telescope.nvim]], false)
--- Config for: nvim-surround
-time([[Config for nvim-surround]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
-time([[Config for nvim-surround]], false)
--- Config for: vim-grepper
-time([[Config for vim-grepper]], true)
-try_loadstring("\27LJ\2\nç\2\0\0\3\0\4\0\t6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\1\0'\2\3\0B\0\2\1K\0\1\0 nnoremap <C-f> :Grepper<CR>¡\1            let g:grepper = {\n                \\ 'tools': ['rg', 'pt', 'ag', 'git', 'grep'],\n                \\ 'open':  1,\n                \\ 'jump':  0,\n                \\ }\n                \bcmd\bvim\0", "config", "vim-grepper")
-time([[Config for vim-grepper]], false)
--- Config for: vista.vim
-time([[Config for vista.vim]], true)
-try_loadstring("\27LJ\2\nº\2\0\0\3\0\a\0\0216\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\1\0'\2\3\0B\0\2\0016\0\0\0009\0\1\0'\2\4\0B\0\2\0016\0\0\0009\0\1\0'\2\5\0B\0\2\0016\0\0\0009\0\1\0'\2\6\0B\0\2\1K\0\1\0Bautocmd VimEnter * call vista#RunForNearestMethodOrFunction()$nnoremap <Leader>t :Vista!!<CR>#let g:vista_sidebar_width = 45;let g:vista_icon_indent = [\"‚ï∞‚îÄ‚ñ∏ \", \"‚îú‚îÄ‚ñ∏ \"])let g:vista#renderer#enable_icon = 1\bcmd\bvim\0", "config", "vista.vim")
-time([[Config for vista.vim]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
-try_loadstring("\27LJ\2\nq\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\20buftype_exclude\1\2\0\0\rterminal\1\0\1\tchar\6|\nsetup\21indent_blankline\frequire\0", "config", "indent-blankline.nvim")
-time([[Config for indent-blankline.nvim]], false)
--- Config for: vim-snippets
-time([[Config for vim-snippets]], true)
-try_loadstring("\27LJ\2\nO\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14lazy_load\"luasnip.loaders.from_snipmate\frequire\0", "config", "vim-snippets")
-time([[Config for vim-snippets]], false)
 -- Config for: vim-highlightedyank
 time([[Config for vim-highlightedyank]], true)
 try_loadstring("\27LJ\2\nT\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0005 let g:highlightedyank_highlight_duration = 150 \bcmd\bvim\0", "config", "vim-highlightedyank")
 time([[Config for vim-highlightedyank]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-try_loadstring("\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20setup/which-key\frequire\0", "config", "which-key.nvim")
-time([[Config for which-key.nvim]], false)
+-- Config for: nvim-colorizer.lua
+time([[Config for nvim-colorizer.lua]], true)
+try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14colorizer\frequire\0", "config", "nvim-colorizer.lua")
+time([[Config for nvim-colorizer.lua]], false)
+-- Config for: telescope-file-browser.nvim
+time([[Config for telescope-file-browser.nvim]], true)
+try_loadstring("\27LJ\2\nò\1\0\0\3\0\4\0\t6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\1\0'\2\3\0B\0\2\1K\0\1\0006 nnoremap <leader>fg <cmd>Telescope live_grep<cr>7 nnoremap <leader>ff <cmd>Telescope find_files<cr>\bcmd\bvim\0", "config", "telescope-file-browser.nvim")
+time([[Config for telescope-file-browser.nvim]], false)
+-- Config for: vim-startify
+time([[Config for vim-startify]], true)
+try_loadstring("\27LJ\2\nK\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0, let g:webdevicons_enable_startify = 1 \bcmd\bvim\0", "config", "vim-startify")
+time([[Config for vim-startify]], false)
+-- Config for: undotree
+time([[Config for undotree]], true)
+try_loadstring("\27LJ\2\nJ\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0+nnoremap <Leader>u :UndotreeToggle<CR>\bcmd\bvim\0", "config", "undotree")
+time([[Config for undotree]], false)
 -- Config for: vim-template
 time([[Config for vim-template]], true)
 try_loadstring("\27LJ\2\nã\2\0\0\3\0\6\0\0176\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\1\0'\2\3\0B\0\2\0016\0\0\0009\0\1\0'\2\4\0B\0\2\0016\0\0\0009\0\1\0'\2\5\0B\0\2\1K\0\1\0/let g:email               = \"paul@os-s.de\"0let g:username            = \"Paul Schaefer\"6let g:license             = \"All rights reserved\"3let g:templates_directory = '~/.vim/templates'\bcmd\bvim\0", "config", "vim-template")
 time([[Config for vim-template]], false)
+-- Config for: lsp-format.nvim
+time([[Config for lsp-format.nvim]], true)
+try_loadstring("\27LJ\2\nb\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0C nmap <leader>af :lua vim.lsp.buf.format { async = true }<CR> \bcmd\bvim\0", "config", "lsp-format.nvim")
+time([[Config for lsp-format.nvim]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+try_loadstring("\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20setup/which-key\frequire\0", "config", "which-key.nvim")
+time([[Config for which-key.nvim]], false)
+-- Config for: crates.nvim
+time([[Config for crates.nvim]], true)
+try_loadstring("\27LJ\2\nj\0\0\5\0\a\0\f6\0\0\0'\2\1\0B\0\2\0029\0\2\0009\0\3\0005\2\5\0004\3\3\0005\4\4\0>\4\1\3=\3\6\2B\0\2\1K\0\1\0\fsources\1\0\0\1\0\1\tname\vcrates\vbuffer\nsetup\bcmp\frequireÎ\1\1\0\b\0\14\0\0226\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\0016\0\3\0009\0\4\0009\0\5\0'\2\6\0005\3\n\0006\4\3\0009\4\4\0049\4\a\4'\6\b\0005\a\t\0B\4\3\2=\4\v\0033\4\f\0=\4\r\3B\0\3\1K\0\1\0\rcallback\0\ngroup\1\0\1\fpattern\15Cargo.toml\1\0\1\nclear\2\19CmpSourceCargo\24nvim_create_augroup\fBufRead\24nvim_create_autocmd\bapi\bvim\nsetup\vcrates\frequire\0", "config", "crates.nvim")
+time([[Config for crates.nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+try_loadstring("\27LJ\2\no\0\0\3\0\5\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\0016\0\0\0'\2\1\0B\0\2\0029\0\3\0'\2\4\0B\0\2\1K\0\1\0\17file_browser\19load_extension\nsetup\14telescope\frequire\0", "config", "telescope.nvim")
+time([[Config for telescope.nvim]], false)
+-- Config for: vim-snippets
+time([[Config for vim-snippets]], true)
+try_loadstring("\27LJ\2\nO\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14lazy_load\"luasnip.loaders.from_snipmate\frequire\0", "config", "vim-snippets")
+time([[Config for vim-snippets]], false)
+-- Config for: vim-grepper
+time([[Config for vim-grepper]], true)
+try_loadstring("\27LJ\2\nç\2\0\0\3\0\4\0\t6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\1\0'\2\3\0B\0\2\1K\0\1\0 nnoremap <C-f> :Grepper<CR>¡\1            let g:grepper = {\n                \\ 'tools': ['rg', 'pt', 'ag', 'git', 'grep'],\n                \\ 'open':  1,\n                \\ 'jump':  0,\n                \\ }\n                \bcmd\bvim\0", "config", "vim-grepper")
+time([[Config for vim-grepper]], false)
+-- Config for: lsp-status.nvim
+time([[Config for lsp-status.nvim]], true)
+try_loadstring("\27LJ\2\nD\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\22register_progress\15lsp-status\frequire\0", "config", "lsp-status.nvim")
+time([[Config for lsp-status.nvim]], false)
 -- Config for: LuaSnip
 time([[Config for LuaSnip]], true)
 try_loadstring("\27LJ\2\n´\5\0\0\3\0\t\0\0296\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\1\0'\2\3\0B\0\2\0016\0\0\0009\0\1\0'\2\4\0B\0\2\0016\0\0\0009\0\1\0'\2\5\0B\0\2\0016\0\0\0009\0\1\0'\2\6\0B\0\2\0016\0\0\0009\0\1\0'\2\a\0B\0\2\0016\0\0\0009\0\1\0'\2\b\0B\0\2\1K\0\1\0` smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>' ` imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>' I snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr> F snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr> G inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr> E inoremap <silent> <C-cr> <cmd>lua require'luasnip'.jump(1)<Cr> i imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'  \bcmd\bvim\0", "config", "LuaSnip")
@@ -610,53 +648,27 @@ time([[Config for LuaSnip]], false)
 time([[Config for vim-illuminate]], true)
 try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21setup/illuminate\frequire\0", "config", "vim-illuminate")
 time([[Config for vim-illuminate]], false)
--- Config for: crates.nvim
-time([[Config for crates.nvim]], true)
-try_loadstring("\27LJ\2\nj\0\0\5\0\a\0\f6\0\0\0'\2\1\0B\0\2\0029\0\2\0009\0\3\0005\2\5\0004\3\3\0005\4\4\0>\4\1\3=\3\6\2B\0\2\1K\0\1\0\fsources\1\0\0\1\0\1\tname\vcrates\vbuffer\nsetup\bcmp\frequireÎ\1\1\0\b\0\14\0\0226\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\0016\0\3\0009\0\4\0009\0\5\0'\2\6\0005\3\n\0006\4\3\0009\4\4\0049\4\a\4'\6\b\0005\a\t\0B\4\3\2=\4\v\0033\4\f\0=\4\r\3B\0\3\1K\0\1\0\rcallback\0\ngroup\1\0\1\fpattern\15Cargo.toml\1\0\1\nclear\2\19CmpSourceCargo\24nvim_create_augroup\fBufRead\24nvim_create_autocmd\bapi\bvim\nsetup\vcrates\frequire\0", "config", "crates.nvim")
-time([[Config for crates.nvim]], false)
--- Config for: vim-startify
-time([[Config for vim-startify]], true)
-try_loadstring("\27LJ\2\nK\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0, let g:webdevicons_enable_startify = 1 \bcmd\bvim\0", "config", "vim-startify")
-time([[Config for vim-startify]], false)
--- Config for: nvim-colorizer.lua
-time([[Config for nvim-colorizer.lua]], true)
-try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14colorizer\frequire\0", "config", "nvim-colorizer.lua")
-time([[Config for nvim-colorizer.lua]], false)
--- Config for: lsp-format.nvim
-time([[Config for lsp-format.nvim]], true)
-try_loadstring("\27LJ\2\nb\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0C nmap <leader>af :lua vim.lsp.buf.format { async = true }<CR> \bcmd\bvim\0", "config", "lsp-format.nvim")
-time([[Config for lsp-format.nvim]], false)
--- Config for: everforest
-time([[Config for everforest]], true)
-try_loadstring("\27LJ\2\nH\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0) let g:everforest_enable_italic = 1 \bcmd\bvim\0", "config", "everforest")
-time([[Config for everforest]], false)
--- Config for: nvim-Cmp
-time([[Config for nvim-Cmp]], true)
-try_loadstring("\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19autocompletion\frequire\0", "config", "nvim-Cmp")
-time([[Config for nvim-Cmp]], false)
--- Config for: telescope-file-browser.nvim
-time([[Config for telescope-file-browser.nvim]], true)
-try_loadstring("\27LJ\2\nò\1\0\0\3\0\4\0\t6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\1\0'\2\3\0B\0\2\1K\0\1\0006 nnoremap <leader>fg <cmd>Telescope live_grep<cr>7 nnoremap <leader>ff <cmd>Telescope find_files<cr>\bcmd\bvim\0", "config", "telescope-file-browser.nvim")
-time([[Config for telescope-file-browser.nvim]], false)
--- Config for: lsp-status.nvim
-time([[Config for lsp-status.nvim]], true)
-try_loadstring("\27LJ\2\nD\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\22register_progress\15lsp-status\frequire\0", "config", "lsp-status.nvim")
-time([[Config for lsp-status.nvim]], false)
--- Config for: nvim-treesitter-context
-time([[Config for nvim-treesitter-context]], true)
-try_loadstring("\27LJ\2\nπ\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\b\tmode\vcursor\vzindex\3\20\15trim_scope\nouter\24multiline_threshold\3\20\17line_numbers\2\22min_window_height\3\0\14max_lines\3\0\venable\2\nsetup\23treesitter-context\frequire\0", "config", "nvim-treesitter-context")
-time([[Config for nvim-treesitter-context]], false)
--- Config for: undotree
-time([[Config for undotree]], true)
-try_loadstring("\27LJ\2\nJ\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0+nnoremap <Leader>u :UndotreeToggle<CR>\bcmd\bvim\0", "config", "undotree")
-time([[Config for undotree]], false)
--- Config for: vim-easy-align
-time([[Config for vim-easy-align]], true)
-try_loadstring("\27LJ\2\n£\1\0\0\3\0\5\0\r6\0\0\0009\0\1\0'\2\2\0B\0\2\0016\0\0\0009\0\1\0'\2\3\0B\0\2\0016\0\0\0009\0\1\0'\2\4\0B\0\2\1K\0\1\0$xmap <Return> <Plug>(EasyAlign)$xmap ga       <Plug>(EasyAlign)$nmap ga       <Plug>(EasyAlign)\bcmd\bvim\0", "config", "vim-easy-align")
-time([[Config for vim-easy-align]], false)
+-- Config for: nvim-web-devicons
+time([[Config for nvim-web-devicons]], true)
+try_loadstring("\27LJ\2\nx\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\btex\1\0\0\1\0\3\ncolor\f#428850\tname\bZsh\ticon\bÔ´≥\rset_icon\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
+time([[Config for nvim-web-devicons]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
+pcall(vim.api.nvim_create_user_command, 'GrammarousCheck', function(cmdargs)
+          require('packer.load')({'vim-grammarous'}, { cmd = 'GrammarousCheck', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'vim-grammarous'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('GrammarousCheck ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'ALEEnable', function(cmdargs)
+          require('packer.load')({'ale'}, { cmd = 'ALEEnable', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'ale'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('ALEEnable ', 'cmdline')
+      end})
 pcall(vim.api.nvim_create_user_command, 'Dispatch', function(cmdargs)
           require('packer.load')({'vim-dispatch'}, { cmd = 'Dispatch', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
@@ -692,89 +704,48 @@ pcall(vim.api.nvim_create_user_command, 'CodeActionMenu', function(cmdargs)
           require('packer.load')({'nvim-code-action-menu'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('CodeActionMenu ', 'cmdline')
       end})
-pcall(vim.api.nvim_create_user_command, 'ALEEnable', function(cmdargs)
-          require('packer.load')({'ale'}, { cmd = 'ALEEnable', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'ale'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('ALEEnable ', 'cmdline')
-      end})
-pcall(vim.api.nvim_create_user_command, 'GrammarousCheck', function(cmdargs)
-          require('packer.load')({'vim-grammarous'}, { cmd = 'GrammarousCheck', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'vim-grammarous'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('GrammarousCheck ', 'cmdline')
-      end})
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType haskell ++once lua require("packer.load")({'haskell-vim'}, { ft = "haskell" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascript ++once lua require("packer.load")({'vim-autoformat'}, { ft = "javascript" }, _G.packer_plugins)]]
-vim.cmd [[au FileType objc ++once lua require("packer.load")({'vim-autoformat'}, { ft = "objc" }, _G.packer_plugins)]]
-vim.cmd [[au FileType toml ++once lua require("packer.load")({'vim-toml'}, { ft = "toml" }, _G.packer_plugins)]]
-vim.cmd [[au FileType ini ++once lua require("packer.load")({'vim-toml'}, { ft = "ini" }, _G.packer_plugins)]]
+vim.cmd [[au FileType xml ++once lua require("packer.load")({'vim-autoformat', 'MatchTagAlways', 'emmet-vim', 'html5.vim'}, { ft = "xml" }, _G.packer_plugins)]]
+vim.cmd [[au FileType htmldjango ++once lua require("packer.load")({'MatchTagAlways', 'emmet-vim', 'html5.vim'}, { ft = "htmldjango" }, _G.packer_plugins)]]
 vim.cmd [[au FileType vala ++once lua require("packer.load")({'vim-vala'}, { ft = "vala" }, _G.packer_plugins)]]
-vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust-tools.nvim', 'vim-autoformat'}, { ft = "rust" }, _G.packer_plugins)]]
+vim.cmd [[au FileType python ++once lua require("packer.load")({'SimpylFold', 'indentpython.vim'}, { ft = "python" }, _G.packer_plugins)]]
+vim.cmd [[au FileType yaml ++once lua require("packer.load")({'ansible-vim'}, { ft = "yaml" }, _G.packer_plugins)]]
+vim.cmd [[au FileType kotlin ++once lua require("packer.load")({'kotlin-vim'}, { ft = "kotlin" }, _G.packer_plugins)]]
 vim.cmd [[au FileType go ++once lua require("packer.load")({'vim-go'}, { ft = "go" }, _G.packer_plugins)]]
 vim.cmd [[au FileType meson ++once lua require("packer.load")({'meson.vim'}, { ft = "meson" }, _G.packer_plugins)]]
-vim.cmd [[au FileType zsh ++once lua require("packer.load")({'ale'}, { ft = "zsh" }, _G.packer_plugins)]]
-vim.cmd [[au FileType sh ++once lua require("packer.load")({'ale'}, { ft = "sh" }, _G.packer_plugins)]]
-vim.cmd [[au FileType xml ++once lua require("packer.load")({'html5.vim', 'vim-autoformat', 'MatchTagAlways', 'emmet-vim'}, { ft = "xml" }, _G.packer_plugins)]]
-vim.cmd [[au FileType htmldjango ++once lua require("packer.load")({'html5.vim', 'MatchTagAlways', 'emmet-vim'}, { ft = "htmldjango" }, _G.packer_plugins)]]
-vim.cmd [[au FileType cpp ++once lua require("packer.load")({'vim-autoformat', 'a.vim', 'ale', 'cscope_maps'}, { ft = "cpp" }, _G.packer_plugins)]]
-vim.cmd [[au FileType cmake ++once lua require("packer.load")({'ale'}, { ft = "cmake" }, _G.packer_plugins)]]
-vim.cmd [[au FileType html ++once lua require("packer.load")({'html5.vim', 'vim-autoformat', 'MatchTagAlways', 'ale', 'emmet-vim'}, { ft = "html" }, _G.packer_plugins)]]
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'ale', 'vim-markdown', 'vim-markdown-folding'}, { ft = "markdown" }, _G.packer_plugins)]]
-vim.cmd [[au FileType racket ++once lua require("packer.load")({'ale'}, { ft = "racket" }, _G.packer_plugins)]]
-vim.cmd [[au FileType python ++once lua require("packer.load")({'indentpython.vim', 'SimpylFold'}, { ft = "python" }, _G.packer_plugins)]]
-vim.cmd [[au FileType tex ++once lua require("packer.load")({'vimtex', 'ale'}, { ft = "tex" }, _G.packer_plugins)]]
-vim.cmd [[au FileType bash ++once lua require("packer.load")({'ale'}, { ft = "bash" }, _G.packer_plugins)]]
-vim.cmd [[au FileType kotlin ++once lua require("packer.load")({'kotlin-vim'}, { ft = "kotlin" }, _G.packer_plugins)]]
-vim.cmd [[au FileType c ++once lua require("packer.load")({'vim-autoformat', 'a.vim', 'ale', 'cscope_maps'}, { ft = "c" }, _G.packer_plugins)]]
-vim.cmd [[au FileType vue ++once lua require("packer.load")({'vim-autoformat', 'vim-vue-plugin'}, { ft = "vue" }, _G.packer_plugins)]]
-vim.cmd [[au FileType vim ++once lua require("packer.load")({'ale'}, { ft = "vim" }, _G.packer_plugins)]]
+vim.cmd [[au FileType c ++once lua require("packer.load")({'vim-autoformat', 'ale', 'cscope_maps', 'vista.vim', 'a.vim'}, { ft = "c" }, _G.packer_plugins)]]
+vim.cmd [[au FileType rust ++once lua require("packer.load")({'vim-autoformat', 'rust-tools.nvim'}, { ft = "rust" }, _G.packer_plugins)]]
+vim.cmd [[au FileType vim ++once lua require("packer.load")({'ale', 'vista.vim'}, { ft = "vim" }, _G.packer_plugins)]]
+vim.cmd [[au FileType haskell ++once lua require("packer.load")({'haskell-vim'}, { ft = "haskell" }, _G.packer_plugins)]]
 vim.cmd [[au FileType ts ++once lua require("packer.load")({'yats.vim'}, { ft = "ts" }, _G.packer_plugins)]]
-vim.cmd [[au FileType yaml ++once lua require("packer.load")({'ansible-vim'}, { ft = "yaml" }, _G.packer_plugins)]]
+vim.cmd [[au FileType tex ++once lua require("packer.load")({'ale', 'vimtex'}, { ft = "tex" }, _G.packer_plugins)]]
+vim.cmd [[au FileType ini ++once lua require("packer.load")({'vim-toml'}, { ft = "ini" }, _G.packer_plugins)]]
+vim.cmd [[au FileType toml ++once lua require("packer.load")({'vim-toml'}, { ft = "toml" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascript ++once lua require("packer.load")({'vim-autoformat'}, { ft = "javascript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType objc ++once lua require("packer.load")({'vim-autoformat'}, { ft = "objc" }, _G.packer_plugins)]]
+vim.cmd [[au FileType sh ++once lua require("packer.load")({'ale', 'vista.vim'}, { ft = "sh" }, _G.packer_plugins)]]
+vim.cmd [[au FileType zsh ++once lua require("packer.load")({'ale', 'vista.vim'}, { ft = "zsh" }, _G.packer_plugins)]]
+vim.cmd [[au FileType bash ++once lua require("packer.load")({'ale', 'vista.vim'}, { ft = "bash" }, _G.packer_plugins)]]
+vim.cmd [[au FileType cpp ++once lua require("packer.load")({'vim-autoformat', 'ale', 'cscope_maps', 'vista.vim', 'a.vim'}, { ft = "cpp" }, _G.packer_plugins)]]
+vim.cmd [[au FileType cmake ++once lua require("packer.load")({'ale', 'vista.vim'}, { ft = "cmake" }, _G.packer_plugins)]]
+vim.cmd [[au FileType html ++once lua require("packer.load")({'vim-autoformat', 'MatchTagAlways', 'ale', 'emmet-vim', 'html5.vim', 'vista.vim'}, { ft = "html" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'ale', 'vim-markdown', 'vim-markdown-folding', 'vista.vim'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType racket ++once lua require("packer.load")({'ale', 'vista.vim'}, { ft = "racket" }, _G.packer_plugins)]]
+vim.cmd [[au FileType vue ++once lua require("packer.load")({'vim-autoformat', 'vim-vue-plugin'}, { ft = "vue" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
-time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/haskell-vim/ftdetect/haskell.vim]], true)
-vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/haskell-vim/ftdetect/haskell.vim]]
-time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/haskell-vim/ftdetect/haskell.vim]], false)
-time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim]], true)
-vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim]]
-time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim]], false)
-time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim]], true)
-vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim]]
-time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim]], false)
-time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim]], true)
-vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim]]
-time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim]], false)
-time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/kotlin-vim/ftdetect/kotlin.vim]], true)
-vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/kotlin-vim/ftdetect/kotlin.vim]]
-time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/kotlin-vim/ftdetect/kotlin.vim]], false)
-time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/yats.vim/ftdetect/typescript.vim]], true)
-vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/yats.vim/ftdetect/typescript.vim]]
-time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/yats.vim/ftdetect/typescript.vim]], false)
-time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/yats.vim/ftdetect/typescriptreact.vim]], true)
-vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/yats.vim/ftdetect/typescriptreact.vim]]
-time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/yats.vim/ftdetect/typescriptreact.vim]], false)
-time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/ansible-vim/ftdetect/ansible.vim]], true)
-vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/ansible-vim/ftdetect/ansible.vim]]
-time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/ansible-vim/ftdetect/ansible.vim]], false)
-time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]], true)
-vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]]
-time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]], false)
 time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/meson.vim/ftdetect/meson.vim]], true)
 vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/meson.vim/ftdetect/meson.vim]]
 time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/meson.vim/ftdetect/meson.vim]], false)
-time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vim-go/ftdetect/gofiletype.vim]], true)
-vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/vim-go/ftdetect/gofiletype.vim]]
-time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vim-go/ftdetect/gofiletype.vim]], false)
+time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]], true)
+vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]]
+time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]], false)
 time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vim-toml/ftdetect/toml.vim]], true)
 vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/vim-toml/ftdetect/toml.vim]]
 time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vim-toml/ftdetect/toml.vim]], false)
@@ -784,6 +755,33 @@ time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packe
 time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vim-vue-plugin/ftdetect/vue.vim]], true)
 vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/vim-vue-plugin/ftdetect/vue.vim]]
 time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vim-vue-plugin/ftdetect/vue.vim]], false)
+time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim]], true)
+vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim]]
+time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim]], false)
+time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim]], true)
+vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim]]
+time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim]], false)
+time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim]], true)
+vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim]]
+time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim]], false)
+time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/haskell-vim/ftdetect/haskell.vim]], true)
+vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/haskell-vim/ftdetect/haskell.vim]]
+time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/haskell-vim/ftdetect/haskell.vim]], false)
+time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/yats.vim/ftdetect/typescript.vim]], true)
+vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/yats.vim/ftdetect/typescript.vim]]
+time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/yats.vim/ftdetect/typescript.vim]], false)
+time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/yats.vim/ftdetect/typescriptreact.vim]], true)
+vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/yats.vim/ftdetect/typescriptreact.vim]]
+time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/yats.vim/ftdetect/typescriptreact.vim]], false)
+time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vim-go/ftdetect/gofiletype.vim]], true)
+vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/vim-go/ftdetect/gofiletype.vim]]
+time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/vim-go/ftdetect/gofiletype.vim]], false)
+time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/ansible-vim/ftdetect/ansible.vim]], true)
+vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/ansible-vim/ftdetect/ansible.vim]]
+time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/ansible-vim/ftdetect/ansible.vim]], false)
+time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/kotlin-vim/ftdetect/kotlin.vim]], true)
+vim.cmd [[source /home/paul/.local/share/nvim/site/pack/packer/opt/kotlin-vim/ftdetect/kotlin.vim]]
+time([[Sourcing ftdetect script at: /home/paul/.local/share/nvim/site/pack/packer/opt/kotlin-vim/ftdetect/kotlin.vim]], false)
 vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
