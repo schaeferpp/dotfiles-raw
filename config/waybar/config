@@ -3,10 +3,10 @@
     "height": 20,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "clock", "tray"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "clock", "tray"],
     "sway/workspaces": {
         // "disable-scroll": true,
-        "all-outputs": true
+        "all-outputs": false
         // "format": "{name}: {icon}",
         // "format-icons": {
         //     "1": "",
@@ -62,8 +62,9 @@
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
+        "interface": "enp0s20f0u3u4",
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-ethernet": "up: {bandwidthUpBytes}/down: {bandwidthDownBytes} ",
         "format-disconnected": "Disconnected ⚠"
     },
     "pulseaudio": {
@@ -82,16 +83,5 @@
         },
         "on-click": "pavucontrol"
     },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-    }
 }
 // vim:ft=json:

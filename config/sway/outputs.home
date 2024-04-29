@@ -29,7 +29,7 @@
 
 
 
-output DP-1 {
+output HDMI-A-1 {
     enable
     # pos 0 0 res 3840x2160
     mode 3840x2160@30.000Hz
@@ -39,7 +39,7 @@ output DP-1 {
     bg "/home/paul/Pictures/wall2.jpg" fill
 }
 
-output HDMI-A-1 {
+output DP-1 {
     enable
     # pos 2560 0 res 1920x1080
     pos 2560 0

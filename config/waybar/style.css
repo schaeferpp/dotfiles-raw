@@ -1,40 +1,35 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: Monoid NF, Monoid, Fira Sans, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 10px;
-    min-height: 0;
+    /* font-family: Monoid NF, Monoid, Fira Sans, Roboto, Helvetica, Arial, sans-serif; */
+    font-family: "Roboto";
+    letter-spacing: 1px;
+    font-size: 14px;
+    min-height: 1.7em;
 }
 
 window#waybar {
-    /* background: rgba(43, 48, 59, 0.5); */
     background-color: #0c1b15;
-    /* border-bottom: 1px solid rgba(100, 114, 125, 0.5); */
-    /* border-bottom: px solid #0c1b15; */
     color: #c3c6c9;
-}
-
-#workspaces {
-    border-top: #1f5a7c solid 1px;
-    border-right: #1f5a7c solid 1px;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button {
+    min-width: 2em;
     padding: 0 1px;
     background: transparent;
     color: #c3c6c9;
-    border-bottom: 2px solid #000000;
+    border-bottom: 3px solid #7c6f64;
+    border-left: #7c6f64 solid 2px;
 }
 
-#workspaces button.visible {
-    background: #479ed1;
-    border-bottom: 2px solid #1f5a7c;
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+    background: #7c6f64;
 }
 
 #workspaces button.focused {
-    background: #1f5a7c;
-    border-bottom: 3px solid #479ed1;
+    border-bottom: 3px solid #b8bb26;
 }
 
 #workspaces button.urgent {
@@ -55,9 +50,9 @@ window#waybar {
 
 #clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
     padding: 0 10px;
-    border-top: solid 1px #c8c831;
-    border-right: #c8c831 solid 1px;
-    background: #4d3200;
+    border-top: #7c6f64 solid 2px;
+    border-right: #7c6f64 solid 1px;
+    background: #1d2021;
     margin: 0px 0px 0px 3px;
 }
 
@@ -111,8 +106,6 @@ window#waybar {
 /* } */
 
 #pulseaudio {
-    border-top: #c8c831 solid 1px;
-    background: #4d3200;
 }
 #pulseaudio.muted {
     background: #90b1b1;

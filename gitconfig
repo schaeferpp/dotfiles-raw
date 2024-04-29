@@ -34,5 +34,11 @@
 	defaultBranch = main
 [includeif "gitdir:~/"]
 	path = .gitconfig-personal
+[includeif "gitdir:/nas"]
+	path = .gitconfig-personal
 [includeif "gitdir:~/work/"]
 	path = .gitconfig-work
+[maintenance]
+	repo = /home/paul/projects/bgl
+[config]
+	fsmonitor = true

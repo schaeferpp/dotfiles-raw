@@ -162,11 +162,11 @@ EOF
 " let g:two_firewatch_italics=1
 " colors two-firewatch
 
-" colors gruvbox
+colors gruvbox
 
 " colors tender
 
-colors everforest
+" colors everforest
 
 " lua require'plugin-init'
 

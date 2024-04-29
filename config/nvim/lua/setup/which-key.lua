@@ -20,9 +20,10 @@ wk.register({
         gf = {"<C-w>gf<cr>", "Open Code Action Menu"},
         w = {":w !sudo -A tee %<CR>L<CR>", "Save as root"},
         gf = {":e <cfile><CR>"},
+        tt = {"<cmd>lua require('lspsaga.symbol'):outline()<cr>", "Open Outline"},
     },
     ["<leader>c"] = {
-        a = {"<cmd>CodeActionMenu<cr>", "Open Code Action Menu"},
+        a = {"<cmd>Lspsaga code_action<cr>", "Open Code Action Menu"},
         f = {"<cmd>lua vim.lsp.buf.format { async = true }<cr>", "Format source code"},
         d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Goto definition"},
         D = {"<cmd>lua vim.lsp.buf.declaration()<cr>", "Goto declaration"},
@@ -36,6 +37,9 @@ wk.register({
         d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Goto definition"},
         D = {"<cmd>lua vim.lsp.buf.declaration()<cr>", "Goto declaration"},
         i = {"<cmd>lua vim.lsp.buf.implementation()<cr>", "Goto implementation"},
+        k = {"<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature help"},
+        r = {"<cmd>lua vim.lsp.buf.references()<CR>", "References" },
+        e = {"<cmd>lua vim.diagnostic.open_float()<CR>", "Disgnostics float"},
     },
     ["<C-K>"] = {"<C-W>k", "Move focus up"},
     ["<C-J>"] = {"<C-W>j", "Move focus down"},
@@ -43,7 +47,8 @@ wk.register({
     ["<C-L>"] = {"<C-W>l", "Move focus right"},
     ["<Esc>"] = {"<cmd>set nohls<cr>", "Disable search highlighting"},
     ["/"] = {"<cmd>set hls<cr>/", "Search"},
-    ["<C-K>"] = {"<cmd>lua vim.lsp.buf.hover()<CR>", "Show LSP documentation"}
+    ["<C-K>"] = {"<cmd>lua vim.lsp.buf.hover()<CR>", "Show LSP documentation"},
+    K = {"<cmd>Lspsaga hover_doc<cr>", "Hover float"}
 })
 
 vim.cmd [[ nnoremap ; :]]

@@ -48,7 +48,7 @@ return packer.startup(function(use)
         cmd = {'Dispatch', 'Make', 'Focus', 'Start'}
     }
 
-    -- use 'morhetz/gruvbox'
+    use 'morhetz/gruvbox'
     use 'rakr/vim-one'
     use 'rakr/vim-two-firewatch'
     use 'jacoborus/tender.vim'
@@ -62,16 +62,40 @@ return packer.startup(function(use)
     use 'rhysd/conflict-marker.vim'
 
     use {
-        'liuchengxu/vista.vim',
-        ft = {'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim'},
+        'nvimdev/lspsaga.nvim',
+        requires = {'nvim-lspconfig', 'kyazdani42/nvim-web-devicons', 'nvim-treesitter/nvim-treesitter', 'MDeiml/tree-sitter-markdown'},
         config = function()
-            vim.cmd [[let g:vista#renderer#enable_icon = 1]]
-            vim.cmd 'let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]'
-            vim.cmd [[let g:vista_sidebar_width = 45]]
-            vim.cmd [[nnoremap <Leader>t :Vista!!<CR>]]
-            vim.cmd [[autocmd VimEnter * call vista#RunForNearestMethodOrFunction()]]
+            require('lspsaga').setup({
+                symbol_in_winbar = {
+                    in_custom = false,
+                    enable = true,
+                    separator = ' ',
+                    show_file = true,
+                    -- define how to customize filename, eg: %:., %
+                    -- if not set, use default value `%:t`
+                    -- more information see `vim.fn.expand` or `expand`
+                    -- ## only valid after set `show_file = true`
+                    file_formatter = "",
+                    click_support = false,
+                },
+                show_outline = {
+                    jump_key = '<cr>'
+                }
+            })
         end
     }
+
+    -- use {
+    --     'liuchengxu/vista.vim',
+    --     ft = {'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'rust'},
+    --     config = function()
+    --         vim.cmd [[let g:vista#renderer#enable_icon = 1]]
+    --         vim.cmd 'let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]'
+    --         vim.cmd [[let g:vista_sidebar_width = 45]]
+    --         vim.cmd [[nnoremap <Leader>t :Vista!!<CR>]]
+    --         vim.cmd [[autocmd VimEnter * call vista#RunForNearestMethodOrFunction()]]
+    --     end
+    -- }
 
     use 'vim-scripts/let-modeline.vim'
 
@@ -98,7 +122,7 @@ return packer.startup(function(use)
 
         use {
             'nvim-lualine/lualine.nvim',
-            requires = { 'liuchengxu/vista.vim' },
+            requires = {'nvimdev/lspsaga.nvim', 'nvim-tree/nvim-web-devicons'},
             config = function() require('setup/lualine') end
         }
 
@@ -135,8 +159,8 @@ return packer.startup(function(use)
             'lukas-reineke/indent-blankline.nvim',
             config = function() 
                 ibl = require("ibl")
-                ibl.setup { }
-                ibl.config.scope.enabled = true
+                ibl.setup()
+                -- ibl.config.scope.enabled = true
             end
         }
 
@@ -250,7 +274,7 @@ return packer.startup(function(use)
                 vim.cmd [[let g:templates_directory = '~/.vim/templates']]
                 vim.cmd [[let g:license             = "All rights reserved"]]
                 vim.cmd [[let g:username            = "Paul Schaefer"]]
-                vim.cmd [[let g:email               = "paul@os-s.de"]]
+                vim.cmd [[let g:email               = "paul@realcyber.de"]]
             end
         }
 
@@ -500,6 +524,7 @@ return packer.startup(function(use)
             ft = {'javascript', 'rust', 'c', 'cpp', 'objc', 'html', 'xml', 'vue'},
             config = function()
                 vim.cmd "let g:formatters_javascript = ['eslint_local']"
+                vim.cmd "let g:formatters_vue = ['eslint_local', 'stylelint']"
                 vim.cmd [[autocmd FileType javascript,c,cpp,objc,python,vue nnoremap <buffer><Leader>cf :<C-u>Autoformat<CR>]]
                 vim.cmd [[autocmd FileType javascript,c,cpp,objc,python,vue vnoremap <buffer><Leader>cf :Autoformat<CR>]]
             end
@@ -530,6 +555,8 @@ return packer.startup(function(use)
         }
 
         use 'nvim-treesitter/nvim-treesitter'
+
+        use 'MDeiml/tree-sitter-markdown'
 
         use {
             'nvim-treesitter/nvim-treesitter-context',
