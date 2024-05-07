@@ -1,0 +1,4 @@
+[manager]
+prepend_keymap = [
+    { on = [ "F12" ],     run = "quit",               desc = "Exit the process" },
+]
