@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-export THEME_HIDE_HOSTNAME="y"
+# export THEME_HIDE_HOSTNAME="n"
 ZSH_THEME="schaeferpp"
 # ZSH_THEME="kardan"
 # ZSH_THEME="mh"
@@ -49,7 +49,7 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # https://github.com/jocelynmallon/zshmarks
-plugins=(git rust ssh-agent thefuck)
+plugins=(git rust ssh-agent)
 
 
 
@@ -124,7 +124,7 @@ alias pin="paru -S "
 alias mkp="~/code/projects/mkp/mkp.py"
 alias tmux="tmux -2"
 alias bc="bc -l"
-alias fop='gio open $(sk) 2>&1 > /dev/null'
+# alias fop='gio open $(sk) 2>&1 > /dev/null'
 alias vo='nvim $(sk -c "fd -t f -d 5")'
 alias ssh='TERM=xterm-256color ssh'
 alias tt=taskwarrior-tui
@@ -243,7 +243,7 @@ fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-source "${HOME}/.config/broot/launcher/bash/br"
+# source "${HOME}/.config/broot/launcher/bash/br"
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent ssh-add-args $XDG_RUNTIME_DIR/ssh-agent.sock

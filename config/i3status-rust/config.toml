@@ -27,22 +27,6 @@ block = "net"
 # format = "$icon {speed_up;K} {speed_down;K}"
 
 [[block]]
-block = "custom"
-command = ''' echo "☀️  $(senec --address 192.168.2.190 --kilo produced)" kW '''
-interval = 5
-
-[[block]]
-block = "custom"
-command = ''' echo "🔥 $(senec --address 192.168.2.190 --kilo consumed)" kW '''
-interval = 5
-
-[[block]]
-block = "custom"
-command = ''' echo "🔋 $(senec --address 192.168.2.190 --kilo battery) kW / $(senec --address 192.168.2.190 battery-percentage) %"'''
-interval = 5
-
-
-[[block]]
 block = "memory"
 # display_type = "memory"
 format = "$icon $mem_used_percents"

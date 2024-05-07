@@ -7,4 +7,5 @@ configuration {
 	display-drun: "Activate";
 }
 
-@theme "/home/paul/.config/rofi/themes/slate-ayu.rasi"
+//@theme "/home/paul/.config/rofi/themes/slate-ayu.rasi"
+@theme "/usr/share/rofi/themes/sidebar.rasi"

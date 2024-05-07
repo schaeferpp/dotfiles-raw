@@ -32,13 +32,12 @@
 	rebase = true
 [init]
 	defaultBranch = main
-[includeif "gitdir:~/"]
-	path = .gitconfig-personal
-[includeif "gitdir:/nas"]
-	path = .gitconfig-personal
-[includeif "gitdir:~/work/"]
-	path = .gitconfig-work
-[maintenance]
-	repo = /home/paul/projects/bgl
+[user]
+	email = paul@os-s.de
+	name = Paul Schaefer
+[safe]
+	directory = /projects/siemens/profinet/scapy/attacker
+
 [config]
-	fsmonitor = true
+    fsmonitor = true
+
