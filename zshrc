@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 export THEME_HIDE_HOSTNAME="y"
-ZSH_THEME="schaeferpp"
+ZSH_THEME="schaeferpp" # set by `omz`
 # ZSH_THEME="kardan"
 # ZSH_THEME="mh"
 # Set name of the theme to load.
@@ -203,6 +203,16 @@ bindkey "^[OB" down-line-or-beginning-search
 bindkey -M vicmd "k" up-line-or-beginning-search
 bindkey -M vicmd "j" down-line-or-beginning-search
 
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+bindkey -s '\e[24~' '^cyy^M'
+
 . /etc/profile.d/vte.sh
 
 [[ "$RANGERCD" = "true" ]] && unset RANGERCD && ranger-cd
@@ -222,6 +232,17 @@ fi
 if [ -n "${FLOATERM+x}" ]; then
     alias vim="~/.vim/plugged/vim-floaterm/bin/floaterm"
 fi
+
+# function osc7 {
+#     local LC_ALL=C
+#     export LC_ALL
+
+#     setopt localoptions extendedglob
+#     input=( ${(s::)PWD} )
+#     uri=${(j::)input/(#b)([^A-Za-z0-9_.\!~*\'\(\)-\/])/%${(l:2::0:)$(([##16]#match))}}
+#     print -n "\e]7;file://${HOSTNAME}${uri}\e\\"
+# }
+# add-zsh-hook -Uz chpwd osc7
 
 date
 echo
