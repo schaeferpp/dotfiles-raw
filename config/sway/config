@@ -20,7 +20,7 @@ set $unfocused_alt #928374
 
 
 set $mod Mod4
-set $terminal_emulator alacritty
+set $terminal_emulator foot
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -46,9 +46,9 @@ floating_modifier $mod
 # start a terminal
 # bindsym $mod+Return exec "termite -e tmux"
 bindsym $mod+Return exec $terminal_emulator
-# bindsym $mod+Shift+Return exec alacritty -e bash -c "RANGERCD=true zsh"'
-# bindsym $mod+Shift+x exec alacritty -e nvim +terminal
-# bindsym $mod+Shift+t exec alacritty -e nvim /home/paul/projects/TODO.org
+# bindsym $mod+Shift+Return exec foot -e bash -c "RANGERCD=true zsh"'
+# bindsym $mod+Shift+x exec foot -e nvim +terminal
+# bindsym $mod+Shift+t exec foot -e nvim /home/paul/projects/TODO.org
 
 bindsym $mod+Shift+semicolon exec /home/paul/bin/swaylock.sh
 bindsym $mod+semicolon exec /home/paul/bin/swaylock.sh --info
@@ -308,9 +308,9 @@ include ~/.config/sway/outputs
 # finds out, if available)
 bar {
     font pango:Roboto 12
-    bar swaybar_command waybar
+    #bar swaybar_command waybar
     # swaybar_command waybar
-    # status_command i3status-rs
+    status_command i3status-rs
     position top
     # output HDMI-A-1
     # workspace_buttons yes
