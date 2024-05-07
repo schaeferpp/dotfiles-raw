@@ -126,7 +126,7 @@ alias tmux="tmux -2"
 alias bc="bc -l"
 alias fop='gio open $(sk) 2>&1 > /dev/null'
 alias vo='nvim $(sk -c "fd -t f -d 5")'
-alias ssh='TERM=xterm-256color ssh'
+# alias ssh='TERM=xterm-256color ssh'
 alias tt=taskwarrior-tui
 alias v=nvim
 alias vw="nvim ~/vimwiki/index.md"
@@ -263,8 +263,6 @@ if exists sk; then
 fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-source "${HOME}/.config/broot/launcher/bash/br"
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent ssh-add-args $XDG_RUNTIME_DIR/ssh-agent.sock
