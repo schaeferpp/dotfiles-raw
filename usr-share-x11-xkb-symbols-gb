@@ -218,6 +218,44 @@ xkb_symbols "mac_intl" {
     include "level3(ralt_switch)"
 };
 
+partial alphanumeric_keys
+xkb_symbols "pl" {
+
+    // Polish accented letters on upper levels of corresponding base letters.
+    // Idea from Wawrzyniec Niewodniczański, adapted by Aleksander Kowalski.
+
+    include "gb(basic)"
+
+    name[Group1]="Polish (British keyboard)";
+
+    key <AD03>  { [         e,          E,      eogonek,      Eogonek ] };
+    key <AD09>  { [         o,          O,       oacute,       Oacute ] };
+
+    key <AC01>  { [         a,          A,      aogonek,      Aogonek ] };
+    key <AC02>  { [         s,          S,       sacute,       Sacute ] };
+
+    key <AB01>  { [         z,          Z,    zabovedot,    Zabovedot ] };
+    key <AB02>  { [         x,          X,       zacute,       Zacute ] };
+    key <AB03>  { [         c,          C,       cacute,       Cacute ] };
+    key <AB06>  { [         n,          N,       nacute,       Nacute ] };
+};
+
+partial alphanumeric_keys
+xkb_symbols "gla" {
+
+    // Grave-accented letters on the upper levels of the relevant vowels.
+
+    include "gb(basic)"
+
+    name[Group1]="Scottish Gaelic";
+
+    key <AD03> { [   e,                 E,          egrave,      Egrave ] };
+    key <AD07> { [   u,                 U,          ugrave,      Ugrave ] };
+    key <AD08> { [   i,                 I,          igrave,      Igrave ] };
+    key <AD09> { [   o,                 O,          ograve,      Ograve ] };
+
+    key <AC01> { [   a,                 A,          agrave,      Agrave ] };
+};
 // EXTRAS:
 
 partial alphanumeric_keys
