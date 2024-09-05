@@ -203,6 +203,16 @@ bindkey "^[OB" down-line-or-beginning-search
 bindkey -M vicmd "k" up-line-or-beginning-search
 bindkey -M vicmd "j" down-line-or-beginning-search
 
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+bindkey -s '\e[24~' '^cyy^M'
+
 . /etc/profile.d/vte.sh
 
 [[ "$RANGERCD" = "true" ]] && unset RANGERCD && ranger-cd
@@ -241,7 +251,14 @@ if exists sk; then
     bindkey '^F' sk_select_history
 fi
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+if exists task; then
+    opentasks=$(task status:pending due.before:now +work export 2>/dev/null | jq '. | length')
+    if [ "$opentasks" -eq 1 ]; then
+        echo -e "\033[33;1m$opentasks task needs attention!\033[0m"
+    elif [ "$opentasks" -gt 1 ]; then
+        echo -e "\033[33;1m$opentasks tasks need attention!\033[0m"
+    fi
+fi
 
 # source "${HOME}/.config/broot/launcher/bash/br"
 
