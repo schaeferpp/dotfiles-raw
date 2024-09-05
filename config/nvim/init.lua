@@ -34,8 +34,35 @@ vim.opt.completeopt = "menu,menuone,noinsert,noselect"
 vim.opt.shortmess = "ltToOCFc"
 vim.opt.foldlevel = 5
 vim.opt.spelllang = "en,de"
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.writebackup = false
+vim.opt.undofile = true
+vim.opt.updatetime = 300
 
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
+    pattern = "*",
+    command = "checktime"
+})
+
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+    pattern = "*.md,*.txt,*.tex",
+    command = "set fo+=t"
+})
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+    pattern = "*.rs",
+    callback = function()
+        vim.lsp.buf.format(nil, 200)
+    end
+})
 
 require("config.lazy")
 
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+    pattern = { "*" },
+    callback = function()
+        vim.cmd [[ silent! normal! g`"zv ]]
+    end,
+})
 vim.cmd.colorscheme("badwolf")
