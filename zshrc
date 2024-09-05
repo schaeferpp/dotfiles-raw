@@ -49,7 +49,7 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # https://github.com/jocelynmallon/zshmarks
-plugins=(git rust ssh-agent thefuck)
+plugins=(git rust ssh-agent)
 
 
 
@@ -57,7 +57,8 @@ plugins=(git rust ssh-agent thefuck)
 # User configuration
 
 export GOPATH=${HOME}/go
-export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:${HOME}/.bin:${HOME}/.gem/ruby/2.3.0/bin:${HOME}/.local/bin/:${HOME}/bin:${HOME}/go/bin:${HOME}/.cargo/bin:${HOME}/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/"
+# export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:${HOME}/.bin:${HOME}/.gem/ruby/2.3.0/bin:${HOME}/.local/bin/:${HOME}/bin:${HOME}/go/bin:${HOME}/.cargo/bin:${HOME}/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/"
+export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:${HOME}/.bin:${HOME}/.gem/ruby/2.3.0/bin:${HOME}/.local/bin/:${HOME}/bin:${HOME}/go/bin:${HOME}/.cargo/bin:${HOME}/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -193,8 +194,13 @@ alias vi=nvim
 alias g="jump"
 alias p="showmarks"
 alias sav="bookmark"
-alias l="ls -lah"
-alias ls="ls --color=auto --hyperlink=auto"
+if type eza >/dev/null 2>&1; then
+    alias ls="eza"
+    alias l="eza -l --all --group-directories-first --git"
+else
+    alias l="ls -lah"
+    alias ls="ls --color=auto --hyperlink=auto"
+fi
 
 bindkey -M vicmd '?' history-incremental-search-backward
 bindkey -M vicmd '/' history-incremental-search-forward
