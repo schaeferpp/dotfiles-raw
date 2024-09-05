@@ -51,6 +51,7 @@ return packer.startup(function(use)
     use 'morhetz/gruvbox'
     use 'rakr/vim-one'
     use 'rakr/vim-two-firewatch'
+    use 'sjl/badwolf'
     use 'jacoborus/tender.vim'
     use {
         'sainnhe/everforest',
@@ -136,14 +137,14 @@ return packer.startup(function(use)
         use {
             'nvim-telescope/telescope-packer.nvim',
         }
-        -- Load on a combination of conditions: specific filetypes or commands
-        -- Also run code after load (see the "config" key)
-        use {
-            'w0rp/ale',
-            ft = {'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'tex'},
-            cmd = 'ALEEnable',
-            config = 'vim.cmd[[ALEEnable]]'
-        }
+
+        -- use {
+        --     'w0rp/ale',
+        --     ft = {'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'tex'},
+        --     cmd = 'ALEEnable',
+        --     config = 'vim.cmd[[ALEEnable]]'
+        -- }
+
         use {
             "folke/which-key.nvim",
             config = function() require('setup/which-key') end
@@ -194,19 +195,32 @@ return packer.startup(function(use)
             end
         }
 
+        use { "ms-jpq/coq_nvim", branch = "coq" }
+        use { "ms-jpq/coq.artifacts", branch = "artifacts" }
+        use { 'ms-jpq/coq.thirdparty', branch = "3p" }
 
-        use 'neovim/nvim-lspconfig'
         use {
-            'hrsh7th/nvim-Cmp',
-            requires = {'nvim-lspconfig', 'nvim-lua/lsp-status.nvim', 'onsails/lspkind.nvim'},
+            'neovim/nvim-lspconfig',
+            requires = { 'ms-jpq/coq_nvim' },
             config = function()
-                require 'autocompletion'
+                vim.g.coq_settings = {
+                    auto_start = true, -- if you want to start COQ at startup
+                    ["keymap.manual_complete"] = "<C-.>"
+                    -- Your COQ settings here
+                }
             end
         }
-        use 'hrsh7th/cmp-nvim-lsp'
-        use 'hrsh7th/cmp-buffer'
-        use 'hrsh7th/cmp-path'
-        use 'hrsh7th/cmp-cmdline'
+        -- use {
+        --     'hrsh7th/nvim-Cmp',
+        --     requires = {'nvim-lspconfig', 'nvim-lua/lsp-status.nvim', 'onsails/lspkind.nvim'},
+        --     config = function()
+        --         require 'autocompletion'
+        --     end
+        -- }
+        -- use 'hrsh7th/cmp-nvim-lsp'
+        -- use 'hrsh7th/cmp-buffer'
+        -- use 'hrsh7th/cmp-path'
+        -- use 'hrsh7th/cmp-cmdline'
         use {
             'lukas-reineke/lsp-format.nvim',
             config = function()
@@ -248,7 +262,7 @@ return packer.startup(function(use)
                 require("luasnip.loaders.from_snipmate").lazy_load()
             end
         }
-        use 'saadparwaiz1/cmp_luasnip'
+        -- use 'saadparwaiz1/cmp_luasnip'
         -- use 'quangnguyen30192/cmp-nvim-ultisnips'
         -- use {
         --     'SirVer/ultisnips',
@@ -315,42 +329,43 @@ return packer.startup(function(use)
             end
         }
 
-        use {
-            'mfussenegger/nvim-dap'
-        }
+        -- use {
+        --     'mfussenegger/nvim-dap'
+        -- }
 
-        use {
-            'vimwiki/vimwiki',
-            config = function()
-                vim.cmd [[ 
-                let g:vimwiki_list = [{'path': '~/vimwiki/',
-                \ 'syntax': 'markdown', 'ext': '.md'}]
-                let g:vimwiki_global_ext = 0
-                ]]
-            end
-        }
+        -- use {
+        --     'vimwiki/vimwiki',
+        --     config = function()
+        --         vim.cmd [[ 
+        --         let g:vimwiki_list = [{'path': '~/vimwiki/',
+        --         \ 'syntax': 'markdown', 'ext': '.md'}]
+        --         let g:vimwiki_global_ext = 0
+        --         ]]
+        --     end
+        -- }
 
         use {
             'saecki/crates.nvim',
             tag = 'v0.3.0',
             opt = false,
             -- event = { "BufRead Cargo.toml" },
-            requires = { 'nvim-lua/plenary.nvim', 'hrsh7th/nvim-Cmp' },
+            requires = { 'nvim-lua/plenary.nvim' },
+            -- requires = { 'nvim-lua/plenary.nvim', 'hrsh7th/nvim-Cmp' },
             config = function()
                 require('crates').setup{}
-                vim.api.nvim_create_autocmd("BufRead", {
-                    group = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true }),
-                    pattern = "Cargo.toml",
-                    callback = function()
-                        require 'cmp'.setup.buffer({ sources = { { name = "crates" } } })
-                    end,
-                })
+                -- vim.api.nvim_create_autocmd("BufRead", {
+                --     group = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true }),
+                --     pattern = "Cargo.toml",
+                --     callback = function()
+                --         require 'cmp'.setup.buffer({ sources = { { name = "crates" } } })
+                --     end,
+                -- })
             end
         }
 
-        use {
-            'pest-parser/pest.vim'
-        }
+        -- use {
+        --     'pest-parser/pest.vim'
+        -- }
 
         use {
             'RRethy/vim-illuminate',
@@ -373,11 +388,11 @@ return packer.startup(function(use)
             end
         }
 
-        use {
-            'chazy/cscope_maps',
-            opt = true,
-            ft = {'c', 'cpp'}
-        }
+        -- use {
+        --     'chazy/cscope_maps',
+        --     opt = true,
+        --     ft = {'c', 'cpp'}
+        -- }
 
         use {
             'stfl/meson.vim' ,
@@ -424,14 +439,14 @@ return packer.startup(function(use)
             end
         }
 
-        use {
-            'nelstrom/vim-markdown-folding',
-            opt = true,
-            ft = {'markdown'},
-            config = function()
-                vim.cmd [[ autocmd FileType markdown set foldexpr=NestedMarkdownFolds() ]]
-            end
-        }
+        -- use {
+        --     'nelstrom/vim-markdown-folding',
+        --     opt = true,
+        --     ft = {'markdown'},
+        --     config = function()
+        --         vim.cmd [[ autocmd FileType markdown set foldexpr=NestedMarkdownFolds() ]]
+        --     end
+        -- }
 
         use {
             'Valloric/MatchTagAlways',
@@ -439,17 +454,17 @@ return packer.startup(function(use)
             ft = {'xml', 'html', 'htmldjango'}
         }
 
-        use {
-            'mattn/emmet-vim',
-            opt = true,
-            ft = {'html', 'xml', 'htmldjango'}
-        }
+        -- use {
+        --     'mattn/emmet-vim',
+        --     opt = true,
+        --     ft = {'html', 'xml', 'htmldjango'}
+        -- }
 
-        use {
-            'othree/html5.vim',
-            opt = true,
-            ft = {'xml', 'html', 'htmldjango'}
-        }
+        -- use {
+        --     'othree/html5.vim',
+        --     opt = true,
+        --     ft = {'xml', 'html', 'htmldjango'}
+        -- }
 
         use {
             'tkztmk/vim-vala',
@@ -558,25 +573,25 @@ return packer.startup(function(use)
 
         use 'MDeiml/tree-sitter-markdown'
 
-        use {
-            'nvim-treesitter/nvim-treesitter-context',
-            requires = { 'nvim-treesitter/nvim-treesitter' },
-            config = function()
-                require'treesitter-context'.setup{
-                    enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-                    max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-                    min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
-                    line_numbers = true,
-                    multiline_threshold = 20, -- Maximum number of lines to collapse for a single context line
-                    trim_scope = 'outer', -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
-                    mode = 'cursor',  -- Line used to calculate context. Choices: 'cursor', 'topline'
-                    -- Separator between context and content. Should be a single character string, like '-'.
-                    -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
-                    separator = nil,
-                    zindex = 20, -- The Z-index of the context window
-                    on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
-                }
-            end
-        }
+        -- use {
+        --     'nvim-treesitter/nvim-treesitter-context',
+        --     requires = { 'nvim-treesitter/nvim-treesitter' },
+        --     config = function()
+        --         require'treesitter-context'.setup{
+        --             enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+        --             max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
+        --             min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
+        --             line_numbers = true,
+        --             multiline_threshold = 20, -- Maximum number of lines to collapse for a single context line
+        --             trim_scope = 'outer', -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
+        --             mode = 'cursor',  -- Line used to calculate context. Choices: 'cursor', 'topline'
+        --             -- Separator between context and content. Should be a single character string, like '-'.
+        --             -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
+        --             separator = nil,
+        --             zindex = 20, -- The Z-index of the context window
+        --             on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
+        --         }
+        --     end
+        -- }
 
     end)

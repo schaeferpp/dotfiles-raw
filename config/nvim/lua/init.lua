@@ -1,6 +1,6 @@
 require('language-plugins-setup')
--- require('autocompletion')
 require('plugins')
+require('autocompletion')
 
 -- require("telescope").load_extension "packer"
 -- require('telescope').extensions.packer.packer(opts)

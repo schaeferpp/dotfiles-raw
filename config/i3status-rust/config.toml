@@ -28,18 +28,18 @@ block = "net"
 
 [[block]]
 block = "custom"
-command = ''' echo "☀️  $(senec --address 192.168.2.101 --kilo produced)" kW '''
-interval = 5
+command = ''' echo "☀️  $(senec --address 192.168.2.123 --kilo produced)" kW '''
+interval = 10
 
 [[block]]
 block = "custom"
-command = ''' echo "🔥 $(senec --address 192.168.2.101 --kilo consumed)" kW '''
-interval = 5
+command = ''' echo "🔥 $(senec --address 192.168.2.123 --kilo consumed)" kW '''
+interval = 10
 
 [[block]]
 block = "custom"
-command = ''' echo "🔋 $(senec --address 192.168.2.101 --kilo battery) kW / $(senec --address 192.168.2.101 battery-percentage) %"'''
-interval = 5
+command = ''' echo "🔋 $(senec --address 192.168.2.123 --kilo battery) kW / $(senec --address 192.168.2.123 battery-percentage) %"'''
+interval = 10
 
 
 [[block]]

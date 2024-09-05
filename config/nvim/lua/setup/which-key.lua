@@ -13,42 +13,37 @@ wk.setup {
     -- refer to the configuration section below
 }
 
-wk.register({
-    ["<leader>"] = {
-        q = {"<cmd>bw<cr>", "Close current buffer"},
-        rn = {"<cmd>lua vim.lsp.buf.rename()<CR>", "LSP Rename"},
-        gf = {"<C-w>gf<cr>", "Open Code Action Menu"},
-        w = {":w !sudo -A tee %<CR>L<CR>", "Save as root"},
-        gf = {":e <cfile><CR>"},
-        tt = {"<cmd>lua require('lspsaga.symbol'):outline()<cr>", "Open Outline"},
-    },
-    ["<leader>c"] = {
-        a = {"<cmd>Lspsaga code_action<cr>", "Open Code Action Menu"},
-        f = {"<cmd>lua vim.lsp.buf.format { async = true }<cr>", "Format source code"},
-        d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Goto definition"},
-        D = {"<cmd>lua vim.lsp.buf.declaration()<cr>", "Goto declaration"},
-        i = {"<cmd>lua vim.lsp.buf.implementation()<cr>", "Goto implementation"},
-        u = {"<cmd>lua require('telescope.builtin').lsp_references()<CR>", "View usages"}
-    },
-    g = {
-        name = "Go",
-        b = {"<cmd>bnext<cr>", "Next buffer"},
-        B = {"<cmd>bNext<cr>", "Previous buffer"},
-        d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Goto definition"},
-        D = {"<cmd>lua vim.lsp.buf.declaration()<cr>", "Goto declaration"},
-        i = {"<cmd>lua vim.lsp.buf.implementation()<cr>", "Goto implementation"},
-        k = {"<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature help"},
-        r = {"<cmd>lua vim.lsp.buf.references()<CR>", "References" },
-        e = {"<cmd>lua vim.diagnostic.open_float()<CR>", "Disgnostics float"},
-    },
-    ["<C-K>"] = {"<C-W>k", "Move focus up"},
-    ["<C-J>"] = {"<C-W>j", "Move focus down"},
-    ["<C-H>"] = {"<C-W>h", "Move focus left"},
-    ["<C-L>"] = {"<C-W>l", "Move focus right"},
-    ["<Esc>"] = {"<cmd>set nohls<cr>", "Disable search highlighting"},
-    ["/"] = {"<cmd>set hls<cr>/", "Search"},
-    ["<C-K>"] = {"<cmd>lua vim.lsp.buf.hover()<CR>", "Show LSP documentation"},
-    K = {"<cmd>Lspsaga hover_doc<cr>", "Hover float"}
+wk.add({
+    {"<leader>q", "<cmd>bw<cr>", desc = "Close current buffer"},
+    {"<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "LSP Rename"},
+    {"<leader>gf", "<C-w>gf<cr>", desc = "Open Code Action Menu"},
+    {"<leader>w", ":w !sudo -A tee %<CR>L<CR>", desc = "Save as root"},
+    {"<leader>gf", ":e <cfile><CR>"},
+    {"<leader>tt", "<cmd>lua require('lspsaga.symbol'):outline()<cr>", desc = "Open Outline"},
+    {"<leader>c", group = "LSP" },
+    {"<leader>ca", "<cmd>Lspsaga code_action<cr>", desc = "Open Code Action Menu"},
+    {"<leader>cf", "<cmd>lua vim.lsp.buf.format { async = true }<cr>", desc = "Format source code"},
+    {"<leader>cd", "<cmd>lua vim.lsp.buf.definition()<cr>", desc = "Goto definition"},
+    {"<leader>cD", "<cmd>lua vim.lsp.buf.declaration()<cr>", desc = "Goto declaration"},
+    {"<leader>ci", "<cmd>lua vim.lsp.buf.implementation()<cr>", desc = "Goto implementation"},
+    {"<leader>cu", "<cmd>lua require('telescope.builtin').lsp_references()<CR>", desc = "View usages"},
+    { "g", group = "Go" },
+    { "gb", "<cmd>bnext<cr>", desc = "Next buffer"},
+    { "gB", "<cmd>bNext<cr>", desc = "Previous buffer"},
+    { "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", desc = "Goto definition"},
+    { "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", desc = "Goto declaration"},
+    { "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", desc = "Goto implementation"},
+    { "gk", "<cmd>lua vim.lsp.buf.signature_help()<CR>", desc = "Signature help"},
+    { "gr", "<cmd>lua vim.lsp.buf.references()<CR>", desc = "References" },
+    { "ge", "<cmd>lua vim.diagnostic.open_float()<CR>", desc = "Disgnostics float"},
+    {"<C-K>", "<C-W>k", desc = "Move focus up"},
+    {"<C-J>", "<C-W>j", desc = "Move focus down"},
+    {"<C-H>", "<C-W>h", desc = "Move focus left"},
+    {"<C-L>", "<C-W>l", desc = "Move focus right"},
+    {"<Esc>", "<cmd>set nohls<cr>", desc = "Disable search highlighting"},
+    {"/", "<cmd>set hls<cr>/", desc = "Search"},
+    {"<C-K>", "<cmd>lua vim.lsp.buf.hover()<CR>", desc = "Show LSP documentation"},
+    {"K", "<cmd>Lspsaga hover_doc<cr>", desc = "Hover float"}
 })
 
 vim.cmd [[ nnoremap ; :]]

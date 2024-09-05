@@ -52,7 +52,7 @@ local on_attach = function(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+-- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 -- capabilities = vim.tbl_extend('keep', capabilities or {}, lsp_status.capabilities)
 
 local default_opts = { capabilities = capabilities }
@@ -63,16 +63,16 @@ lsp.rust_analyzer.setup({
     on_attach=on_attach,
     settings = {
         ["rust-analyzer"] = {
-            assist = {
-                importGranularity = "module",
-                importPrefix = "by_self",
-            },
-            cargo = {
-                loadOutDirsFromCheck = true
-            },
-            procMacro = {
-                enable = true
-            },
+            -- assist = {
+            --     importGranularity = "module",
+            --     importPrefix = "by_self",
+            -- },
+            -- cargo = {
+            --     loadOutDirsFromCheck = true
+            -- },
+            -- procMacro = {
+            --     enable = true
+            -- },
         }
     }
 })
@@ -105,6 +105,12 @@ lsp.eslint.setup(default_opts)
 -- lsp.bashls.setup(default_opts)
 lsp.racket_langserver.setup(default_opts)
 
+lsp.hls.setup{
+  filetypes = { 'haskell', 'lhaskell', 'cabal' },
+}
+
+-- lsp.biome.setup{}
+
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
@@ -120,101 +126,101 @@ lsp.tsserver.setup{
     -- cmd={"tsserver", "--stdio"}
 }
 
-local cmp = require 'cmp'
-cmp.setup {
-    snippet = {
-        expand = function(args)
-            -- vim.fn["UltiSnips#Anon"](args.body)
-            require('luasnip').lsp_expand(args.body)
-        end,
-    },
-    mapping = {
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<C-n>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                print('next selection')
-                cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-            else
-                cmp.complete()
-            end
-        end, { "i", "s" }),
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-#>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.close(),
-        ['<C-l>'] = cmp.mapping(function(fallback)
-            luasnip.expand_or_jump()
-            if luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-            else
-                fallback()
-            end
-        end, { "i", "s" }),
-        ['<C-h>'] = cmp.mapping(function(fallback)
-            if luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-            else
-                fallback()
-            end
-        end, { "i", "s" }),
-        ["<Tab>"] = cmp.mapping(function(fb)
-            fb()
-        end, { "i", "s" }),
-        -- ["<Tab>"] = cmp.mapping(function(fallback)
-        --     print("tab " .. tostring(luasnip.expand_or_jumpable()))
-        --     if luasnip.expand_or_jumpable() then
-        --         luasnip.expand_or_jump()
-        --     elseif has_words_before() then
-        --         cmp.complete()
-        --     else
-        --         print(fallback)
-        --         fallback()
-        --     end
-        -- end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-            else
-                fallback()
-            end
-        end, { "i", "s" }),
-        -- ['<CR>'] = cmp.mapping.confirm {
-        --   behavior = cmp.ConfirmBehavior.Replace,
-        --   select = true,
-        -- },
-    },
-    sources = {
-        { name = 'nvim_lsp' },
-        -- { name = 'ultisnips' },
-        { name = 'luasnip' },
-        { name = 'path' },
-    },
-    formatting = {
-        format = lspkind.cmp_format({
-            mode = 'symbol',
-            maxwidth = 50,
-            ellipsis_char = "..."
-        })
-    }
-}
+-- local cmp = require 'cmp'
+-- cmp.setup {
+--     snippet = {
+--         expand = function(args)
+--             -- vim.fn["UltiSnips#Anon"](args.body)
+--             require('luasnip').lsp_expand(args.body)
+--         end,
+--     },
+--     mapping = {
+--         ['<C-p>'] = cmp.mapping.select_prev_item(),
+--         ['<C-n>'] = cmp.mapping(function(fallback)
+--             if cmp.visible() then
+--                 print('next selection')
+--                 cmp.select_next_item()
+--             elseif luasnip.expand_or_jumpable() then
+--                 luasnip.expand_or_jump()
+--             else
+--                 cmp.complete()
+--             end
+--         end, { "i", "s" }),
+--         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+--         ['<C-f>'] = cmp.mapping.scroll_docs(4),
+--         ['<C-#>'] = cmp.mapping.complete(),
+--         ['<C-e>'] = cmp.mapping.close(),
+--         ['<C-l>'] = cmp.mapping(function(fallback)
+--             luasnip.expand_or_jump()
+--             if luasnip.expand_or_jumpable() then
+--                 luasnip.expand_or_jump()
+--             else
+--                 fallback()
+--             end
+--         end, { "i", "s" }),
+--         ['<C-h>'] = cmp.mapping(function(fallback)
+--             if luasnip.jumpable(-1) then
+--                 luasnip.jump(-1)
+--             else
+--                 fallback()
+--             end
+--         end, { "i", "s" }),
+--         ["<Tab>"] = cmp.mapping(function(fb)
+--             fb()
+--         end, { "i", "s" }),
+--         -- ["<Tab>"] = cmp.mapping(function(fallback)
+--         --     print("tab " .. tostring(luasnip.expand_or_jumpable()))
+--         --     if luasnip.expand_or_jumpable() then
+--         --         luasnip.expand_or_jump()
+--         --     elseif has_words_before() then
+--         --         cmp.complete()
+--         --     else
+--         --         print(fallback)
+--         --         fallback()
+--         --     end
+--         -- end, { "i", "s" }),
+--         ["<S-Tab>"] = cmp.mapping(function(fallback)
+--             if cmp.visible() then
+--                 cmp.select_prev_item()
+--             elseif luasnip.jumpable(-1) then
+--                 luasnip.jump(-1)
+--             else
+--                 fallback()
+--             end
+--         end, { "i", "s" }),
+--         -- ['<CR>'] = cmp.mapping.confirm {
+--         --   behavior = cmp.ConfirmBehavior.Replace,
+--         --   select = true,
+--         -- },
+--     },
+--     sources = {
+--         { name = 'nvim_lsp' },
+--         -- { name = 'ultisnips' },
+--         { name = 'luasnip' },
+--         { name = 'path' },
+--     },
+--     formatting = {
+--         format = lspkind.cmp_format({
+--             mode = 'symbol',
+--             maxwidth = 50,
+--             ellipsis_char = "..."
+--         })
+--     }
+-- }
 
--- Use buffer source for `/`.
-cmp.setup.cmdline('/', {
-    sources = {
-        { name = 'buffer' }
-    }
-})
+-- -- Use buffer source for `/`.
+-- cmp.setup.cmdline('/', {
+--     sources = {
+--         { name = 'buffer' }
+--     }
+-- })
 
--- Use cmdline & path source for ':'.
-cmp.setup.cmdline(':', {
-    sources = cmp.config.sources({
-        { name = 'path' }
-    }, {
-        { name = 'cmdline' }
-    })
-})
+-- -- Use cmdline & path source for ':'.
+-- cmp.setup.cmdline(':', {
+--     sources = cmp.config.sources({
+--         { name = 'path' }
+--     }, {
+--         { name = 'cmdline' }
+--     })
+-- })
 
