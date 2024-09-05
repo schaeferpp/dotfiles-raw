@@ -19,10 +19,8 @@ wk.add({
     {"<leader>gf", "<C-w>gf<cr>", desc = "Open File"},
     {"<leader>w", ":w !sudo -A tee %<CR>L<CR>", desc = "Save as root"},
     {"<leader>gf", ":e <cfile><CR>"},
-    {"<leader>tt", "<cmd>lua require('lspsaga.symbol'):outline()<cr>", desc = "Open Outline"},
     {"<leader>c", group = "LSP" },
     {"<leader>ff", function() require("telescope.builtin").find_files() end, desc = "Open File browser"},
-    {"<leader>ca", "<cmd>Lspsaga code_action<cr>", desc = "Open Code Action Menu"},
     {"<leader>cf", "<cmd>lua vim.lsp.buf.format { async = true }<cr>", desc = "Format source code"},
     {"<leader>cd", "<cmd>lua vim.lsp.buf.definition()<cr>", desc = "Goto definition"},
     {"<leader>cD", "<cmd>lua vim.lsp.buf.declaration()<cr>", desc = "Goto declaration"},
@@ -39,14 +37,12 @@ wk.add({
     { "gk", "<cmd>lua vim.lsp.buf.signature_help()<CR>", desc = "Signature help"},
     { "gr", "<cmd>lua vim.lsp.buf.references()<CR>", desc = "References" },
     { "ge", "<cmd>lua vim.diagnostic.open_float()<CR>", desc = "Disgnostics float"},
-    {"<C-K>", "<C-W>k", desc = "Move focus up"},
-    {"<C-J>", "<C-W>j", desc = "Move focus down"},
-    {"<C-H>", "<C-W>h", desc = "Move focus left"},
-    {"<C-L>", "<C-W>l", desc = "Move focus right"},
+    {"<C-k>", "<C-W>k", desc = "Move focus up"},
+    {"<C-j>", "<C-W>j", desc = "Move focus down"},
+    {"<C-h>", "<C-W>h", desc = "Move focus left"},
+    {"<C-l>", "<C-W>l", desc = "Move focus right"},
     {"<Esc>", "<cmd>set nohls<cr>", desc = "Disable search highlighting"},
     {"/", "<cmd>set hls<cr>/", desc = "Search"},
-    {"<C-K>", "<cmd>lua vim.lsp.buf.hover()<CR>", desc = "Show LSP documentation"},
-    {"K", "<cmd>Lspsaga hover_doc<cr>", desc = "Hover float"}
 })
 
 vim.cmd [[ nnoremap ; :]]

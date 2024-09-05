@@ -1,7 +1,3 @@
-local function NearestMethodOrFunction()
-	return vim.b.vista_nearest_method_or_function
-end
-
 local lualine = require('lualine')
 lualine.setup({
 	options = {
