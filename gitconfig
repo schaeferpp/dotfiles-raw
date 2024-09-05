@@ -14,6 +14,9 @@
 [difftool "nvimdiff"]
     cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 
+[difftool "difftastic"]
+        cmd = difft "$LOCAL" "$REMOTE"
+
 [mergetool "nvim"]
     cmd = "nvim -d $LOCAL $MERGED $REMOTE"
 
