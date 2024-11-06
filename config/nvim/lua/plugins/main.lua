@@ -60,10 +60,11 @@ return {
             "MunifTanjim/nui.nvim",
         },
         keys = {
-            { "<leader>l", "<cmd>Neotree<CR>", desc = "Open file tree" },
+            { "<leader>l", "<cmd>Neotree toggle<CR>", desc = "Open file tree" },
         },
         opts = {
-            close_if_last_window = true
+            close_if_last_window = true,
+            toggle = true
         }
     },
     {
@@ -71,14 +72,14 @@ return {
         lazy = false,            -- REQUIRED: tell lazy.nvim to start this plugin at startup
         dependencies = {
             -- main one
-            { "ms-jpq/coq_nvim",       branch = "coq" },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-path' },
+            { 'hrsh7th/cmp-cmdline' },
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-vsnip' },
+            { 'hrsh7th/vim-vsnip' },
 
-            -- 9000+ Snippets
-            { "ms-jpq/coq.artifacts",  branch = "artifacts" },
-
-            -- lua & third party sources -- See https://github.com/ms-jpq/coq.thirdparty
-            -- Need to **configure separately**
-            { 'ms-jpq/coq.thirdparty', branch = "3p" },
             { "onsails/lspkind.nvim" }
             -- - shell repl
             -- - nvim lua api
@@ -87,11 +88,6 @@ return {
             -- - etc
         },
         init = function()
-            vim.g.coq_settings = {
-                auto_start = "shut-up", -- if you want to start COQ at startup
-                ["keymap.jump_to_mark"]= '<C-t>m'
-                -- Your COQ settings here
-            }
         end,
         config = function()
             require("config.nvim-lspconfig")
@@ -269,6 +265,24 @@ return {
     },
     {
         "stevearc/dressing.nvim"
+    },
+    {
+        "rcarriga/nvim-notify",
+        opts = {
+            stages = "static",
+            timeout = 3000,
+            max_height = function()
+                return math.floor(vim.o.lines * 0.75)
+            end,
+            max_width = function()
+                return math.floor(vim.o.columns * 0.75)
+            end,
+            on_open = function(win)
+                vim.api.nvim_win_set_config(win, { zindex = 100 })
+            end,
+        },
+        init = function()
+        end,
     },
     {
         "MDeiml/tree-sitter-markdown",
