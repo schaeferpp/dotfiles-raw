@@ -43,6 +43,7 @@ wk.add({
     {"<C-l>", "<C-W>l", desc = "Move focus right"},
     {"<Esc>", "<cmd>set nohls<cr>", desc = "Disable search highlighting"},
     {"/", "<cmd>set hls<cr>/", desc = "Search"},
+    {"K", "<cmd>lua vim.lsp.buf.hover()<CR>", desc = "Hover Info"},
 })
 
 vim.cmd [[ nnoremap ; :]]
