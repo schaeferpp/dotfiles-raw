@@ -11,8 +11,15 @@
     default = simple
 [diff]
     tool = nvimdiff
+
+[difftool]
+    prompt = false
+
 [difftool "nvimdiff"]
     cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+
+[difftool "difftastic"]
+    cmd = difft --color=always "$LOCAL" "$REMOTE"
 
 [mergetool "nvim"]
     cmd = "nvim -d $LOCAL $MERGED $REMOTE"
