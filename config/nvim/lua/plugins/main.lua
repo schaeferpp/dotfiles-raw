@@ -68,6 +68,22 @@ return {
         }
     },
     {
+        "dcampos/cmp-snippy",
+        config = function()
+            require('snippy').setup({
+                mappings = {
+                    is = {
+                        ['<Tab>'] = 'expand_or_advance',
+                        ['<S-Tab>'] = 'previous',
+                    },
+                    nx = {
+                        ['<leader>x'] = 'cut_text',
+                    },
+                },
+            })
+        end
+    },
+    {
         "neovim/nvim-lspconfig", -- REQUIRED: for native Neovim LSP integration
         lazy = false,            -- REQUIRED: tell lazy.nvim to start this plugin at startup
         dependencies = {
@@ -77,10 +93,11 @@ return {
             { 'hrsh7th/cmp-path' },
             { 'hrsh7th/cmp-cmdline' },
             { 'hrsh7th/nvim-cmp' },
-            { 'hrsh7th/cmp-vsnip' },
-            { 'hrsh7th/vim-vsnip' },
+            { 'dcampos/nvim-snippy' },
+            { 'dcampos/cmp-snippy' },
+            { 'honza/vim-snippets' },
 
-            { "onsails/lspkind.nvim" }
+            { "onsails/lspkind.nvim" },
             -- - shell repl
             -- - nvim lua api
             -- - scientific calculator
@@ -141,9 +158,12 @@ return {
             require("config.which-key")
         end
     },
-    {
-        "lewis6991/gitsigns.nvim"
-    },
+    -- {
+    --     "lewis6991/gitsigns.nvim",
+    --     config = function()
+    --         require('gitsigns').setup()
+    --     end
+    -- },
     {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
@@ -211,10 +231,10 @@ return {
         "lervag/vimtex",
         config = function()
             vim.cmd [[
-                            let g:tex_flavor = 'latex'
-                            let g:tex_conceal = ""
-                            let g:vimtex_fold_enabled = 1
-                            ]]
+            let g:tex_flavor = 'latex'
+            let g:tex_conceal = ""
+            let g:vimtex_fold_enabled = 1
+            ]]
         end
     },
     {
@@ -235,20 +255,20 @@ return {
         "leafOfTree/vim-vue-plugin",
         config = function()
             vim.cmd [[
-                            let g:vim_vue_plugin_config = {
-                                \'syntax': {
-                                    \   'template': ['html'],
-                                    \   'script': ['javascript', 'typescript'],
-                                    \   'style': ['css'],
-                                    \},
-                                    \'full_syntax': [],
-                                    \'initial_indent': [],
-                                    \'attribute': 0,
-                                    \'keyword': 0,
-                                    \'foldexpr': 0,
-                                    \'debug': 0,
-                                    \}
-                                    ]]
+            let g:vim_vue_plugin_config = {
+                \'syntax': {
+                    \   'template': ['html'],
+                    \   'script': ['javascript', 'typescript'],
+                    \   'style': ['css'],
+                    \},
+                    \'full_syntax': [],
+                    \'initial_indent': [],
+                    \'attribute': 0,
+                    \'keyword': 0,
+                    \'foldexpr': 0,
+                    \'debug': 0,
+                    \}
+                    ]]
         end,
         ft = { "vue" }
     },
@@ -291,4 +311,21 @@ return {
         },
         ft = { "markdown" }
     },
+    {
+        "aperezdc/vim-template"
+    },
+    {
+        "akinsho/toggleterm.nvim",
+        config = function()
+            require('toggleterm').setup({
+                open_mapping = [[<c-\>]],
+            })
+        end
+    },
+    {
+        "vim-autoformat/vim-autoformat"
+    },
+    {
+        "junegunn/vim-easy-align"
+    }
 }

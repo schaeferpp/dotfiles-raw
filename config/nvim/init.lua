@@ -65,4 +65,4 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
         vim.cmd [[ silent! normal! g`"zv ]]
     end,
 })
-vim.cmd.colorscheme("badwolf")
+vim.cmd.colorscheme("everforest")

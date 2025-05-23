@@ -37,6 +37,8 @@ wk.add({
     { "gk", "<cmd>lua vim.lsp.buf.signature_help()<CR>", desc = "Signature help"},
     { "gr", "<cmd>lua vim.lsp.buf.references()<CR>", desc = "References" },
     { "ge", "<cmd>lua vim.diagnostic.open_float()<CR>", desc = "Disgnostics float"},
+    { "<", "<gv", desc = "Decrease indent", mode= "v"},
+    { ">", ">gv", desc = "Increase indent", mode= "v"},
     {"<C-k>", "<C-W>k", desc = "Move focus up"},
     {"<C-j>", "<C-W>j", desc = "Move focus down"},
     {"<C-h>", "<C-W>h", desc = "Move focus left"},
@@ -44,6 +46,7 @@ wk.add({
     {"<Esc>", "<cmd>set nohls<cr>", desc = "Disable search highlighting"},
     {"/", "<cmd>set hls<cr>/", desc = "Search"},
     {"K", "<cmd>lua vim.lsp.buf.hover()<CR>", desc = "Hover Info"},
+    {"<C-\\>", "<cmd>ToggleTerm direction=tab<CR>", desc = "Terminal"},
 })
 
 vim.cmd [[ nnoremap ; :]]
