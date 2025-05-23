@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # export THEME_HIDE_HOSTNAME="n"
-ZSH_THEME="schaeferpp"
+ZSH_THEME="schaeferpp" # set by `omz`
 # ZSH_THEME="kardan"
 # ZSH_THEME="mh"
 # Set name of the theme to load.
@@ -124,7 +124,7 @@ alias pin="paru -S "
 alias mkp="~/code/projects/mkp/mkp.py"
 alias tmux="tmux -2"
 alias bc="bc -l"
-# alias fop='gio open $(sk) 2>&1 > /dev/null'
+alias fop='gio open $(sk) 2>&1 > /dev/null'
 alias vo='nvim $(sk -c "fd -t f -d 5")'
 alias ssh='TERM=xterm-256color ssh'
 alias tt=taskwarrior-tui
@@ -233,6 +233,17 @@ if [ -n "${FLOATERM+x}" ]; then
     alias vim="~/.vim/plugged/vim-floaterm/bin/floaterm"
 fi
 
+# function osc7 {
+#     local LC_ALL=C
+#     export LC_ALL
+
+#     setopt localoptions extendedglob
+#     input=( ${(s::)PWD} )
+#     uri=${(j::)input/(#b)([^A-Za-z0-9_.\!~*\'\(\)-\/])/%${(l:2::0:)$(([##16]#match))}}
+#     print -n "\e]7;file://${HOSTNAME}${uri}\e\\"
+# }
+# add-zsh-hook -Uz chpwd osc7
+
 date
 echo
 
@@ -260,7 +271,7 @@ if exists task; then
     fi
 fi
 
-# source "${HOME}/.config/broot/launcher/bash/br"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent ssh-add-args $XDG_RUNTIME_DIR/ssh-agent.sock
