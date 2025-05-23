@@ -20,7 +20,7 @@ set $unfocused_alt #928374
 
 
 set $mod Mod4
-set $terminal_emulator alacritty
+set $terminal_emulator foot
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -347,7 +347,8 @@ exec_always {
 #     gsettings set $gnome-schema font-name 'Dejavu 11'
 }
 
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+# exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway QT_QPA_PLATFORM=wayland
+exec dbus-update-activation-environment --systemd --all
 exec systemctl --user start xdg-desktop-portal.service
 
 include ~/.config/sway/autostart
