@@ -1,0 +1,16 @@
+output DP-6 {
+    enable
+    # pos 2560 0 res 1920x1080
+    pos 1920 0
+    res 1920x1080
+    bg "/home/paul/Pictures/wall1.jpg" fill
+}
+
+output eDP-1 {
+    enable
+    # disable
+    # pos 6400 0
+    pos 0 0
+    res 1920x1200
+    bg "/home/paul/Pictures/wall0.jpg" fill
+}

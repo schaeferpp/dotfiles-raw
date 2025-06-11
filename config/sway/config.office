@@ -1,0 +1,3 @@
+include ~/.config/sway/config
+
+include ~/.config/sway/outputs.office

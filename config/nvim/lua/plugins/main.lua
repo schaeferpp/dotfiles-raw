@@ -146,6 +146,47 @@ return {
 
     },
     {
+        'akinsho/bufferline.nvim',
+        version = "*",
+        dependencies = 'nvim-tree/nvim-web-devicons',
+        config = function()
+            local bufferline = require('bufferline')
+            bufferline.setup{
+                options = {
+                    style_preset = {
+                        bufferline.style_preset.no_italic,
+                        bufferline.style_preset.no_bold,
+                    },
+                    indicator = {
+                        style = "underline"
+                    },
+                    separator_style = "slope",
+                    offsets = {
+                        {
+                            filetype = "neo-tree",
+                            text = "File Explorer",
+                            separator = true
+                        },
+                        {
+                            filetype = "Outline",
+                            text = "Outline",
+                            separator = true
+                        },
+                        {
+                            filetype = "undotree",
+                            text = "Undo Tree",
+                            separator = true
+                        }
+                    }
+                }
+            }
+        end
+    },
+    {
+        'tiagovla/scope.nvim',
+        config = true
+    },
+    {
         'simrat39/rust-tools.nvim',
         config = function()
             require("config.rust-tools")
@@ -159,173 +200,173 @@ return {
         end
     },
     -- {
-    --     "lewis6991/gitsigns.nvim",
-    --     config = function()
-    --         require('gitsigns').setup()
-    --     end
-    -- },
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        config = function()
-            require('ibl').setup()
-        end
-    },
-    {
-        "norcalli/nvim-colorizer.lua",
-        opt = {}
-    },
-    {
-        "nvim-lua/lsp-status.nvim",
-        config = function()
-            require('lsp-status').register_progress()
-        end
-    },
-    {
-        "lukas-reineke/lsp-format.nvim"
-    },
-    {
-        "mbbill/undotree"
-    },
-    {
-        "hedyhli/outline.nvim",
-        lazy = true,
-        cmd = { "Outline", "OutlineOpen" },
-        keys = { -- Example mapping to toggle outline
-            { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
-        },
-        opts = {
-            -- Your setup opts here
-        },
-    },
-    {
-        "nvim-lua/popup.nvim"
-    },
-    {
-        "nvim-lua/plenary.nvim"
-    },
-    {
-        "saecki/crates.nvim",
-        ft = { "toml" },
-        dependencies = {
-            "nvim-lua/plenary.nvim"
-        }
-    },
-    {
-        "RRethy/vim-illuminate"
-    },
-    {
-        "aznhe21/actions-preview.nvim",
-        config = function()
-            vim.keymap.set({ "v", "n" }, "<leader>ca", require("actions-preview").code_actions)
-        end,
-    },
-    {
-        "stfl/meson.vim",
-        ft = { "meson" },
-    },
-    {
-        "fatih/vim-go",
-        ft = { "go" },
-    },
-    {
-        "lervag/vimtex",
-        config = function()
-            vim.cmd [[
-            let g:tex_flavor = 'latex'
-            let g:tex_conceal = ""
-            let g:vimtex_fold_enabled = 1
-            ]]
-        end
-    },
-    {
-        "cespare/vim-toml",
-        ft = { "toml" },
-    },
-    {
-        "plasticboy/vim-markdown",
-        config = function()
-            vim.cmd [[ let g:vim_markdown_conceal = 0 ]]
-            vim.cmd [[ let g:vim_markdown_frontmatter = 1 ]]
-        end
-    },
-    {
-        "Valloric/MatchTagAlways"
-    },
-    {
-        "leafOfTree/vim-vue-plugin",
-        config = function()
-            vim.cmd [[
-            let g:vim_vue_plugin_config = {
-                \'syntax': {
-                    \   'template': ['html'],
-                    \   'script': ['javascript', 'typescript'],
-                    \   'style': ['css'],
-                    \},
-                    \'full_syntax': [],
-                    \'initial_indent': [],
-                    \'attribute': 0,
-                    \'keyword': 0,
-                    \'foldexpr': 0,
-                    \'debug': 0,
-                    \}
+        --     "lewis6991/gitsigns.nvim",
+        --     config = function()
+            --         require('gitsigns').setup()
+            --     end
+            -- },
+            {
+                "lukas-reineke/indent-blankline.nvim",
+                config = function()
+                    require('ibl').setup()
+                end
+            },
+            {
+                "norcalli/nvim-colorizer.lua",
+                opt = {}
+            },
+            {
+                "nvim-lua/lsp-status.nvim",
+                config = function()
+                    require('lsp-status').register_progress()
+                end
+            },
+            {
+                "lukas-reineke/lsp-format.nvim"
+            },
+            {
+                "mbbill/undotree"
+            },
+            {
+                "hedyhli/outline.nvim",
+                lazy = true,
+                cmd = { "Outline", "OutlineOpen" },
+                keys = { -- Example mapping to toggle outline
+                    { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
+                },
+                opts = {
+                    -- Your setup opts here
+                },
+            },
+            {
+                "nvim-lua/popup.nvim"
+            },
+            {
+                "nvim-lua/plenary.nvim"
+            },
+            {
+                "saecki/crates.nvim",
+                ft = { "toml" },
+                dependencies = {
+                    "nvim-lua/plenary.nvim"
+                }
+            },
+            {
+                "RRethy/vim-illuminate"
+            },
+            {
+                "aznhe21/actions-preview.nvim",
+                config = function()
+                    vim.keymap.set({ "v", "n" }, "<leader>ca", require("actions-preview").code_actions)
+                end,
+            },
+            {
+                "stfl/meson.vim",
+                ft = { "meson" },
+            },
+            {
+                "fatih/vim-go",
+                ft = { "go" },
+            },
+            {
+                "lervag/vimtex",
+                config = function()
+                    vim.cmd [[
+                    let g:tex_flavor = 'latex'
+                    let g:tex_conceal = ""
+                    let g:vimtex_fold_enabled = 1
                     ]]
-        end,
-        ft = { "vue" }
-    },
-    {
-        "HerringtonDarkholme/yats.vim",
-        ft = { "typescript" }
-    },
-    {
-        "jasonccox/vim-wayland-clipboard"
-    },
-    {
-        "rhysd/vim-grammarous",
-        cmd = { "GrammarousCheck" }
-    },
-    {
-        "stevearc/dressing.nvim"
-    },
-    {
-        "rcarriga/nvim-notify",
-        opts = {
-            stages = "static",
-            timeout = 3000,
-            max_height = function()
-                return math.floor(vim.o.lines * 0.75)
-            end,
-            max_width = function()
-                return math.floor(vim.o.columns * 0.75)
-            end,
-            on_open = function(win)
-                vim.api.nvim_win_set_config(win, { zindex = 100 })
-            end,
-        },
-        init = function()
-        end,
-    },
-    {
-        "MDeiml/tree-sitter-markdown",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter"
-        },
-        ft = { "markdown" }
-    },
-    {
-        "aperezdc/vim-template"
-    },
-    {
-        "akinsho/toggleterm.nvim",
-        config = function()
-            require('toggleterm').setup({
-                open_mapping = [[<c-\>]],
-            })
-        end
-    },
-    {
-        "vim-autoformat/vim-autoformat"
-    },
-    {
-        "junegunn/vim-easy-align"
-    }
-}
+                end
+            },
+            {
+                "cespare/vim-toml",
+                ft = { "toml" },
+            },
+            {
+                "plasticboy/vim-markdown",
+                config = function()
+                    vim.cmd [[ let g:vim_markdown_conceal = 0 ]]
+                    vim.cmd [[ let g:vim_markdown_frontmatter = 1 ]]
+                end
+            },
+            {
+                "Valloric/MatchTagAlways"
+            },
+            {
+                "leafOfTree/vim-vue-plugin",
+                config = function()
+                    vim.cmd [[
+                    let g:vim_vue_plugin_config = {
+                        \'syntax': {
+                            \   'template': ['html'],
+                            \   'script': ['javascript', 'typescript'],
+                            \   'style': ['css'],
+                            \},
+                            \'full_syntax': [],
+                            \'initial_indent': [],
+                            \'attribute': 0,
+                            \'keyword': 0,
+                            \'foldexpr': 0,
+                            \'debug': 0,
+                            \}
+                            ]]
+                        end,
+                        ft = { "vue" }
+                    },
+                    {
+                        "HerringtonDarkholme/yats.vim",
+                        ft = { "typescript" }
+                    },
+                    {
+                        "jasonccox/vim-wayland-clipboard"
+                    },
+                    {
+                        "rhysd/vim-grammarous",
+                        cmd = { "GrammarousCheck" }
+                    },
+                    {
+                        "stevearc/dressing.nvim"
+                    },
+                    {
+                        "rcarriga/nvim-notify",
+                        opts = {
+                            stages = "static",
+                            timeout = 3000,
+                            max_height = function()
+                                return math.floor(vim.o.lines * 0.75)
+                            end,
+                            max_width = function()
+                                return math.floor(vim.o.columns * 0.75)
+                            end,
+                            on_open = function(win)
+                                vim.api.nvim_win_set_config(win, { zindex = 100 })
+                            end,
+                        },
+                        init = function()
+                        end,
+                    },
+                    {
+                        "MDeiml/tree-sitter-markdown",
+                        dependencies = {
+                            "nvim-treesitter/nvim-treesitter"
+                        },
+                        ft = { "markdown" }
+                    },
+                    {
+                        "aperezdc/vim-template"
+                    },
+                    {
+                        "akinsho/toggleterm.nvim",
+                        config = function()
+                            require('toggleterm').setup({
+                                open_mapping = [[<c-\>]],
+                            })
+                        end
+                    },
+                    {
+                        "vim-autoformat/vim-autoformat"
+                    },
+                    {
+                        "junegunn/vim-easy-align"
+                    }
+                }
